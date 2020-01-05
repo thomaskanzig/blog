@@ -1,6 +1,6 @@
 {
   "name": "blog",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "This is a simple personal blog system building with Symfony 4.",
   "author": {
     "name": "Thomas Känzig",
@@ -43,9 +43,12 @@
     "holderjs": "^2.9.6",
     "jquery": "3.3.1",
     "jquery.dotdotdot": "^3.2.3",
+    "lodash": "^4.17.12",
     "massive-web": "^2.0.0-rc1",
     "popper.js": "1.14.7",
     "reset-css": "^4.0.1",
+    "serialize-javascript": "^2.1.1",
+    "set-value": "^2.0.1",
     "webpack-notifier": "^1.7.0"
   }
 }
