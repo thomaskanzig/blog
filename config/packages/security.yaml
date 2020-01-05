@@ -27,7 +27,7 @@ security:
                 #failure__path:
             logout:
                 path: security_logout
-                target: blog_index
+                target: security_login
             # https://symfony.com/doc/current/security/form_login_setup.html
 
     # Easy way to control access for large sections of your site

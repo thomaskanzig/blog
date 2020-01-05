@@ -9,7 +9,6 @@
 require('../css/admin.scss');
 
 // Import JS from AdminLTE.
-require('admin-lte/bower_components/bootstrap/dist/js/bootstrap');
 require('admin-lte/plugins/iCheck/icheck');
 require('admin-lte/bower_components/jquery-slimscroll/jquery.slimscroll');
 require('admin-lte/bower_components/fastclick/lib/fastclick.js');
