@@ -32,7 +32,7 @@ yarn encore production
 composer require --dev server
 ```
 ##### Config environment file:
-Before start to code, make a copy from [.env.test](../.env.test) and rename to `.env.local` in the same path and uncomment all variables.
+Before start to code, make a copy from [.env.test](../.env.test) and rename to `.env.local` in the same path and uncomment all variables and replace the values of your environment.
 
 See [here](https://symfony.com/blog/new-in-symfony-4-2-define-env-vars-per-environment) to explain more.
 
