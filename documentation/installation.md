@@ -135,6 +135,8 @@ php bin/console doctrine:migrations:migrate
 INSERT INTO `template` (`name`, `created`, `view`) VALUES ('Blog', '0000-00-00 00:00:00', 'post/blog.html.twig');
 INSERT INTO `template` (`name`, `created`, `view`) VALUES ('Gallery', '0000-00-00 00:00:00', 'post/gallery.html.twig');
 ```
+#### Create your first user
+Access your system with `{domain}/register` and create your first admin user.
 
 #### Folders and Permissions
 Must be create two folders and set permission `777`, follow the commands below and execute this in root path of the project:
