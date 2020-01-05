@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ## [1.0.1] - 2020-01-06
+- BUGFIX: Fix order routes with `routes.yaml`. [#8](https://github.com/thomaskanzig/blog/pull/8)
 - BUGFIX: Fix redirect to login page after register user. [#7](https://github.com/thomaskanzig/blog/pull/7)
 
 ## [1.0.0] - 2020-01-05
