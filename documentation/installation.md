@@ -130,6 +130,12 @@ php bin/console doctrine:migrations:diff
 php bin/console doctrine:migrations:migrate
 ```
 
+#### Execute sql script for database
+```sql
+INSERT INTO `template` (`name`, `created`, `view`) VALUES ('Blog', '0000-00-00 00:00:00', 'post/blog.html.twig');
+INSERT INTO `template` (`name`, `created`, `view`) VALUES ('Gallery', '0000-00-00 00:00:00', 'post/gallery.html.twig');
+```
+
 #### Folders and Permissions
 Must be create two folders and set permission `777`, follow the commands below and execute this in root path of the project:
 ```bash
