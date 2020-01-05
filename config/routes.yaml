@@ -1,3 +1,27 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+pages_about_me:
+    path:     /about-me
+    controller: App\Controller\PagesController::aboutme
+
+pages_contact:
+    path:     /contact
+    controller: App\Controller\PagesController::contact
+
+pages_register:
+  path:     /register
+  controller: App\Controller\PagesController::register
+
+security_login:
+    path:     /login
+    controller: App\Controller\SecurityController::login
+
+security_logout:
+    path:     /logout
+    controller: App\Controller\SecurityController::logout
+
+post_index:
+    path:     /
+    controller: App\Controller\PostController::index
+
+post_detail:
+    path:     /{slug}
+    controller: App\Controller\PostController::detail

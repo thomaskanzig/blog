@@ -11,10 +11,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PostController extends AbstractController
 {
-
-    /**
-     * @Route("/", name="post_index")
-     */
     public function index(PostRepository $repository, Request $request, PaginatorInterface $paginator)
     {
 
@@ -38,10 +34,6 @@ class PostController extends AbstractController
         ]);
     }
 
-
-    /**
-     * @Route("/post/{slug}", name="post_detail")
-     */
     public function detail($slug)
     {
         /** @var Post $post */

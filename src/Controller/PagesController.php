@@ -13,29 +13,18 @@ use Symfony\Component\HttpFoundation\Request;
 
 class PagesController extends AbstractController
 {
-
-    /**
-     * @Route("/about-me", name="pages_about_me")
-     */
     public function aboutme()
     {
 
         return $this->render('pages/about-me.html.twig');
     }
 
-
-    /**
-     * @Route("/contact", name="pages_contact")
-     */
     public function contact()
     {
 
         return $this->render('pages/contact.html.twig');
     }
 
-    /**
-     * @Route("/register", name="pages_register")
-     */
     public function register(EntityManagerInterface $em, UploaderHelper $uploaderHelper, UserPasswordEncoderInterface $passwordEncoder, Request $request)
     {
         $user = new User();
@@ -72,8 +61,8 @@ class PagesController extends AbstractController
             // Set an message after save.
             $this->addFlash('success', 'User Created!');
 
-            // Redirect to another page.
-            return $this->redirectToRoute('blog_index');
+            // Redirect to login page.
+            return $this->redirectToRoute('security_login');
         }
 
         return $this->render('pages/register.html.twig', [
