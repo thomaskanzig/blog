@@ -193,7 +193,7 @@ class MediaController extends AbstractController
             20 /* limit per page */
         );
 
-        // Serialize data.
+        // More about serialize, visit: https://symfony.com/doc/current/components/serializer.html
         /** @var Serializer $serializer */
         $serializer = new Serializer([new ObjectNormalizer()]);
         $jsonData = $serializer->normalize($pagination->getItems(), 'json');
@@ -202,7 +202,7 @@ class MediaController extends AbstractController
         $response->setData([
             'success' => $success,
             'message' => $message,
-            'data' => $jsonData,
+            'files' => $jsonData,
             'pagination' => $pagination->getPaginationData()
         ]);
 

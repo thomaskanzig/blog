@@ -111,7 +111,8 @@ This document contains all API definitions and their routes.
     {
          "success": true, 
          "message": "List successfully",
-         "data": []
+         "files": [],
+         "pagination": []
      }
     ```
     

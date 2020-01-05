@@ -22,6 +22,7 @@ class Post {
         this.$gallery = this.$el.find('.js-post-gallery-content');
         this.$galleryModalContent = this.$el.find('.js-modal-post-gallery-content');
         this.$galleryAdd = this.$el.find('.js-post-gallery-add');
+        this.$galleryMediaFile = this.$el.find('.js-modal-post-gallery-file');
 
         this.bindListeners();
         this.onReady();
@@ -58,6 +59,12 @@ class Post {
      * Open modal to add/delete images of gallery.
      */
     onOpenModalGallery() {
+
+        // Delete all files inside modal, if exist.
+        this.$galleryModalContent
+            .find('.js-modal-post-gallery-file:not(.' + CSS_CLASS.isCopy + ')')
+            .remove();
+
         let objData = {
             'page': 1,
             'token': this.options.csrfTokenMedia
@@ -74,7 +81,21 @@ class Post {
                 /* eslint-enable */
             },
             success: (data) => {
-                console.log(data);
+                console.log(data.files);
+
+                if(0 === data.files.length){
+                    return;
+                }
+
+                $.each(data.files, (index, media) => {
+                    // Only images.
+                    if('image' === media.type.slug){
+                        let $file = this.$galleryMediaFile.clone().removeClass(CSS_CLASS.isCopy);
+                        $file.find('.js-modal-post-gallery-file-img').attr('src', '/' + media.file);
+
+                        this.$galleryModalContent.append($file);
+                    }
+                });
             }
         });
     }
