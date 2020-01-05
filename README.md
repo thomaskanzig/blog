@@ -1,4 +1,4 @@
-# Blog Personal in Symfony
+# Simple Blog 
 
 ## 1 Browser Support
 
