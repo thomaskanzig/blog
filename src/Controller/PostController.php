@@ -40,7 +40,7 @@ class PostController extends AbstractController
 
 
     /**
-     * @Route("/post/{slug}", name="post_detail")
+     * @Route("/{slug}", name="post_detail")
      */
     public function detail($slug)
     {
