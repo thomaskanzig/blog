@@ -12,7 +12,7 @@ class Post {
      *
      * @param {Object} $el
      * @param {Object} options
-     * @param {String} options.csrfToken
+     * @param {String} options.csrfTokenMedia
      */
     initialize($el, options) {
         this.$el = $($el);
@@ -20,7 +20,7 @@ class Post {
 
         this.$selectTemplate = this.$el.find('.js-post-template');
         this.$gallery = this.$el.find('.js-post-gallery-content');
-        this.$galleryImages = this.$el.find('.js-post-gallery-images');
+        this.$galleryModalContent = this.$el.find('.js-modal-post-gallery-content');
         this.$galleryAdd = this.$el.find('.js-post-gallery-add');
 
         this.classIsShow = 'is-show';
@@ -59,7 +59,27 @@ class Post {
     /**
      * Open modal to add/delete images of gallery.
      */
-    onOpenModalGallery() {  }
+    onOpenModalGallery() {
+        let objData = {
+            'page': 1,
+            'token': this.options.csrfTokenMedia
+        };
+
+        $.ajax({
+            url: '/api/media/list',
+            data: objData,
+            type: 'GET',
+            contentType: 'application/x-www-form-urlencoded',
+            error: (data) => {
+                /* eslint-disable */
+                console.error(data);
+                /* eslint-enable */
+            },
+            success: (data) => {
+                console.log(data);
+            }
+        });
+    }
 }
 
 web.registerComponent('post', Post);

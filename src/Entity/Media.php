@@ -143,7 +143,7 @@ class Media
 
     public function getFolderId(): ?int
     {
-        return $this->title;
+        return $this->folder_id;
     }
 
     public function setFolderId(?string $folder_id): self
