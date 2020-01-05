@@ -194,6 +194,7 @@ class MediaController extends AbstractController
         );
 
         // Serialize data.
+        /** @var Serializer $serializer */
         $serializer = new Serializer([new ObjectNormalizer()]);
         $jsonData = $serializer->normalize($pagination->getItems(), 'json');
 

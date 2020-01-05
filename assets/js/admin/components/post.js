@@ -1,7 +1,7 @@
 import web from 'massive-web';
 import $ from 'jquery';
 import 'bootstrap-sass';
-
+import { CSS_CLASS } from '../../constans';
 
 /**
  * Post component.
@@ -22,8 +22,6 @@ class Post {
         this.$gallery = this.$el.find('.js-post-gallery-content');
         this.$galleryModalContent = this.$el.find('.js-modal-post-gallery-content');
         this.$galleryAdd = this.$el.find('.js-post-gallery-add');
-
-        this.classIsShow = 'is-show';
 
         this.bindListeners();
         this.onReady();
@@ -50,9 +48,9 @@ class Post {
 
         // If gallery
         if(2 === parseInt($selectTemplate.val())){
-            this.$gallery.addClass(this.classIsShow);
+            this.$gallery.addClass(CSS_CLASS.isShow);
         } else {
-            this.$gallery.removeClass(this.classIsShow);
+            this.$gallery.removeClass(CSS_CLASS.isShow);
         }
     }
 

@@ -11,4 +11,9 @@
 }
 
 .modal-post-gallery-file {
+    display: inline-block;
+
+    &.is-copy {
+        display: none;
+    }
 }
