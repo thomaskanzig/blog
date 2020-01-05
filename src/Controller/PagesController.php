@@ -72,8 +72,8 @@ class PagesController extends AbstractController
             // Set an message after save.
             $this->addFlash('success', 'User Created!');
 
-            // Redirect to another page.
-            return $this->redirectToRoute('blog_index');
+            // Redirect to login page.
+            return $this->redirectToRoute('security_login');
         }
 
         return $this->render('pages/register.html.twig', [
