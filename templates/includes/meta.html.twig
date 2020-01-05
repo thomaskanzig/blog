@@ -1,0 +1,105 @@
+{%- spaceless %}
+    {% set metaPublisher = 'Thomas Kanzig' %}
+    {% set metaSiteName = name_site %}
+    {% set metaLocaleParts = app.request.locale|split('_') %}
+    {% set metaLanguage = metaLocaleParts[0] %}
+    {% set metaCountry = metaLocaleParts[1]|default(null) %}
+    {% set metaLocale = metaLocaleParts|length == 1 ? metaLanguage : metaLanguage ~ '_' ~ metaCountry|upper %}
+    {% set metaUrl = app.request.uri %}
+
+    {# Get meta title. #}
+    {% set metaTitle = metaTitle|default(metaSiteName) %}
+
+    {# Get meta description. #}
+    {% set metaDescription = metaDescription|default('') %}
+    {% if metaDescription|trim %}
+        {% set metaDescription = metaDescription|length > 320 ? metaDescription|slice(0, 316) ~ ' ...' : metaDescription %}
+    {% endif %}
+
+    {# Get meta image. #}
+    {% set metaImageFormat = '1000x600' %}
+    {% set metaImage = asset(metaImage|default('/images/thomas-kanzig.jpg'))|imagine_filter(metaImageFormat) %}
+
+    {% set metaBotTags = {
+        'revisit-after': '2 days',
+    } %}
+
+    {% set metaDefaultTags = {
+        'language': metaLanguage,
+        'publisher': metaPublisher,
+        'author': metaSiteName,
+        'copyright': metaSiteName,
+        'audience': 'all',
+        'distribution': 'global',
+        'image': metaImage,
+    } %}
+
+    {% set metaDCTags = {
+        'DC.Title': metaTitle,
+        'DC.Publisher': metaPublisher,
+        'DC.Copyright': metaSiteName,
+    } %}
+
+    {% set metaTwitterTags = {
+        'twitter:card': 'summary',
+        'twitter:url': metaUrl,
+        'twitter:title': metaTitle,
+        'twitter:description': metaDescription,
+        'twitter:image': metaImage,
+    } %}
+
+    {% set ogMetaTags = {
+        'og:site_name': metaSiteName,
+        'og:url': metaUrl,
+        'og:title': metaTitle,
+        'og:image': metaImage,
+        'og:type': 'website',
+        'og:description': metaDescription,
+        'og:locale': metaLocale
+    } %}
+{% endspaceless -%}
+
+{% block title %}
+        <title>{{ metaTitle }}</title>
+{%- endblock -%}
+
+{%- block description -%}
+    {%- if metaDescription -%}
+        <meta name="description" content="{{ metaDescription }}"/>
+    {%- endif -%}
+{%- endblock -%}
+
+{# Meta Bot Tags #}
+{% block metaBotTags %}
+    {% for property, value in metaBotTags if value %}
+        <meta name="{{ property }}" content="{{ value }}"/>
+    {% endfor %}
+{% endblock %}
+
+{# Meta Default Tags #}
+{% block metaDefaultTags %}
+    {% for property, value in metaDefaultTags if value %}
+        <meta name="{{ property }}" content="{{ value }}"/>
+    {% endfor %}
+{% endblock %}
+
+{# Meta DC Tags #}
+{% block metaDCTags %}
+    {% for property, value in metaDCTags if value %}
+        <meta name="{{ property }}" content="{{ value }}"/>
+    {% endfor %}
+{% endblock %}
+
+{# Meta Twitter Tags #}
+{% block metaTwitterTags %}
+    {% for property, value in metaTwitterTags if value %}
+        <meta name="{{ property }}" content="{{ value }}"/>
+    {% endfor %}
+{% endblock %}
+
+{# Meta OG Tags #}
+{% block ogMetaTags %}
+    {% for property, value in ogMetaTags if value %}
+        <meta property="{{ property }}" content="{{ value }}"/>
+    {% endfor %}
+{% endblock %}

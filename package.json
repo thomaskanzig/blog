@@ -1,0 +1,31 @@
+{
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.27.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.0.1"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "dev-server": "encore dev-server",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production"
+  },
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^12.3.1",
+    "admin-lte": "^2.4.12",
+    "bootstrap": "^4.3.1",
+    "bootstrap-sass": "^3.4.1",
+    "ckeditor": "^4.12.1",
+    "dropzone": "^5.5.1",
+    "font-awesome": "^4.7.0",
+    "holderjs": "^2.9.6",
+    "jquery": "3.3.1",
+    "jquery.dotdotdot": "^3.2.3",
+    "massive-web": "^2.0.0-rc1",
+    "popper.js": "1.14.7",
+    "reset-css": "^4.0.1",
+    "webpack-notifier": "^1.7.0"
+  }
+}

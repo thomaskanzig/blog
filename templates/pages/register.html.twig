@@ -1,0 +1,17 @@
+{% extends 'simple.html.twig' %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                {{ form_start(form) }}
+
+                {{ form_widget(form) }}
+
+                <input type="submit" value="Add"/>
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

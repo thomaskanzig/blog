@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-5">
+
+        <div class="row">
+            <div class="col">
+                <h1 property="title">
+                    {{ content.title }}
+                </h1>
+
+                <p property="article">
+                    {{ content.article|raw }}
+                </p>
+            </div>
+        </div>
+
+    </div>
+    {# TODO #}
+{% endblock %}

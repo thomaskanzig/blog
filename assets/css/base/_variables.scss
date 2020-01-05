@@ -1,0 +1,38 @@
+// Colors
+$white: #FFFFFF !default;
+$gray-100: #F8F9FA !default;
+$gray-200: #E9ECEF !default;
+$gray-300: #DEE2E6 !default;
+$gray-400: #CED4DA !default;
+$gray-500: #ADB5BD !default;
+$gray-600: #868E96 !default;
+$gray-700: #495057 !default;
+$gray-800: #343A40 !default;
+$gray-900: #212529 !default;
+$black: #000000 !default;
+$blue: #007BFF !default;
+$indigo: #6610F2 !default;
+$purple: #6F42C1 !default;
+$pink: #E83E8C !default;
+$red: #DC3545 !default;
+$orange: #FD7E14 !default;
+$yellow: #FFC107 !default;
+$green: #28A745 !default;
+$teal: #0085A1 !default;
+$cyan: #17A2B8 !default;
+$primary: $teal !default;
+$secondary: $gray-600 !default;
+$success: $green !default;
+$info: $cyan !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$light: $gray-100 !default;
+$dark: $gray-800 !default;
+$colorGreyDark: #202020;
+$colorWhite: #FFFFFF;
+$colorWhiteDark: #BDBDBD;
+$colorGreyLight: rgb(119, 119, 119);
+
+// Fonts.
+$fontText: 'Lato', sans-serif;
+//$fontTitle: 'Roboto', sans-serif;

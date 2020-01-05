@@ -1,0 +1,140 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    {% set csrfToken = csrf_token('post') %}
+
+    <section class="content-header">
+        <h1>
+            Add new post
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#">Posts</a></li>
+            <li class="active">Add</li>
+        </ol>
+    </section>
+
+    {% set postComponent = register_component('post', {
+        csrfToken: csrfToken,
+    }) %}
+
+    <!-- Main content -->
+    <section id="{{ postComponent }}" class="content">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+                {{ form_start(postForm) }}
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Template</h3>
+                        </div>
+
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    {{ form_row(postForm.template, {
+                                            'attr': {
+                                                'class': 'js-post-template'
+                                            }
+                                        })
+                                    }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Form</h3>
+                        </div>
+
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-12 post-gallery-content js-post-gallery-content">
+                                    <button type="button"
+                                            class="btn btn-primary js-post-gallery-add"
+                                            data-toggle="modal"
+                                            data-target="#modal-gallery">
+                                        <i class="fa fa-picture-o"></i> Add media to gallery
+                                    </button>
+
+                                    <div class="col-md-12 js-post-gallery-images">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.active) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.title) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.description) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.text) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.imageFile) }}
+                                </div>
+
+                                <div class="col-md-6">
+                                    {{ form_row(postForm.categories) }}
+                                </div>
+
+                                <div class="col-md-6">
+                                    {{ form_row(postForm.user) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.published) }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">Add new post</button>
+                        </div>
+                    </div>
+                {{ form_end(postForm) }}
+                <!-- /.box -->
+            </div>
+            <!--/.col (left) -->
+        </div>
+        <!-- /.row -->
+
+        <div class="modal fade js-modal-post-gallery" id="modal-gallery">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                        <h4 class="modal-title">Gallery</h4>
+                    </div>
+
+                    <div class="modal-body">
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger js-modal-close" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+    </section>
+    <!-- /.content -->
+{% endblock %}
+
+{% block scripts %}
+    {%- include "includes/admin/scripts/ckeditor.html.twig" with {'ids': ['post_text']} only %}
+{% endblock %}

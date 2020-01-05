@@ -1,0 +1,7 @@
+.post-gallery-content {
+    display: none;
+
+    &.is-show {
+        display: block;
+    }
+}

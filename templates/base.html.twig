@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {%- block meta -%}
+            {%- include "includes/meta.html.twig" %}
+        {% endblock %}
+
+        {%- block metaIcons -%}
+            {%- include "includes/meta-icons.html.twig" %}
+        {% endblock %}
+
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+        {% block stylesheets %}
+            {# 'website' must match the first argument to addEntry() in webpack.config.js #}
+            {{ encore_entry_link_tags('website') }}
+
+            <!-- Renders a link tag (if your module requires any CSS)
+                 <link rel="stylesheet" href="/build/app.css"> -->
+        {% endblock %}
+    </head>
+    <body>
+        {% include 'includes/header.html.twig' %}
+
+        {% include 'includes/navigation.html.twig' %}
+
+        {% block body %}{% endblock %}
+
+        {% include 'includes/footer.html.twig' %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('website') }}
+
+            <!-- Renders website.js & a webpack runtime.js file
+                <script src="/build/runtime.js"></script>
+                <script src="/build/website.js"></script> -->
+        {% endblock %}
+    </body>
+</html>

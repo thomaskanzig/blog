@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ name_site }} - Blog
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-md-12 mx-auto">
+                {% if 0 < posts|length %}
+                    {% for post in posts %}
+                        <article class="post-preview">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <a href="{{ path('post_detail', {slug: post.slug}) }}">
+                                        {% if post.urlPhoto is not empty %}
+                                            <img src="{{ asset(post.urlPhoto)|imagine_filter('600x375') }}"
+                                                 class="post-image rounded img-fluid mr-3"
+                                                 alt="{{ post.title }}">
+                                        {% endif %}
+                                    </a>
+                                </div>
+
+                                <div class="col-md-7">
+                                    <a href="{{ path('post_detail', {slug: post.slug}) }}">
+                                        <h2 class="post-title">{{ post.title }}</h2>
+                                        <h3 class="post-subtitle text-limited">{{ post.description }}</h3>
+                                    </a>
+
+                                    <div class="media post-user">
+                                        {% if post.user.urlAvatar is not empty %}
+                                            <img src="{{ asset(post.user.urlAvatar)|imagine_filter('50x50') }}"
+                                                 class="rounded-circle mr-2"
+                                                 alt="{{ post.user.fullname }}">
+                                        {% endif %}
+                                        <div class="media-body">
+                                            <h6 class="post-user-name mt-1 mb-1">{{ post.user.fullname }}</h6>
+                                            <div class="post-user-published text-secondary">
+                                                Published in {{ post.published|date("Y/m/d") }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    {% endfor %}
+                {% else %}
+                    Não foi encontrado nenhum artigo
+                {% endif %}
+
+                <!-- Pager -->
+                <div class="clearfix">
+                    {{ knp_pagination_render(posts) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

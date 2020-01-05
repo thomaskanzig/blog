@@ -1,0 +1,59 @@
+<!-- Footer -->
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+
+          {% if instagram_url is not empty %}
+            <li class="list-inline-item">
+              <a href="{{ instagram_url }}" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          {% endif %}
+
+          {% if facebook_url is not empty %}
+            <li class="list-inline-item">
+              <a href="{{ facebook_url }}" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook-f fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          {% endif %}
+
+          {% if linkedin_url is not empty %}
+            <li class="list-inline-item">
+              <a href="{{ linkedin_url }}" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          {% endif %}
+
+          {% if github_url is not empty %}
+            <li class="list-inline-item">
+              <a href="{{ github_url }}" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+        <p class="copyright text-muted">Copyright &copy; Thomas Kanzig 2019</p>
+      </div>
+    </div>
+  </div>
+</footer>

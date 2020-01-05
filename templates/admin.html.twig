@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{% block title %} {{ name_admin }} {% endblock %}</title>
+        {% block stylesheets %}
+            {# 'app' must match the first argument to addEntry() in webpack.config.js #}
+            {{ encore_entry_link_tags('admin') }}
+
+            <!-- Renders a link tag (if your module requires any CSS)
+                 <link rel="stylesheet" href="/build/app.css"> -->
+        {% endblock %}
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini fixed">
+        <div class="wrapper">
+            {% include 'includes/admin/header.html.twig' %}
+
+            {% include 'includes/admin/sidebar-left.html.twig' %}
+
+            <div class="content-wrapper">
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+
+                {% block body %}{% endblock %}
+            </div>
+
+            {% include 'includes/admin/footer.html.twig' %}
+
+            {% include 'includes/admin/sidebar-right.html.twig' %}
+        </div>
+        <!-- ./wrapper -->
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('admin') }}
+            <!--Renders website.js & a webpack runtime.js file
+                <script src="/build/runtime.js"></script>
+                <script src="/build/website.js"></script> -->
+            <script>
+                web.startComponents({{ get_components() }});
+            </script>
+        {% endblock %}
+
+        {% block scripts %}
+            <!-- Add more javascript. -->
+        {% endblock %}
+    </body>
+</html>

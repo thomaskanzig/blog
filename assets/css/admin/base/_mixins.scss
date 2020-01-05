@@ -1,0 +1,26 @@
+/*
+ * Breakpoints for Bootstrap 3.x
+ */
+@mixin screenXsMax {
+  @media screen and (max-width: $screen-xs) {
+    @content;
+  }
+}
+
+@mixin screenSmMax {
+  @media screen and (max-width: $screen-sm) {
+    @content;
+  }
+}
+
+@mixin screenMdMax {
+  @media screen and (max-width: $screen-md) {
+    @content;
+  }
+}
+
+@mixin screenLgMax {
+  @media screen and (max-width: $screen-lg) {
+    @content;
+  }
+}

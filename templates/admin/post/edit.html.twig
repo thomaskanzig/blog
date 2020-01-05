@@ -1,0 +1,106 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            Edit post
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#">Posts</a></li>
+            <li class="active">Edit</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-9">
+                {{ form_start(postForm) }}
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Template</h3>
+                        </div>
+
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    {{ form_row(postForm.template, {'attr': {'class': 'select-readonly'}}) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Form</h3>
+                        </div>
+
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.active) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.title) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.description) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.text) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.imageFile) }}
+                                </div>
+
+                                <div class="col-md-6">
+                                    {{ form_row(postForm.categories) }}
+                                </div>
+
+                                <div class="col-md-6">
+                                    {{ form_row(postForm.user) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.published) }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">Add new post</button>
+                        </div>
+                    </div>
+                {{ form_end(postForm) }}
+            </div>
+
+            <div class="col-md-3">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Image</h3>
+                    </div>
+
+                    <div class="box-body">
+                        {% if postForm.vars.data.urlPhoto is not empty %}
+                        <img src="{{ asset(postForm.vars.data.urlPhoto)|imagine_filter('300x300') }}"
+                             class="img-responsive"
+                             alt="">
+                        {% endif %}
+                    </div>
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+{% endblock %}
+
+{% block scripts %}
+    {%- include "includes/admin/scripts/ckeditor.html.twig" with {'ids': ['post_text']} only %}
+{% endblock %}

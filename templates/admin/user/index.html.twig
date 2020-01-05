@@ -1,0 +1,101 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            All users
+            <small>preview of simple tables</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Users</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">List</h3>
+
+                        <div class="box-tools">
+                            <form class="form-inline">
+                                <div class="input-group input-group-sm" style="width: 150px;">
+                                    <input type="text" name="q" class="form-control pull-right" placeholder="Search">
+
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+
+                    {% if 0 < users|length %}
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Created</th>
+                                    <th>Actions</th>
+                                </tr>
+                                {% for user in users %}
+                                    <tr>
+                                        <td width="50%">
+                                            <div class="media">
+                                                <div class="media-left">
+                                                    {% if user.urlAvatar is not empty %}
+                                                        <img src="{{ asset(user.urlAvatar)|imagine_filter('50x50') }}"
+                                                             class="media-object img-circle"
+                                                             alt="">
+                                                    {% endif %}
+                                                </div>
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">{{ user.fullName }}</h4>
+                                                    ID: {{ user.id }} / {{ user.email }}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>{{ user.created|date("Y/m/d") }}</td>
+                                        <td>
+                                            <a href="{{ path('admin_user_profile', {
+                                                id: user.id
+                                            }) }}"
+                                               class="btn btn-xs btn-primary">
+                                                <i class="fa fa-user"></i> Profile
+                                            </a>
+
+                                            <a href="{{ path('admin_user_access', {
+                                                id: user.id
+                                            }) }}"
+                                               class="btn btn-xs btn-info">
+                                                <i class="fa fa-lock"></i> Access
+                                            </a>
+
+                                            <a href="{{ path('admin_user_delete', {
+                                                id: user.id
+                                            }) }}"
+                                               class="btn btn-xs btn-danger">
+                                                <i class="fa fa-trash"></i> Delete
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+
+                        <div class="box-footer clearfix">
+                            {{ knp_pagination_render(users) }}
+                        </div>
+                    {% else %}
+                        Por enquanto nenhum user.
+                    {% endif %}
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </section>
+{% endblock %}

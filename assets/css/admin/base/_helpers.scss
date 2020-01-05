@@ -1,0 +1,15 @@
+.breadcrumb--without-bg {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+}
+
+/*
+ * Forms.
+ */
+.select-readonly {
+    pointer-events: none;
+    cursor: not-allowed;
+    background: $colorGreySeashell;
+}

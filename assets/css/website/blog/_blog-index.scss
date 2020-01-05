@@ -1,0 +1,63 @@
+// Styling for the post page
+.post-preview {
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid $gray-300;
+
+    &:last-of-type {
+        border-bottom: 0;
+    }
+
+    a {
+        color: $gray-900;
+
+        &:focus,
+        &:hover {
+            text-decoration: none;
+            color: $primary;
+        }
+
+        .post-title {
+            font-size: 30px;
+            margin-bottom: 10px;
+
+            @include media-breakpoint-down(sm) {
+                font-size: 30px;
+            }
+        }
+
+        .post-subtitle {
+            font-weight: 300;
+            margin: 0 0 10px;
+            font-size: 18px;
+            overflow: hidden;
+            height: 75px;
+            font-weight: 300;
+            line-height: 26px;
+
+            @include media-breakpoint-down(sm) {
+                height: auto;
+            }
+        }
+
+    }
+
+    .post-user {
+        margin-top: 15px;
+
+        .post-user-published {
+            font-size: 14px;
+            font-weight: 200;
+        }
+
+        @include media-breakpoint-down(sm) {
+            margin-top: 0;
+        }
+    }
+
+    .post-image {
+        @include media-breakpoint-down(sm) {
+            margin-bottom: 20px;
+        }
+    }
+}

@@ -1,0 +1,256 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    {% set currentFolderId = app.request.query.get('folder') %}
+    {% set csrfToken = csrf_token('media') %}
+
+    <section class="content-header">
+        <h1>
+            All media
+            <small>preview of folders</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Media</li>
+        </ol>
+    </section>
+
+    {% set mediaComponent = register_component('media', {
+        csrfToken: csrfToken,
+        currentFolderId: currentFolderId,
+        indexPage: path('admin_media_index')
+    }) %}
+
+    <section id="{{ mediaComponent }}" class="content content-media-index">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        {% if 0 < parentFolders|length %}
+                            <h3 class="box-title">
+                                <ol class="breadcrumb breadcrumb--without-bg">
+                                    <li>
+                                        <a href="{{ path('admin_media_index') }}">
+                                            <i class="fa fa-home" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    {% for folder in parentFolders %}
+                                        <li>
+                                            {% if currentFolderId == folder.id %}
+                                                {{ folder.name }}
+                                            {% else %}
+                                                <a href="{{ path('admin_media_index', {folder: folder.id}) }}">
+                                                    {{ folder.name }}
+                                                </a>
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ol>
+                            </h3>
+                        {% endif %}
+
+                        <div class="box-tools">
+                            <form class="form-inline">
+                                <div class="input-group input-group-sm" style="width: 150px;">
+                                    <input type="text" name="q" class="form-control pull-right" placeholder="Search">
+
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+
+                    <div class="box-body">
+                        <div class="media-index-content">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-upload">
+                                Upload File <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-default js-media-add-folder">
+                                Add Folder <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                            </button>
+
+                            {% if 0 < currentFolderId %}
+                                <button type="button"
+                                        class="btn btn-danger js-open-modal-delete-folder">
+                                    <i class="fa fa-trash" aria-hidden="true"></i> Delete Folder
+                                </button>
+                            {% endif %}
+
+                            <div class="row media-index-add-folder js-content-form-add-folder">
+                                <div class="col-sm-6 col-md-4">
+                                    <form class="js-form-add-folder">
+                                        {% if 0 < currentFolderId %}
+                                            <input type="hidden" name="parentId" value="{{ currentFolderId }}">
+                                        {% endif %}
+
+                                        <input type="hidden" name="token" value="{{ csrfToken }}">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" name="name" placeholder="Name of folder">
+
+                                            <div class="input-group-btn">
+                                                <button type="submit" class="btn btn-default">Add Folder</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="media-index-content">
+                            {% if 0 < folders|length %}
+                                <h4 class="box-title">Folders</h4>
+                            {% endif %}
+
+                            <div class="row js-media-index-folders">
+                                {% for folder in folders %}
+                                    <div class="col-xs-6 col-md-2 media-index-folder js-media-index-folder"
+                                         data-id="{{ folder.id }}">
+                                        <a href="{{ path('admin_media_index', {folder: folder.id}) }}"
+                                           class="btn btn-app media-index-btn-folder js-media-index-folder-link">
+                                            <!--span class="badge bg-yellow">3</span-->
+                                            <i class="fa fa-folder"></i>
+                                            <span class="js-media-index-folder-name">
+                                                {{ folder.name }}
+                                            </span>
+                                        </a>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="media-index-content">
+                            {% if 0 < medias|length %}
+                                <h4 class="box-title">Files</h4>
+                            {% endif %}
+
+                            <div class="row">
+                                {% for media in medias %}
+                                    <div class="col-xs-12 col-md-3 js-media-file"
+                                         data-id="{{ media.id }}">
+                                        <div class="thumbnail">
+                                            {% set image = media.file %}
+                                            {% set fullUrl = media.file %}
+
+                                            {% if not media.external %}
+                                                {% set image = asset(media.file)|imagine_filter('300x300') %}
+                                                {% set fullUrl = base_url ~ '/' ~ media.file %}
+                                            {% endif %}
+                                            <img src="{{ image }} "
+                                                 alt="{{ media.title }}"
+                                                 class="img-responsive media-index-file-preview">
+                                            <div class="caption">
+                                                <div id="{{ register_component('dotdotdot') }}"
+                                                     class="media-index-file-name">
+                                                   {{ media.title }}
+                                                </div>
+
+                                                <p>
+                                                    <button id="{{ register_component('clipboard') }}"
+                                                            class="btn btn-xs btn-default"
+                                                            role="button"
+                                                            data-text-copy="{{ fullUrl }}">
+                                                        <i class="fa fa-link" aria-hidden="true"></i>
+                                                        <span class="js-text-clipboard">Copy URL</span>
+                                                    </button>
+
+                                                    <button class="btn btn-xs btn-danger js-media-file-delete"
+                                                            role="button">
+                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                        Delete
+                                                    </button>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+
+        {#  Element copy of folder. #}
+        <div class="col-xs-6 col-md-2 media-index-folder js-media-index-folder copy">
+            <a href="{{ path('admin_media_index') }}"
+               class="btn btn-app media-index-btn-folder js-media-index-folder-link">
+                <!--span class="badge bg-yellow">3</span-->
+                <i class="fa fa-folder"></i>
+                <span class="js-media-index-folder-name"></span>
+            </a>
+        </div>
+
+        <div class="modal fade js-modal-delete-folder" id="modal-confirm-delete-folder">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                        <h4 class="modal-title">
+                            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Alert
+                        </h4>
+                    </div>
+
+                    <div class="modal-body">
+                        Do you really delete this folder?<br/>
+                        All children folders and files will deleted permanently.
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">
+                            <i class="fa fa-close" aria-hidden="true"></i> Cancel
+                        </button>
+
+                        <button type="button" class="btn btn-success js-delete-folder">
+                            Yes, delete now!
+                        </button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+    </section>
+
+    <div class="modal fade js-modal-upload" id="modal-upload">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                    <h4 class="modal-title">Upload</h4>
+                </div>
+
+                <div class="modal-body">
+                    {% set uploadComponent = register_component('upload', {
+                        folderId: currentFolderId,
+                        csrfToken: csrfToken
+                    }) %}
+
+                    <div id="{{ uploadComponent }}" class="media-index-upload">
+                        <div class="dropzone js-dropzone">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger js-modal-close" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+{% endblock %}
