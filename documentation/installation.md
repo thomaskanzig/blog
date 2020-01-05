@@ -31,8 +31,8 @@ yarn encore production
 ```bash
 composer require --dev server
 ```
-
-Before start to code, when you local then create an file `.env.local` in root path and write all necessary configuration (secret, database...) in your environment.
+##### Config environment file:
+Before start to code, make a copy from [.env.test](../.env.test) and rename to `.env.local` in the same path and uncomment all variables.
 
 See [here](https://symfony.com/blog/new-in-symfony-4-2-define-env-vars-per-environment) to explain more.
 
@@ -71,7 +71,7 @@ $ php bin/console server:run
 git clone https://github.com/5i1/symfony-study-blog .
 ```
 
-##### Configure your .env
+##### Config environment file:
 Exist more way to configure variable in your environment, but the easiest way is just create an simple `.env.local` file and inform all variable you needed.
 
 ```bash
