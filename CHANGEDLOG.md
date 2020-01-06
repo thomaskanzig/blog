@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+- FEATURE: Added images by add/edit post for `gallery template` in admin.
 
 ## [1.0.1] - 2020-01-06
 - BUGFIX: Fix order routes with `routes.yaml`. [#8](https://github.com/thomaskanzig/blog/pull/8)
