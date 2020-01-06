@@ -203,6 +203,7 @@ class MediaController extends AbstractController
             'success' => $success,
             'message' => $message,
             'files' => $jsonData,
+            // 'files' => [],
             'pagination' => $pagination->getPaginationData()
         ]);
 

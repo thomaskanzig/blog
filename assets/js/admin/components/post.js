@@ -2,6 +2,7 @@ import web from 'massive-web';
 import $ from 'jquery';
 import 'bootstrap-sass';
 import { CSS_CLASS } from '../../constans';
+import { HTML } from '../../constans';
 
 /**
  * Post component.
@@ -23,6 +24,9 @@ class Post {
         this.$galleryModalContent = this.$el.find('.js-modal-post-gallery-content');
         this.$galleryMediaFile = this.$el.find('.js-modal-post-gallery-file');
         this.$galleryModalInputImages = this.$el.find('.js-modal-post-gallery-file-checkbox');
+        this.$galleryModalBody = this.$el.find('.js-modal-body-post-gallery');
+        this.$galleryModalLoading = this.$el.find('.js-modal-body-post-gallery-loading');
+        this.$galleryModalLoading.html(HTML.loaderSpinner);
 
         // Gallery selected.
         this.$galleryAdd = this.$el.find('.js-post-gallery-add');
@@ -44,6 +48,7 @@ class Post {
         this.$galleryAdd.on('click', this.onOpenModalGallery.bind(this));
         this.$galleryModalInputImages.on('click', this.onChangeGalleryModalInputImages.bind(this));
         this.$gallerySelectedFileDelete.on('click', this.onClickGallerySelectedFileDelete.bind(this));
+        this.$galleryModalBody.on('scroll', this.onScrollGalleryModalBody.bind(this));
     }
 
     /**
@@ -57,7 +62,7 @@ class Post {
     onChangeTemplate(e){
         const $selectTemplate = $(e.currentTarget);
 
-        // If gallery
+        // If template is a gallery.
         if(2 === parseInt($selectTemplate.val())){
             this.$gallery.addClass(CSS_CLASS.isShow);
         } else {
@@ -74,8 +79,28 @@ class Post {
             .find('.js-modal-post-gallery-file:not(.' + CSS_CLASS.isCopy + ')')
             .remove();
 
+        this.$galleryModalLoading.addClass(CSS_CLASS.isVisible);
+        this.galleryModalNextPage = 1;
+        this.galleryModalPagination = [];
+
+        this.loadlMediaFiles();
+    }
+
+    loadlMediaFiles() {
+        // If next page is false, then will not load more files.
+        if (!this.galleryModalNextPage) {
+            this.$galleryModalLoading.removeClass(CSS_CLASS.isVisible);
+            return;
+        }
+
+        this.$galleryModalLoading.addClass(CSS_CLASS.isVisible);
+
+        if (this.galleryModalPagination) {
+            this.galleryModalNextPage = this.galleryModalPagination.next;
+        }
+
         let objData = {
-            'page': 1,
+            'page': this.galleryModalNextPage,
             'token': this.options.csrfTokenMedia
         };
 
@@ -88,15 +113,23 @@ class Post {
             type: 'GET',
             contentType: 'application/x-www-form-urlencoded',
             error: (data) => {
+                this.$galleryModalLoading.removeClass(CSS_CLASS.isVisible);
+
                 /* eslint-disable */
                 console.error(data);
                 /* eslint-enable */
             },
             success: (data) => {
-                // console.log(data.files);
-
                 if(0 === data.files.length){
                     return;
+                }
+
+                this.galleryModalPagination = data.pagination;
+                if (typeof this.galleryModalPagination.next != "undefined") {
+                    this.galleryModalNextPage = this.galleryModalPagination.next;
+                } else {
+                    this.galleryModalNextPage = false;
+                    this.$galleryModalLoading.removeClass(CSS_CLASS.isVisible);
                 }
 
                 $.each(data.files, (index, media) => {
@@ -155,7 +188,7 @@ class Post {
     getSelectedImagesForm() {
         let selected = this.$galleryInputImages.val();
 
-        if(!selected) {
+        if (!selected) {
             selected = [];
         } else {
             selected = JSON.parse(selected);
@@ -183,6 +216,17 @@ class Post {
         const mediaId = $file.data('media-id');
 
         this.deleteSelectedImagesForm([mediaId]);
+    }
+
+    onScrollGalleryModalBody(e) {
+        const $element = $(e.currentTarget);
+
+        // Identify if scrolling is finish.
+        if(($element.scrollTop() + $element.innerHeight()) >= $element[0].scrollHeight) {
+            setTimeout(() => {
+                this.loadlMediaFiles();
+            }, 1000);
+        }
     }
 }
 

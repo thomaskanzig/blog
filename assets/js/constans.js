@@ -5,3 +5,7 @@ export const CSS_CLASS = {
     isCopy: 'is-copy',
     isShow: 'is-show',
 };
+
+export const HTML = {
+    loaderSpinner: '<img src="/images/loaders/spinner.svg" />',
+};
