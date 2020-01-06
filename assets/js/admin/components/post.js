@@ -30,6 +30,7 @@ class Post {
         this.$galleryInputImages = this.$el.find('.js-input-gallery-images');
         this.$galleryImagesSelected = this.$el.find('.js-post-gallery-images-selected');
         this.$gallerySelectedFileCopy = this.$el.find('.js-post-gallery-images-selected-file').filter('.' + CSS_CLASS.isCopy);
+        this.$gallerySelectedFileDelete = this.$el.find('.js-post-gallery-images-selected-file-delete');
 
         this.bindListeners();
         this.onReady();
@@ -42,6 +43,7 @@ class Post {
         this.$selectTemplate.on('change', this.onChangeTemplate.bind(this));
         this.$galleryAdd.on('click', this.onOpenModalGallery.bind(this));
         this.$galleryModalInputImages.on('click', this.onChangeGalleryModalInputImages.bind(this));
+        this.$gallerySelectedFileDelete.on('click', this.onClickGallerySelectedFileDelete.bind(this));
     }
 
     /**
@@ -132,22 +134,22 @@ class Post {
      */
     onChangeGalleryModalInputImages(e) {
         const $checkbox = $(e.currentTarget);
-        let selected = this.getSelectedImagesForm();
 
         if($checkbox.is(':checked')) {
+            let selected = this.getSelectedImagesForm();
+
             selected.push($checkbox.val());
             let $file = this.$gallerySelectedFileCopy.clone(true).removeClass(CSS_CLASS.isCopy);
             $file.attr('data-media-id', $checkbox.val());
             $file.find('.js-post-gallery-images-selected-file-img').attr('src', $checkbox.data('media-file'));
             this.$galleryImagesSelected.append($file);
-        } else {
-            selected.splice(selected.indexOf($checkbox.val()), 1);
-            this.$galleryImagesSelected.find('[data-media-id=' + $checkbox.val() + ']').remove();
-        }
 
-        // Update checkbox in form.
-        let selectedJSON = JSON.stringify(selected);
-        this.$galleryInputImages.val(selectedJSON);
+            // Update checkbox in form.
+            let selectedJSON = JSON.stringify(selected);
+            this.$galleryInputImages.val(selectedJSON);
+        } else {
+            this.deleteSelectedImagesForm([$checkbox.val()]);
+        }
     }
 
     getSelectedImagesForm() {
@@ -160,6 +162,27 @@ class Post {
         }
 
         return selected;
+    }
+
+    deleteSelectedImagesForm(values) {
+        let selected = this.getSelectedImagesForm();
+
+        $.each(values, (index, mediaId) => {
+            selected.splice( selected.indexOf(String(mediaId)) , 1);
+
+            this.$galleryImagesSelected.find('[data-media-id=' + mediaId + ']').remove();
+
+            // Update checkbox in form.
+            let selectedJSON = JSON.stringify(selected);
+            this.$galleryInputImages.val(selectedJSON);
+        });
+    }
+
+    onClickGallerySelectedFileDelete(e) {
+        let $file = $(e.currentTarget).closest('.js-post-gallery-images-selected-file');
+        const mediaId = $file.data('media-id');
+
+        this.deleteSelectedImagesForm([mediaId]);
     }
 }
 
