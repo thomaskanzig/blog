@@ -6,6 +6,20 @@
     }
 }
 
+// Gallery images selected.
+.post-gallery-images-selected {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.post-gallery-images-selected-file {
+    display: inline-block;
+
+    &.is-copy {
+        display: none;
+    }
+}
+
 // Modal gallery.
 .modal-post-gallery-content {
 }

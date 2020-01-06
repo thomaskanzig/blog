@@ -65,7 +65,6 @@ class PostType extends AbstractType
             ])
             ->add('images', HiddenType::class, [
                 'mapped' => false,
-                'attr' => ['class' => 'js-input-gallery-images'],
             ])
         ;
     }
