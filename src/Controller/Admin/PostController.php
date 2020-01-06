@@ -40,7 +40,6 @@ class PostController extends AbstractController
      */
     public function add(EntityManagerInterface $em, Request $request, UploaderHelper $uploaderHelper)
     {
-
         // Create the form based on the FormType we need.
         $postForm = $this->createForm(PostType::class);
 
@@ -48,7 +47,6 @@ class PostController extends AbstractController
         $postForm->handleRequest($request);
 
         if ($postForm->isSubmitted() && $postForm->isValid()) {
-
             // Get data of form.
             $post = $postForm->getData();
 

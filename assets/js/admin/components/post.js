@@ -23,6 +23,7 @@ class Post {
         this.$galleryModalContent = this.$el.find('.js-modal-post-gallery-content');
         this.$galleryAdd = this.$el.find('.js-post-gallery-add');
         this.$galleryMediaFile = this.$el.find('.js-modal-post-gallery-file');
+        this.$galleryInputImages = this.$el.find('.js-input-gallery-images');
 
         this.bindListeners();
         this.onReady();
@@ -59,7 +60,6 @@ class Post {
      * Open modal to add/delete images of gallery.
      */
     onOpenModalGallery() {
-
         // Delete all files inside modal, if exist.
         this.$galleryModalContent
             .find('.js-modal-post-gallery-file:not(.' + CSS_CLASS.isCopy + ')')
@@ -89,9 +89,11 @@ class Post {
 
                 $.each(data.files, (index, media) => {
                     // Only images.
-                    if('image' === media.type.slug){
+                    if('image' === media.type.slug) {
                         let $file = this.$galleryMediaFile.clone().removeClass(CSS_CLASS.isCopy);
                         $file.find('.js-modal-post-gallery-file-img').attr('src', '/' + media.file);
+                        $file.find('.js-modal-post-gallery-file-checkbox').attr('id', 'image-' + media.id);
+                        $file.find('.js-modal-post-gallery-file-label').attr('for', 'image-' + media.id);
 
                         this.$galleryModalContent.append($file);
                     }

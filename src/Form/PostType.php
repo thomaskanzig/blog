@@ -16,6 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class PostType extends AbstractType
 {
@@ -31,10 +32,10 @@ class PostType extends AbstractType
                 'required' => false // Is false, for fix an bug in ckeditor.
             ])
             ->add('imageFile',
-                  FileType::class,
-                  ['label' => 'Image file for the post banner',
-                   'mapped' => false,
-                   'required' => false
+                  FileType::class, [
+                      'label' => 'Image file for the post banner',
+                      'mapped' => false,
+                      'required' => false
                   ]
             )
             ->add('categories', EntityType::class, [
@@ -61,6 +62,10 @@ class PostType extends AbstractType
                 'choice_label' => 'name',
                 'placeholder' => 'Select template:',
                 'required' => true
+            ])
+            ->add('images', HiddenType::class, [
+                'mapped' => false,
+                'attr' => ['class' => 'js-input-gallery-images'],
             ])
         ;
     }
