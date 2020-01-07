@@ -5,17 +5,17 @@ namespace App\Controller\Api;
 use App\Entity\Media;
 use App\Entity\MediaType;
 use App\Entity\Folder;
-use App\Repository\PostRepository;
 use App\Service\UploaderHelper;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Doctrine\ORM\EntityManagerInterface;
-use App\Repository\MediaTypeRepository;
-use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class MediaController extends AbstractController
 {
@@ -30,17 +30,25 @@ class MediaController extends AbstractController
     private $entityManager;
 
     /**
+     * @var PaginatorInterface
+     */
+    private $paginator;
+
+    /**
      * MediaController constructor.
      *
      * @param UploaderHelper $uploaderHelper
      * @param EntityManagerInterface $entityManager
+     * @param PaginatorInterface $paginator,
      */
     public function __construct(
         UploaderHelper $uploaderHelper,
-        EntityManagerInterface $entityManager
+        EntityManagerInterface $entityManager,
+        PaginatorInterface $paginator
     ) {
         $this->uploaderHelper = $uploaderHelper;
         $this->entityManager = $entityManager;
+        $this->paginator = $paginator;
     }
 
     /**
@@ -149,6 +157,54 @@ class MediaController extends AbstractController
         $response->setData([
             'success' => $success,
             'message' => $message
+        ]);
+
+        return $response;
+    }
+
+    /**
+     * @Route("/api/media/list", name="api_media_list", methods={"GET"})
+     *
+     * @param Request $request
+     *
+     * @return JsonResponse
+     *
+     * @throws InvalidCsrfTokenException if the provided argument token is invalid.
+     */
+    public function listAction(Request $request): JsonResponse
+    {
+        $message = 'List successfully';
+        $success = true;
+        $submittedToken = $request->query->get('token');
+
+        if (!$this->isCsrfTokenValid('media', $submittedToken)) {
+            throw new InvalidCsrfTokenException();
+        }
+
+        /** @var Media[] $queryBuilder */
+        $queryBuilder = $this->entityManager
+            ->getRepository(Media::class)
+            ->findAll();
+
+        /** @var PaginatorInterface $pagination */
+        $pagination = $this->paginator->paginate(
+            $queryBuilder, /* query NOT result */
+            $request->query->getInt('page', 1)/* page number */,
+            20 /* limit per page */
+        );
+
+        // More about serialize, visit: https://symfony.com/doc/current/components/serializer.html
+        /** @var Serializer $serializer */
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $jsonData = $serializer->normalize($pagination->getItems(), 'json');
+
+        $response = new JsonResponse();
+        $response->setData([
+            'success' => $success,
+            'message' => $message,
+            'files' => $jsonData,
+            // 'files' => [],
+            'pagination' => $pagination->getPaginationData()
         ]);
 
         return $response;

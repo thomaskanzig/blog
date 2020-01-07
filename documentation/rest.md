@@ -83,7 +83,39 @@ This document contains all API definitions and their routes.
      }
     ```
 
+**List all media**
+----
+      
+* **URL**
 
+    /api/media/list
+
+* **Method:**
+
+    `GET`
+  
+* **URL Params**
+
+    None
+
+* **Data Params**
+
+    None
+
+* **Success Response:**
+
+  * **Code:** 200  
+    **Content:** 
+    
+    ```bash
+    {
+         "success": true, 
+         "message": "List successfully",
+         "files": [],
+         "pagination": []
+     }
+    ```
+    
 **Add folder**
 ----
       

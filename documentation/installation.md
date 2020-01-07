@@ -5,7 +5,7 @@
 ##### Git clone 
 
 ```bash
-git clone https://github.com/5i1/symfony-blog.git
+git clone https://github.com/thomaskanzig/blog.git .
 ```
 
 ##### Install composer
@@ -68,7 +68,7 @@ $ php bin/console server:run
 ##### Git clone or you own project
 
 ```bash
-git clone https://github.com/5i1/symfony-study-blog .
+git clone https://github.com/thomaskanzig/blog.git .
 ```
 
 ##### Config environment file:
@@ -130,6 +130,14 @@ php bin/console doctrine:migrations:diff
 php bin/console doctrine:migrations:migrate
 ```
 
+#### Execute sql script for database
+```sql
+INSERT INTO `template` (`name`, `created`, `view`) VALUES ('Blog', '0000-00-00 00:00:00', 'post/blog.html.twig');
+INSERT INTO `template` (`name`, `created`, `view`) VALUES ('Gallery', '0000-00-00 00:00:00', 'post/gallery.html.twig');
+```
+#### Create your first user
+Access your system with `{domain}/register` and create your first admin user.
+
 #### Folders and Permissions
 Must be create two folders and set permission `777`, follow the commands below and execute this in root path of the project:
 ```bash
@@ -151,7 +159,8 @@ In the prod environment it's possible to encountred this error:
 *PHP Fatal error:  Uncaught RuntimeException: Unable to create the cache directory...*  
 The only thing you need to do is to execute this two commands below:
 ```bash
-rm -rf var/cache/*
+rm -rf var/*
+sudo chmod -R 777 var
 php bin/console cache:warmup
 ```
 More details see [here](https://symfony.com/doc/current/setup/file_permissions.html)

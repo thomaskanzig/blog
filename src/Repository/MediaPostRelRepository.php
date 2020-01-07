@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\MediaPostRel;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * @method MediaPostRel|null find($id, $lockMode = null, $lockVersion = null)
@@ -47,4 +48,28 @@ class MediaPostRelRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function saveAll(int $postId, $medias = [])
+    {
+        // Delete all relations.
+        $this->createQueryBuilder('mpr')
+            ->delete()
+            ->andWhere('mpr.post_id = :post_id')
+            ->setParameter('post_id', $postId);
+
+        if ($medias && 0 < $postId) {
+            $em = $this->getEntityManager();
+
+            foreach($medias as $mediaId) {
+                $mediaPostRel = new MediaPostRel();
+                $mediaPostRel->setPostId($postId);
+                $mediaPostRel->setMediaId($mediaId);
+                $mediaPostRel->setCreated(new \DateTime());
+
+                $em->persist($mediaPostRel);
+            }
+
+            $em->flush();
+        }
+    }
 }

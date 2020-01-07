@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\MediaPostRel;
 use App\Repository\PostRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -40,7 +41,6 @@ class PostController extends AbstractController
      */
     public function add(EntityManagerInterface $em, Request $request, UploaderHelper $uploaderHelper)
     {
-
         // Create the form based on the FormType we need.
         $postForm = $this->createForm(PostType::class);
 
@@ -48,7 +48,6 @@ class PostController extends AbstractController
         $postForm->handleRequest($request);
 
         if ($postForm->isSubmitted() && $postForm->isValid()) {
-
             // Get data of form.
             $post = $postForm->getData();
 
@@ -73,6 +72,10 @@ class PostController extends AbstractController
             // To save.
             $em->persist($post);
             $em->flush();
+
+            // Save images.
+            $medias = json_decode($postForm['images']->getData(), true);
+            $em->getRepository(MediaPostRel::class)->saveAll($post->getId(), $medias);
 
             // Set an message after save.
             $this->addFlash('success', 'Post Created!');

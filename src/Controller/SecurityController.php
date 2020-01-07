@@ -8,9 +8,6 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
-    /**
-     * @Route("/login", name="security_login")
-     */
     public function login(AuthenticationUtils $authenticationUtils)
     {
         return $this->render('security/login.html.twig', [
@@ -19,9 +16,6 @@ class SecurityController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/logout", name="security_logout")
-     */
     public function logout()
     {
 

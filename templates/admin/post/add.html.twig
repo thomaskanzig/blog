@@ -1,7 +1,7 @@
 {% extends 'admin.html.twig' %}
 
 {% block body %}
-    {% set csrfToken = csrf_token('post') %}
+    {% set csrfTokenMedia = csrf_token('media') %}
 
     <section class="content-header">
         <h1>
@@ -15,7 +15,7 @@
     </section>
 
     {% set postComponent = register_component('post', {
-        csrfToken: csrfToken,
+        csrfTokenMedia: csrfTokenMedia,
     }) %}
 
     <!-- Main content -->
@@ -54,12 +54,31 @@
                                     <button type="button"
                                             class="btn btn-primary js-post-gallery-add"
                                             data-toggle="modal"
-                                            data-target="#modal-gallery">
+                                            data-target=".js-modal-post-gallery">
                                         <i class="fa fa-picture-o"></i> Add media to gallery
                                     </button>
 
-                                    <div class="col-md-12 js-post-gallery-images">
+                                    <div class="row post-gallery-images-selected js-post-gallery-images-selected">
+                                        <div class="col-sm-6 col-md-3 post-gallery-images-selected-file is-copy js-post-gallery-images-selected-file"
+                                             data-media-id="">
+                                            <div class="thumbnail">
+                                                <img src="https://dummyimage.com/600x400/d1d1d1/ffffff"
+                                                     alt="..."
+                                                     class="img-responsive js-post-gallery-images-selected-file-img"/>
+
+                                                <div class="caption">
+                                                    <p>
+                                                        <button type="button"
+                                                                class="btn btn-danger btn-xs js-post-gallery-images-selected-file-delete">
+                                                            <i class="fa fa-trash"></i> Delete
+                                                        </button>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
+
+                                    {{ form_row(postForm.images, {'attr': {'class': 'js-input-gallery-images'}}) }}
                                 </div>
 
                                 <div class="col-md-12">
@@ -107,9 +126,9 @@
         </div>
         <!-- /.row -->
 
-        <div class="modal fade js-modal-post-gallery" id="modal-gallery">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+        <div class="modal fade js-modal-post-gallery">
+            <div class="modal-dialog modal-lg modal-dialog-post-gallery">
+                <div class="modal-content modal-content-post-gallery">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -118,8 +137,32 @@
                         <h4 class="modal-title">Gallery</h4>
                     </div>
 
-                    <div class="modal-body">
+                    <div class="modal-body modal-body-post-gallery js-modal-body-post-gallery">
+                        <div class="modal-post-gallery-content">
+                            <div class="row js-modal-post-gallery-content">
+                                <div class="col-sm-6 col-md-4 col-lg-3 modal-post-gallery-file is-copy js-modal-post-gallery-file">
+                                    <div class="thumbnail modal-post-gallery-file-thumbnail">
+                                        <input type="checkbox"
+                                               name="modalPostGalleryImage[]"
+                                               class="modal-post-gallery-file-checkbox js-modal-post-gallery-file-checkbox">
 
+                                        <label class="modal-post-gallery-file-label js-modal-post-gallery-file-label">
+                                            <img src="https://dummyimage.com/600x400/d1d1d1/ffffff"
+                                                 alt="..."
+                                                 class="img-responsive js-modal-post-gallery-file-img"/>
+                                        </label>
+
+                                        <div class="caption">
+                                            <h3>Thumbnail label</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-body-post-gallery-loading js-modal-body-post-gallery-loading">
+                                {# JS to show loading img. #}
+                            </div>
+                        </div>
                     </div>
 
                     <div class="modal-footer">

@@ -1,4 +1,23 @@
 {
+  "name": "blog",
+  "version": "1.0.9",
+  "description": "This is a simple personal blog system building with Symfony 4.",
+  "author": {
+    "name": "Thomas Känzig",
+    "email": "thomas.kanzig@gmail.com",
+    "url": "https://thomaskanzig.com"
+  },
+  "contributors": [
+    {
+      "name": "Thomas Känzig",
+      "email": "thomas.kanzig@gmail.com",
+      "url": "https://thomaskanzig.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thomaskanzig/blog.git"
+  },
   "devDependencies": {
     "@symfony/webpack-encore": "^0.27.0",
     "node-sass": "^4.12.0",
@@ -10,7 +29,8 @@
     "dev-server": "encore dev-server",
     "dev": "encore dev",
     "watch": "encore dev --watch",
-    "build": "encore production"
+    "build": "encore production && yarn update:version",
+    "update:version": "npm version patch --git-tag-version false"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^12.3.1",
@@ -23,9 +43,12 @@
     "holderjs": "^2.9.6",
     "jquery": "3.3.1",
     "jquery.dotdotdot": "^3.2.3",
+    "lodash": "^4.17.12",
     "massive-web": "^2.0.0-rc1",
     "popper.js": "1.14.7",
     "reset-css": "^4.0.1",
+    "serialize-javascript": "^2.1.1",
+    "set-value": "^2.0.1",
     "webpack-notifier": "^1.7.0"
   }
 }
