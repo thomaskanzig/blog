@@ -49,7 +49,7 @@ class MediaPostRelRepository extends ServiceEntityRepository
     }
     */
 
-    public function saveAll(array $medias, int $postId)
+    public function saveAll(int $postId, $medias = [])
     {
         // Delete all relations.
         $this->createQueryBuilder('mpr')

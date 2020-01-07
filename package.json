@@ -1,6 +1,6 @@
 {
   "name": "blog",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "This is a simple personal blog system building with Symfony 4.",
   "author": {
     "name": "Thomas Känzig",
