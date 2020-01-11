@@ -210,7 +210,7 @@ class Post {
 
         $.each(medias, (index, media) => {
             // Added media to input hide.
-            selected.push(media.id);
+            selected.push(String(media.id));
 
             // Added media to html.
             let $file = this.$gallerySelectedFileCopy.clone(true).removeClass(CSS_CLASS.isCopy);

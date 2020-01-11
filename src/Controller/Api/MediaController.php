@@ -16,6 +16,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
+use Liip\ImagineBundle\Service\FilterService;
 
 class MediaController extends AbstractController
 {
@@ -193,17 +194,34 @@ class MediaController extends AbstractController
             20 /* limit per page */
         );
 
+
+        /** @var Media[] $items */
+        $items = $pagination->getItems();
+        foreach ($items as $key => $item) {
+
+            /** @var FilterService $imagine */
+            /*
+            $imagine = $this
+                ->container
+                ->get('liip_imagine.service.filter');
+
+            $resourcePath = $imagine->getUrlOfFilteredImage($item->getFile(), '300x300');
+
+            $item->setFile($resourcePath);
+            */
+            $items[$key] = $item;
+        }
+
         // More about serialize, visit: https://symfony.com/doc/current/components/serializer.html
         /** @var Serializer $serializer */
         $serializer = new Serializer([new ObjectNormalizer()]);
-        $jsonData = $serializer->normalize($pagination->getItems(), 'json');
+        $jsonData = $serializer->normalize($items, 'json');
 
         $response = new JsonResponse();
         $response->setData([
             'success' => $success,
             'message' => $message,
             'files' => $jsonData,
-            // 'files' => [],
             'pagination' => $pagination->getPaginationData()
         ]);
 
