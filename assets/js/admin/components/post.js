@@ -63,8 +63,10 @@ class Post {
 
     /**
      * If change template then other fields should appear in form.
+     *
+     * @param {Object} e
      */
-    onChangeTemplate(e){
+    onChangeTemplate(e) {
         const $selectTemplate = $(e.currentTarget);
 
         // If template is a gallery.
@@ -91,6 +93,9 @@ class Post {
         this.loadlMediaFiles();
     }
 
+    /**
+     * Load media files via API.
+     */
     loadlMediaFiles() {
         // If next page is false, then will not load more files.
         if (!this.galleryModalNextPage) {
@@ -154,6 +159,9 @@ class Post {
 
     /**
      * Updated content selected images from gallery.
+     *
+     * @param {Object} image
+     * @param {Object} selected
      */
     updateModalGallery(image, selected) {
         let $file = this.$galleryMediaFile.clone(true).removeClass(CSS_CLASS.isCopy);
@@ -174,6 +182,8 @@ class Post {
 
     /**
      * Handle change input from gallery modal.
+     *
+     * @param {Object} e
      */
     onChangeGalleryModalInputImages(e) {
         const $checkbox = $(e.currentTarget);
@@ -190,6 +200,11 @@ class Post {
         }
     }
 
+    /**
+     * Insert a new media (ids) in input form.
+     *
+     * @param {Object} medias
+     */
     insertSelectedImagesForm(medias) {
         let selected = this.getSelectedImagesForm();
 
@@ -209,6 +224,11 @@ class Post {
         });
     }
 
+    /**
+     * Get value images (media id) selected in form.
+     *
+     * @return {Object}
+     */
     getSelectedImagesForm() {
         let selected = this.$galleryInputImages.val();
 
@@ -221,6 +241,11 @@ class Post {
         return selected;
     }
 
+    /**
+     * Delete file in input form.
+     *
+     * @param {Object} values
+     */
     deleteSelectedImagesForm(values) {
         let selected = this.getSelectedImagesForm();
 
@@ -235,6 +260,11 @@ class Post {
         });
     }
 
+    /**
+     * Delete file.
+     *
+     * @param {Object} e
+     */
     onClickGallerySelectedFileDelete(e) {
         let $file = $(e.currentTarget).closest('.js-post-gallery-images-selected-file');
         const mediaId = $file.data('media-id');
@@ -242,6 +272,11 @@ class Post {
         this.deleteSelectedImagesForm([mediaId]);
     }
 
+    /**
+     * Load more media files by scrolling in modal gallery.
+     *
+     * @param {Object} e
+     */
     onScrollGalleryModalBody(e) {
         const $element = $(e.currentTarget);
 
