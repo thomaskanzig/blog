@@ -180,7 +180,7 @@ class Post {
 
         if($checkbox.is(':checked')) {
             const medias = {
-                id: $checkbox.val(),
+                id: String($checkbox.val()),
                 file: $checkbox.data('media-file')
             };
 
@@ -195,7 +195,7 @@ class Post {
 
         $.each(medias, (index, media) => {
             // Added media to input hide.
-            selected.push(String(media.id));
+            selected.push(media.id);
 
             // Added media to html.
             let $file = this.$gallerySelectedFileCopy.clone(true).removeClass(CSS_CLASS.isCopy);

@@ -115,6 +115,10 @@ class PostController extends AbstractController
             $em->persist($post);
             $em->flush();
 
+            // Save images.
+            $medias = json_decode($postForm['images']->getData(), true);
+            $em->getRepository(MediaPostRel::class)->saveAll($post->getId(), $medias);
+
             // Set an message after save.
             $this->addFlash('success', 'Post Updated!');
 
