@@ -75,7 +75,7 @@ class MediaPostRelRepository extends ServiceEntityRepository
         }
     }
 
-    public function findAllMedias($postId)
+    public function findAllMediasByPostId($postId)
     {
         return $this->createQueryBuilder('mpr')
             ->innerJoin('mpr.media', 'm')
