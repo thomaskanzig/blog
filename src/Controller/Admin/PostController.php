@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Folder;
 use App\Entity\MediaPostRel;
 use App\Repository\PostRepository;
 use Symfony\Component\Routing\Annotation\Route;
@@ -122,14 +123,24 @@ class PostController extends AbstractController
         }
 
         // Get all images from gallery, if exist.
+        $medias = [];
         if ('gallery' == $post->getTemplate()->getSlug()) {
-            $medias = $em->getRepository(MediaPostRel::class)->findAllMedias($post->getId());
-            dump($medias);
+            /** @var MediaPostRel[] $mediaPostRels */
+            $mediaPostRels = $em->getRepository(MediaPostRel::class)
+                                ->findAllMediasByPostId($post->getId());
+
+            foreach($mediaPostRels as $mediaPostRel) {
+                $medias[] = [
+                    'id' => $mediaPostRel->getMedia()->getId(),
+                    'file' => '/' . $mediaPostRel->getMedia()->getFile()
+                ];
+            }
         }
 
         return $this->render('admin/post/edit.html.twig', [
             'postForm' => $postForm->createView(),
-            'id' => $post->getId()
+            'id' => $post->getId(),
+            'medias' => $medias
         ]);
     }
 

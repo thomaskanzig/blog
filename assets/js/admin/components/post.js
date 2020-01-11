@@ -14,6 +14,7 @@ class Post {
      * @param {Object} $el
      * @param {Object} options
      * @param {String} options.csrfTokenMedia
+     * @param {String} options.medias
      */
     initialize($el, options) {
         this.$el = $($el);
@@ -54,7 +55,11 @@ class Post {
     /**
      * Ready.
      */
-    onReady() { }
+    onReady() {
+        if (this.options.medias) {
+            this.insertSelectedImagesForm(this.options.medias);
+        }
+    }
 
     /**
      * If change template then other fields should appear in form.
@@ -135,20 +140,12 @@ class Post {
                 $.each(data.files, (index, media) => {
                     // Only images.
                     if('image' === media.type.slug) {
-                        let $file = this.$galleryMediaFile.clone(true).removeClass(CSS_CLASS.isCopy);
+                        const image = {
+                            id: media.id,
+                            file: media.file
+                        };
 
-                        $file.find('.js-modal-post-gallery-file-img').attr('src', '/' + media.file);
-                        $file.find('.js-modal-post-gallery-file-checkbox').attr('id', 'gallery-modal-image-' + media.id);
-                        $file.find('.js-modal-post-gallery-file-checkbox').val(media.id);
-                        $file.find('.js-modal-post-gallery-file-checkbox').attr('data-media-file', '/' + media.file);
-
-                        if (-1 < selected.indexOf(String(media.id))) {
-                            $file.find('.js-modal-post-gallery-file-checkbox').prop('checked', true);
-                        }
-
-                        $file.find('.js-modal-post-gallery-file-label').attr('for', 'gallery-modal-image-' + media.id);
-
-                        this.$galleryModalContent.append($file);
+                        this.updateModalGallery(image, selected);
                     }
                 });
             }
@@ -158,8 +155,21 @@ class Post {
     /**
      * Updated content selected images from gallery.
      */
-    updateGallerySelected() {
-        console.log('occurred an click');
+    updateModalGallery(image, selected) {
+        let $file = this.$galleryMediaFile.clone(true).removeClass(CSS_CLASS.isCopy);
+
+        $file.find('.js-modal-post-gallery-file-img').attr('src', '/' + image.file);
+        $file.find('.js-modal-post-gallery-file-checkbox').attr('id', 'gallery-modal-image-' + image.id);
+        $file.find('.js-modal-post-gallery-file-checkbox').val(image.id);
+        $file.find('.js-modal-post-gallery-file-checkbox').attr('data-media-file', '/' + image.file);
+
+        if (-1 < selected.indexOf(String(image.id))) {
+            $file.find('.js-modal-post-gallery-file-checkbox').prop('checked', true);
+        }
+
+        $file.find('.js-modal-post-gallery-file-label').attr('for', 'gallery-modal-image-' + image.id);
+
+        this.$galleryModalContent.append($file);
     }
 
     /**
@@ -169,20 +179,34 @@ class Post {
         const $checkbox = $(e.currentTarget);
 
         if($checkbox.is(':checked')) {
-            let selected = this.getSelectedImagesForm();
+            const medias = {
+                id: $checkbox.val(),
+                file: $checkbox.data('media-file')
+            };
 
-            selected.push($checkbox.val());
+            this.insertSelectedImagesForm([medias]);
+        } else {
+            this.deleteSelectedImagesForm([$checkbox.val()]);
+        }
+    }
+
+    insertSelectedImagesForm(medias) {
+        let selected = this.getSelectedImagesForm();
+
+        $.each(medias, (index, media) => {
+            // Added media to input hide.
+            selected.push(String(media.id));
+
+            // Added media to html.
             let $file = this.$gallerySelectedFileCopy.clone(true).removeClass(CSS_CLASS.isCopy);
-            $file.attr('data-media-id', $checkbox.val());
-            $file.find('.js-post-gallery-images-selected-file-img').attr('src', $checkbox.data('media-file'));
+            $file.attr('data-media-id', media.id);
+            $file.find('.js-post-gallery-images-selected-file-img').attr('src', media.file);
             this.$galleryImagesSelected.append($file);
 
             // Update checkbox in form.
             let selectedJSON = JSON.stringify(selected);
             this.$galleryInputImages.val(selectedJSON);
-        } else {
-            this.deleteSelectedImagesForm([$checkbox.val()]);
-        }
+        });
     }
 
     getSelectedImagesForm() {

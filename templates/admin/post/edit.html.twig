@@ -14,8 +14,15 @@
         </ol>
     </section>
 
+    {% set images = [] %}
+    {% for media in medias %}
+        {% set images = images|merge({
+        }) %}
+    {% endfor %}
+
     {% set postComponent = register_component('post', {
         csrfTokenMedia: csrfTokenMedia,
+        medias: medias
     }) %}
 
     <!-- Main content -->
