@@ -69,8 +69,6 @@ class MediaPostRelRepository extends ServiceEntityRepository
 
             foreach($medias as $mediaId) {
                 $mediaPostRel = new MediaPostRel();
-                //$mediaPostRel->setPostId($postId);
-                //$mediaPostRel->setMediaId($mediaId);
 
                 /* @var Post $post */
                 $post = $em->getRepository(Post::class)
