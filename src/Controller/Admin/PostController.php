@@ -95,7 +95,6 @@ class PostController extends AbstractController
      */
     public function edit(Post $post, EntityManagerInterface $em, Request $request, UploaderHelper $uploaderHelper)
     {
-
         // Create the form based on the FormType we need.
         $postForm = $this->createForm(PostType::class, $post);
 
@@ -121,6 +120,10 @@ class PostController extends AbstractController
             // Redirect to another page.
             return $this->redirectToRoute('admin_post_index');
         }
+
+        // dump($post->getTemplate()->getId());
+        // Get all images from gallery, if exist.
+        // $em->getRepository(MediaPostRel::class)->saveAll($post->getId());
 
         return $this->render('admin/post/edit.html.twig', [
             'postForm' => $postForm->createView(),
