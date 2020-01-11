@@ -1,0 +1,48 @@
+<div class="modal fade js-modal-post-gallery">
+  <div class="modal-dialog modal-lg modal-dialog-post-gallery">
+    <div class="modal-content modal-content-post-gallery">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <h4 class="modal-title">Gallery</h4>
+      </div>
+
+      <div class="modal-body modal-body-post-gallery js-modal-body-post-gallery">
+        <div class="modal-post-gallery-content">
+          <div class="row js-modal-post-gallery-content">
+            <div class="col-sm-6 col-md-4 col-lg-3 modal-post-gallery-file is-copy js-modal-post-gallery-file">
+              <div class="thumbnail modal-post-gallery-file-thumbnail">
+                <input type="checkbox"
+                       name="modalPostGalleryImage[]"
+                       class="modal-post-gallery-file-checkbox js-modal-post-gallery-file-checkbox">
+
+                <label class="modal-post-gallery-file-label js-modal-post-gallery-file-label">
+                  <img src="https://dummyimage.com/600x400/d1d1d1/ffffff"
+                       alt="..."
+                       class="img-responsive js-modal-post-gallery-file-img"/>
+                </label>
+
+                <div class="caption">
+                  <h3>Thumbnail label</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-body-post-gallery-loading js-modal-body-post-gallery-loading">
+            {# JS to show loading img. #}
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger js-modal-close" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
