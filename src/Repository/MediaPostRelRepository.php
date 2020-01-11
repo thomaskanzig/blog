@@ -2,8 +2,10 @@
 
 namespace App\Repository;
 
+use App\Entity\Media;
 use App\Entity\MediaPostRel;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\Expr\Join;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -71,5 +73,17 @@ class MediaPostRelRepository extends ServiceEntityRepository
 
             $em->flush();
         }
+    }
+
+    public function findAllMedias($postId)
+    {
+        return $this->createQueryBuilder('mpr')
+            ->innerJoin('mpr.media', 'm')
+            ->andWhere('mpr.post_id = :post_id')
+            ->setParameter('post_id', $postId)
+            ->addSelect('m')
+            ->getQuery()
+            ->getResult()
+            ;
     }
 }

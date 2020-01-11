@@ -36,6 +36,12 @@ class MediaPostRel
      */
     private $position;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Media")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $media;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +91,18 @@ class MediaPostRel
     public function setPosition(?int $position): self
     {
         $this->position = $position;
+
+        return $this;
+    }
+
+    public function getMedia(): ?Media
+    {
+        return $this->media;
+    }
+
+    public function setMedia(?Media $media): self
+    {
+        $this->media = $media;
 
         return $this;
     }

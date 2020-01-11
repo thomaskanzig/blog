@@ -121,9 +121,11 @@ class PostController extends AbstractController
             return $this->redirectToRoute('admin_post_index');
         }
 
-        // dump($post->getTemplate()->getId());
         // Get all images from gallery, if exist.
-        // $em->getRepository(MediaPostRel::class)->saveAll($post->getId());
+        if ('gallery' == $post->getTemplate()->getSlug()) {
+            $medias = $em->getRepository(MediaPostRel::class)->findAllMedias($post->getId());
+            dump($medias);
+        }
 
         return $this->render('admin/post/edit.html.twig', [
             'postForm' => $postForm->createView(),
