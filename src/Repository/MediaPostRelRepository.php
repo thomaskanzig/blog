@@ -2,10 +2,14 @@
 
 namespace App\Repository;
 
+use App\Entity\Post;
+use App\Entity\Media;
 use App\Entity\MediaPostRel;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\Expr\Join;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @method MediaPostRel|null find($id, $lockMode = null, $lockVersion = null)
@@ -49,21 +53,38 @@ class MediaPostRelRepository extends ServiceEntityRepository
     }
     */
 
-    public function saveAll(int $postId, $medias = [])
+    /**
+     * @param Integer $postId
+     * @param Integer[] $medias
+     */
+    public function saveAll(int $postId, array $medias = null)
     {
         // Delete all relations.
         $this->createQueryBuilder('mpr')
             ->delete()
             ->andWhere('mpr.post_id = :post_id')
-            ->setParameter('post_id', $postId);
+            ->setParameter('post_id', $postId)
+            ->getQuery()
+            ->getResult();
+
 
         if ($medias && 0 < $postId) {
+            /* @var EntityManagerInterface $em */
             $em = $this->getEntityManager();
 
             foreach($medias as $mediaId) {
                 $mediaPostRel = new MediaPostRel();
-                $mediaPostRel->setPostId($postId);
-                $mediaPostRel->setMediaId($mediaId);
+
+                /* @var Post $post */
+                $post = $em->getRepository(Post::class)
+                    ->find($postId);
+                $mediaPostRel->setPost($post);
+
+                /* @var Media $media */
+                $media = $em->getRepository(Media::class)
+                    ->find($mediaId);
+                $mediaPostRel->setMedia($media);
+
                 $mediaPostRel->setCreated(new \DateTime());
 
                 $em->persist($mediaPostRel);
@@ -71,5 +92,20 @@ class MediaPostRelRepository extends ServiceEntityRepository
 
             $em->flush();
         }
+    }
+
+    /**
+     * @param Integer $postId
+     */
+    public function findAllMediasByPostId(int $postId)
+    {
+        return $this->createQueryBuilder('mpr')
+            ->innerJoin('mpr.media', 'm')
+            ->andWhere('mpr.post_id = :post_id')
+            ->setParameter('post_id', $postId)
+            ->addSelect('m')
+            ->getQuery()
+            ->getResult()
+            ;
     }
 }

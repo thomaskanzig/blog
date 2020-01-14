@@ -35,3 +35,7 @@ services:
 
     sensio_framework_extra.view.listener:
         alias: Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener
+
+    Liip\ImagineBundle\Service\FilterService:
+        alias: liip_imagine.service.filter
+

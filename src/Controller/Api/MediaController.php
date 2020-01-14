@@ -16,6 +16,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
+use Liip\ImagineBundle\Service\FilterService;
 
 class MediaController extends AbstractController
 {
@@ -166,12 +167,13 @@ class MediaController extends AbstractController
      * @Route("/api/media/list", name="api_media_list", methods={"GET"})
      *
      * @param Request $request
+     * @param FilterService $filterService
      *
      * @return JsonResponse
      *
      * @throws InvalidCsrfTokenException if the provided argument token is invalid.
      */
-    public function listAction(Request $request): JsonResponse
+    public function listAction(Request $request, FilterService $filterService): JsonResponse
     {
         $message = 'List successfully';
         $success = true;
@@ -193,17 +195,25 @@ class MediaController extends AbstractController
             20 /* limit per page */
         );
 
+        /** @var Media[] $items */
+        $items = $pagination->getItems();
+        foreach ($items as $key => $item) {
+            $resourcePath = $filterService->getUrlOfFilteredImage($item->getFile(), '350x350');
+
+            $item->setFile($resourcePath);
+            $items[$key] = $item;
+        }
+
         // More about serialize, visit: https://symfony.com/doc/current/components/serializer.html
         /** @var Serializer $serializer */
         $serializer = new Serializer([new ObjectNormalizer()]);
-        $jsonData = $serializer->normalize($pagination->getItems(), 'json');
+        $jsonData = $serializer->normalize($items, 'json');
 
         $response = new JsonResponse();
         $response->setData([
             'success' => $success,
             'message' => $message,
             'files' => $jsonData,
-            // 'files' => [],
             'pagination' => $pagination->getPaginationData()
         ]);
 

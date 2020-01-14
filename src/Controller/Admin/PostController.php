@@ -4,6 +4,9 @@ namespace App\Controller\Admin;
 
 use App\Entity\MediaPostRel;
 use App\Repository\PostRepository;
+use Liip\ImagineBundle\Service\FilterService;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Knp\Component\Pager\PaginatorInterface;
@@ -19,6 +22,12 @@ class PostController extends AbstractController
 
     /**
      * @Route("/admin/posts", name="admin_post_index")
+     *
+     * @param PostRepository $repository
+     * @param Request $request
+     * @param PaginatorInterface $paginator
+     *
+     * @return Response
      */
     public function index(PostRepository $repository, Request $request, PaginatorInterface $paginator)
     {
@@ -38,6 +47,12 @@ class PostController extends AbstractController
 
     /**
      * @Route("/admin/post/add", name="admin_post_add")
+     *
+     * @param EntityManagerInterface $em
+     * @param Request $request
+     * @param UploaderHelper $uploaderHelper
+     *
+     * @return Response
      */
     public function add(EntityManagerInterface $em, Request $request, UploaderHelper $uploaderHelper)
     {
@@ -92,10 +107,22 @@ class PostController extends AbstractController
 
     /**
      * @Route("/admin/post/{id}/edit", name="admin_post_edit")
+     *
+     * @param Post $post
+     * @param EntityManagerInterface $em
+     * @param Request $request
+     * @param UploaderHelper $uploaderHelper
+     * @param FilterService $filterService
+     *
+     * @return Response
      */
-    public function edit(Post $post, EntityManagerInterface $em, Request $request, UploaderHelper $uploaderHelper)
-    {
-
+    public function edit(
+        Post $post,
+        EntityManagerInterface $em,
+        Request $request,
+        UploaderHelper $uploaderHelper,
+        FilterService $filterService
+    ) {
         // Create the form based on the FormType we need.
         $postForm = $this->createForm(PostType::class, $post);
 
@@ -115,6 +142,10 @@ class PostController extends AbstractController
             $em->persist($post);
             $em->flush();
 
+            // Save images.
+            $medias = json_decode($postForm['images']->getData(), true);
+            $em->getRepository(MediaPostRel::class)->saveAll($post->getId(), $medias);
+
             // Set an message after save.
             $this->addFlash('success', 'Post Updated!');
 
@@ -122,14 +153,37 @@ class PostController extends AbstractController
             return $this->redirectToRoute('admin_post_index');
         }
 
+        // Get all images from gallery, if exist.
+        $medias = [];
+        if ('gallery' == $post->getTemplate()->getSlug()) {
+            /** @var MediaPostRel[] $mediaPostRels */
+            $mediaPostRels = $em->getRepository(MediaPostRel::class)
+                                ->findAllMediasByPostId($post->getId());
+
+            foreach($mediaPostRels as $mediaPostRel) {
+                $resourcePath = $filterService->getUrlOfFilteredImage($mediaPostRel->getMedia()->getFile(), '350x350');
+
+                $medias[] = [
+                    'id' => $mediaPostRel->getMedia()->getId(),
+                    'file' => $resourcePath
+                ];
+            }
+        }
+
         return $this->render('admin/post/edit.html.twig', [
             'postForm' => $postForm->createView(),
-            'id' => $post->getId()
+            'id' => $post->getId(),
+            'medias' => $medias
         ]);
     }
 
     /**
      * @Route("/admin/post/{id}/delete", name="admin_post_delete")
+     *
+     * @param Post $post
+     * @param EntityManagerInterface $em
+     *
+     * @return RedirectResponse
      */
     public function delete(Post $post, EntityManagerInterface $em)
     {
