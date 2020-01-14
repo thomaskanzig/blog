@@ -2,7 +2,9 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
-- FEATURE: Added images by add/edit post for `gallery template` in admin.
+
+## [1.0.2] - 2020-01-14
+- FEATURE: Added images by add/edit post for `gallery template` in admin. [#10](https://github.com/thomaskanzig/blog/pull/10)
     - Load and selected images in `post/add.html.twig` page. [#3](https://github.com/thomaskanzig/blog/pull/3)
     - Load and selected images in `post/edit.html.twig` page. [#11](https://github.com/thomaskanzig/blog/pull/11)
 
