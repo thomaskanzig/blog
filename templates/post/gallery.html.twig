@@ -42,9 +42,13 @@
                     <div class="row">
                         {% for mediaPost in post.mediaPostRel %}
                             <div class="col-3">
-                                <img src="{{ asset(mediaPost.media.file)|imagine_filter('300x300') }}"
-                                     alt=""
-                                     class="img-fluid gallery-detail-preview-img">
+                                <a href="{{ asset(mediaPost.media.file) }}"
+                                   data-lightbox="gallery-post"
+                                   data-title="{{ post.title }}">
+                                    <img src="{{ asset(mediaPost.media.file)|imagine_filter('300x300') }}"
+                                         alt=""
+                                         class="img-fluid gallery-detail-preview-img">
+                                </a>
                             </div>
                         {% endfor %}
                     </div>
