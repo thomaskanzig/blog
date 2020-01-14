@@ -89,9 +89,15 @@ class Post
      */
     private $template;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\MediaPostRel", mappedBy="post")
+     */
+    private $mediaPostRel;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+        $this->mediaPostRel = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -265,6 +271,37 @@ class Post
     public function setTemplate(?Template $template): self
     {
         $this->template = $template;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|MediaPostRel[]
+     */
+    public function getMediaPostRel(): Collection
+    {
+        return $this->mediaPostRel;
+    }
+
+    public function addMediaPostRel(MediaPostRel $mediaPostRel): self
+    {
+        if (!$this->mediaPostRel->contains($mediaPostRel)) {
+            $this->mediaPostRel[] = $mediaPostRel;
+            $mediaPostRel->setPost($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMediaPostRel(MediaPostRel $mediaPostRel): self
+    {
+        if ($this->mediaPostRel->contains($mediaPostRel)) {
+            $this->mediaPostRel->removeElement($mediaPostRel);
+            // set the owning side to null (unless already changed)
+            if ($mediaPostRel->getPost() === $this) {
+                $mediaPostRel->setPost(null);
+            }
+        }
 
         return $this;
     }

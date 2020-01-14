@@ -4,16 +4,56 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-12 mx-auto">
-                <article class="blog-detail">
+                <article class="gallery-detail">
                     <header>
+                        {% if post.title is not empty %}
+                            <h1 class="gallery-detail-title">{{ post.title }}</h1>
+                        {% endif %}
+                        <div class="media author mb-4">
+                            {% if post.user.urlAvatar is not empty %}
+                                <img src="{{ asset(post.user.urlAvatar)|imagine_filter('50x50') }}"
+                                     class="mr-3 author-photo rounded-circle"
+                                     alt="{{ post.user.fullname }}">
+                            {% endif %}
 
+                            <div class="media-body">
+                                <h5 class="mt-2 mb-1 author-fullname">{{ post.user.fullname }}</h5>
+                                {% if post.created is not empty %}
+                                    <div class="author-date-post">Published in {{ post.published|date("Y/m/d") }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
                     </header>
 
                     <div class="text">
-                        Content of gallery.
+                        {% if post.text is not empty %}
+                            {{ post.text|raw }}
+                        {% endif %}
                     </div>
                 </article>
             </div>
         </div>
     </div>
+
+    {% if 0 < post.mediaPostRel.count %}
+        <div class="container-fluid">
+            <div class="row gallery-detail-preview">
+                <div class="col-lg-10 mx-auto">
+                    <div class="row">
+                        {% for mediaPost in post.mediaPostRel %}
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
+                                <a href="{{ asset(mediaPost.media.file)|imagine_filter('gallery_post_full') }}"
+                                   data-lightbox="gallery-post"
+                                   data-title="{{ post.title }}">
+                                    <img src="{{ asset(mediaPost.media.file)|imagine_filter('gallery_post_thumbnail') }}"
+                                         alt=""
+                                         class="img-fluid gallery-detail-preview-img">
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}

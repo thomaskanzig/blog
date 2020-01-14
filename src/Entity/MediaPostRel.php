@@ -43,7 +43,7 @@ class MediaPostRel
     private $media;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Post")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Post", inversedBy="mediaPostRel")
      * @ORM\JoinColumn(nullable=true)
      */
     private $post;
