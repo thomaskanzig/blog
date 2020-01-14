@@ -5,3 +5,85 @@
         display: block;
     }
 }
+
+// Gallery images selected.
+.post-gallery-images-selected {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    max-height: 400px;
+    overflow: auto;
+}
+
+.post-gallery-images-selected-file {
+    display: inline-block;
+
+    &.is-copy {
+        display: none;
+    }
+}
+
+// Modal gallery.
+.modal-dialog-post-gallery {
+    max-width: 1440px;
+    width: unset;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    @include screenSmMax {
+        padding: 0;
+    }
+}
+
+.modal-content-post-gallery {
+    height: calc(100vh - 60px);
+
+    @include screenSmMax {
+        height: calc(100vh - 20px);
+    }
+}
+
+.modal-body-post-gallery {
+    height: calc(100% - 120px);
+    overflow-y: auto;
+}
+
+.modal-body-post-gallery-loading {
+    height: 0;
+    overflow: hidden;
+    text-align: center;
+    transition: height 0.5s ease-in;
+
+    &.is-visible {
+        height: auto;
+    }
+
+    img {
+        height: 60px;
+    }
+}
+
+.modal-post-gallery-file {
+    display: inline-block;
+
+    &.is-copy {
+        display: none;
+    }
+}
+
+.modal-post-gallery-file-thumbnail {
+    position: relative;
+}
+
+.modal-post-gallery-file-checkbox {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    cursor: pointer;
+    margin: 0 !important;
+    font-size: 30px;
+}
+
+.modal-post-gallery-file-label {
+    cursor: pointer;
+    margin-bottom: 0;
+}

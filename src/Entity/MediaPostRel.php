@@ -17,12 +17,12 @@ class MediaPostRel
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $post_id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $media_id;
 
@@ -35,6 +35,18 @@ class MediaPostRel
      * @ORM\Column(type="integer", nullable=true)
      */
     private $position;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Media")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $media;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Post")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $post;
 
     public function getId(): ?int
     {
@@ -85,6 +97,30 @@ class MediaPostRel
     public function setPosition(?int $position): self
     {
         $this->position = $position;
+
+        return $this;
+    }
+
+    public function getMedia(): ?Media
+    {
+        return $this->media;
+    }
+
+    public function setMedia(?Media $media): self
+    {
+        $this->media = $media;
+
+        return $this;
+    }
+
+    public function getPost(): ?Post
+    {
+        return $this->post;
+    }
+
+    public function setPost(?Post $post): self
+    {
+        $this->post = $post;
 
         return $this;
     }

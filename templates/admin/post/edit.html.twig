@@ -1,6 +1,8 @@
 {% extends 'admin.html.twig' %}
 
 {% block body %}
+    {% set csrfTokenMedia = csrf_token('media') %}
+
     <section class="content-header">
         <h1>
             Edit post
@@ -12,8 +14,19 @@
         </ol>
     </section>
 
+    {% set images = [] %}
+    {% for media in medias %}
+        {% set images = images|merge({
+        }) %}
+    {% endfor %}
+
+    {% set postComponent = register_component('post', {
+        csrfTokenMedia: csrfTokenMedia,
+        medias: medias
+    }) %}
+
     <!-- Main content -->
-    <section class="content">
+    <section id="{{ postComponent }}" class="content">
         <div class="row">
             <div class="col-md-9">
                 {{ form_start(postForm) }}
@@ -38,6 +51,40 @@
 
                         <div class="box-body">
                             <div class="row">
+                                {# By Gallery, will appear gallery selected. #}
+                                {% if 'gallery' == postForm.vars.data.template.slug %}
+                                    <div class="col-md-12 post-gallery-content js-post-gallery-content is-show">
+                                        <button type="button"
+                                                class="btn btn-primary js-post-gallery-add"
+                                                data-toggle="modal"
+                                                data-target=".js-modal-post-gallery">
+                                            <i class="fa fa-picture-o"></i> Add media to gallery
+                                        </button>
+
+                                        <div class="row post-gallery-images-selected js-post-gallery-images-selected">
+                                            <div class="col-sm-6 col-md-3 post-gallery-images-selected-file is-copy js-post-gallery-images-selected-file"
+                                                 data-media-id="">
+                                                <div class="thumbnail">
+                                                    <img src="https://dummyimage.com/600x400/d1d1d1/ffffff"
+                                                         alt="..."
+                                                         class="img-responsive js-post-gallery-images-selected-file-img"/>
+
+                                                    <div class="caption">
+                                                        <p>
+                                                            <button type="button"
+                                                                    class="btn btn-danger btn-xs js-post-gallery-images-selected-file-delete">
+                                                                <i class="fa fa-trash"></i> Delete
+                                                            </button>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {{ form_row(postForm.images, {'attr': {'class': 'js-input-gallery-images'}}) }}
+                                    </div>
+                                {% endif %}
+
                                 <div class="col-md-12">
                                     {{ form_row(postForm.active) }}
                                 </div>
@@ -97,6 +144,8 @@
             </div>
         </div>
         <!-- /.row -->
+
+        {% include 'includes/admin/modal-post-gallery.html.twig' %}
     </section>
     <!-- /.content -->
 {% endblock %}

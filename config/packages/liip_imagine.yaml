@@ -28,6 +28,12 @@ liip_imagine:
                     size:          [300, 300]
                     mode:          outbound
                     allow_upscale: true
+        350x350:
+            filters:
+                thumbnail:
+                    size:          [350, 350]
+                    mode:          outbound
+                    allow_upscale: true
         600x375:
             filters:
                 thumbnail:
