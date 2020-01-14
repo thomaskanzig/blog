@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Folder;
 use App\Entity\MediaPostRel;
 use App\Repository\PostRepository;
+use Liip\ImagineBundle\Service\FilterService;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Knp\Component\Pager\PaginatorInterface;
@@ -94,7 +95,7 @@ class PostController extends AbstractController
     /**
      * @Route("/admin/post/{id}/edit", name="admin_post_edit")
      */
-    public function edit(Post $post, EntityManagerInterface $em, Request $request, UploaderHelper $uploaderHelper)
+    public function edit(Post $post, EntityManagerInterface $em, Request $request, UploaderHelper $uploaderHelper, FilterService $filterService)
     {
         // Create the form based on the FormType we need.
         $postForm = $this->createForm(PostType::class, $post);
@@ -134,9 +135,11 @@ class PostController extends AbstractController
                                 ->findAllMediasByPostId($post->getId());
 
             foreach($mediaPostRels as $mediaPostRel) {
+                $resourcePath = $filterService->getUrlOfFilteredImage($mediaPostRel->getMedia()->getFile(), '300x300');
+
                 $medias[] = [
                     'id' => $mediaPostRel->getMedia()->getId(),
-                    'file' => '/' . $mediaPostRel->getMedia()->getFile()
+                    'file' => $resourcePath
                 ];
             }
         }

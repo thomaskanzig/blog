@@ -172,7 +172,7 @@ class MediaController extends AbstractController
      *
      * @throws InvalidCsrfTokenException if the provided argument token is invalid.
      */
-    public function listAction(Request $request): JsonResponse
+    public function listAction(Request $request, FilterService $filterService): JsonResponse
     {
         $message = 'List successfully';
         $success = true;
@@ -194,21 +194,12 @@ class MediaController extends AbstractController
             20 /* limit per page */
         );
 
-
         /** @var Media[] $items */
         $items = $pagination->getItems();
         foreach ($items as $key => $item) {
-
-            /** @var FilterService $imagine */
-            /*
-            $imagine = $this
-                ->container
-                ->get('liip_imagine.service.filter');
-
-            $resourcePath = $imagine->getUrlOfFilteredImage($item->getFile(), '300x300');
+            $resourcePath = $filterService->getUrlOfFilteredImage($item->getFile(), '300x300');
 
             $item->setFile($resourcePath);
-            */
             $items[$key] = $item;
         }
 

@@ -166,10 +166,10 @@ class Post {
     updateModalGallery(image, selected) {
         let $file = this.$galleryMediaFile.clone(true).removeClass(CSS_CLASS.isCopy);
 
-        $file.find('.js-modal-post-gallery-file-img').attr('src', '/' + image.file);
+        $file.find('.js-modal-post-gallery-file-img').attr('src', image.file);
         $file.find('.js-modal-post-gallery-file-checkbox').attr('id', 'gallery-modal-image-' + image.id);
         $file.find('.js-modal-post-gallery-file-checkbox').val(image.id);
-        $file.find('.js-modal-post-gallery-file-checkbox').attr('data-media-file', '/' + image.file);
+        $file.find('.js-modal-post-gallery-file-checkbox').attr('data-media-file', image.file);
 
         if (-1 < selected.indexOf(String(image.id))) {
             $file.find('.js-modal-post-gallery-file-checkbox').prop('checked', true);
@@ -201,7 +201,7 @@ class Post {
     }
 
     /**
-     * Insert a new media (ids) in input form.
+     * Show selected medias from actually post and insert a new media (ids) in input form.
      *
      * @param {Object} medias
      */
