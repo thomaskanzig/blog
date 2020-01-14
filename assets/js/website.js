@@ -11,6 +11,7 @@ require('../css/website.scss');
 import 'popper.js';
 import 'bootstrap';
 import 'holderjs';
+import 'lightbox2';
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 const $ = require('jquery');

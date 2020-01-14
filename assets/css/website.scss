@@ -1,6 +1,7 @@
 // Import the libraries.
 @import "~bootstrap/scss/bootstrap";
 @import "~font-awesome/scss/font-awesome";
+@import "~lightbox2/dist/css/lightbox.css";
 
 // Import own css.
 @import 'base/variables';
@@ -11,8 +12,8 @@
 @import 'website/components/navbar';
 @import 'website/components/footer';
 @import 'website/components/masthead';
+@import 'website/components/blog-index';
+@import 'website/components/blog-detail';
+@import 'website/components/gallery-detail';
 
 @import 'website/pages/contact';
-
-@import 'website/blog/blog-index';
-@import 'website/blog/blog-detail';
