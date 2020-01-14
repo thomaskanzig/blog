@@ -40,6 +40,13 @@ liip_imagine:
                     size:          [480, 480]
                     mode:          outbound
                     allow_upscale: true
+        gallery_post_thumbnail:
+            quality:                60
+            filters:
+                thumbnail:
+                    size:          [480, 480]
+                    mode:          outbound
+                    allow_upscale: true
         600x375:
             filters:
                 thumbnail:
@@ -52,3 +59,13 @@ liip_imagine:
                     size:          [1000, 600]
                     mode:          outbound
                     allow_upscale: true
+
+        # With Downscale filter performs sizing transformations (specifically image down-scaling).
+        # Define max. width and height.
+        # See this link for more information:
+        # https://symfony.com/doc/2.0/bundles/LiipImagineBundle/filters/sizing.html#down-scale
+        gallery_post_full:
+            filters:
+                downscale:
+                    max: [1440, 800]
+
