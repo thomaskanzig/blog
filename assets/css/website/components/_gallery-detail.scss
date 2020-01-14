@@ -1,0 +1,50 @@
+.gallery-detail {
+    .gallery-detail-title {
+        margin-bottom: 40px;
+
+        @include media-breakpoint-down(sm) {
+            font-size: 28px;
+        }
+    }
+
+    .text {
+        p {
+            font-size: 20px;
+            font-weight: 300;
+            line-height: 1.6;
+            color: $colorGreyDark;
+
+            @include media-breakpoint-down(sm) {
+                font-size: 16px;
+            }
+        }
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    .author {
+        font-size: initial;
+        font-weight: initial;
+    }
+
+    .author-fullname {
+        font-size: 14px;
+        color: $colorGreyDark;
+    }
+
+    .author-date-post {
+        font-size: 14px;
+        font-weight: 200;
+    }
+
+    .author-photo {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.gallery-detail-preview-img {
+    border-radius: 8px;
+}
