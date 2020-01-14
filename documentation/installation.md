@@ -89,7 +89,6 @@ INSTAGRAM_URL='https://www.instagram.com'
 GITHUB_URL='https://github.com'
 LINKEDIN_URL='https://www.linkedin.com'
 BASE_URL='http://localhost:8000'
-APP_VERSION='0.1.0'
 
 ```
 Obs:  
