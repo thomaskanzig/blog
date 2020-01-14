@@ -167,6 +167,7 @@ class MediaController extends AbstractController
      * @Route("/api/media/list", name="api_media_list", methods={"GET"})
      *
      * @param Request $request
+     * @param FilterService $filterService
      *
      * @return JsonResponse
      *
@@ -197,7 +198,7 @@ class MediaController extends AbstractController
         /** @var Media[] $items */
         $items = $pagination->getItems();
         foreach ($items as $key => $item) {
-            $resourcePath = $filterService->getUrlOfFilteredImage($item->getFile(), '300x300');
+            $resourcePath = $filterService->getUrlOfFilteredImage($item->getFile(), '350x350');
 
             $item->setFile($resourcePath);
             $items[$key] = $item;
