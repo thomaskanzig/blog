@@ -1,7 +1,5 @@
 <?php
 
-use Liip\ImagineBundle\LiipImagineBundle;
-
 return [
     Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
     Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle::class => ['all' => true],
