@@ -51,10 +51,7 @@
 
 .gallery-detail-preview-img {
     border-radius: 8px;
-
-    @include media-breakpoint-down(sm) {
-        margin-bottom: 30px;
-    }
+    margin-bottom: 30px;
 
     @include media-breakpoint-down(xs) {
         margin-bottom: 20px;
