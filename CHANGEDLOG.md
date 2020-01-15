@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
         
 ## [0.1.2] - 2020-01-14
+- BUGFIX: Update installation annotation again and fix margin bottom in gallery post. [#17](https://github.com/thomaskanzig/blog/pull/17)
 - BUGFIX: Update installation annotation. [#16](https://github.com/thomaskanzig/blog/pull/16)
 - FEATURE: Added `gallery` type template in post. [#13](https://github.com/thomaskanzig/blog/pull/13)
     - Added new configurations in `liip imagine bundle`. [#15](https://github.com/thomaskanzig/blog/pull/15)  
