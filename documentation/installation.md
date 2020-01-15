@@ -131,8 +131,12 @@ php bin/console doctrine:migrations:migrate
 
 #### Execute sql script for database
 ```sql
-INSERT INTO `template` (`name`, `created`, `view`) VALUES ('Blog', '0000-00-00 00:00:00', 'post/blog.html.twig');
-INSERT INTO `template` (`name`, `created`, `view`) VALUES ('Gallery', '0000-00-00 00:00:00', 'post/gallery.html.twig');
+INSERT INTO `template` (`name`, `created`, `view`) VALUES ('Blog', NOW(), 'post/blog.html.twig');
+INSERT INTO `template` (`name`, `created`, `view`) VALUES ('Gallery', NOW(), 'post/gallery.html.twig');
+INSERT INTO `media_type` (`name`, `created`, `slug`) VALUES ('Image', NOW(), 'image');
+INSERT INTO `media_type` (`name`, `created`, `slug`) VALUES ('Video', NOW(), 'video');
+INSERT INTO `media_type` (`name`, `created`, `slug`) VALUES ('PDF', NOW(), 'pdf');
+
 ```
 #### Create your first user
 Access your system with `{domain}/register` and create your first admin user.
