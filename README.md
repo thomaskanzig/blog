@@ -13,11 +13,7 @@ This is a simple personal blog system building with [Symfony](https://symfony.co
 
 *Full responsive.*
 
-## 3 Short description
-
-*Basic website.*
-
-## 4 Documentation
+## 3 Documentation
 
 - [Installation](documentation/installation.md)
 - [Development](documentation/development.md)
