@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+## [0.1.3] - 2020-01-16
+- FEATURE: Added new method repository for find media with type paremeter and fix media api request. [#18](https://github.com/thomaskanzig/blog/pull/18)
         
 ## [0.1.2] - 2020-01-14
 - BUGFIX: Fix margin bottom in gallery post and change sql script by installation annotation. [#17](https://github.com/thomaskanzig/blog/pull/17)
