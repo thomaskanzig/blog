@@ -1,4 +1,8 @@
-# Simple Blog 
+# Blog 
+This is a simple personal blog system building with [Symfony](https://symfony.com/).
+
+#### Demo
+[https://thomaskanzig.com](https://thomaskanzig.com/)
 
 ## 1 Browser Support
 
