@@ -23,13 +23,13 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <img src="{{ asset(app.user.urlAvatar|default('images/avatar.png'))|imagine_filter('20x20') }}"
                  class="user-image"
-                 alt="User Image">
+                 alt="">
             <span class="hidden-xs">{{ app.user.username }}</span>
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->
             <li class="user-header">
-              <img src="{{ asset(app.user.urlAvatar|default('images/avatar.png'))|imagine_filter('20x20') }}"
+              <img src="{{ asset(app.user.urlAvatar|default('images/avatar.png'))|imagine_filter('100x100') }}"
                    class="img-circle"
                    alt="User Image">
               <p>
