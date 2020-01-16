@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Media;
+use App\Entity\MediaType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -25,7 +26,7 @@ class MediaRepository extends ServiceEntityRepository
      * @param integer $folderId
      * @return Media[] Returns an array of Media objects
      */
-    public function findByFolderId(int $folderId = null)
+    public function findByFolderId(int $folderId = null): ?array
     {
         $queryBuilder = $this->createQueryBuilder('m');
 
@@ -40,6 +41,29 @@ class MediaRepository extends ServiceEntityRepository
             ->orderBy('m.id', 'DESC')
             ->getQuery()
             ->getResult();
+    }
+
+    /**
+     * Return all active media from a certain type.
+     *
+     * @param String $type
+     * @return Media[] Returns an array of Media objects
+     */
+    public function findAllByType(String $type = null): ?array
+    {
+        if ($type) {
+            return $this->createQueryBuilder('m')
+                ->innerJoin('m.type', 't')
+                ->addSelect('t')
+                ->andWhere('t.slug = :type')
+                ->setParameter('type', $type)
+                ->orderBy('m.id', 'DESC')
+                ->getQuery()
+                ->getResult()
+            ;
+        }
+
+        return $this->findBy([], ['id' => 'DESC']);
     }
 
     /*

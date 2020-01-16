@@ -95,8 +95,10 @@ This document contains all API definitions and their routes.
     `GET`
   
 * **URL Params**
-
-    None
+    
+    `type=[string]`
+    
+    `token=[string]`
 
 * **Data Params**
 
