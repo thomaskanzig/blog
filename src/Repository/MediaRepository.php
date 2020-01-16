@@ -51,10 +51,8 @@ class MediaRepository extends ServiceEntityRepository
      */
     public function findAllByType(String $type = null): ?array
     {
-        $queryBuilder = $this->createQueryBuilder('m');
-
         if ($type) {
-            return $queryBuilder
+            return $this->createQueryBuilder('m')
                 ->innerJoin('m.type', 't')
                 ->addSelect('t')
                 ->andWhere('t.slug = :type')
