@@ -2,9 +2,9 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
-- FEATURE: Insert correct link register user in login page admin and correct links in breadcrumbs. [#19](https://github.com/thomaskanzig/blog/pull/19)
 
 ## [0.1.3] - 2020-01-16
+- FEATURE: Insert correct link register user in login page admin and correct links in breadcrumbs. [#19](https://github.com/thomaskanzig/blog/pull/19)
 - FEATURE: Added new method repository for find media with type paremeter and fix media api request. [#18](https://github.com/thomaskanzig/blog/pull/18)
         
 ## [0.1.2] - 2020-01-14
