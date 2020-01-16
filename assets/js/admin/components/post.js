@@ -110,6 +110,7 @@ class Post {
         }
 
         let objData = {
+            'type': 'image',
             'page': this.galleryModalNextPage,
             'token': this.options.csrfTokenMedia
         };
@@ -143,15 +144,12 @@ class Post {
                 }
 
                 $.each(data.files, (index, media) => {
-                    // Only images.
-                    if('image' === media.type.slug) {
-                        const image = {
-                            id: media.id,
-                            file: media.file
-                        };
+                    const image = {
+                        id: media.id,
+                        file: media.file
+                    };
 
-                        this.updateModalGallery(image, selected);
-                    }
+                    this.updateModalGallery(image, selected);
                 });
             }
         });

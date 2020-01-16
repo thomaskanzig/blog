@@ -186,7 +186,7 @@ class MediaController extends AbstractController
         /** @var Media[] $queryBuilder */
         $queryBuilder = $this->entityManager
             ->getRepository(Media::class)
-            ->findAll();
+            ->findAllByType($request->query->get('type'));
 
         /** @var PaginatorInterface $pagination */
         $pagination = $this->paginator->paginate(
@@ -197,6 +197,7 @@ class MediaController extends AbstractController
 
         /** @var Media[] $items */
         $items = $pagination->getItems();
+
         foreach ($items as $key => $item) {
             $resourcePath = $filterService->getUrlOfFilteredImage($item->getFile(), '350x350');
 
