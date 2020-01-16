@@ -21,3 +21,6 @@ This is a simple personal blog system building with [Symfony](https://symfony.co
 - [Database](documentation/database.md)
 - [RESTful API](documentation/rest.md)
 - [Commands](documentation/commands.md)
+
+## 4 Notes
+This repository is a new version and all others commits you can find by our old repository [here](https://github.com/5i1/symfony-study-blog).
