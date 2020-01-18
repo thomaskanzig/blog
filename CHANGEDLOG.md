@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+- FEATURE: Added settings section.
 
 ## [0.1.3] - 2020-01-16
 - FEATURE: Insert correct link register user in login page admin and correct links in breadcrumbs. [#19](https://github.com/thomaskanzig/blog/pull/19)
