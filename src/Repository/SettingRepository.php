@@ -23,7 +23,7 @@ class SettingRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('s')
             ->orderBy('s.id', 'DESC')
-            // ->setMaxResults(1)
+            ->setMaxResults(1)
             ->getQuery()
             ->getOneOrNullResult()
         ;
