@@ -3,7 +3,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 - FEATURE: Added settings section. [#21](https://github.com/thomaskanzig/blog/pull/21)
-    - Added features `setting` in admin . [#23](https://github.com/thomaskanzig/blog/pull/23)
+    - Added values `setting` in website. [#24](https://github.com/thomaskanzig/blog/pull/24)
+    - Added features `setting` in admin. [#23](https://github.com/thomaskanzig/blog/pull/23)
     - Added entity `setting`. [#22](https://github.com/thomaskanzig/blog/pull/22)
 
 ## [0.1.3] - 2020-01-16
