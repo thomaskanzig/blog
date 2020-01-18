@@ -136,6 +136,7 @@ INSERT INTO `template` (`name`, `created`, `view`, `slug`) VALUES ('Gallery', NO
 INSERT INTO `media_type` (`name`, `created`, `slug`) VALUES ('Image', NOW(), 'image');
 INSERT INTO `media_type` (`name`, `created`, `slug`) VALUES ('Video', NOW(), 'video');
 INSERT INTO `media_type` (`name`, `created`, `slug`) VALUES ('PDF', NOW(), 'pdf');
+INSERT INTO `setting` (`updated`) VALUES (NOW());
 
 ```
 #### Create your first user

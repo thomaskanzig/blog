@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Category;
+use App\Entity\Setting;
 use App\Entity\User;
 use App\Entity\Post;
 use App\Entity\Template;
@@ -35,6 +36,7 @@ class AppFixtures extends Fixture
         $this->loadTemplates($manager);
         $this->loadMediaTypes($manager);
         $this->loadPosts($manager);
+        $this->loadSetting($manager);
 
     }
 
@@ -212,6 +214,20 @@ class AppFixtures extends Fixture
             $mediaType->setCreated(new \DateTime());
             $manager->persist($mediaType);
         }
+
+        $manager->flush();
+    }
+
+    /**
+     * Create one row of setting.
+     *
+     * @param ObjectManager $manager
+     */
+    private function loadSetting(ObjectManager $manager)
+    {
+        $setting = new Setting();
+        $setting->setUpdated(new \DateTime());
+        $manager->persist($setting);
 
         $manager->flush();
     }
