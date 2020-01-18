@@ -96,7 +96,7 @@ class CategoryController extends AbstractController
             return $this->redirectToRoute('admin_category_index');
         }
 
-        return $this->render('admin/category/edit.html.twig', [
+        return $this->render('admin/category/index.html.twig', [
             'categoryForm' => $categoryForm->createView(),
             'id' => $category->getId()
         ]);

@@ -170,7 +170,7 @@ class PostController extends AbstractController
             }
         }
 
-        return $this->render('admin/post/edit.html.twig', [
+        return $this->render('admin/post/index.html.twig', [
             'postForm' => $postForm->createView(),
             'id' => $post->getId(),
             'medias' => $medias

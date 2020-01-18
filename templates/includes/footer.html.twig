@@ -8,9 +8,9 @@
       <div class="col-lg-8 col-md-10 mx-auto">
         <ul class="list-inline text-center">
 
-          {% if instagram_url is not empty %}
+          {% if setting().urlInstagram is not empty %}
             <li class="list-inline-item">
-              <a href="{{ instagram_url }}" target="_blank">
+              <a href="{{ setting().urlInstagram}}" target="_blank">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
@@ -19,9 +19,9 @@
             </li>
           {% endif %}
 
-          {% if facebook_url is not empty %}
+          {% if setting().urlFacebook is not empty %}
             <li class="list-inline-item">
-              <a href="{{ facebook_url }}" target="_blank">
+              <a href="{{ setting().urlFacebook }}" target="_blank">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-facebook-f fa-stack-1x fa-inverse"></i>
@@ -30,9 +30,9 @@
             </li>
           {% endif %}
 
-          {% if linkedin_url is not empty %}
+          {% if setting().urlLinkedin is not empty %}
             <li class="list-inline-item">
-              <a href="{{ linkedin_url }}" target="_blank">
+              <a href="{{ setting().urlLinkedin }}" target="_blank">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
@@ -41,9 +41,9 @@
             </li>
           {% endif %}
 
-          {% if github_url is not empty %}
+          {% if setting().urlGithub is not empty %}
             <li class="list-inline-item">
-              <a href="{{ github_url }}" target="_blank">
+              <a href="{{ setting().urlGithub }}" target="_blank">
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-github fa-stack-1x fa-inverse"></i>

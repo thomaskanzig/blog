@@ -103,3 +103,16 @@
         <meta property="{{ property }}" content="{{ value }}"/>
     {% endfor %}
 {% endblock %}
+
+{# Google gtag #}
+{% if setting().googleGtagId is not empty %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ setting().googleGtagId }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '{{ setting().googleGtagId }}');
+    </script>
+{%- endif -%}
