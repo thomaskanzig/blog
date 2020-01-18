@@ -23,11 +23,27 @@
 
                     {{ form_start(settingForm) }}
                         <div class="box-body">
-                            {{ form_row(settingForm.google_gtag_id) }}
-                            {{ form_row(settingForm.url_facebook) }}
-                            {{ form_row(settingForm.url_instagram) }}
-                            {{ form_row(settingForm.url_linkedin) }}
-                            {{ form_row(settingForm.url_github) }}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    {{ form_row(settingForm.google_gtag_id) }}
+                                </div>
+
+                                <div class="col-md-6">
+                                    {{ form_row(settingForm.url_facebook) }}
+                                </div>
+
+                                <div class="col-md-6">
+                                    {{ form_row(settingForm.url_instagram) }}
+                                </div>
+
+                                <div class="col-md-6">
+                                    {{ form_row(settingForm.url_linkedin) }}
+                                </div>
+
+                                <div class="col-md-6">
+                                    {{ form_row(settingForm.url_github) }}
+                                </div>
+                            </div>
                         </div>
 
                         <div class="box-footer">
