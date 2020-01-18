@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+## [0.1.4] - 2020-01-18
 - FEATURE: Added settings section. [#21](https://github.com/thomaskanzig/blog/pull/21)
     - Added values `setting` in website. [#24](https://github.com/thomaskanzig/blog/pull/24)
     - Added features `setting` in admin. [#23](https://github.com/thomaskanzig/blog/pull/23)
