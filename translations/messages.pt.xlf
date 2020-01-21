@@ -5,6 +5,13 @@
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
+      <!-- Website -->
+      <trans-unit id="website.post.published_in">
+        <source>website.post.published_in</source>
+        <target>Publicado em</target>
+      </trans-unit>
+
+      <!-- Admin -->
       <trans-unit id="admin.sidebar.main_navigation">
         <source>admin.sidebar.main_navigation</source>
         <target>NAVEGAÇÃO PRINCIPAL</target>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Website;
 
 use App\Entity\Post;
 use App\Repository\PostRepository;
