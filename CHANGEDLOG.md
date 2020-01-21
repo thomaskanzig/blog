@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
-- FEATURE: Added settings section.
+- FEATURE: Added translation for `EN` and `PT`.
     - Set initial config for `translation` and update routes for prefix locale. [#27](https://github.com/thomaskanzig/blog/pull/27)
 - FEATURE: Added github repository link in `admin` and some few adjustment in footer. [#26](https://github.com/thomaskanzig/blog/pull/26)
 - FEATURE: Added `website` link in `admin` sidebar. [#25](https://github.com/thomaskanzig/blog/pull/25)
