@@ -1,13 +1,13 @@
 pages_about_me:
-    path:     /about-me
+    path:     /{_locale}/about-me
     controller: App\Controller\PagesController::aboutme
 
 pages_contact:
-    path:     /contact
+    path:     /{_locale}/contact
     controller: App\Controller\PagesController::contact
 
 pages_register:
-  path:     /register
+  path:     /{_locale}/register
   controller: App\Controller\PagesController::register
 
 security_login:
@@ -19,9 +19,9 @@ security_logout:
     controller: App\Controller\SecurityController::logout
 
 post_index:
-    path:     /
+    path:     /{_locale}/
     controller: App\Controller\PostController::index
 
 post_detail:
-    path:     /{slug}
+    path:     /{_locale}/{slug}
     controller: App\Controller\PostController::detail
