@@ -16,6 +16,46 @@
         <source>admin.sidebar.main_navigation</source>
         <target>NAVEGAÇÃO PRINCIPAL</target>
       </trans-unit>
+
+      <trans-unit id="admin.login.sign_to_start">
+        <source>admin.login.sign_to_start</source>
+        <target>Faça o login para iniciar a sessão</target>
+      </trans-unit>
+
+      <trans-unit id="admin.login.remember_me">
+        <source>admin.login.remember_me</source>
+        <target>Me lembrar</target>
+      </trans-unit>
+
+      <trans-unit id="admin.login.sign_in">
+        <source>admin.login.sign_in</source>
+        <target>Acessar</target>
+      </trans-unit>
+
+      <trans-unit id="admin.login.register_new">
+        <source>admin.login.register_new</source>
+        <target>Se cadastrar</target>
+      </trans-unit>
+
+      <trans-unit id="admin.login.form.login">
+        <source>admin.login.form.login</source>
+        <target>Usuário</target>
+      </trans-unit>
+
+      <trans-unit id="admin.login.form.password">
+        <source>admin.login.form.password</source>
+        <target>Senha</target>
+      </trans-unit>
+
+      <trans-unit id="admin.index.welcome_text">
+        <source>admin.index.welcome_text</source>
+        <target>Olá %user%, seja bem-vindo ao %project%.</target>
+      </trans-unit>
+
+      <trans-unit id="admin.header.sign_out">
+        <source>admin.header.sign_out</source>
+        <target>Sair</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

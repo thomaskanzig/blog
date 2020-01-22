@@ -33,7 +33,5 @@ post_index:
     controller: App\Controller\Website\PostController::index
 
 post_detail:
-    path:
-        en: /{_locale}/{slug}
-        pt: /{_locale}/{slug}
+    path:     /{_locale}/{slug}
     controller: App\Controller\Website\PostController::detail

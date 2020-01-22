@@ -5,6 +5,7 @@
         <h1>
             Home page
         </h1>
+
         <ol class="breadcrumb">
             <li class="active">Home</li>
         </ol>
@@ -13,7 +14,11 @@
     <section class="content">
         <div class="row">
             <div class="col-xs-12">
-                Hi {{ app.user.username }}, welcome to {{ name_admin }}.
+                {{ 'admin.index.welcome_text'|trans({
+                        '%user%': app.user.fullname,
+                        '%project%': name_admin
+                    })
+                }}
             </div>
         </div>
     </section>
