@@ -27,7 +27,7 @@
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">{{ 'admin.sidebar.main_navigation'|trans }}</li>
       <li>
-        <a href="{{ base_url }}" target="_blank"><i class="fa fa-external-link"></i> <span>Website</span></a>
+        <a href="{{ path('post_index') }}" target="_blank"><i class="fa fa-external-link"></i> <span>Website</span></a>
       </li>
       <li class="treeview">
         <a href="#">
@@ -37,8 +37,8 @@
         </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="{{ path('admin_post_add') }}"><i class="fa fa-circle-o"></i> Add</a></li>
-          <li><a href="{{ path('admin_post_index') }}"><i class="fa fa-circle-o"></i> List all</a></li>
+          <li><a href="{{ path('admin_post_add') }}"><i class="fa fa-circle-o"></i> {{ 'admin.action.add'|trans }}</a></li>
+          <li><a href="{{ path('admin_post_index') }}"><i class="fa fa-circle-o"></i> {{ 'admin.action.list_all'|trans }}</a></li>
         </ul>
       </li>
       <li class="treeview">
@@ -49,8 +49,8 @@
         </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="{{ path('admin_category_add') }}"><i class="fa fa-circle-o"></i> Add</a></li>
-          <li><a href="{{ path('admin_category_index') }}"><i class="fa fa-circle-o"></i> List all</a></li>
+          <li><a href="{{ path('admin_category_add') }}"><i class="fa fa-circle-o"></i> {{ 'admin.action.add'|trans }}</a></li>
+          <li><a href="{{ path('admin_category_index') }}"><i class="fa fa-circle-o"></i> {{ 'admin.action.list_all'|trans }}</a></li>
         </ul>
       </li>
       <li class="treeview">
@@ -61,7 +61,7 @@
         </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="{{ path('admin_media_index') }}"><i class="fa fa-circle-o"></i> List all</a></li>
+          <li><a href="{{ path('admin_media_index') }}"><i class="fa fa-circle-o"></i> {{ 'admin.action.list_all'|trans }}</a></li>
         </ul>
       </li>
       <li class="treeview">
@@ -72,8 +72,8 @@
         </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="{{ path('admin_user_add') }}"><i class="fa fa-circle-o"></i> Add</a></li>
-          <li><a href="{{ path('admin_user_index') }}"><i class="fa fa-circle-o"></i> List all</a></li>
+          <li><a href="{{ path('admin_user_add') }}"><i class="fa fa-circle-o"></i> {{ 'admin.action.add'|trans }}</a></li>
+          <li><a href="{{ path('admin_user_index') }}"><i class="fa fa-circle-o"></i> {{ 'admin.action.list_all'|trans }}</a></li>
         </ul>
       </li>
       <li>

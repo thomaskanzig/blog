@@ -7,6 +7,7 @@ use App\Entity\Post;
 use App\Entity\User;
 use App\Entity\Template;
 use App\Repository\CategoryRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,29 +18,47 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class PostType extends AbstractType
 {
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+
+    public function __construct(
+        TranslatorInterface $translator
+    ) {
+        $this->translator = $translator;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title',  TextType::class)
-            ->add('description', TextareaType::class)
+            ->add('title',  TextType::class,[
+                'label'     => $this->translator->trans('app.general.form.label.title'),
+            ])
+            ->add('description', TextareaType::class,[
+                'label'     => $this->translator->trans('app.general.form.label.description'),
+            ])
             ->add('active', CheckboxType::class,[
-                'required' => false
+                'required' => false,
+                'label'     => $this->translator->trans('app.general.form.label.active'),
             ])
             ->add('text', TextareaType::class, [
-                'required' => false // Is false, for fix an bug in ckeditor.
+                'required' => false, // Is false, for fix an bug in ckeditor.
+                'label'     => $this->translator->trans('app.general.form.label.text'),
             ])
             ->add('imageFile',
                   FileType::class, [
-                      'label' => 'Image file for the post banner',
+                      'label' => $this->translator->trans('admin.posts.form.label.image_file_banner'),
                       'mapped' => false,
                       'required' => false
                   ]
             )
             ->add('categories', EntityType::class, [
-                'label'     => 'Choose the categories',
+                'label'     => $this->translator->trans('admin.posts.form.label.choose_the_categories'),
                 'class'     => Category::class,
                 'choice_label' => 'name',
                 'expanded'  => true,
@@ -49,18 +68,20 @@ class PostType extends AbstractType
                 },
             ])
             ->add('user', EntityType::class, [
-                'label'     => 'Who is the creator?',
+                'label'     => $this->translator->trans('admin.posts.form.label.who_is_the_creator'),
                 'class'     => User::class,
                 'choice_label' => 'fullname',
-                'placeholder' => 'Select user:',
+                'placeholder' => $this->translator->trans('app.general.form.label.select'). ':',
                 'required' => false
             ])
-            ->add('published',  DateTimeType::class)
+            ->add('published',  DateTimeType::class,[
+                'label'     => $this->translator->trans('app.general.published_in'),
+            ])
             ->add('template', EntityType::class, [
-                'label'     => 'Which template?',
+                'label'     => $this->translator->trans('admin.posts.form.label.which_template'),
                 'class'     => Template::class,
                 'choice_label' => 'name',
-                'placeholder' => 'Select template:',
+                'placeholder' => $this->translator->trans('app.general.form.label.select'). ':',
                 'required' => true
             ])
             ->add('images', HiddenType::class, [

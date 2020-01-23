@@ -5,18 +5,51 @@
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
-      <!-- Website -->
-      <trans-unit id="website.post.published_in">
-        <source>website.post.published_in</source>
+      <!-- General -->
+      <trans-unit id="app.general.form.label.select">
+        <source>app.general.form.label.select</source>
+        <target>Select</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.basic_information">
+        <source>app.general.basic_information</source>
+        <target>Basic information</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.form.label.active">
+        <source>app.general.form.label.active</source>
+        <target>Active</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.form.label.title">
+        <source>app.general.form.label.title</source>
+        <target>Title</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.form.label.description">
+        <source>app.general.form.label.description</source>
+        <target>Description</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.form.label.text">
+        <source>app.general.form.label.text</source>
+        <target>Text</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.published_in">
+        <source>app.general.published_in</source>
         <target>Published in</target>
       </trans-unit>
 
-      <!-- Admin -->
+      <!-- Website -->
+
+      <!-- Admin (sidebar) -->
       <trans-unit id="admin.sidebar.main_navigation">
         <source>admin.sidebar.main_navigation</source>
         <target>MAIN NAVIGATION</target>
       </trans-unit>
 
+      <!-- Admin (login) -->
       <trans-unit id="admin.login.sign_to_start">
         <source>admin.login.sign_to_start</source>
         <target>Sign in to start your session</target>
@@ -47,14 +80,89 @@
         <target>Password</target>
       </trans-unit>
 
+      <!-- Admin (action) -->
+      <trans-unit id="admin.action.add">
+        <source>admin.action.add</source>
+        <target>Add</target>
+      </trans-unit>
+
+      <trans-unit id="admin.action.list_all">
+        <source>admin.action.list_all</source>
+        <target>List all</target>
+      </trans-unit>
+
+      <!-- Admin (index) -->
+      <trans-unit id="admin.index">
+        <source>admin.index</source>
+        <target>Homepage</target>
+      </trans-unit>
+
       <trans-unit id="admin.index.welcome_text">
         <source>admin.index.welcome_text</source>
         <target>Hi %user%, welcome to %project%.</target>
       </trans-unit>
 
+      <trans-unit id="admin.index.homepage">
+        <source>admin.index.homepage</source>
+        <target>Homepage</target>
+      </trans-unit>
+
+      <!-- Admin (posts) -->
+      <trans-unit id="admin.posts">
+        <source>admin.posts</source>
+        <target>Posts</target>
+      </trans-unit>
+
+      <trans-unit id="admin.posts.add_new_post">
+            <source>admin.posts.add_new_post</source>
+            <target>Add new post</target>
+      </trans-unit>
+
+      <trans-unit id="admin.posts.form.label.which_template">
+        <source>admin.posts.form.label.which_template</source>
+        <target>Which template?</target>
+      </trans-unit>
+
+      <trans-unit id="admin.posts.form.label.image_file_banner">
+        <source>admin.posts.form.label.image_file_banner</source>
+        <target>Image file for the post banner</target>
+      </trans-unit>
+
+      <trans-unit id="admin.posts.form.label.choose_the_categories">
+        <source>admin.posts.form.label.choose_the_categories</source>
+        <target>Choose the categories</target>
+      </trans-unit>
+
+      <trans-unit id="admin.posts.form.label.who_is_the_creator">
+        <source>admin.posts.form.label.who_is_the_creator</source>
+        <target>Who is the creator?</target>
+      </trans-unit>
+
+      <trans-unit id="admin.posts.form.button.add_images_to_gallery">
+        <source>admin.posts.form.button.add_images_to_gallery</source>
+        <target>Add images to gallery</target>
+      </trans-unit>
+
+      <trans-unit id="admin.posts.form.button.save_post">
+        <source>admin.posts.form.button.save_post</source>
+        <target>Save post</target>
+      </trans-unit>
+
+      <!-- Admin (header) -->
       <trans-unit id="admin.header.sign_out">
         <source>admin.header.sign_out</source>
         <target>Sign out</target>
+      </trans-unit>
+
+      <!-- Admin (footer) -->
+      <trans-unit id="admin.footer.version">
+        <source>admin.footer.version</source>
+        <target>Version</target>
+      </trans-unit>
+
+      <trans-unit id="admin.footer.all_rights_reserved">
+        <source>admin.footer.all_rights_reserved</source>
+        <target>All rights reserved.</target>
       </trans-unit>
     </body>
   </file>

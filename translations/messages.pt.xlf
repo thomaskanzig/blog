@@ -5,18 +5,51 @@
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
-      <!-- Website -->
-      <trans-unit id="website.post.published_in">
-        <source>website.post.published_in</source>
+      <!-- General -->
+      <trans-unit id="app.general.form.label.select">
+        <source>app.general.form.label.select</source>
+        <target>Escolha</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.basic_information">
+        <source>app.general.basic_information</source>
+        <target>Informações básicas</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.form.label.active">
+        <source>app.general.form.label.active</source>
+        <target>Ativo</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.form.label.title">
+        <source>app.general.form.label.title</source>
+        <target>Título</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.form.label.description">
+        <source>app.general.form.label.description</source>
+        <target>Descrição</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.form.label.text">
+        <source>app.general.form.label.text</source>
+        <target>Texto</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.published_in">
+        <source>app.general.published_in</source>
         <target>Publicado em</target>
       </trans-unit>
 
-      <!-- Admin -->
+      <!-- Website -->
+
+      <!-- Admin (sidebar) -->
       <trans-unit id="admin.sidebar.main_navigation">
         <source>admin.sidebar.main_navigation</source>
         <target>NAVEGAÇÃO PRINCIPAL</target>
       </trans-unit>
 
+      <!-- Admin (login) -->
       <trans-unit id="admin.login.sign_to_start">
         <source>admin.login.sign_to_start</source>
         <target>Faça o login para iniciar a sessão</target>
@@ -47,14 +80,89 @@
         <target>Senha</target>
       </trans-unit>
 
+      <!-- Admin (action) -->
+      <trans-unit id="admin.action.add">
+        <source>admin.action.add</source>
+        <target>Adicionar</target>
+      </trans-unit>
+
+      <trans-unit id="admin.action.list_all">
+        <source>admin.action.list_all</source>
+        <target>Listar todos</target>
+      </trans-unit>
+
+      <!-- Admin (index) -->
+      <trans-unit id="admin.index">
+        <source>admin.index</source>
+        <target>Página inicial</target>
+      </trans-unit>
+
       <trans-unit id="admin.index.welcome_text">
         <source>admin.index.welcome_text</source>
         <target>Olá %user%, seja bem-vindo ao %project%.</target>
       </trans-unit>
 
+      <trans-unit id="admin.index.homepage">
+        <source>admin.index.homepage</source>
+        <target>Página inicial</target>
+      </trans-unit>
+
+      <!-- Admin (posts) -->
+      <trans-unit id="admin.posts">
+        <source>admin.posts</source>
+        <target>Postagens</target>
+      </trans-unit>
+
+      <trans-unit id="admin.posts.add_new_post">
+        <source>admin.posts.add_new_post</source>
+        <target>Adicionar nova postagem</target>
+      </trans-unit>
+
+      <trans-unit id="admin.posts.form.label.which_template">
+        <source>admin.posts.form.label.which_template</source>
+        <target>Qual template?</target>
+      </trans-unit>
+
+      <trans-unit id="admin.posts.form.label.image_file_banner">
+        <source>admin.posts.form.label.image_file_banner</source>
+        <target>Uma imagem como capa</target>
+      </trans-unit>
+
+      <trans-unit id="admin.posts.form.label.choose_the_categories">
+        <source>admin.posts.form.label.choose_the_categories</source>
+        <target>Escolha as categorias</target>
+      </trans-unit>
+
+      <trans-unit id="admin.posts.form.label.who_is_the_creator">
+        <source>admin.posts.form.label.who_is_the_creator</source>
+        <target>Quem é o criador?</target>
+      </trans-unit>
+
+      <trans-unit id="admin.posts.form.button.add_images_to_gallery">
+        <source>admin.posts.form.button.add_images_to_gallery</source>
+        <target>Adicionar fotos para galeria</target>
+      </trans-unit>
+
+      <trans-unit id="admin.posts.form.button.save_post">
+        <source>admin.posts.form.button.save_post</source>
+        <target>Salvar postagem</target>
+      </trans-unit>
+
+      <!-- Admin (header) -->
       <trans-unit id="admin.header.sign_out">
         <source>admin.header.sign_out</source>
         <target>Sair</target>
+      </trans-unit>
+
+      <!-- Admin (footer) -->
+      <trans-unit id="admin.footer.version">
+        <source>admin.footer.version</source>
+        <target>Versão</target>
+      </trans-unit>
+
+      <trans-unit id="admin.footer.all_rights_reserved">
+        <source>admin.footer.all_rights_reserved</source>
+        <target>Todos os direitos reservados.</target>
       </trans-unit>
     </body>
   </file>
