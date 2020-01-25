@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Post;
 use App\Repository\CategoryRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -48,6 +49,7 @@ class CategoryController extends AbstractController
         if ($categoryForm->isSubmitted() && $categoryForm->isValid()) {
 
             // Get data of form.
+            /** @var Category $category */
             $category = $categoryForm->getData();
 
             // Set some others information of category.

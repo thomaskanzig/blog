@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Folder;
 use App\Entity\MediaPostRel;
 use App\Repository\PostRepository;
 use Liip\ImagineBundle\Service\FilterService;
@@ -64,6 +65,7 @@ class PostController extends AbstractController
 
         if ($postForm->isSubmitted() && $postForm->isValid()) {
             // Get data of form.
+            /** @var Post $post */
             $post = $postForm->getData();
 
             // Send an image file an store in /public.
