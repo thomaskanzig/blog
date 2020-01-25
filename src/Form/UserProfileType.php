@@ -11,21 +11,39 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class UserProfileType extends AbstractType
 {
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+
+    public function __construct(
+        TranslatorInterface $translator
+    ) {
+        $this->translator = $translator;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('username', TextType::class)
-                ->add('email', EmailType::class)
+        $builder->add('username', TextType::class,[
+            'label'     => $this->translator->trans('app.general.form.label.username'),
+        ])
+                ->add('email', EmailType::class,[
+                    'label'     => $this->translator->trans('app.general.form.label.email'),
+                ])
                 ->add('imageFile',
                     FileType::class,
-                    ['label' => 'Image file for the post banner',
+                    ['label' => $this->translator->trans('admin.users.form.label.add_avatar'),
                         'mapped' => false,
                         'required' => false
                     ]
                 )
-                ->add('fullname', TextType::class)
+                ->add('fullname', TextType::class,[
+                    'label'     => $this->translator->trans('app.general.form.label.fullname'),
+                ])
             ;
     }
 

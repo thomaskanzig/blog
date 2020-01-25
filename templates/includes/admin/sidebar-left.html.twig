@@ -8,7 +8,7 @@
         <img src="{{ asset(app.user.urlAvatar|default('images/avatar.png'))|imagine_filter('45x45') }}" class="img-circle" alt="User Image">
       </div>
       <div class="pull-left info">
-        <p>{{ app.user.username }}</p>
+        <p>{{ app.user.fullname }}</p>
         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
     </div>
@@ -27,57 +27,57 @@
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">{{ 'admin.sidebar.main_navigation'|trans }}</li>
       <li>
-        <a href="{{ base_url }}" target="_blank"><i class="fa fa-external-link"></i> Website</a>
+        <a href="{{ path('post_index') }}" target="_blank"><i class="fa fa-external-link"></i> <span>Website</span></a>
       </li>
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-list"></i> <span>Posts</span>
+          <i class="fa fa-list"></i> <span>{{ 'admin.posts'|trans }}</span>
           <span class="pull-right-container">
           <i class="fa fa-angle-left pull-right"></i>
         </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="{{ path('admin_post_add') }}"><i class="fa fa-circle-o"></i> Add</a></li>
-          <li><a href="{{ path('admin_post_index') }}"><i class="fa fa-circle-o"></i> List all</a></li>
+          <li><a href="{{ path('admin_post_add') }}"><i class="fa fa-circle-o"></i> {{ 'admin.action.add'|trans }}</a></li>
+          <li><a href="{{ path('admin_post_index') }}"><i class="fa fa-circle-o"></i> {{ 'admin.action.list_all'|trans }}</a></li>
         </ul>
       </li>
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-tags"></i> <span>Categories</span>
+          <i class="fa fa-tags"></i> <span>{{ 'admin.categories'|trans }}</span>
           <span class="pull-right-container">
           <i class="fa fa-angle-left pull-right"></i>
         </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="{{ path('admin_category_add') }}"><i class="fa fa-circle-o"></i> Add</a></li>
-          <li><a href="{{ path('admin_category_index') }}"><i class="fa fa-circle-o"></i> List all</a></li>
+          <li><a href="{{ path('admin_category_add') }}"><i class="fa fa-circle-o"></i> {{ 'admin.action.add'|trans }}</a></li>
+          <li><a href="{{ path('admin_category_index') }}"><i class="fa fa-circle-o"></i> {{ 'admin.action.list_all'|trans }}</a></li>
         </ul>
       </li>
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-picture-o"></i> <span>Media</span>
+          <i class="fa fa-picture-o"></i> <span>{{ 'admin.medias'|trans }}</span>
           <span class="pull-right-container">
           <i class="fa fa-angle-left pull-right"></i>
         </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="{{ path('admin_media_index') }}"><i class="fa fa-circle-o"></i> List all</a></li>
+          <li><a href="{{ path('admin_media_index') }}"><i class="fa fa-circle-o"></i> {{ 'admin.action.list_all'|trans }}</a></li>
         </ul>
       </li>
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-users"></i> <span>Users</span>
+          <i class="fa fa-users"></i> <span>{{ 'admin.users'|trans }}</span>
           <span class="pull-right-container">
           <i class="fa fa-angle-left pull-right"></i>
         </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="{{ path('admin_user_add') }}"><i class="fa fa-circle-o"></i> Add</a></li>
-          <li><a href="{{ path('admin_user_index') }}"><i class="fa fa-circle-o"></i> List all</a></li>
+          <li><a href="{{ path('admin_user_add') }}"><i class="fa fa-circle-o"></i> {{ 'admin.action.add'|trans }}</a></li>
+          <li><a href="{{ path('admin_user_index') }}"><i class="fa fa-circle-o"></i> {{ 'admin.action.list_all'|trans }}</a></li>
         </ul>
       </li>
       <li>
-        <a href="{{ path('admin_setting_index') }}"><i class="fa fa-sliders"></i> Setting</a>
+        <a href="{{ path('admin_setting_index') }}"><i class="fa fa-sliders"></i> <span>{{ 'admin.settings'|trans }}</span></a>
       </li>
     </ul>
   </section>

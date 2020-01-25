@@ -5,12 +5,12 @@
 
     <section class="content-header">
         <h1>
-            Edit post
+            {{ 'admin.posts.edit_post'|trans }}
         </h1>
         <ol class="breadcrumb">
-            <li><a href="{{ path('admin_pages_index') }}"><i class="fa fa-home"></i> Home</a></li>
-            <li><a href="{{ path('admin_post_index') }}">Posts</a></li>
-            <li class="active">Edit</li>
+            <li><a href="{{ path('admin_pages_index') }}"><i class="fa fa-home"></i> {{ 'admin.index'|trans }}</a></li>
+            <li><a href="{{ path('admin_post_index') }}">{{ 'admin.posts'|trans }}</a></li>
+            <li class="active">{{ 'admin.action.edit'|trans }}</li>
         </ol>
     </section>
 
@@ -46,7 +46,7 @@
 
                     <div class="box box-primary">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Form</h3>
+                            <h3 class="box-title">{{ 'app.general.basic_information'|trans }}</h3>
                         </div>
 
                         <div class="box-body">
@@ -58,7 +58,7 @@
                                                 class="btn btn-primary js-post-gallery-add"
                                                 data-toggle="modal"
                                                 data-target=".js-modal-post-gallery">
-                                            <i class="fa fa-picture-o"></i> Add media to gallery
+                                            <i class="fa fa-picture-o"></i> {{ 'admin.posts.form.button.add_images_to_gallery'|trans }}
                                         </button>
 
                                         <div class="row post-gallery-images-selected js-post-gallery-images-selected">
@@ -73,7 +73,7 @@
                                                         <p>
                                                             <button type="button"
                                                                     class="btn btn-danger btn-xs js-post-gallery-images-selected-file-delete">
-                                                                <i class="fa fa-trash"></i> Delete
+                                                                <i class="fa fa-trash"></i> {{ 'admin.action.delete'|trans }}
                                                             </button>
                                                         </p>
                                                     </div>
@@ -120,7 +120,7 @@
                         </div>
 
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Add new post</button>
+                            <button type="submit" class="btn btn-primary">{{ 'admin.posts.form.button.save_post'|trans }}</button>
                         </div>
                     </div>
                 {{ form_end(postForm) }}
@@ -129,7 +129,7 @@
             <div class="col-md-3">
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Image</h3>
+                        <h3 class="box-title">{{ 'app.general.image'|trans }}</h3>
                     </div>
 
                     <div class="box-body">

@@ -3,12 +3,11 @@
 {% block body %}
     <section class="content-header">
         <h1>
-            All users
-            <small>preview of simple tables</small>
+            {{ 'admin.users'|trans }}
         </h1>
         <ol class="breadcrumb">
-            <li><a href="{{ path('admin_pages_index') }}"><i class="fa fa-home"></i> Home</a></li>
-            <li class="active">Users</li>
+            <li><a href="{{ path('admin_pages_index') }}"><i class="fa fa-home"></i> {{ 'admin.index'|trans }}</a></li>
+            <li class="active">{{ 'admin.users'|trans }}</li>
         </ol>
     </section>
 
@@ -17,12 +16,12 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">List</h3>
+                        <h3 class="box-title">{{ 'app.general.list'|trans }}</h3>
 
                         <div class="box-tools">
                             <form class="form-inline">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="q" class="form-control pull-right" placeholder="Search">
+                                    <input type="text" name="q" class="form-control pull-right" placeholder="{{ 'app.general.search'|trans }}">
 
                                     <div class="input-group-btn">
                                         <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
@@ -37,9 +36,9 @@
                         <div class="box-body table-responsive no-padding">
                             <table class="table table-hover">
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Created</th>
-                                    <th>Actions</th>
+                                    <th>{{ 'app.general.form.label.name'|trans }}</th>
+                                    <th>{{ 'app.general.created'|trans }}</th>
+                                    <th>{{ 'app.general.actions'|trans }}</th>
                                 </tr>
                                 {% for user in users %}
                                     <tr>
@@ -64,21 +63,21 @@
                                                 id: user.id
                                             }) }}"
                                                class="btn btn-xs btn-primary">
-                                                <i class="fa fa-user"></i> Profile
+                                                <i class="fa fa-user"></i> {{ 'admin.users.profile'|trans }}
                                             </a>
 
                                             <a href="{{ path('admin_user_access', {
                                                 id: user.id
                                             }) }}"
                                                class="btn btn-xs btn-info">
-                                                <i class="fa fa-lock"></i> Access
+                                                <i class="fa fa-lock"></i> {{ 'admin.users.access'|trans }}
                                             </a>
 
                                             <a href="{{ path('admin_user_delete', {
                                                 id: user.id
                                             }) }}"
                                                class="btn btn-xs btn-danger">
-                                                <i class="fa fa-trash"></i> Delete
+                                                <i class="fa fa-trash"></i> {{ 'admin.action.delete'|trans }}
                                             </a>
                                         </td>
                                     </tr>

@@ -19,7 +19,7 @@
                             <div class="media-body">
                                 <h5 class="mt-2 mb-1 author-fullname">{{ post.user.fullname }}</h5>
                                 {% if post.created is not empty %}
-                                    <div class="author-date-post">{{ 'website.post.published_in'|trans }} {{ post.published|date("Y/m/d") }}</div>
+                                    <div class="author-date-post">{{ 'app.general.published_in'|trans }} {{ post.published|date("Y/m/d") }}</div>
                                 {% endif %}
                             </div>
                         </div>
