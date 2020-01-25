@@ -94,6 +94,11 @@ class Post
      */
     private $mediaPostRel;
 
+    /**
+     * @ORM\Column(type="string", length=10, nullable=true)
+     */
+    private $locale;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -302,6 +307,18 @@ class Post
                 $mediaPostRel->setPost(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLocale(): ?string
+    {
+        return $this->locale;
+    }
+
+    public function setLocale(?string $locale): self
+    {
+        $this->locale = $locale;
 
         return $this;
     }
