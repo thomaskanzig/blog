@@ -22,11 +22,17 @@ class CategoryRepository extends ServiceEntityRepository
     /*
      * List all active.
      */
-    public function findAllActive()
+    public function findAllActive(array $where = [])
     {
-        $qb = $this->createQueryBuilder('c')
-            ->andWhere('c.deleted IS NULL')
-            ->orderBy('c.name', 'ASC');
+        $qb = $this->createQueryBuilder('c');
+
+        if (array_key_exists( 'locale', $where)) {
+            $qb->andWhere('c.locale = :locale')
+                ->setParameter('locale', $where['locale']);
+        }
+
+        $qb->andWhere('c.deleted IS NULL')
+           ->orderBy('c.name', 'ASC');
 
         return $qb;
     }
