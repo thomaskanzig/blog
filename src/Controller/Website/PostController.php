@@ -16,7 +16,8 @@ class PostController extends AbstractController
 
         $q = $request->query->get('q'); /* get text search */
         $queryBuilder = $repository->getWithSearchQueryBuilder($q, [
-            'active' => true
+            'active' => true,
+            'locale' => $request->getLocale()
         ]);
 
         $pagination = $paginator->paginate(

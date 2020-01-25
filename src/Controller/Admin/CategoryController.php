@@ -24,7 +24,9 @@ class CategoryController extends AbstractController
     public function index(CategoryRepository $repository, Request $request, PaginatorInterface $paginator)
     {
         $q = $request->query->get('q'); /* get text search */
-        $queryBuilder = $repository->getWithSearchQueryBuilder($q);
+        $queryBuilder = $repository->getWithSearchQueryBuilder($q, [
+            'locale' => $request->getLocale()
+        ]);
 
         $pagination = $paginator->paginate(
             $queryBuilder, /* query NOT result */

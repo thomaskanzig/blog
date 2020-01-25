@@ -34,14 +34,21 @@ class CategoryRepository extends ServiceEntityRepository
     /*
      * List all with search.
      */
-    public function getWithSearchQueryBuilder(?string $term)
+    public function getWithSearchQueryBuilder(?string $term, array $where = [])
     {
         $qb = $this->createQueryBuilder('c');
+
         if ($term) {
             $qb->andWhere('c.name LIKE :term')
                 ->setParameter('term', '%' . $term . '%')
             ;
         }
+
+        if (array_key_exists( 'locale', $where)) {
+            $qb->andWhere('c.locale = :locale')
+                ->setParameter('locale', $where['locale']);
+        }
+
         return $qb
             ->andWhere('c.deleted IS NULL')
             ->orderBy('c.id', 'DESC')
