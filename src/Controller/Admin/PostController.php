@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Folder;
 use App\Entity\MediaPostRel;
 use App\Repository\PostRepository;
 use Liip\ImagineBundle\Service\FilterService;
@@ -16,6 +17,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Post;
 use App\Service\UploaderHelper;
 use Cocur\Slugify\Slugify;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class PostController extends AbstractController
 {
@@ -32,7 +34,9 @@ class PostController extends AbstractController
     public function index(PostRepository $repository, Request $request, PaginatorInterface $paginator)
     {
         $q = $request->query->get('q'); /* get text search */
-        $queryBuilder = $repository->getWithSearchQueryBuilder($q);
+        $queryBuilder = $repository->getWithSearchQueryBuilder($q, [
+            'locale' => $request->getLocale()
+        ]);
 
         $pagination = $paginator->paginate(
             $queryBuilder, /* query NOT result */
@@ -51,11 +55,16 @@ class PostController extends AbstractController
      * @param EntityManagerInterface $em
      * @param Request $request
      * @param UploaderHelper $uploaderHelper
+     * @param TranslatorInterface $translator
      *
      * @return Response
      */
-    public function add(EntityManagerInterface $em, Request $request, UploaderHelper $uploaderHelper)
-    {
+    public function add(
+        EntityManagerInterface $em,
+        Request $request,
+        UploaderHelper $uploaderHelper,
+        TranslatorInterface $translator
+    ) {
         // Create the form based on the FormType we need.
         $postForm = $this->createForm(PostType::class);
 
@@ -64,6 +73,7 @@ class PostController extends AbstractController
 
         if ($postForm->isSubmitted() && $postForm->isValid()) {
             // Get data of form.
+            /** @var Post $post */
             $post = $postForm->getData();
 
             // Send an image file an store in /public.
@@ -82,6 +92,7 @@ class PostController extends AbstractController
                 $post->setUser($this->getUser());
             }
 
+            $post->setLocale($request->getLocale());
             $post->setCreated(new \DateTime());
 
             // To save.
@@ -93,7 +104,7 @@ class PostController extends AbstractController
             $em->getRepository(MediaPostRel::class)->saveAll($post->getId(), $medias);
 
             // Set an message after save.
-            $this->addFlash('success', 'Post Created!');
+            $this->addFlash('success', $translator->trans('admin.posts.form.post_saved'));
 
             // Redirect to another page.
             return $this->redirectToRoute('admin_post_index');
@@ -113,6 +124,7 @@ class PostController extends AbstractController
      * @param Request $request
      * @param UploaderHelper $uploaderHelper
      * @param FilterService $filterService
+     * @param TranslatorInterface $translator
      *
      * @return Response
      */
@@ -121,7 +133,8 @@ class PostController extends AbstractController
         EntityManagerInterface $em,
         Request $request,
         UploaderHelper $uploaderHelper,
-        FilterService $filterService
+        FilterService $filterService,
+        TranslatorInterface $translator
     ) {
         // Create the form based on the FormType we need.
         $postForm = $this->createForm(PostType::class, $post);
@@ -147,7 +160,7 @@ class PostController extends AbstractController
             $em->getRepository(MediaPostRel::class)->saveAll($post->getId(), $medias);
 
             // Set an message after save.
-            $this->addFlash('success', 'Post Updated!');
+            $this->addFlash('success', $translator->trans('admin.posts.form.post_saved'));
 
             // Redirect to another page.
             return $this->redirectToRoute('admin_post_index');

@@ -37,12 +37,17 @@ class PostRepository extends ServiceEntityRepository
             ;
         }
 
-        if(array_key_exists( 'active', $where)){
+        if(array_key_exists( 'active', $where)) {
             if (true === $where['active']) {
                 $qb->andWhere('p.active = 1');
             } else {
                 $qb->andWhere('p.active = 0');
             }
+        }
+
+        if (array_key_exists( 'locale', $where)) {
+            $qb->andWhere('p.locale = :locale')
+                ->setParameter('locale', $where['locale']);
         }
 
         return $qb

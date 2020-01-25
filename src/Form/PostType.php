@@ -19,6 +19,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class PostType extends AbstractType
 {
@@ -27,10 +28,17 @@ class PostType extends AbstractType
      */
     private $translator;
 
+    /**
+     * @var RequestStack
+     */
+    private $request;
+
     public function __construct(
-        TranslatorInterface $translator
+        TranslatorInterface $translator,
+        RequestStack $request
     ) {
         $this->translator = $translator;
+        $this->request = $request;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -64,7 +72,9 @@ class PostType extends AbstractType
                 'expanded'  => true,
                 'multiple'  => true,
                 'query_builder' => function (CategoryRepository $er) {
-                    return $er->findAllActive();
+                    return $er->findAllActive([
+                        'locale' => $this->request->getCurrentRequest()->getLocale()
+                    ]);
                 },
             ])
             ->add('user', EntityType::class, [

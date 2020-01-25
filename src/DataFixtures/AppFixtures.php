@@ -19,6 +19,12 @@ class AppFixtures extends Fixture
      */
     private $passwordEncoder;
 
+    /**
+     * @var String
+     */
+    const DEFAULT_LOCALE = 'EN';
+
+
     public function __construct(UserPasswordEncoderInterface $passwordEncoder)
     {
         $this->passwordEncoder = $passwordEncoder;
@@ -47,6 +53,8 @@ class AppFixtures extends Fixture
      */
     private function loadPosts(ObjectManager $manager)
     {
+        $locale = self::DEFAULT_LOCALE;
+
         $text = '
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis erat ex, euismod sit amet arcu at, 
         hendrerit tempor metus. Maecenas non dapibus dui. Suspendisse cursus nunc sit amet dolor ultricies dictum. 
@@ -99,6 +107,7 @@ class AppFixtures extends Fixture
             $post->setUser($this->getReference('admin'));
             $post->setTemplate($this->getReference('blog'));
             $post->setActive(true);
+            $post->setLocale($locale);
             $manager->persist($post);
         }
 
@@ -112,6 +121,8 @@ class AppFixtures extends Fixture
      */
     private function loadCategories(ObjectManager $manager)
     {
+        $locale = self::DEFAULT_LOCALE;
+
         $data = [['name' => 'Web Developer', 'slug' => 'web-developer'],
                 ['name' => 'Movie', 'slug' => 'movie'],
         ];
@@ -122,6 +133,7 @@ class AppFixtures extends Fixture
             $category->setName($item['name']);
             $category->setSlug($item['slug']);
             $category->setCreated(new \DateTime());
+            $category->setLocale($locale);
             $manager->persist($category);
         }
 

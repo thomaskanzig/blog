@@ -36,6 +36,11 @@ class Category
      */
     private $deleted;
 
+    /**
+     * @ORM\Column(type="string", length=5, nullable=true)
+     */
+    private $locale;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +90,18 @@ class Category
     public function setDeleted(?\DateTimeInterface $deleted): self
     {
         $this->deleted = $deleted;
+
+        return $this;
+    }
+
+    public function getLocale(): ?string
+    {
+        return $this->locale;
+    }
+
+    public function setLocale(?string $locale): self
+    {
+        $this->locale = $locale;
 
         return $this;
     }
