@@ -95,7 +95,7 @@ class Post
     private $mediaPostRel;
 
     /**
-     * @ORM\Column(type="string", length=10, nullable=true)
+     * @ORM\Column(type="string", length=5, nullable=true)
      */
     private $locale;
 
