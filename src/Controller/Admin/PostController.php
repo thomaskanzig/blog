@@ -82,6 +82,7 @@ class PostController extends AbstractController
                 $post->setUser($this->getUser());
             }
 
+            $post->setLocale($request->getLocale());
             $post->setCreated(new \DateTime());
 
             // To save.

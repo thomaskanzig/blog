@@ -53,6 +53,7 @@ class CategoryController extends AbstractController
             // Set some others information of category.
             $slugify = new Slugify();
             $category->setSlug($slugify->slugify($category->getName()));
+            $category->setLocale($request->getLocale());
             $category->setCreated(new \DateTime());
 
             // To save.
