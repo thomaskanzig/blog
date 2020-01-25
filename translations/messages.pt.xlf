@@ -21,6 +21,11 @@
         <target>Ativo</target>
       </trans-unit>
 
+      <trans-unit id="app.general.form.label.name">
+        <source>app.general.form.label.name</source>
+        <target>Nome</target>
+      </trans-unit>
+
       <trans-unit id="app.general.form.label.title">
         <source>app.general.form.label.title</source>
         <target>Título</target>
@@ -39,6 +44,81 @@
       <trans-unit id="app.general.published_in">
         <source>app.general.published_in</source>
         <target>Publicado em</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.image">
+        <source>app.general.image</source>
+        <target>Imagem</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.gallery">
+        <source>app.general.gallery</source>
+        <target>Galeria de fotos</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.list">
+        <source>app.general.list</source>
+        <target>Listagem</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.user">
+        <source>app.general.user</source>
+        <target>Usuário</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.created">
+        <source>app.general.created</source>
+        <target>Criado</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.actions">
+        <source>app.general.actions</source>
+        <target>Ações</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.search">
+        <source>app.general.search</source>
+        <target>Procurar</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.files">
+        <source>app.general.files</source>
+        <target>Arquivos</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.copy_url">
+        <source>app.general.copy_url</source>
+        <target>Copiar URL</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.form.label.fullname">
+        <source>app.general.form.label.fullname</source>
+        <target>Nome completo</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.form.label.username">
+        <source>app.general.form.label.username</source>
+        <target>Usuário</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.form.label.email">
+        <source>app.general.form.label.email</source>
+        <target>E-mail</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.form.label.password">
+        <source>app.general.form.label.password</source>
+        <target>Senha</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.form.label.repeat_password">
+        <source>app.general.form.label.repeat_password</source>
+        <target>Repetir senha</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.form.label.avatar">
+        <source>app.general.form.label.avatar</source>
+        <target>Foto</target>
       </trans-unit>
 
       <!-- Website -->
@@ -86,6 +166,31 @@
         <target>Adicionar</target>
       </trans-unit>
 
+      <trans-unit id="admin.action.edit">
+        <source>admin.action.edit</source>
+        <target>Editar</target>
+      </trans-unit>
+
+      <trans-unit id="admin.action.delete">
+        <source>admin.action.delete</source>
+        <target>Deletar</target>
+      </trans-unit>
+
+      <trans-unit id="admin.action.close">
+        <source>admin.action.close</source>
+        <target>Fechar</target>
+      </trans-unit>
+
+      <trans-unit id="admin.action.save">
+        <source>admin.action.save</source>
+        <target>Salvar</target>
+      </trans-unit>
+
+      <trans-unit id="admin.action.access">
+        <source>admin.action.access</source>
+        <target>Conta</target>
+      </trans-unit>
+
       <trans-unit id="admin.action.list_all">
         <source>admin.action.list_all</source>
         <target>Listar todos</target>
@@ -118,6 +223,11 @@
         <target>Adicionar nova postagem</target>
       </trans-unit>
 
+      <trans-unit id="admin.posts.edit_post">
+        <source>admin.posts.edit_post</source>
+        <target>Editar postagem</target>
+      </trans-unit>
+
       <trans-unit id="admin.posts.form.label.which_template">
         <source>admin.posts.form.label.which_template</source>
         <target>Qual template?</target>
@@ -146,6 +256,100 @@
       <trans-unit id="admin.posts.form.button.save_post">
         <source>admin.posts.form.button.save_post</source>
         <target>Salvar postagem</target>
+      </trans-unit>
+
+      <!-- Admin (categories) -->
+      <trans-unit id="admin.categories">
+        <source>admin.categories</source>
+        <target>Categorias</target>
+      </trans-unit>
+
+      <trans-unit id="admin.categories.add_new_category">
+        <source>admin.categories.add_new_category</source>
+        <target>Adicionar nova categoria</target>
+      </trans-unit>
+
+      <trans-unit id="admin.categories.edit_category">
+        <source>admin.categories.edit_category</source>
+        <target>Editar categoria</target>
+      </trans-unit>
+
+      <trans-unit id="admin.categories.form.button.save_category">
+        <source>admin.categories.form.button.save_category</source>
+        <target>Salvar categoria</target>
+      </trans-unit>
+
+      <!-- Admin (medias) -->
+      <trans-unit id="admin.medias">
+        <source>admin.medias</source>
+        <target>Mídias</target>
+      </trans-unit>
+
+      <trans-unit id="admin.medias.form.button.upload_files">
+        <source>admin.medias.form.button.upload_files</source>
+        <target>Selecionar arquivos</target>
+      </trans-unit>
+
+      <trans-unit id="admin.medias.form.button.add_folder">
+        <source>admin.medias.form.button.add_folder</source>
+        <target>Adicionar diretório</target>
+      </trans-unit>
+
+      <trans-unit id="admin.medias.form.button.delete_folder">
+        <source>admin.medias.form.button.delete_folder</source>
+        <target>Deletar diretório</target>
+      </trans-unit>
+
+      <trans-unit id="admin.medias.form.placeholder.name_of_folder">
+        <source>admin.medias.form.placeholder.name_of_folder</source>
+        <target>Nome do diretório</target>
+      </trans-unit>
+
+      <!-- Admin (users) -->
+      <trans-unit id="admin.users">
+        <source>admin.users</source>
+        <target>Usuários</target>
+      </trans-unit>
+
+      <trans-unit id="admin.users.access">
+        <source>admin.users.access</source>
+        <target>Senha</target>
+      </trans-unit>
+
+      <trans-unit id="admin.users.profile">
+        <source>admin.users.profile</source>
+        <target>Perfil</target>
+      </trans-unit>
+
+      <trans-unit id="admin.users.add_new_user">
+        <source>admin.users.add_new_user</source>
+        <target>Adicionar novo usuário</target>
+      </trans-unit>
+
+      <trans-unit id="admin.users.form.button.save_user">
+        <source>admin.users.form.button.save_user</source>
+        <target>Salvar usuário</target>
+      </trans-unit>
+
+      <trans-unit id="admin.users.form.label.add_avatar">
+        <source>admin.users.form.label.add_avatar</source>
+        <target>Adicionar foto</target>
+      </trans-unit>
+
+      <trans-unit id="admin.users.edit_access">
+        <source>admin.users.edit_access</source>
+        <target>Editar senha</target>
+      </trans-unit>
+
+      <!-- Admin (settings) -->
+      <trans-unit id="admin.settings">
+        <source>admin.settings</source>
+        <target>Configurações</target>
+      </trans-unit>
+
+      <trans-unit id="admin.settings.form.button.save_settings">
+        <source>admin.settings.form.button.save_settings</source>
+        <target>Salvar configurações</target>
       </trans-unit>
 
       <!-- Admin (header) -->

@@ -3,12 +3,12 @@
 {% block body %}
     <section class="content-header">
         <h1>
-            Edit user
+            {{ 'admin.users.profile'|trans }}
         </h1>
         <ol class="breadcrumb">
-            <li><a href="{{ path('admin_pages_index') }}"><i class="fa fa-home"></i> Home</a></li>
-            <li><a href="{{ path('admin_user_index') }}">Users</a></li>
-            <li class="active">Edit</li>
+            <li><a href="{{ path('admin_pages_index') }}"><i class="fa fa-home"></i> {{ 'admin.index'|trans }}</a></li>
+            <li><a href="{{ path('admin_user_index') }}">{{ 'admin.users'|trans }}</a></li>
+            <li class="active">{{ 'admin.action.edit'|trans }}</li>
         </ol>
     </section>
 
@@ -19,7 +19,7 @@
                 <!-- general form elements -->
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Form</h3>
+                        <h3 class="box-title">{{ 'app.general.basic_information'|trans }}</h3>
                     </div>
 
                     {{ form_start(userForm) }}
@@ -31,7 +31,7 @@
                         </div>
 
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Edit user</button>
+                            <button type="submit" class="btn btn-primary">{{ 'admin.users.form.button.save_user'|trans }}</button>
                         </div>
                     {{ form_end(userForm) }}
                 </div>
@@ -41,7 +41,7 @@
             <div class="col-md-3">
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Image</h3>
+                        <h3 class="box-title">{{ 'app.general.form.label.avatar'|trans }}</h3>
                     </div>
 
                     <div class="box-body">
