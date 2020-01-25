@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Post;
 use App\Repository\CategoryRepository;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Knp\Component\Pager\PaginatorInterface;
@@ -12,6 +13,7 @@ use App\Form\CategoryType;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Category;
 use Cocur\Slugify\Slugify;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class CategoryController extends AbstractController
 {
@@ -37,9 +39,18 @@ class CategoryController extends AbstractController
 
     /**
      * @Route("/admin/category/add", name="admin_category_add")
+     *
+     * @param EntityManagerInterface $em
+     * @param Request $request
+     * @param TranslatorInterface $translator
+     *
+     * @return Response
      */
-    public function add(EntityManagerInterface $em, Request $request)
-    {
+    public function add(
+        EntityManagerInterface $em,
+        Request $request,
+        TranslatorInterface $translator
+    ) {
         // Create the form based on the FormType we need.
         $categoryForm = $this->createForm(CategoryType::class);
 
@@ -63,7 +74,7 @@ class CategoryController extends AbstractController
             $em->flush();
 
             // Set an message after save.
-            $this->addFlash('success', 'Category Created!');
+            $this->addFlash('success', $translator->trans('admin.categories.form.category_saved'));
 
             // Redirect to another page.
             return $this->redirectToRoute('admin_category_index');
@@ -77,9 +88,20 @@ class CategoryController extends AbstractController
 
     /**
      * @Route("/admin/category/{id}/edit", name="admin_category_edit")
+     *
+     * @param Category $category
+     * @param EntityManagerInterface $em
+     * @param Request $request
+     * @param TranslatorInterface $translator
+     *
+     * @return Response
      */
-    public function edit(Category $category, EntityManagerInterface $em, Request $request)
-    {
+    public function edit(
+        Category $category,
+        EntityManagerInterface $em,
+        Request $request,
+        TranslatorInterface $translator
+    ) {
         // Create the form based on the FormType we need.
         $categoryForm = $this->createForm(CategoryType::class, $category);
 
@@ -93,7 +115,7 @@ class CategoryController extends AbstractController
             $em->flush();
 
             // Set an message after save.
-            $this->addFlash('success', 'Category Updated!');
+            $this->addFlash('success', $translator->trans('admin.categories.form.category_saved'));
 
             // Redirect to another page.
             return $this->redirectToRoute('admin_category_index');

@@ -17,6 +17,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Post;
 use App\Service\UploaderHelper;
 use Cocur\Slugify\Slugify;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class PostController extends AbstractController
 {
@@ -52,11 +53,16 @@ class PostController extends AbstractController
      * @param EntityManagerInterface $em
      * @param Request $request
      * @param UploaderHelper $uploaderHelper
+     * @param TranslatorInterface $translator
      *
      * @return Response
      */
-    public function add(EntityManagerInterface $em, Request $request, UploaderHelper $uploaderHelper)
-    {
+    public function add(
+        EntityManagerInterface $em,
+        Request $request,
+        UploaderHelper $uploaderHelper,
+        TranslatorInterface $translator
+    ) {
         // Create the form based on the FormType we need.
         $postForm = $this->createForm(PostType::class);
 
@@ -96,7 +102,7 @@ class PostController extends AbstractController
             $em->getRepository(MediaPostRel::class)->saveAll($post->getId(), $medias);
 
             // Set an message after save.
-            $this->addFlash('success', 'Post Created!');
+            $this->addFlash('success', $translator->trans('admin.posts.form.post_saved'));
 
             // Redirect to another page.
             return $this->redirectToRoute('admin_post_index');
@@ -116,6 +122,7 @@ class PostController extends AbstractController
      * @param Request $request
      * @param UploaderHelper $uploaderHelper
      * @param FilterService $filterService
+     * @param TranslatorInterface $translator
      *
      * @return Response
      */
@@ -124,7 +131,8 @@ class PostController extends AbstractController
         EntityManagerInterface $em,
         Request $request,
         UploaderHelper $uploaderHelper,
-        FilterService $filterService
+        FilterService $filterService,
+        TranslatorInterface $translator
     ) {
         // Create the form based on the FormType we need.
         $postForm = $this->createForm(PostType::class, $post);
@@ -150,7 +158,7 @@ class PostController extends AbstractController
             $em->getRepository(MediaPostRel::class)->saveAll($post->getId(), $medias);
 
             // Set an message after save.
-            $this->addFlash('success', 'Post Updated!');
+            $this->addFlash('success', $translator->trans('admin.posts.form.post_saved'));
 
             // Redirect to another page.
             return $this->redirectToRoute('admin_post_index');

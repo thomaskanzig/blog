@@ -258,6 +258,11 @@
         <target>Salvar postagem</target>
       </trans-unit>
 
+      <trans-unit id="admin.posts.form.post_saved">
+        <source>admin.posts.form.post_saved</source>
+        <target>Postagem salvo com sucesso!</target>
+      </trans-unit>
+
       <!-- Admin (categories) -->
       <trans-unit id="admin.categories">
         <source>admin.categories</source>
@@ -277,6 +282,11 @@
       <trans-unit id="admin.categories.form.button.save_category">
         <source>admin.categories.form.button.save_category</source>
         <target>Salvar categoria</target>
+      </trans-unit>
+
+      <trans-unit id="admin.categories.form.category_saved">
+        <source>admin.categories.form.category_saved</source>
+        <target>Categoria salvo com sucesso!</target>
       </trans-unit>
 
       <!-- Admin (medias) -->
