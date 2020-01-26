@@ -24,7 +24,7 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right dropdown-menu-locale"
                aria-labelledby="navbarDropdown">
-            {% for locale in locales if locale != app.request.locale%}
+            {% for locale in locales if locale != app.request.locale %}
               <a class="dropdown-item dropdown-item-locale"
                  href="{{ path('post_index.' ~ locale, { _locale: locale }) }}">
                 {{ locale }}
