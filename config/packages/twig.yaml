@@ -9,3 +9,4 @@ twig:
         version:          '%env(APP_VERSION)%'
         name_admin:       '%env(ADMIN_NAME)%'
         name_admin_sigla: '%env(ADMIN_NAME_SIGLA)%'
+        locales: '%app_locales%'

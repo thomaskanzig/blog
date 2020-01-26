@@ -113,4 +113,18 @@
             transform: translate3d(0, 100%, 0);
         }
     }
+
+    .dropdown-menu-locale {
+        min-width: unset;
+        padding: 0.2rem 0;
+
+        @include media-breakpoint-down(lg) {
+            border: unset;
+        }
+    }
+
+    .dropdown-item-locale {
+        text-transform: uppercase;
+        font-size: 12px;
+    }
 }
