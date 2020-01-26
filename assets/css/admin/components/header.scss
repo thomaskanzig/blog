@@ -1,0 +1,24 @@
+.navbar .dropdown-locale {
+  a {
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+}
+
+.navbar .dropdown-menu-locale {
+  min-width: 70px;
+
+  @include screenMdMax {
+    right: unset !important;
+  }
+
+  li a {
+    @include screenSmMax {
+      color: $gray-700 !important;
+
+      &:hover {
+        color: $white !important;
+      }
+    }
+  }
+}
