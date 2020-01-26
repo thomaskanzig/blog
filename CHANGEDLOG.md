@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+## [0.2.0] - 2020-01-25
 - FEATURE: Added translation for `EN` and `PT`.
     - Added dropdown multi-language in website navigation. [#31](https://github.com/thomaskanzig/blog/pull/31)
     - List correctly `post` and `categories` according of current `locale`. [#30](https://github.com/thomaskanzig/blog/pull/30)
