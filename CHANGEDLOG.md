@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 - FEATURE: Added translation for `EN` and `PT`.
+    - Added dropdown multi-language in website navigation. [#31](https://github.com/thomaskanzig/blog/pull/31)
     - List correctly `post` and `categories` according of current `locale`. [#30](https://github.com/thomaskanzig/blog/pull/30)
     - Added all translate from `admin` in xml files. [#28](https://github.com/thomaskanzig/blog/pull/28)
     - Set initial config for `translation` and update routes for prefix locale. [#27](https://github.com/thomaskanzig/blog/pull/27)
