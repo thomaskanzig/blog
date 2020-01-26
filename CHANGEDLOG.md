@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.2.1] - 2020-01-26
+- FEATURE: Added dropdown multi-language in `admin`. [#34](https://github.com/thomaskanzig/blog/pull/34)
+
 ## [0.2.0] - 2020-01-25
 - FEATURE: Added translation for `EN` and `PT`. [#32](https://github.com/thomaskanzig/blog/pull/32)
     - Added dropdown multi-language in website navigation. [#31](https://github.com/thomaskanzig/blog/pull/31)
