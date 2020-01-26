@@ -1,27 +1,38 @@
 pages_about_me:
-    path:     /about-me
-    controller: App\Controller\PagesController::aboutme
+    path:
+        en: /about-me
+        pt: /{_locale}/sobre-me
+    controller: App\Controller\Website\PagesController::aboutme
 
 pages_contact:
-    path:     /contact
-    controller: App\Controller\PagesController::contact
+    path:
+        en: /contact
+        pt: /{_locale}/contato
+    controller: App\Controller\Website\PagesController::contact
 
 pages_register:
-  path:     /register
-  controller: App\Controller\PagesController::register
+    path:
+        en: /register
+        pt: /{_locale}/cadastro
+    controller: App\Controller\Website\PagesController::register
 
 security_login:
-    path:     /login
-    controller: App\Controller\SecurityController::login
+    path:
+        en: /login
+        pt: /{_locale}/entrar
+    controller: App\Controller\Website\SecurityController::login
 
 security_logout:
     path:     /logout
-    controller: App\Controller\SecurityController::logout
+    controller: App\Controller\Website\SecurityController::logout
 
 post_index:
-    path:     /
-    controller: App\Controller\PostController::index
+    prefix: /{_locale}
+    path:
+        en: /
+        pt: /{_locale}/
+    controller: App\Controller\Website\PostController::index
 
 post_detail:
-    path:     /{slug}
-    controller: App\Controller\PostController::detail
+    path:     /{_locale}/{slug}
+    controller: App\Controller\Website\PostController::detail

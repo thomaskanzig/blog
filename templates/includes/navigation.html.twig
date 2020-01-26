@@ -1,7 +1,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top navigation">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">{{ name_site }}</a>
+    <a class="navbar-brand" href="{{ path('post_index') }}">{{ name_site }}</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       Menu
       <i class="fa fa-bars"></i>
@@ -10,6 +10,27 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
             <a class="nav-link" href="{{ path('post_index') }}">Blog</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             id="navbarDropdown"
+             role="button"
+             data-toggle="dropdown"
+             aria-haspopup="true"
+             aria-expanded="false">
+            {{ app.request.locale }}
+          </a>
+          <div class="dropdown-menu dropdown-menu-right dropdown-menu-locale"
+               aria-labelledby="navbarDropdown">
+            {% for locale in locales if locale != app.request.locale%}
+              <a class="dropdown-item dropdown-item-locale"
+                 href="{{ path('post_index.' ~ locale, { _locale: locale }) }}">
+                {{ locale }}
+              </a>
+            {% endfor %}
+          </div>
         </li>
       </ul>
     </div>

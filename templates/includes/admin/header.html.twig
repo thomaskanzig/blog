@@ -1,6 +1,6 @@
 <header class="main-header">
   <!-- Logo -->
-  <a href="../../index2.html" class="logo">
+  <a href="{{ app.request.baseUrl }}" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini">{{ name_admin_sigla }}</span>
     <!-- logo for regular state and mobile devices -->
@@ -24,7 +24,7 @@
             <img src="{{ asset(app.user.urlAvatar|default('images/avatar.png'))|imagine_filter('20x20') }}"
                  class="user-image"
                  alt="">
-            <span class="hidden-xs">{{ app.user.username }}</span>
+            <span class="hidden-xs">{{ app.user.fullname }}</span>
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->
@@ -33,14 +33,17 @@
                    class="img-circle"
                    alt="User Image">
               <p>
-                {{ app.user.username }}
+                {{ app.user.fullname }}
                 <!--small>Member since Nov. 2012</small-->
               </p>
             </li>
             <!-- Menu Footer-->
             <li class="user-footer">
               <div class="pull-right">
-                <a href="{{ path('security_logout') }}" class="btn btn-default btn-flat">Sign out</a>
+                <a href="{{ path('security_logout') }}"
+                   class="btn btn-default btn-flat">
+                  {{ 'admin.header.sign_out'|trans }} <i class="fa fa-sign-out" aria-hidden="true"></i>
+                </a>
               </div>
             </li>
           </ul>

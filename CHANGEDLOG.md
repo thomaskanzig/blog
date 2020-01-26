@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+## [0.2.0] - 2020-01-25
+- FEATURE: Added translation for `EN` and `PT`.
+    - Added dropdown multi-language in website navigation. [#31](https://github.com/thomaskanzig/blog/pull/31)
+    - List correctly `post` and `categories` according of current `locale`. [#30](https://github.com/thomaskanzig/blog/pull/30)
+    - Added all translate from `admin` in xml files. [#28](https://github.com/thomaskanzig/blog/pull/28)
+    - Set initial config for `translation` and update routes for prefix locale. [#27](https://github.com/thomaskanzig/blog/pull/27)
 - FEATURE: Added github repository link in `admin` and some few adjustment in footer. [#26](https://github.com/thomaskanzig/blog/pull/26)
 - FEATURE: Added `website` link in `admin` sidebar. [#25](https://github.com/thomaskanzig/blog/pull/25)
 

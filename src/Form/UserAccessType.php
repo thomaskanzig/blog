@@ -10,9 +10,21 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class UserAccessType extends AbstractType
 {
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+
+    public function __construct(
+        TranslatorInterface $translator
+    ) {
+        $this->translator = $translator;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -28,8 +40,8 @@ class UserAccessType extends AbstractType
                         'minMessage' => 'Come on, you can think of a password longer than that!'
                     ])
                 ],
-                'first_options' => ['label' => 'Password'],
-                'second_options' => ['label' => 'Repeat Password']
+                'first_options' => ['label' => $this->translator->trans('app.general.form.label.password')],
+                'second_options' => ['label' => $this->translator->trans('app.general.form.label.repeat_password')]
             ])
         ;
     }

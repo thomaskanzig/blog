@@ -1,3 +1,20 @@
-controllers:
-    resource: ../../src/Controller/
+controllers_website:
+    resource: ../../src/Controller/Website/
     type: annotation
+    prefix:
+        en: ''
+        pt: '/pt'
+
+controllers_admin:
+    resource: ../../src/Controller/Admin/
+    type: annotation
+    prefix:
+        en: ''
+        pt: '/pt'
+
+controllers_api:
+    resource: ../../src/Controller/Api/
+    type: annotation
+    prefix: '/'
+
+

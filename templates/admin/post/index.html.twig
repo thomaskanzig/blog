@@ -3,12 +3,11 @@
 {% block body %}
     <section class="content-header">
         <h1>
-            All posts
-            <small>preview of simple tables</small>
+            {{ 'admin.posts'|trans }}
         </h1>
         <ol class="breadcrumb">
-            <li><a href="{{ path('admin_pages_index') }}"><i class="fa fa-home"></i> Home</a></li>
-            <li class="active">Posts</li>
+            <li><a href="{{ path('admin_pages_index') }}"><i class="fa fa-home"></i> {{ 'admin.index'|trans }}</a></li>
+            <li class="active">{{ 'admin.posts'|trans }}</li>
         </ol>
     </section>
 
@@ -17,12 +16,12 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">List</h3>
+                        <h3 class="box-title">{{ 'app.general.list'|trans }}</h3>
 
                         <div class="box-tools">
                             <form class="form-inline">
                                 <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="q" class="form-control pull-right" placeholder="Search">
+                                    <input type="text" name="q" class="form-control pull-right" placeholder="{{ 'app.general.search'|trans }}">
 
                                     <div class="input-group-btn">
                                         <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
@@ -38,10 +37,10 @@
                             <table class="table table-hover">
                                 <tr>
                                     <th>ID</th>
-                                    <th>Title</th>
-                                    <th>User</th>
-                                    <th>Created</th>
-                                    <th>Actions</th>
+                                    <th>{{ 'app.general.form.label.title'|trans }}</th>
+                                    <th>{{ 'app.general.user'|trans }}</th>
+                                    <th>{{ 'app.general.created'|trans }}</th>
+                                    <th>{{ 'app.general.actions'|trans }}</th>
                                 </tr>
                                 {% for post in posts %}
                                     <tr>
@@ -60,14 +59,14 @@
                                                 id: post.id
                                             }) }}"
                                                class="btn btn-xs btn-primary">
-                                                <i class="fa fa-edit"></i> Edit
+                                                <i class="fa fa-edit"></i> {{ 'admin.action.edit'|trans }}
                                             </a>
 
                                             <a href="{{ path('admin_post_delete', {
                                                 id: post.id
                                             }) }}"
                                                class="btn btn-xs btn-danger">
-                                                <i class="fa fa-trash"></i> Delete
+                                                <i class="fa fa-trash"></i> {{ 'admin.action.delete'|trans }}
                                             </a>
                                         </td>
                                     </tr>

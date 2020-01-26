@@ -16,36 +16,54 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class UserType extends AbstractType {
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+
+    public function __construct(
+        TranslatorInterface $translator
+    ) {
+        $this->translator = $translator;
+    }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('username', TextType::class)
-                ->add('email', EmailType::class)
-                ->add('plainPassword', RepeatedType::class, [
-                      'mapped' => false,
-                      'type' => PasswordType::class,
-                      'constraints' => [
-                            new NotBlank([
-                                'message' => 'Choose a password!'
-                            ]),
-                            new Length([
-                                'min' => 5,
-                                'minMessage' => 'Come on, you can think of a password longer than that!'
-                            ])
-                      ],
-                      'first_options' => ['label' => 'Password'],
-                      'second_options' => ['label' => 'Repeat Password']
-                ])
+        $builder
+            ->add('username', TextType::class,[
+                'label'     => $this->translator->trans('app.general.form.label.username'),
+            ])
+            ->add('email', EmailType::class,[
+                'label'     => $this->translator->trans('app.general.form.label.email'),
+            ])
+            ->add('plainPassword', RepeatedType::class, [
+                  'mapped' => false,
+                  'type' => PasswordType::class,
+                  'constraints' => [
+                        new NotBlank([
+                            'message' => 'Choose a password!'
+                        ]),
+                        new Length([
+                            'min' => 5,
+                            'minMessage' => 'Come on, you can think of a password longer than that!'
+                        ])
+                  ],
+                  'first_options' => ['label' => $this->translator->trans('app.general.form.label.password')],
+                  'second_options' => ['label' => $this->translator->trans('app.general.form.label.repeat_password')]
+            ])
             ->add('imageFile',
                 FileType::class,
-                ['label' => 'Image file for the post banner',
+                ['label' => $this->translator->trans('admin.users.form.label.add_avatar'),
                     'mapped' => false,
                     'required' => false
                 ]
             )
-            ->add('fullname', TextType::class)
+            ->add('fullname', TextType::class,[
+                'label'     => $this->translator->trans('app.general.form.label.fullname'),
+            ])
             ;
     }
 
