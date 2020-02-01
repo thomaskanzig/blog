@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+- BUGFIX: Bugfix if `setting` variables not exist. [#36](https://github.com/thomaskanzig/blog/pull/36)
 
 ## [0.2.1] - 2020-01-26
 - FEATURE: Added dropdown multi-language in `admin`. [#34](https://github.com/thomaskanzig/blog/pull/34)
