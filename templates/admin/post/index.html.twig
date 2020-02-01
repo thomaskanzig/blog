@@ -37,6 +37,7 @@
                             <table class="table table-hover">
                                 <tr>
                                     <th>ID</th>
+                                    <th>{{ 'app.general.form.label.active'|trans }}</th>
                                     <th>{{ 'app.general.form.label.title'|trans }}</th>
                                     <th>{{ 'app.general.user'|trans }}</th>
                                     <th>{{ 'app.general.created'|trans }}</th>
@@ -45,6 +46,13 @@
                                 {% for post in posts %}
                                     <tr>
                                         <td>{{ post.id }}</td>
+                                        <td>
+                                            {% if post.active %}
+                                                <i class="fa fa-toggle-on" aria-hidden="true"></i>
+                                            {% else %}
+                                                <i class="fa fa-toggle-off" aria-hidden="true"></i>
+                                            {% endif %}
+                                        </td>
                                         <td>
                                             <a href="{{ path('admin_post_edit', {
                                                 id: post.id
@@ -68,6 +76,16 @@
                                                class="btn btn-xs btn-danger">
                                                 <i class="fa fa-trash"></i> {{ 'admin.action.delete'|trans }}
                                             </a>
+
+                                            {% if post.active %}
+                                                <a href="{{ path('post_detail', {
+                                                    slug: post.slug
+                                                }) }}"
+                                                    class="btn btn-xs btn-default"
+                                                    target="_blank">
+                                                    <i class="fa fa-external-link"></i> {{ 'admin.action.visit_page'|trans }}
+                                                </a>
+                                            {% endif %}
                                         </td>
                                     </tr>
                                 {% endfor %}

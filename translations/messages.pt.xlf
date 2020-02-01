@@ -196,6 +196,11 @@
         <target>Listar todos</target>
       </trans-unit>
 
+      <trans-unit id="admin.action.visit_page">
+        <source>admin.action.visit_page</source>
+        <target>Ver página</target>
+      </trans-unit>
+
       <!-- Admin (index) -->
       <trans-unit id="admin.index">
         <source>admin.index</source>
