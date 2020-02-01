@@ -105,7 +105,7 @@
 {% endblock %}
 
 {# Google gtag #}
-{% if setting().googleGtagId is not empty %}
+{% if setting().googleGtagId is defined and setting().googleGtagId is not empty %}
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ setting().googleGtagId }}"></script>
     <script>
