@@ -76,6 +76,15 @@
                                                class="btn btn-xs btn-danger">
                                                 <i class="fa fa-trash"></i> {{ 'admin.action.delete'|trans }}
                                             </a>
+
+                                            {% if post.active %}
+                                                <a href="{{ path('post_detail', {
+                                                    slug: post.slug
+                                                }) }}"
+                                                   class="btn btn-xs btn-default">
+                                                    <i class="fa fa-external-link"></i> {{ 'admin.action.visit_page'|trans }}
+                                                </a>
+                                            {% endif %}
                                         </td>
                                     </tr>
                                 {% endfor %}
