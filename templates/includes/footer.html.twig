@@ -8,7 +8,7 @@
       <div class="col-lg-8 col-md-10 mx-auto">
         <ul class="list-inline text-center">
 
-          {% if setting().urlInstagram is not empty %}
+          {% if setting().urlInstagram is defined and setting().urlInstagram is not empty %}
             <li class="list-inline-item">
               <a href="{{ setting().urlInstagram}}" target="_blank">
                 <span class="fa-stack fa-lg">
@@ -19,7 +19,7 @@
             </li>
           {% endif %}
 
-          {% if setting().urlFacebook is not empty %}
+          {% if setting().urlFacebook is defined and setting().urlFacebook is not empty %}
             <li class="list-inline-item">
               <a href="{{ setting().urlFacebook }}" target="_blank">
                 <span class="fa-stack fa-lg">
@@ -30,7 +30,7 @@
             </li>
           {% endif %}
 
-          {% if setting().urlLinkedin is not empty %}
+          {% if setting().urlLinkedin is defined and setting().c is not empty %}
             <li class="list-inline-item">
               <a href="{{ setting().urlLinkedin }}" target="_blank">
                 <span class="fa-stack fa-lg">
@@ -41,7 +41,7 @@
             </li>
           {% endif %}
 
-          {% if setting().urlGithub is not empty %}
+          {% if setting().urlGithub is defined and setting().urlGithub is not empty %}
             <li class="list-inline-item">
               <a href="{{ setting().urlGithub }}" target="_blank">
                 <span class="fa-stack fa-lg">
