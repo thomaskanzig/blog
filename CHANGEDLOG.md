@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.2.3] - 2020-02-02
+- FEATURE: Added plugin comments from Facebook. [#39](https://github.com/thomaskanzig/blog/pull/39)
+
 ## [0.2.2] - 2020-02-01
 - FEATURE: Added active column and added button to visit page by admin in list `post` page. [#37](https://github.com/thomaskanzig/blog/pull/37)
 - BUGFIX: Bugfix if `setting` variables not exist. [#36](https://github.com/thomaskanzig/blog/pull/36)
