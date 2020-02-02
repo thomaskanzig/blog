@@ -46,6 +46,16 @@ class Setting
      */
     private $updated;
 
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $app_id_facebook;
+
+    /**
+     * @ORM\Column(type="boolean", options={"default" : 0})
+     */
+    private $show_comments_facebook = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +129,30 @@ class Setting
     public function setUpdated(?\DateTimeInterface $updated): self
     {
         $this->updated = $updated;
+
+        return $this;
+    }
+
+    public function getAppIdFacebook(): ?string
+    {
+        return $this->app_id_facebook;
+    }
+
+    public function setAppIdFacebook(?string $app_id_facebook): self
+    {
+        $this->app_id_facebook = $app_id_facebook;
+
+        return $this;
+    }
+
+    public function getShowCommentsFacebook(): ?bool
+    {
+        return $this->show_comments_facebook;
+    }
+
+    public function setShowCommentsFacebook(?bool $show_comments_facebook): self
+    {
+        $this->show_comments_facebook = $show_comments_facebook;
 
         return $this;
     }

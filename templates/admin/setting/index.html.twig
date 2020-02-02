@@ -15,45 +15,66 @@
     <section class="content">
         <div class="row">
             <div class="col-md-12">
-                <!-- general form elements -->
+                {{ form_start(settingForm) }}
+
+                <!-- facebook box -->
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">{{ 'app.general.basic_information'|trans }}</h3>
+                        <h3 class="box-title">Facebook</h3>
                     </div>
 
-                    {{ form_start(settingForm) }}
-                        <div class="box-body">
+                    <div class="box-body">
                             <div class="row">
-                                <div class="col-md-6">
-                                    {{ form_row(settingForm.google_gtag_id) }}
-                                </div>
-
                                 <div class="col-md-6">
                                     {{ form_row(settingForm.url_facebook) }}
                                 </div>
 
                                 <div class="col-md-6">
-                                    {{ form_row(settingForm.url_instagram) }}
+                                    {{ form_row(settingForm.app_id_facebook) }}
                                 </div>
 
-                                <div class="col-md-6">
-                                    {{ form_row(settingForm.url_linkedin) }}
-                                </div>
-
-                                <div class="col-md-6">
-                                    {{ form_row(settingForm.url_github) }}
+                                <div class="col-md-12">
+                                    {{ form_row(settingForm.show_comments_facebook) }}
                                 </div>
                             </div>
                         </div>
+                </div>
 
-                        <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">
-                                {{ 'admin.settings.form.button.save_settings'|trans }}
-                            </button>
+                <!-- basic information box -->
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">{{ 'app.general.basic_information'|trans }}</h3>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                {{ form_row(settingForm.google_gtag_id) }}
+                            </div>
+
+                            <div class="col-md-6">
+                                {{ form_row(settingForm.url_instagram) }}
+                            </div>
+
+                            <div class="col-md-6">
+                                {{ form_row(settingForm.url_linkedin) }}
+                            </div>
+
+                            <div class="col-md-6">
+                                {{ form_row(settingForm.url_github) }}
+                            </div>
                         </div>
-                    {{ form_end(settingForm) }}
+                    </div>
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">
+                            {{ 'admin.settings.form.button.save_settings'|trans }}
+                        </button>
+                    </div>
                 </div>
                 <!-- /.box -->
+
+                {{ form_end(settingForm) }}
             </div>
         </div>
         <!-- /.row -->
