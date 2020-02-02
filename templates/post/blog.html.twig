@@ -30,6 +30,13 @@
                             {{ post.text|raw }}
                         {% endif %}
                     </div>
+
+                    {% if setting().showCommentsFacebook %}
+                        <div class="comments"
+                             data-href="https://developers.facebook.com/docs/plugins/comments#configurator"
+                             data-width="" data-numposts="20">
+                        </div>
+                    {% endif %}
                 </article>
             </div>
         </div>

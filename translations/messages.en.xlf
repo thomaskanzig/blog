@@ -367,6 +367,11 @@
         <target>Save settings</target>
       </trans-unit>
 
+      <trans-unit id="admin.settings.form.label.show_comments_facebook">
+        <source>admin.settings.form.label.show_comments_facebook</source>
+        <target>Show comments Facebook</target>
+      </trans-unit>
+
       <!-- Admin (header) -->
       <trans-unit id="admin.header.sign_out">
         <source>admin.header.sign_out</source>
