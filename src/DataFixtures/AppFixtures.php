@@ -192,6 +192,7 @@ class AppFixtures extends Fixture
             $template = new Template();
             $template->setName($item['name']);
             $template->setView($item['view']);
+            $template->setSlug($item['slug']);
             $template->setCreated(new \DateTime());
 
             # More about reference methods see here:
