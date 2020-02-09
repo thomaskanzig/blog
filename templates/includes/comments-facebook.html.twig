@@ -1,0 +1,7 @@
+{% if setting().showCommentsFacebook %}
+  <div class="fb-comments"
+       data-href="{{ base_url ~ '' ~ app.request.requestUri }}"
+       data-width="100%"
+       data-numposts="20">
+  </div>
+{% endif %}

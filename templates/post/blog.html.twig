@@ -31,12 +31,7 @@
                         {% endif %}
                     </div>
 
-                    {% if setting().showCommentsFacebook %}
-                        <div class="comments"
-                             data-href="{{ base_url ~ '' ~ app.request.requestUri }}"
-                             data-width="" data-numposts="20">
-                        </div>
-                    {% endif %}
+                    {% include 'includes/comments-facebook.html.twig' %}
                 </article>
             </div>
         </div>
