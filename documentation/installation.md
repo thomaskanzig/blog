@@ -16,6 +16,12 @@ More about necessary requirements visit [here](https://symfony.com/doc/4.2/setup
 git clone https://github.com/thomaskanzig/blog.git .
 ```
 
+##### Install composer
+
+```bash
+composer install
+```
+
 ##### Config environment file:
 Before start to code, make a copy from [.env.test](../.env.test) and rename to `.env.local` in the same path and uncomment all variables and replace the values of your environment.
 
@@ -35,7 +41,7 @@ php bin/console doctrine:migrations:migrate
 bin/console doctrine:fixtures:load
 ```
 
-##### Install composer
+##### Run install composer again
 
 ```bash
 composer install
