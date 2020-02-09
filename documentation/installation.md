@@ -41,12 +41,6 @@ php bin/console doctrine:migrations:migrate
 bin/console doctrine:fixtures:load
 ```
 
-##### Run install composer again
-
-```bash
-composer install
-```
-
 ##### Install yarn package
 
 ```bash
