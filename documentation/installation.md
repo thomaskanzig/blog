@@ -16,6 +16,25 @@ More about necessary requirements visit [here](https://symfony.com/doc/4.2/setup
 git clone https://github.com/thomaskanzig/blog.git .
 ```
 
+##### Config environment file:
+Before start to code, make a copy from [.env.test](../.env.test) and rename to `.env.local` in the same path and uncomment all variables and replace the values of your environment.
+
+See [here](https://symfony.com/blog/new-in-symfony-4-2-define-env-vars-per-environment) to explain more.
+
+This file is in `.gitignore` and not will be save in repository.
+
+##### Create and update the database structure with this:
+```bash
+php bin/console doctrine:database:create
+php bin/console doctrine:migrations:diff
+php bin/console doctrine:migrations:migrate
+```
+
+##### Generate fixtures data to begin development:
+```bash
+bin/console doctrine:fixtures:load
+```
+
 ##### Install composer
 
 ```bash
@@ -38,24 +57,6 @@ yarn encore production
 ##### Initialize envoirment dev:
 ```bash
 composer require --dev server
-```
-##### Config environment file:
-Before start to code, make a copy from [.env.test](../.env.test) and rename to `.env.local` in the same path and uncomment all variables and replace the values of your environment.
-
-See [here](https://symfony.com/blog/new-in-symfony-4-2-define-env-vars-per-environment) to explain more.
-
-This file is in `.gitignore` and not will be save in repository.
-
-##### Create and update the database structure with this:
-```bash
-php bin/console doctrine:database:create
-php bin/console doctrine:migrations:diff
-php bin/console doctrine:migrations:migrate
-```
-
-##### Generate fixtures data to begin development:
-```bash
-bin/console doctrine:fixtures:load
 ```
 
 Authentication access:<br>
