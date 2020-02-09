@@ -178,11 +178,13 @@ class AppFixtures extends Fixture
                 'name' => 'Blog',
                 'view' => 'post/blog.html.twig',
                 'reference' => 'blog',
+                'slug' => 'blog',
             ],
             [
                 'name' => 'Gallery',
                 'view' => 'post/gallery.html.twig',
                 'reference' => 'gallery',
+                'slug' => 'gallery',
             ],
         ];
 
