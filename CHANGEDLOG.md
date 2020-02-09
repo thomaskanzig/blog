@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ## [0.2.4] - 2020-02-09
-- FEATURE: Fix `data-href` attribute by comment. [#41](https://github.com/thomaskanzig/blog/pull/41)
+- FEATURE: Fix `data-href` attribute by facebook comment. [#41](https://github.com/thomaskanzig/blog/pull/41)
 
 ## [0.2.3] - 2020-02-02
 - FEATURE: Added plugin comments from Facebook. [#39](https://github.com/thomaskanzig/blog/pull/39)
