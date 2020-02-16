@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ## [0.2.4] - 2020-02-16
+- FEATURE: Added sitemap xml generator. [#44](https://github.com/thomaskanzig/blog/pull/44)
 - FEATURE: Added actives languages. [#43](https://github.com/thomaskanzig/blog/pull/43)
 
 ## [0.2.3] - 2020-02-02
