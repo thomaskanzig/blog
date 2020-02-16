@@ -27,7 +27,6 @@ security_logout:
     controller: App\Controller\Website\SecurityController::logout
 
 post_index:
-    prefix: /{_locale}
     path:
         en: /
         pt: /{_locale}/
