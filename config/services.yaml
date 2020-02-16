@@ -6,7 +6,7 @@
 parameters:
     # default locale
     locale: 'en'
-    app_locales: ['en','pt']
+    app_locales: '%env(APP_LOCALES)%'
     app_countries_locales:
         'en': 'en_US'
         'pt': 'pt_BR'

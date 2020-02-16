@@ -94,6 +94,7 @@ APP_NAME='Project'
 ADMIN_NAME='Admin Project'
 ADMIN_NAME_SIGLA='TKA'
 BASE_URL='http://localhost:8000'
+APP_LOCALES='en'
 
 ```
 Obs:  
