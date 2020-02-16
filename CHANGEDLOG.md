@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.2.4] - 2020-02-16
+- FEATURE: Added actives languages. [#43](https://github.com/thomaskanzig/blog/pull/43)
+
 ## [0.2.3] - 2020-02-02
 - FEATURE: Added plugin comments from Facebook. [#39](https://github.com/thomaskanzig/blog/pull/39)
 
