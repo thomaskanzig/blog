@@ -18,22 +18,24 @@
 
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
-        <li class="dropdown dropdown-locale">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            {{ app.request.locale }}
-            <span class="caret"></span>
-          </a>
+        {% if 1 < locales|split(',')|length %}
+          <li class="dropdown dropdown-locale">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              {{ app.request.locale }}
+              <span class="caret"></span>
+            </a>
 
-          <ul class="dropdown-menu dropdown-menu-locale">
-            {% for locale in locales if locale != app.request.locale %}
-              <li>
-                <a href="{{ path('admin_pages_index', { _locale: locale }) }}">
-                  {{ locale }}
-                </a>
-              </li>
-            {% endfor %}
-          </ul>
-        </li>
+            <ul class="dropdown-menu dropdown-menu-locale">
+              {% for locale in locales|split(',') if locale != app.request.locale %}
+                <li>
+                  <a href="{{ path('admin_pages_index', { _locale: locale }) }}">
+                    {{ locale }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% endif %}
 
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">

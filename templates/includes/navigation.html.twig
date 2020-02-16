@@ -12,26 +12,28 @@
             <a class="nav-link" href="{{ path('post_index') }}">Blog</a>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle"
-             href="#"
-             id="navbarDropdown"
-             role="button"
-             data-toggle="dropdown"
-             aria-haspopup="true"
-             aria-expanded="false">
-            {{ app.request.locale }}
-          </a>
-          <div class="dropdown-menu dropdown-menu-right dropdown-menu-locale"
-               aria-labelledby="navbarDropdown">
-            {% for locale in locales if locale != app.request.locale %}
-              <a class="dropdown-item dropdown-item-locale"
-                 href="{{ path('post_index.' ~ locale, { _locale: locale }) }}">
-                {{ locale }}
-              </a>
-            {% endfor %}
-          </div>
-        </li>
+        {% if 1 < locales|split(',')|length %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"
+               href="#"
+               id="navbarDropdown"
+               role="button"
+               data-toggle="dropdown"
+               aria-haspopup="true"
+               aria-expanded="false">
+              {{ app.request.locale }}
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-locale"
+                 aria-labelledby="navbarDropdown">
+              {% for locale in locales|split(',') if locale != app.request.locale %}
+                <a class="dropdown-item dropdown-item-locale"
+                   href="{{ path('post_index.' ~ locale, { _locale: locale }) }}">
+                  {{ locale }}
+                </a>
+              {% endfor %}
+            </div>
+          </li>
+        {% endif %}
       </ul>
     </div>
   </div>
