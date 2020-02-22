@@ -22,7 +22,7 @@ class AppFixtures extends Fixture
     /**
      * @var String
      */
-    const DEFAULT_LOCALE = 'EN';
+    const DEFAULT_LOCALE = 'en';
 
 
     public function __construct(UserPasswordEncoderInterface $passwordEncoder)
