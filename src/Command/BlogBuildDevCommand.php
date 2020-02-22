@@ -38,9 +38,7 @@ class BlogBuildDevCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Configure your environment dev to start build your blog')
-            //->addArgument('arg1', InputArgument::OPTIONAL, 'Argument description')
-            //->addOption('option1', null, InputOption::VALUE_NONE, 'Option description')
+            ->setDescription('Configure your environment dev and database to start build your blog')
         ;
     }
 
@@ -53,7 +51,7 @@ class BlogBuildDevCommand extends Command
          */
         $filesystem = new Filesystem();
         $projectDir = $this->projectDir;
-        $envFile = $projectDir . '/.env.local';
+        $envLocal = $projectDir . '/.env.local';
 
         /*
          * Question of set in environment file.
@@ -63,7 +61,7 @@ class BlogBuildDevCommand extends Command
         $userDB = $io->ask('Which database user? ','root');
         $passwordDB = $io->ask('Which database password? ','');
         $hostDB = $io->ask('Which database host? ','127.0.0.1:3306');
-        $nameAPP = $io->ask('Which project name? ','Blog 1');
+        $nameAPP = $io->ask('Which project name? ','Blog');
         $emailAPP = $io->ask('Which your email? ','example@email.com');
 
         $envContent = [
@@ -83,15 +81,15 @@ class BlogBuildDevCommand extends Command
 
         try {
             // Delete if exist.
-            $filesystem->remove($envFile);
+            $filesystem->remove($envLocal);
 
             // Create file.
-            if (!$filesystem->exists($envFile)) {
-                $filesystem->touch($envFile);
-                $filesystem->chmod($envFile, 0777);
+            if (!$filesystem->exists($envLocal)) {
+                $filesystem->touch($envLocal);
+                $filesystem->chmod($envLocal, 0777);
 
                 foreach($envContent as $line) {
-                    $filesystem->appendToFile($envFile, $line . "\n");
+                    $filesystem->appendToFile($envLocal, $line . "\n");
                 }
             }
 
@@ -101,7 +99,7 @@ class BlogBuildDevCommand extends Command
         }
 
         /*
-         * Execute necessary internal commands.
+         * Execute necessary internal commands for create your database.
          */
         $commands = [
             'doctrine:database:create',
@@ -110,19 +108,23 @@ class BlogBuildDevCommand extends Command
             'doctrine:fixtures:load',
         ];
 
-        $kernel = static::createKernel();
-        $application = new Application($kernel);
-
         foreach($commands as $command) {
-            $input = new ArrayInput([
-                'command' => $command
-            ]);
+            $command = $this->getApplication()->find($command);
 
-            $output = new BufferedOutput();
-            $application->run($input, $output);
+            $arguments = [
+                'command' => $command,
+            ];
+
+            $greetInput = new ArrayInput($arguments);
+            $command->run($greetInput, $output);
         }
 
         $io->success('Database successful created.');
+
+        $output->writeln('Your default access for /admin is.');
+        $output->writeln('Login: admin');
+        $output->writeln('Password: admin');
+
         $io->note('Done.');
     }
 }
