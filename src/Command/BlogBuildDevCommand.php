@@ -24,7 +24,7 @@ class BlogBuildDevCommand extends Command
     private $projectDir;
 
     /**
-     * UploaderHelper constructor.
+     * BlogBuildDevCommand constructor.
      *
      * @param String $projectDir
      */
