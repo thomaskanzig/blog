@@ -117,7 +117,7 @@ class BlogBuildDevCommand extends Command
 
         $io->success('Database successful created.');
 
-        $output->writeln('Your default access for /admin is.');
+        $output->writeln('Your default access for /admin:');
         $output->writeln('Login: admin');
         $output->writeln('Password: admin');
 
