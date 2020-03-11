@@ -1,8 +1,11 @@
-<script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/4.14.0/standard-all/ckeditor.js"></script>
 <script>
     {% for id in ids %}
         CKEDITOR.replace('{{ id }}', {
             height: 500,
+            format_tags: 'p;h1;h2;h3;h4;h5;h6;pre;address;div',
+            extraPlugins: 'autoembed,embedsemantic,image2,mathjax,codesnippet',
+            codeSnippet_theme: 'tomorrow-night'
         });
     {% endfor %}
 </script>
