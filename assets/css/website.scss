@@ -4,10 +4,13 @@
 @import "~lightbox2/dist/css/lightbox.css";
 @import "~highlight.js/styles/monokai-sublime.css";
 
-// Import own css.
+// Import base css.
 @import 'base/variables';
 @import 'base/mixins';
 @import 'base/helpers';
+
+// Import plugins css.
+@import 'plugins/ckeditor';
 
 @import 'website/components/global';
 @import 'website/components/navbar';
