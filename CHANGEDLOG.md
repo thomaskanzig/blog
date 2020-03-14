@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.2.6] - 2020-03-14
+- FEATURE: Added `allowedContent: true` parameter for not changes any html script in ckeditor. [#47](https://github.com/thomaskanzig/blog/pull/47)
+
 ## [0.2.5] - 2020-03-11
 - FEATURE: Added `highlight.js` and CSS for `code_snippet` in ckeditor. [#46](https://github.com/thomaskanzig/blog/pull/46)
 
