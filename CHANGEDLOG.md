@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ## [0.2.6] - 2020-03-14
+- FEATURE: Added alignment text in `ckeditor` and created `_ckeditor.scss` file. [#48](https://github.com/thomaskanzig/blog/pull/48)
 - FEATURE: Added `allowedContent: true` parameter for not changes any html script in ckeditor. [#47](https://github.com/thomaskanzig/blog/pull/47)
 
 ## [0.2.5] - 2020-03-11
