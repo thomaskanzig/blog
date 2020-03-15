@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^12.3.1",
+    "acorn": "^6.4.1",
     "admin-lte": "^2.4.12",
     "bootstrap": "^4.3.1",
     "bootstrap-sass": "^3.4.1",
@@ -47,6 +48,7 @@
     "lightbox2": "^2.11.1",
     "lodash": "^4.17.12",
     "massive-web": "^2.0.0-rc1",
+    "minimist": "^1.2.2",
     "popper.js": "1.14.7",
     "reset-css": "^4.0.1",
     "serialize-javascript": "^2.1.1",
