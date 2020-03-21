@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.3.0] - 2020-03-21
+- FEATURE: Updated to php 7.4 and all packages. [#51](https://github.com/thomaskanzig/blog/pull/51)  
+    `- composer install`
+
 ## [0.2.6] - 2020-03-14
 - FEATURE: Added alignment text in `ckeditor` and created `_ckeditor.scss` file. [#48](https://github.com/thomaskanzig/blog/pull/48)
 - FEATURE: Added `allowedContent: true` parameter for not changes any html script in ckeditor. [#47](https://github.com/thomaskanzig/blog/pull/47)
