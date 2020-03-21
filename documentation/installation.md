@@ -2,8 +2,8 @@
 
 ## Requirements
 
- - PHP: **>=7.1**
- - MySQL: **>=5.5**
+ - PHP: **>=7.4**
+ - MySQL: **>=5.7**
  - HTTP Server: **nginx** or **apache**  
  
 More about necessary requirements visit [here](https://symfony.com/doc/4.2/setup.html).
