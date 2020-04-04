@@ -94,6 +94,22 @@
                                 </div>
 
                                 <div class="col-md-12">
+                                    <div class="form-group {% if not postForm.slug.vars.valid %}has-error{% endif %}">
+                                        {{ form_label(postForm.slug) }}
+                                        <div class="input-group">
+                                            <span class="input-group-addon">/</span>
+                                            {{ form_widget(postForm.slug) }}
+                                        </div>
+                                        {{ form_errors(postForm.slug) }}
+                                        <small>{{ form_help(postForm.slug) }}</small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.slug) }}
+                                </div>
+
+                                <div class="col-md-12">
                                     {{ form_row(postForm.description) }}
                                 </div>
 

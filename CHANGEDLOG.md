@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.3.1] - 2020-04-04
+- FEATURE: Added address url field in post edit form. [#54](https://github.com/thomaskanzig/blog/pull/54)
+
 ## [0.3.0] - 2020-03-21
 - FEATURE: Updated to php 7.4 and all packages. [#51](https://github.com/thomaskanzig/blog/pull/51)  
     `- composer install`

@@ -31,6 +31,11 @@
         <target>Title</target>
       </trans-unit>
 
+      <trans-unit id="app.general.form.label.slug">
+        <source>app.general.form.label.slug</source>
+        <target>URL Address</target>
+      </trans-unit>
+
       <trans-unit id="app.general.form.label.description">
         <source>app.general.form.label.description</source>
         <target>Description</target>
@@ -266,6 +271,11 @@
       <trans-unit id="admin.posts.form.post_saved">
         <source>admin.posts.form.post_saved</source>
         <target>Post created!</target>
+      </trans-unit>
+
+      <trans-unit id="admin.posts.form_error.regex.slug">
+        <source>admin.posts.form_error.regex.slug</source>
+        <target>This url is not valid.</target>
       </trans-unit>
 
       <!-- Admin (categories) -->

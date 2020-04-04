@@ -31,6 +31,11 @@
         <target>Título</target>
       </trans-unit>
 
+      <trans-unit id="app.general.form.label.slug">
+        <source>app.general.form.label.slug</source>
+        <target>Endereço da URL</target>
+      </trans-unit>
+
       <trans-unit id="app.general.form.label.description">
         <source>app.general.form.label.description</source>
         <target>Descrição</target>
@@ -266,6 +271,11 @@
       <trans-unit id="admin.posts.form.post_saved">
         <source>admin.posts.form.post_saved</source>
         <target>Postagem salvo com sucesso!</target>
+      </trans-unit>
+
+      <trans-unit id="admin.posts.form_error.regex.slug">
+        <source>admin.posts.form_error.regex.slug</source>
+        <target>Essa URL não é válida.</target>
       </trans-unit>
 
       <!-- Admin (categories) -->

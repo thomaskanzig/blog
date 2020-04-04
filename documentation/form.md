@@ -12,3 +12,7 @@ $builder
     ])
 ```
 For more info, click [here](https://symfony.com/doc/current/reference/forms/types/entity.html)
+
+#### Customization
+
+Direct link [here](https://symfony.com/doc/4.4/form/form_customization.html)
