@@ -99,6 +99,16 @@
                                         <div class="input-group">
                                             <span class="input-group-addon">/</span>
                                             {{ form_widget(postForm.slug) }}
+                                            <span class="input-group-btn">
+                                                <a href="{{ path('post_detail', {
+                                                    slug: postForm.vars.data.slug
+                                                }) }}"
+                                                   class="btn btn-primary"
+                                                   target="_blank"
+                                                   type="button">
+                                                    <i class="fa fa-external-link"></i> {{ 'admin.action.visit_page'|trans }}
+                                                </a>
+                                            </span>
                                         </div>
                                         {{ form_errors(postForm.slug) }}
                                         <small>{{ form_help(postForm.slug) }}</small>
