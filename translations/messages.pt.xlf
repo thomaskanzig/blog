@@ -273,6 +273,11 @@
         <target>Postagem salvo com sucesso!</target>
       </trans-unit>
 
+      <trans-unit id="admin.posts.form_error.regex.slug">
+        <source>admin.posts.form_error.regex.slug</source>
+        <target>Essa URL não é válida.</target>
+      </trans-unit>
+
       <!-- Admin (categories) -->
       <trans-unit id="admin.categories">
         <source>admin.categories</source>

@@ -20,6 +20,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class PostType extends AbstractType
 {
@@ -49,6 +50,11 @@ class PostType extends AbstractType
             ])
             ->add('slug',  TextType::class,[
                 'label'     => $this->translator->trans('app.general.form.label.slug'),
+                'constraints' => [
+                    new Assert\Regex([
+                        'pattern' => '/^[a-z][-a-z0-9]*$/',
+                        'message' => $this->translator->trans('admin.posts.form_error.regex.slug')])
+                ]
             ])
             ->add('description', TextareaType::class,[
                 'label'     => $this->translator->trans('app.general.form.label.description'),
