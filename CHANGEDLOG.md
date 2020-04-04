@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ## [0.3.1] - 2020-04-04
+- FEATURE: Added visit page button in address url field. [#55](https://github.com/thomaskanzig/blog/pull/55)
 - FEATURE: Added address url field in post edit form. [#54](https://github.com/thomaskanzig/blog/pull/54)
 
 ## [0.3.0] - 2020-03-21
