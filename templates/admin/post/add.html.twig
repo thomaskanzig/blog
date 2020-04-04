@@ -24,6 +24,8 @@
             <!-- left column -->
             <div class="col-md-12">
                 {{ form_start(postForm) }}
+                    {% do postForm.slug.setRendered() %}
+
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <h3 class="box-title">Template</h3>
