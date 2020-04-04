@@ -31,6 +31,11 @@
         <target>Título</target>
       </trans-unit>
 
+      <trans-unit id="app.general.form.label.slug">
+        <source>app.general.form.label.slug</source>
+        <target>Endereço da URL</target>
+      </trans-unit>
+
       <trans-unit id="app.general.form.label.description">
         <source>app.general.form.label.description</source>
         <target>Descrição</target>

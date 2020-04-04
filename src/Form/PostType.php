@@ -47,6 +47,9 @@ class PostType extends AbstractType
             ->add('title',  TextType::class,[
                 'label'     => $this->translator->trans('app.general.form.label.title'),
             ])
+            ->add('slug',  TextType::class,[
+                'label'     => $this->translator->trans('app.general.form.label.slug'),
+            ])
             ->add('description', TextareaType::class,[
                 'label'     => $this->translator->trans('app.general.form.label.description'),
             ])
