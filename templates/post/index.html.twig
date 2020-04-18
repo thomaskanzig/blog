@@ -36,9 +36,8 @@
                                         {% endif %}
                                         <div class="media-body">
                                             <h6 class="post-user-name mt-1 mb-1">{{ post.user.fullname }}</h6>
-                                            <div class="post-user-published text-secondary">
-                                                {{ 'app.general.published_in'|trans }} {{ post.published|date("Y/m/d") }}
-                                            </div>
+
+                                            {% include 'includes/published.html.twig' with {published: post.published} only %}
                                         </div>
                                     </div>
                                 </div>
