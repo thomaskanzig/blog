@@ -53,8 +53,9 @@ class PostController extends AbstractController
             ->getRepository(Post::class)
             ->getSeeMore([
                 'exceptId' => $post->getId(),
+                'templateId' => $post->getTemplate()->getId(),
                 'limit' => 3,
-                'locale' => $request->getLocale()
+                'locale' => $request->getLocale(),
             ]);
 
         return $this->render($post->getTemplate()->getView(), [

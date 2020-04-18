@@ -68,12 +68,13 @@ class PostRepository extends ServiceEntityRepository
     {
         $qb = $this->createQueryBuilder('p')
             ->innerJoin('p.user', 'u')
+            ->innerJoin('p.template', 't')
             // For select specific fields its better use select()
             // Read for more: https://symfonycasts.com/screencast/doctrine-queries/select-specific-fields
             ->select(
                 'p.id, 
                         p.title, 
-                        p.slug, 
+                        p.slug,
                         p.url_photo image, 
                         p.created,  
                         u.fullname userName,
@@ -84,6 +85,11 @@ class PostRepository extends ServiceEntityRepository
         if (array_key_exists( 'exceptId', $criteria)) {
             $qb->andWhere('p.id != :exceptId')
                ->setParameter('exceptId', $criteria['exceptId']);
+        }
+
+        if (array_key_exists( 'templateId', $criteria)) {
+            $qb->andWhere('t.id = :templateId')
+                ->setParameter('templateId', $criteria['templateId']);
         }
 
         if (array_key_exists( 'locale', $criteria)) {
