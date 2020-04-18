@@ -34,6 +34,40 @@
                     {% include 'includes/comments-facebook.html.twig' %}
                 </article>
             </div>
+
+            <div class="col-lg-12 show-more-content my-4">
+                <div class="row">
+                    {% for i in 0..2 %}
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <div class="card-stretched-link-limited">
+                                    <img src="https://dummyimage.com/600x400/000/fff"
+                                         class="card-img-top"
+                                         alt="...">
+                                    <div class="card-body px-0">
+                                        <h4 class="card-title">
+                                            Card title
+                                        </h4>
+                                        <a href="#" class="badge badge-pill badge-light stretched-link">
+                                            Read more
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="media">
+                                    <img src="https://dummyimage.com/50x50/a6a6a6/ffffff"
+                                         class="rounded-circle mr-3"
+                                         alt="...">
+                                    <div class="media-body">
+                                        <h6 class="my-0">Thomas Känzig</h6>
+                                        <small class="text-black-50">Sep 12, 23:00pm</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

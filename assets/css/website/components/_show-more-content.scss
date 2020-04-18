@@ -1,0 +1,14 @@
+.show-more-content {
+    .card {
+        border: none;
+        border-radius: 0;
+    }
+
+    .card-stretched-link-limited {
+        transform: rotate(0); // To set stretched link only in the card.
+    }
+
+    .card-img-top {
+        border-radius: 0.25rem;
+    }
+}
