@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ## [0.3.2] - 2020-04-18
+- FEATURE: Added `see-more-posts.html.twig` in gallery page and 
+           adjust filter for load per template id. [#60](https://github.com/thomaskanzig/blog/pull/60)
 - FEATURE: Added `see-more-posts.html.twig` for display more posts. [#56](https://github.com/thomaskanzig/blog/pull/56)
 
 ## [0.3.1] - 2020-04-04
