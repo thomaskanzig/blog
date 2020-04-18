@@ -1,0 +1,25 @@
+.published {
+    @extend .text-black-50;
+    display: flex;
+    position: relative;
+    font-size: 12px;
+
+    &-time {
+        display: inline-block;
+        position: relative;
+        padding-left: 8px;
+        margin-left: 5px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: $gray-600;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            border-radius: 50%;
+        }
+    }
+}

@@ -38,15 +38,7 @@
                     {{ post.userName }}
                   </h6>
 
-                  <div class="d-flex">
-                    <small class="text-black-50 author-post-created">
-                      {{ post.created|date("M n, Y") }}
-                    </small>
-
-                    <small class="text-black-50 author-post-created author-post-time">
-                      {{ post.created|date("h:i a") }}
-                    </small>
-                  </div>
+                  {% include 'includes/published.html.twig' with {published: post.published} only %}
                 </div>
               </div>
             </div>

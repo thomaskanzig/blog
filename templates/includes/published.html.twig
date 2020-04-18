@@ -1,0 +1,9 @@
+{% if published is not empty %}
+    <div class="published">
+        {{ 'app.general.published_in'|trans }} {{ published|date("M n, Y") }}
+
+        <span class="published-time">
+          {{ published|date("g:i a") }}
+        </span>
+    </div>
+{% endif %}

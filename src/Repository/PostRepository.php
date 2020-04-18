@@ -76,7 +76,7 @@ class PostRepository extends ServiceEntityRepository
                         p.title, 
                         p.slug,
                         p.url_photo image, 
-                        p.created,  
+                        p.published,  
                         u.fullname userName,
                         u.url_avatar userAvatar'
             )
