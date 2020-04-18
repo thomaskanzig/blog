@@ -1,7 +1,7 @@
 {% if posts %}
-  <div class="show-more-content pt-5">
+  <div class="show-more-posts pt-5">
     <div class="container">
-      <h5 class="show-more-content-title font-weight-bolder mb-4 pb-3">
+      <h5 class="show-more-posts-title font-weight-bolder mb-4 pb-3">
         {{ 'app.general.see_more'|trans }}
       </h5>
 
@@ -10,7 +10,8 @@
           <div class="col-md-4 col-lg-4 mb-5">
             <div class="card">
               <div class="card-stretched-link-limited">
-                <a href="{{ path('post_detail', {slug: post.slug}) }}" class="stretched-link"></a>
+                <a href="{{ path('post_detail', {slug: post.slug}) }}"
+                   class="stretched-link"></a>
 
                 {% if post.image is not empty %}
                   <div class="card-img-wrapper">

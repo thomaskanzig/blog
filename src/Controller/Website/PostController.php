@@ -51,7 +51,7 @@ class PostController extends AbstractController
         /** @var Post[] $posts */
         $posts = $this->getDoctrine()
             ->getRepository(Post::class)
-            ->getShowMore([
+            ->getSeeMore([
                 'exceptId' => $post->getId(),
                 'limit' => 3,
                 'locale' => $request->getLocale()

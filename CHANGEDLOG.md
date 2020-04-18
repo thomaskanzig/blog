@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.3.2] - 2020-04-18
+- FEATURE: Added `see-more-posts.html.twig` for display more posts. [#56](https://github.com/thomaskanzig/blog/pull/56)
+
 ## [0.3.1] - 2020-04-04
 - FEATURE: Added visit page button in address url field. [#55](https://github.com/thomaskanzig/blog/pull/55)
 - FEATURE: Added address url field in post edit form. [#54](https://github.com/thomaskanzig/blog/pull/54)

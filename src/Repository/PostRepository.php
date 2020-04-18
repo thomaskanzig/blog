@@ -58,13 +58,13 @@ class PostRepository extends ServiceEntityRepository
     }
 
     /**
-     * Finds posts for show more content.
+     * Finds posts for display more content.
      *
      * @param mixed[] $criteria
      *
      * @return Post[] List posts.
      */
-    public function getShowMore(?array $criteria)
+    public function getSeeMore(?array $criteria)
     {
         $qb = $this->createQueryBuilder('p')
             ->innerJoin('p.user', 'u')
