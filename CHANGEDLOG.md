@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ## [0.3.2] - 2020-04-18
-- FEATURE: Added `published.html.twig` component for showing date published and query in see more posts. [#62](https://github.com/thomaskanzig/blog/pull/62)
+- FEATURE: Added `published.html.twig` component for showing date published and adjustment in query for see more posts. [#62](https://github.com/thomaskanzig/blog/pull/62)
 - FEATURE: Added `see-more-posts.html.twig` in gallery page and 
            adjust filter for load per template id. [#60](https://github.com/thomaskanzig/blog/pull/60)
 - FEATURE: Added `see-more-posts.html.twig` for display more posts. [#56](https://github.com/thomaskanzig/blog/pull/56)
