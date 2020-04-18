@@ -57,6 +57,56 @@ class PostRepository extends ServiceEntityRepository
             ;
     }
 
+    /**
+     * Finds posts for display more content.
+     *
+     * @param mixed[] $criteria
+     *
+     * @return Post[] List posts.
+     */
+    public function getSeeMore(?array $criteria)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->innerJoin('p.user', 'u')
+            // For select specific fields its better use select()
+            // Read for more: https://symfonycasts.com/screencast/doctrine-queries/select-specific-fields
+            ->select(
+                'p.id, 
+                        p.title, 
+                        p.slug, 
+                        p.url_photo image, 
+                        p.created,  
+                        u.fullname userName,
+                        u.url_avatar userAvatar'
+            )
+        ;
+
+        if (array_key_exists( 'exceptId', $criteria)) {
+            $qb->andWhere('p.id != :exceptId')
+               ->setParameter('exceptId', $criteria['exceptId']);
+        }
+
+        if (array_key_exists( 'locale', $criteria)) {
+            $qb->andWhere('p.locale = :locale')
+                ->setParameter('locale', $criteria['locale']);
+        }
+
+        // Default criteria.
+        $qb->andWhere('p.url_photo IS NOT NULL')
+           ->andWhere('p.active = 1')
+           ->andWhere('p.deleted IS NULL');
+
+        if (array_key_exists( 'limit', $criteria)) {
+            $qb->setMaxResults($criteria['limit']);
+        }
+
+        return $qb
+            ->orderBy('p.id', 'DESC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     // /**
     //  * @return Post[] Returns an array of Post objects
     //  */

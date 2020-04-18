@@ -36,6 +36,8 @@
             </div>
         </div>
     </div>
+
+    {% include 'includes/see-more-posts.html.twig' with {posts: posts} only %}
 {% endblock %}
 
 {% block javascripts %}
