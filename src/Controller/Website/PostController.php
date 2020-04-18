@@ -35,7 +35,7 @@ class PostController extends AbstractController
         ]);
     }
 
-    public function detail($slug)
+    public function detail($slug, Request $request)
     {
         /** @var Post $post */
         $post = $this->getDoctrine()
@@ -48,11 +48,21 @@ class PostController extends AbstractController
             );
         }
 
+        /** @var Post[] $posts */
+        $posts = $this->getDoctrine()
+            ->getRepository(Post::class)
+            ->getShowMore([
+                'exceptId' => $post->getId(),
+                'limit' => 3,
+                'locale' => $request->getLocale()
+            ]);
+
         return $this->render($post->getTemplate()->getView(), [
             'post' => $post,
             'metaTitle' => $post->getTitle(),
             'metaDescription' => $post->getDescription(),
             'metaImage' => $post->getUrlPhoto(),
+            'posts' => $posts
         ]);
     }
 }

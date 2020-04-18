@@ -126,6 +126,11 @@
         <target>Avatar</target>
       </trans-unit>
 
+      <trans-unit id="app.general.read_more">
+        <source>app.general.read_more</source>
+        <target>Read more</target>
+      </trans-unit>
+
       <!-- Website -->
 
       <!-- Admin (sidebar) -->

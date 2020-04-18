@@ -126,6 +126,11 @@
         <target>Foto</target>
       </trans-unit>
 
+      <trans-unit id="app.general.read_more">
+        <source>app.general.read_more</source>
+        <target>Ler mais</target>
+      </trans-unit>
+
       <!-- Website -->
 
       <!-- Admin (sidebar) -->
