@@ -8,6 +8,7 @@
 // any CSS you require will output into a single css file (app.css in this case)
 require('../css/website.scss');
 
+import web from 'massive-web';
 import 'popper.js';
 import 'bootstrap';
 import 'holderjs';
@@ -32,3 +33,4 @@ $window.scroll(function() {
         i < previousTop ? 0 < i && $nav.hasClass('is-fixed') ? $nav.addClass('is-visible') : $nav.removeClass('is-visible is-fixed') : i > previousTop && ($nav.removeClass('is-visible'), s < i && !$nav.hasClass('is-fixed') && $nav.addClass('is-fixed')), previousTop = i;
     }
 });
+
