@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ## [0.3.3] - 2020-04-19
+- BUGFIX: Fix load scripts correctly in website. [#66](https://github.com/thomaskanzig/blog/pull/66)
 - FEATURE: Adjustment to align center `iframe` tag inside text blog detail. [#64](https://github.com/thomaskanzig/blog/pull/64)
 
 ## [0.3.2] - 2020-04-18

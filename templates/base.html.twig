@@ -44,6 +44,12 @@
             <!-- Renders website.js & a webpack runtime.js file
                 <script src="/build/runtime.js"></script>
                 <script src="/build/website.js"></script> -->
+
+            <script> web.startComponents({{ get_components() }}); </script>
+        {% endblock %}
+
+        {% block scripts %}
+            <!-- Add more javascript. -->
         {% endblock %}
     </body>
 </html>
