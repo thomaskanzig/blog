@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.3.3] - 2020-04-19
+- FEATURE: Adjustment to align center `iframe` tag inside text blog detail. [#64](https://github.com/thomaskanzig/blog/pull/64)
+
 ## [0.3.2] - 2020-04-18
 - FEATURE: Added `published.html.twig` component for showing date published and adjustment in query for see more posts. [#62](https://github.com/thomaskanzig/blog/pull/62)
 - FEATURE: Added `see-more-posts.html.twig` in gallery page and 
