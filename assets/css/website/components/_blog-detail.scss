@@ -29,6 +29,10 @@
 
         iframe {
             margin: 0 auto !important;
+		
+	   @include media-breakpoint-down(sm) {
+                width: 100%;
+           }
         }
     }
 
