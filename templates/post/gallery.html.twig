@@ -44,9 +44,10 @@
                                 <a href="{{ asset(mediaPost.media.file)|imagine_filter('gallery_post_full') }}"
                                    data-lightbox="gallery-post"
                                    data-title="{{ post.title }}">
-                                    <img src="{{ asset(mediaPost.media.file)|imagine_filter('gallery_post_thumbnail') }}"
+
+                                    <img data-src="{{ asset(mediaPost.media.file)|imagine_filter('gallery_post_thumbnail') }}"
                                          alt=""
-                                         class="img-fluid gallery-detail-preview-img">
+                                         class="img-fluid gallery-detail-preview-img lazy">
                                 </a>
                             </div>
                         {% endfor %}

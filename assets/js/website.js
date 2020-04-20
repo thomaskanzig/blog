@@ -13,6 +13,7 @@ import 'popper.js';
 import 'bootstrap';
 import 'holderjs';
 import 'lightbox2';
+import LazyLoad from 'vanilla-lazyload';
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 const $ = require('jquery');
@@ -34,3 +35,8 @@ $window.scroll(function() {
     }
 });
 
+// Activate lazyloading.
+new LazyLoad({
+    /* eslint-disable-next-line camelcase */
+    elements_selector: '.lazy',
+});
