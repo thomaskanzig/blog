@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ## [0.3.4] - 2020-04-20
-- FEATURE: Add lazy loading in galler page. [#68](https://github.com/thomaskanzig/blog/pull/68)
+- FEATURE: Added lazy loading in galler page. [#68](https://github.com/thomaskanzig/blog/pull/68)
 
 ## [0.3.3] - 2020-04-19
 - BUGFIX: Fix load scripts correctly in website. [#66](https://github.com/thomaskanzig/blog/pull/66)
