@@ -37,6 +37,5 @@ $window.scroll(function() {
 
 // Activate lazyloading.
 new LazyLoad({
-    /* eslint-disable-next-line camelcase */
     elements_selector: '.lazy',
 });
