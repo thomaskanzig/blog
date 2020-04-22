@@ -1,6 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    {% set liipImagineGallery = [
+        'gallery_600x600',
+        'gallery_600x350',
+        'gallery_600x800'
+    ] %}
+
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-12 mx-auto">
@@ -36,22 +42,22 @@
 
     {% if 0 < post.mediaPostRel.count %}
         <div class="container-fluid">
-            <div class="row gallery-detail-preview">
-                <div class="col-lg-10 mx-auto">
-                    <div class="row">
-                        {% for mediaPost in post.mediaPostRel %}
-                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
+            <div id="{{ register_component('gallery') }}" class="gallery-photos col-lg-10 mx-auto">
+                <div class="js-gallery-photos-inner row">
+                    {% for mediaPost in post.mediaPostRel %}
+                        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 gallery-item js-gallery-photo-item">
+                            <div class="gallery-photos-img-wrapper">
                                 <a href="{{ asset(mediaPost.media.file)|imagine_filter('gallery_post_full') }}"
                                    data-lightbox="gallery-post"
                                    data-title="{{ post.title }}">
 
-                                    <img data-src="{{ asset(mediaPost.media.file)|imagine_filter('gallery_post_thumbnail') }}"
+                                    <img data-src="{{ asset(mediaPost.media.file)|imagine_filter(liipImagineGallery[random(2)]) }}"
                                          alt=""
-                                         class="img-fluid gallery-detail-preview-img lazy">
+                                         class="img-fluid gallery-photos-img lazy">
                                 </a>
                             </div>
-                        {% endfor %}
-                    </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

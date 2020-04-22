@@ -39,3 +39,5 @@ $window.scroll(function() {
 new LazyLoad({
     elements_selector: '.lazy',
 });
+
+import './components/gallery';
