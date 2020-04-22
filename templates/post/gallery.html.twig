@@ -51,7 +51,7 @@
                                    data-lightbox="gallery-post"
                                    data-title="{{ post.title }}">
 
-                                    <img data-src="{{ asset(mediaPost.media.file)|imagine_filter(liipImagineGallery[random(2)]) }}"
+                                    <img src="{{ asset(mediaPost.media.file)|imagine_filter(liipImagineGallery[random(2)]) }}"
                                          alt=""
                                          class="img-fluid gallery-photos-img">
                                 </a>
