@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.3.5] - 2020-04-22
+- FEATURE: Added masonry list card in gallery page. [#69](https://github.com/thomaskanzig/blog/pull/69)  
+    `- yarn install`
+    
 ## [0.3.4] - 2020-04-20
 - FEATURE: Added lazy loading in gallery page. [#68](https://github.com/thomaskanzig/blog/pull/68)
 
