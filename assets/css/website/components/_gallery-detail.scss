@@ -48,15 +48,28 @@
     }
 }
 
-.gallery-detail-preview {
-    margin-bottom: 50px;
+.gallery-photos {
+    @include media-breakpoint-down(xs) {
+        padding: 0;
+    }
 }
 
-.gallery-detail-preview-img {
+.gallery-photos-img-wrapper {
+    position: relative;
+    overflow: hidden;
     border-radius: 8px;
     margin-bottom: 30px;
 
     @include media-breakpoint-down(xs) {
         margin-bottom: 20px;
+    }
+}
+
+.gallery-photos-img {
+    position: relative;
+    transition: all .5s ease-in;
+
+    &:hover {
+        transform: scale(1.1);
     }
 }
