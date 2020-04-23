@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.3.6] - 2020-04-23
+- FEATURE: Added fix order for size format image in gallery page. [#70](https://github.com/thomaskanzig/blog/pull/70)  
+
 ## [0.3.5] - 2020-04-22
 - FEATURE: Added masonry list card in gallery page. [#69](https://github.com/thomaskanzig/blog/pull/69)  
     `- yarn install`
