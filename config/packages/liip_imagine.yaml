@@ -67,27 +67,35 @@ liip_imagine:
                     allow_upscale: true
 
         # For gallery detail for Masonry list card.
-        gallery_600x600:
-            quality:                50
+        gallery_600x770:
+            quality:                40
             filters:
                 thumbnail:
-                    size:          [600, 600]
+                    size:          [600, 770]
                     mode:          outbound
                     allow_upscale: true
 
-        gallery_600x350:
-            quality:                50
+        gallery_600x300:
+            quality:                40
             filters:
                 thumbnail:
-                    size:          [600, 350]
+                    size:          [600, 300]
                     mode:          outbound
                     allow_upscale: true
 
-        gallery_600x800:
-            quality:                50
+        gallery_600x530:
+            quality:                40
             filters:
                 thumbnail:
-                    size:          [600, 800]
+                    size:          [600, 530]
+                    mode:          outbound
+                    allow_upscale: true
+
+        gallery_600x400:
+            quality:                40
+            filters:
+                thumbnail:
+                    size:          [600, 400]
                     mode:          outbound
                     allow_upscale: true
 
