@@ -156,6 +156,13 @@
                                                         <span class="js-text-clipboard">{{ 'app.general.copy_url'|trans }}</span>
                                                     </button>
 
+                                                    <a href="{{ path('admin_media_edit', { id: media.id }) }}"
+                                                       class="btn btn-xs btn-primary"
+                                                            role="button">
+                                                        <i class="fa fa-edit" aria-hidden="true"></i>
+                                                        {{ 'admin.action.edit'|trans }}
+                                                    </a>
+
                                                     <button class="btn btn-xs btn-danger js-media-file-delete"
                                                             role="button">
                                                         <i class="fa fa-trash" aria-hidden="true"></i>

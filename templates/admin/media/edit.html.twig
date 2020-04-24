@@ -1,0 +1,60 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            {{ 'admin.posts.edit_post'|trans }}
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="{{ path('admin_pages_index') }}"><i class="fa fa-home"></i> {{ 'admin.index'|trans }}</a></li>
+            <li><a href="{{ path('admin_post_index') }}">{{ 'admin.posts'|trans }}</a></li>
+            <li class="active">{{ 'admin.action.edit'|trans }}</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">{{ 'app.general.image'|trans }}</h3>
+                    </div>
+
+                    <div class="box-body">
+                        {% if postForm.vars.data.urlPhoto is not empty %}
+                            <img src="{{ asset(postForm.vars.data.urlPhoto)|imagine_filter('300x300') }}"
+                                 class="img-responsive"
+                                 alt="">
+                        {% endif %}
+                    </div>
+                </div>
+                <!-- /.box -->
+            </div>
+
+            <div class="col-md-8">
+                {{ form_start(mediaForm) }}
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">{{ 'app.general.basic_information'|trans }}</h3>
+                        </div>
+
+                        <div class="box-body">
+                            <div class="row">
+                               <div class="col-md-12">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">{{ 'admin.posts.form.button.save_post'|trans }}</button>
+                        </div>
+                    </div>
+                {{ form_end(mediaForm) }}
+            </div>
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+{% endblock %}
