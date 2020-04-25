@@ -6418,6 +6418,11 @@ shasum@^1.0.0:
     json-stable-stringify "~0.0.0"
     sha.js "~2.4.4"
 
+shave@^2.5.9:
+  version "2.5.9"
+  resolved "https://registry.yarnpkg.com/shave/-/shave-2.5.9.tgz#a44f00b217d370723c885c8d5c299c993046d247"
+  integrity sha512-n9/DU7UL0cor8vRAWC2SaMpCor+Ukd3U3QGTLq5d74D7fMFouzrGT1aeeFnEfjiNwIfdNrhtpWjAEc3d7bMOMg==
+
 shaven@^0.8.1:
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/shaven/-/shaven-0.8.1.tgz#0f42d4fb32c4048349ff9ee9c296f5effb2dcaaf"

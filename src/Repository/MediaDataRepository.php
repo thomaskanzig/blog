@@ -4,7 +4,9 @@ namespace App\Repository;
 
 use App\Entity\Media;
 use App\Entity\MediaData;
+use App\Entity\MediaPostRel;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 /**
@@ -21,7 +23,7 @@ class MediaDataRepository extends ServiceEntityRepository
     }
 
     /**
-     * Finds posts for display more content.
+     * Find data media from media and locale.
      *
      * @param Media $media
      * @param string $locale
@@ -44,5 +46,36 @@ class MediaDataRepository extends ServiceEntityRepository
         return $qb->getQuery()
             ->getOneOrNullResult()
         ;
+    }
+
+    /**
+     * Find all data medias from kind of media post related and locale.
+     *
+     * @param Collection|MediaPostRel[] $mediaPostRels
+     * @param string $locale
+     *
+     * @return MediaData[]
+     */
+    public function findAllByMediaPostRelsAndLocale(?Collection $mediaPostRels, string $locale)
+    {
+        $qb = $this->createQueryBuilder('md')
+            ->innerJoin('md.media', 'm');
+
+        $mediaIds = [];
+        foreach ($mediaPostRels as $mediaPostRel) {
+            $mediaIds[] = $mediaPostRel->getMediaId();
+        }
+
+        // By all medias.
+        $qb->andWhere('m.id IN (:mediaIds)')
+            ->setParameter('mediaIds', $mediaIds);
+
+        // By locale.
+        $qb->andWhere('md.locale = :locale')
+            ->setParameter('locale', $locale);
+
+        return $qb->getQuery()
+                  ->getResult()
+            ;
     }
 }

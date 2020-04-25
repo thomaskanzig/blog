@@ -2,8 +2,10 @@
 
 namespace App\Controller\Website;
 
+use App\Entity\MediaData;
 use App\Entity\Post;
 use App\Repository\PostRepository;
+use App\Repository\MediaDataRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -35,7 +37,7 @@ class PostController extends AbstractController
         ]);
     }
 
-    public function detail($slug, Request $request)
+    public function detail($slug, Request $request, MediaDataRepository $mediaDataRepository)
     {
         /** @var Post $post */
         $post = $this->getDoctrine()
@@ -58,12 +60,25 @@ class PostController extends AbstractController
                 'locale' => $request->getLocale(),
             ]);
 
+        /** @var MediaData[] $mediaDatas */
+        $mediaDataResults = $mediaDataRepository->findAllByMediaPostRelsAndLocale(
+            $post->getMediaPostRel(),
+            $request->getLocale()
+        );
+
+        // Prepare data of all media in this posts.
+        $mediaData = [];
+        foreach($mediaDataResults as $data) {
+            $mediaData[$data->getMedia()->getId()] = $data;
+        }
+
         return $this->render($post->getTemplate()->getView(), [
             'post' => $post,
             'metaTitle' => $post->getTitle(),
             'metaDescription' => $post->getDescription(),
             'metaImage' => $post->getUrlPhoto(),
-            'posts' => $posts
+            'posts' => $posts,
+            'mediaData' => $mediaData
         ]);
     }
 }

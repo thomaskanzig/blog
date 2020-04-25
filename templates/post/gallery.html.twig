@@ -19,7 +19,9 @@
                             <div class="media-body">
                                 <h5 class="mt-2 mb-1 author-fullname">{{ post.user.fullname }}</h5>
 
-                                {% include 'includes/published.html.twig' with {published: post.published} only %}
+                                {% include 'includes/published.html.twig' with {
+                                    published: post.published
+                                } only %}
                             </div>
                         </div>
                     </header>
@@ -40,16 +42,35 @@
                 <div class="js-gallery-photos-inner row">
                     {% for mediaPost in post.mediaPostRel %}
                         {% set size = gallerySize(loop.index) %}
+                        {% set imageData = mediaData[mediaPost.media.id]|default() %}
+
                         <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 gallery-item js-gallery-photo-item">
                             <div class="gallery-photos-img-wrapper">
                                 <a href="{{ asset(mediaPost.media.file)|imagine_filter('gallery_post_full') }}"
                                    data-lightbox="gallery-post"
-                                   data-title="{{ post.title }}">
+                                   data-title="{{ imageData.title|default(post.title) }}">
 
                                     <img src="{{ asset(mediaPost.media.file)|imagine_filter(size) }}"
-                                         alt=""
+                                         alt="{{ imageData.title|default(post.title) }}"
                                          class="img-fluid gallery-photos-img">
                                 </a>
+
+                                <div class="gallery-photos-img-data">
+                                    {% if imageData and imageData.title is not empty %}
+                                        <h3 class="gallery-photos-img-data-title js-gallery-photos-img-data-title">
+                                            {{ imageData.title }}
+                                        </h3>
+                                    {% endif %}
+
+                                    {% include 'includes/published.html.twig' with {
+                                        published: mediaPost.media.created,
+                                        options: {
+                                            showIconDate: true,
+                                            showTime: false,
+                                            addClass: 'gallery-photos-img-data-published'
+                                        }
+                                    } only %}
+                                </div>
                             </div>
                         </div>
                     {% endfor %}
