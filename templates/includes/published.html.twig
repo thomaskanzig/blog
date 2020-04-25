@@ -1,9 +1,35 @@
-{% if published is not empty %}
-    <div class="published">
-        {{ 'app.general.published_in'|trans }} {{ published|date("M j, Y") }}
+{% set showIconDate = false %}
+{% set showTime = true %}
+{% set addClass = '' %}
 
-        <span class="published-time">
-          {{ published|date("g:i a") }}
-        </span>
+{% if options is defined  %}
+    {% if options.showIconDate is defined %}
+        {% set showIconDate = options.showIconDate %}
+    {% endif %}
+
+    {% if options.showTime is defined %}
+        {% set showTime = options.showTime %}
+    {% endif %}
+
+    {% if options.addClass is defined %}
+        {% set addClass = ' ' ~ options.addClass %}
+    {% endif %}
+{% endif %}
+
+{% if published is not empty %}
+    <div class="published{{ addClass }}">
+        {% if showIconDate %}
+            <i class="fa fa-calendar gallery-photos-img-data-published-icon" aria-hidden="true"></i>
+        {% else %}
+                {{ 'app.general.published_in'|trans }}
+        {% endif %}
+
+        {{ published|date("M j, Y") }}
+
+        {% if showTime %}
+            <span class="published-time">
+              {{ published|date("g:i a") }}
+            </span>
+        {% endif %}
     </div>
 {% endif %}

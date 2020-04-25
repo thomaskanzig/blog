@@ -4,6 +4,11 @@
     position: relative;
     font-size: 12px;
 
+    i {
+        display: inline-block;
+        line-height: 1.4;
+    }
+
     &-time {
         display: inline-block;
         position: relative;
