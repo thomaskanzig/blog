@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
-- FEATURE: Added edit media data environment in admin. [#71](https://github.com/thomaskanzig/blog/pull/71) 
+- FEATURE: Added edit media data environment in admin. [#71](https://github.com/thomaskanzig/blog/pull/71)  
     `- composer install`
     
 ## [0.3.6] - 2020-04-23
