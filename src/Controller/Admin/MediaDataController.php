@@ -36,8 +36,6 @@ class MediaDataController extends AbstractController
         TranslatorInterface $translator
     ) {
         // Verify if exist media data from locale, if not then will created.
-        // TODO: Create an repository function script for that verification.
-
         /* @var MediaData|null $mediaData */
         $mediaData = $em->getRepository(MediaData::class)
             ->findByMediaAndLocale(
@@ -62,7 +60,6 @@ class MediaDataController extends AbstractController
         $mediaDataForm->handleRequest($request);
 
         if ($mediaDataForm->isSubmitted() && $mediaDataForm->isValid()) {
-
             // To save.
             $em->persist($media);
             $em->flush();
@@ -80,7 +77,5 @@ class MediaDataController extends AbstractController
             'mediaDataForm' => $mediaDataForm->createView(),
             'id' => $media->getId()
         ]);
-
-
     }
 }
