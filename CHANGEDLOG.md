@@ -2,7 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
-- FEATURE: Added to show title and date published on preview photos in gallery page. [#73](https://github.com/thomaskanzig/blog/pull/73)  
+- FEATURE: Added to show title and date published on preview photos in gallery page. [#73](https://github.com/thomaskanzig/blog/pull/73)
+    `- yarn install`  
 - FEATURE: Added new image format for meta tag. [#72](https://github.com/thomaskanzig/blog/pull/72)  
 - FEATURE: Added edit media data environment in admin. [#71](https://github.com/thomaskanzig/blog/pull/71)  
     `- composer install`
