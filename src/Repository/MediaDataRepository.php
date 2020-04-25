@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Media;
 use App\Entity\MediaData;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -19,32 +20,29 @@ class MediaDataRepository extends ServiceEntityRepository
         parent::__construct($registry, MediaData::class);
     }
 
-    // /**
-    //  * @return MediaData[] Returns an array of MediaData objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * Finds posts for display more content.
+     *
+     * @param Media $media
+     * @param string $locale
+     *
+     * @return MediaData
+     */
+    public function findByMediaAndLocale(Media $media, string $locale)
     {
-        return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('m.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $qb = $this->createQueryBuilder('md')
+            ->innerJoin('md.media', 'm');
 
-    /*
-    public function findOneBySomeField($value): ?MediaData
-    {
-        return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
+        // By media.
+        $qb->andWhere('m.id = :mediaId')
+            ->setParameter('mediaId', $media->getId());
+
+        // By locale.
+        $qb->andWhere('md.locale = :locale')
+            ->setParameter('locale', $locale);
+
+        return $qb->getQuery()
             ->getOneOrNullResult()
         ;
     }
-    */
 }

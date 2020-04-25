@@ -138,9 +138,13 @@
                                                 {% set image = asset(media.file)|imagine_filter('300x300') %}
                                                 {% set fullUrl = base_url ~ '/' ~ media.file %}
                                             {% endif %}
-                                            <img src="{{ image }} "
-                                                 alt="{{ media.title }}"
-                                                 class="img-responsive media-index-file-preview">
+
+                                            <a href="{{ path('admin_media_data_edit', { id: media.id }) }}">
+                                                <img src="{{ image }} "
+                                                     alt="{{ media.title }}"
+                                                     class="img-responsive media-index-file-preview">
+                                            </a>
+
                                             <div class="caption">
                                                 <div id="{{ register_component('dotdotdot') }}"
                                                      class="media-index-file-name">
@@ -156,7 +160,7 @@
                                                         <span class="js-text-clipboard">{{ 'app.general.copy_url'|trans }}</span>
                                                     </button>
 
-                                                    <a href="{{ path('admin_media_edit', { id: media.id }) }}"
+                                                    <a href="{{ path('admin_media_data_edit', { id: media.id }) }}"
                                                        class="btn btn-xs btn-primary"
                                                             role="button">
                                                         <i class="fa fa-edit" aria-hidden="true"></i>

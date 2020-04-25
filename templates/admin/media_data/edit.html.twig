@@ -3,12 +3,12 @@
 {% block body %}
     <section class="content-header">
         <h1>
-            {{ 'admin.posts.edit_post'|trans }}
+            {{ 'admin.data_medias.edit_data'|trans }}
         </h1>
         <ol class="breadcrumb">
             <li><a href="{{ path('admin_pages_index') }}"><i class="fa fa-home"></i> {{ 'admin.index'|trans }}</a></li>
-            <li><a href="{{ path('admin_post_index') }}">{{ 'admin.posts'|trans }}</a></li>
-            <li class="active">{{ 'admin.action.edit'|trans }}</li>
+            <li><a href="{{ path('admin_media_index') }}">{{ 'admin.medias'|trans }}</a></li>
+            <li class="active">{{ 'admin.data_medias.edit_data'|trans }}</li>
         </ol>
     </section>
 
@@ -17,23 +17,25 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="box box-primary">
+                    {% if 'image' == mediaDataForm.vars.data.media.type.slug and
+                        mediaDataForm.vars.data.media.file is not empty
+                    %}
                     <div class="box-header with-border">
                         <h3 class="box-title">{{ 'app.general.image'|trans }}</h3>
                     </div>
 
                     <div class="box-body">
-                        {% if postForm.vars.data.urlPhoto is not empty %}
-                            <img src="{{ asset(postForm.vars.data.urlPhoto)|imagine_filter('300x300') }}"
-                                 class="img-responsive"
-                                 alt="">
-                        {% endif %}
+                        <img src="{{ asset(mediaDataForm.vars.data.media.file)|imagine_filter('480x480') }}"
+                             class="img-responsive"
+                             alt="">
                     </div>
+                    {% endif %}
                 </div>
                 <!-- /.box -->
             </div>
 
             <div class="col-md-8">
-                {{ form_start(mediaForm) }}
+                {{ form_start(mediaDataForm) }}
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <h3 class="box-title">{{ 'app.general.basic_information'|trans }}</h3>
@@ -41,17 +43,21 @@
 
                         <div class="box-body">
                             <div class="row">
-                               <div class="col-md-12">
+                                <div class="col-md-12">
+                                    {{ form_row(mediaDataForm.title) }}
+                                </div>
 
+                                <div class="col-md-12">
+                                    {{ form_row(mediaDataForm.description) }}
                                 </div>
                             </div>
                         </div>
 
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">{{ 'admin.posts.form.button.save_post'|trans }}</button>
+                            <button type="submit" class="btn btn-primary">{{ 'admin.data_medias.form.button.save_data'|trans }}</button>
                         </div>
                     </div>
-                {{ form_end(mediaForm) }}
+                {{ form_end(mediaDataForm) }}
             </div>
         </div>
         <!-- /.row -->
