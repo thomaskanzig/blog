@@ -17,8 +17,7 @@
     {% endif %}
 
     {# Get meta image. #}
-    {% set metaImageFormat = '1000x600' %}
-    {% set metaImage = asset(metaImage|default('/images/thomas-kanzig.jpg'))|imagine_filter(metaImageFormat) %}
+    {% set metaImage = asset(metaImage|default('/images/thomas-kanzig.jpg'))|imagine_filter('640x420') %}
 
     {% set metaBotTags = {
         'revisit-after': '2 days',
