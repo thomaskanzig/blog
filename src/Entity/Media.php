@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -62,6 +64,16 @@ class Media
      * @ORM\JoinColumn(nullable=false)
      */
     private $type;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\MediaData", mappedBy="media")
+     */
+    private $mediaData;
+
+    public function __construct()
+    {
+        $this->mediaData = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -173,6 +185,37 @@ class Media
     public function setType(?MediaType $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|MediaData[]
+     */
+    public function getMediaData(): Collection
+    {
+        return $this->mediaData;
+    }
+
+    public function addMediaData(MediaData $mediaData): self
+    {
+        if (!$this->mediaData->contains($mediaData)) {
+            $this->mediaData[] = $mediaData;
+            $mediaData->setMedia($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMediaData(MediaData $mediaData): self
+    {
+        if ($this->mediaData->contains($mediaData)) {
+            $this->mediaData->removeElement($mediaData);
+            // set the owning side to null (unless already changed)
+            if ($mediaData->getMedia() === $this) {
+                $mediaData->setMedia(null);
+            }
+        }
 
         return $this;
     }

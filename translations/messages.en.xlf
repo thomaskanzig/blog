@@ -340,6 +340,22 @@
         <target>Name of folder</target>
       </trans-unit>
 
+      <!-- Admin (data medias) -->
+      <trans-unit id="admin.data_medias.edit_data">
+        <source>admin.data_medias.edit_data</source>
+        <target>Edit data media</target>
+      </trans-unit>
+
+      <trans-unit id="admin.data_medias.form.button.save_data">
+        <source>admin.data_medias.form.button.save_data</source>
+        <target>Save data media</target>
+      </trans-unit>
+
+      <trans-unit id="admin.data_medias.form.data_saved">
+        <source>admin.data_medias.form.data_saved</source>
+        <target>Data media saved.</target>
+      </trans-unit>
+
       <!-- Admin (users) -->
       <trans-unit id="admin.users">
         <source>admin.users</source>

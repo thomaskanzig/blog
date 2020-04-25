@@ -4,7 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Repository\MediaRepository;
 use App\Repository\FolderRepository;
-use Symfony\Bridge\Twig\Node\RenderBlockNode;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
