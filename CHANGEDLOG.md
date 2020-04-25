@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+- FEATURE: Added new image format for meta tag. [#72](https://github.com/thomaskanzig/blog/pull/72)  
 - FEATURE: Added edit media data environment in admin. [#71](https://github.com/thomaskanzig/blog/pull/71)  
     `- composer install`
     

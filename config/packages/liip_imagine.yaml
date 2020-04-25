@@ -99,6 +99,15 @@ liip_imagine:
                     mode:          outbound
                     allow_upscale: true
 
+        # Meta tag image
+        640x420:
+            quality:                60
+            filters:
+                thumbnail:
+                    size:          [640, 420]
+                    mode:          outbound
+                    allow_upscale: true
+
         # With Downscale filter performs sizing transformations (specifically image down-scaling).
         # Define max. width and height.
         # See this link for more information:
