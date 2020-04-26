@@ -2,7 +2,6 @@ import web from 'massive-web';
 import $ from 'jquery';
 import Masonry from 'masonry-layout';
 import shave from 'shave';
-import 'magnific-popup';
 import moment from 'moment';
 import { CSS_CLASS } from '../constans';
 

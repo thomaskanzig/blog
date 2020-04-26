@@ -1,6 +1,6 @@
 {
   "name": "blog",
-  "version": "1.0.50",
+  "version": "1.0.51",
   "description": "This is a simple personal blog system building with Symfony 4.",
   "author": {
     "name": "Thomas Känzig",
@@ -48,7 +48,6 @@
     "kind-of": "^6.0.3",
     "lightbox2": "^2.11.1",
     "lodash": "^4.17.12",
-    "magnific-popup": "^1.1.0",
     "masonry-layout": "^4.2.2",
     "massive-web": "^2.0.0-rc1",
     "minimist": "^1.2.2",
