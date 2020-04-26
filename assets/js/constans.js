@@ -4,6 +4,7 @@ export const CSS_CLASS = {
     isVisible: 'is-visible',
     isCopy: 'is-copy',
     isShow: 'is-show',
+    noOverflow: 'no-overflow',
 };
 
 export const HTML = {
