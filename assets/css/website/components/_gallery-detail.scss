@@ -118,20 +118,20 @@ $widthModalRight: 400px;
     overflow: hidden !important;
 
     .modal-dialog {
-        max-width: 1480px; // Content modal is 1440px (+40px of padding).
+        max-width: 1640px; // Content modal is 1600px (+40px of padding).
         padding-left: 20px;
         padding-right: 20px;
     }
 
-    // TODO: Improve calculation of full height.
     .modal-content {
         overflow: hidden;
-        height: 95vh;
+        height: calc(100vh - 100px);
     }
 
     .modal-body {
         display: flex;
         padding: 0;
+        height: 100%;
     }
 
     .modal-main {
@@ -147,14 +147,55 @@ $widthModalRight: 400px;
                 opacity: .4;
             }
         }
+
+        @include media-breakpoint-down(lg) {
+            width: 100%;
+        }
+    }
+
+    .gallery-modal-main-arrow-toggler {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50px;
+        height: 50px;
+        background: $red;
+        transition: right .5s ease;
+        cursor: pointer;
+        z-index: 1;
+
+        @include media-breakpoint-down(lg) {
+            display: block;
+
+            &.is-show {
+                right: $widthModalRight;
+            }
+        }
     }
 
     .modal-right {
+        position: relative;
         background-color: $white;
         width: $widthModalRight;
-        height: calc(100vh - 40px);
-        padding: 20px;
+        height: 100%;
         overflow-y: scroll;
+        transition: all .5s ease;
+
+        @include media-breakpoint-down(lg) {
+            position: absolute;
+            right: -$widthModalRight;
+
+            &.is-show {
+                right: 0;
+            }
+        }
+    }
+
+    .modal-right-inner {
+        position: relative;
+        width: $widthModalRight;
+        padding: 20px;
     }
 }
 

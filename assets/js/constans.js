@@ -7,6 +7,10 @@ export const CSS_CLASS = {
     noOverflow: 'no-overflow',
 };
 
+export const BREAKPOINTS = {
+    mobile: 560,
+};
+
 export const HTML = {
     loaderSpinner: '<img src="/images/loaders/spinner.svg" />',
 };

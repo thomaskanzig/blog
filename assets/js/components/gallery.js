@@ -4,6 +4,7 @@ import Masonry from 'masonry-layout';
 import shave from 'shave';
 import moment from 'moment';
 import { CSS_CLASS } from '../constans';
+import { BREAKPOINTS } from '../constans';
 
 const MAX_HEIGHT_SHAVE = 35;
 
@@ -26,6 +27,8 @@ class Gallery {
         this.$photosDataTitle = this.$el.find('.js-gallery-photos-img-data-title');
 
         this.$galleryModal = this.$el.find('.js-gallery-modal');
+        this.$galleryModalRight = this.$el.find('.js-gallery-modal-right');
+        this.$galleryModalMain = this.$el.find('.js-gallery-modal-main');
         this.$galleryPhotoData = this.$el.find('.js-gallery-photo-data');
         this.$galleryModalTitle = this.$el.find('.js-gallery-modal-title');
         this.$galleryModalDesc = this.$el.find('.js-gallery-modal-description');
@@ -34,6 +37,7 @@ class Gallery {
         this.$galleryModalComments = this.$el.find('.js-gallery-modal-fb-comments');
         this.$galleryModalNavPrev = this.$el.find('.js-gallery-modal-nav-prev');
         this.$galleryModalNavNext = this.$el.find('.js-gallery-modal-nav-next');
+        this.$galleryModalArrowToggler = this.$el.find('.js-gallery-modal-main-arrow-toggler');
 
         this.galleryModalCurrentPosition = 0;
 
@@ -46,12 +50,13 @@ class Gallery {
      */
     bindListeners() {
         this.$window.on('load', this.initMasonry.bind(this));
-        this.$window.on('resize', this.setShaveDataTitles.bind(this));
+        this.$window.on('resize', this.onResize.bind(this));
         this.$document.on('keydown', this.onKeydown.bind(this));
         this.$galleryModal.on('show.bs.modal', this.showGalleryModal.bind(this));
         this.$galleryModal.on('hide.bs.modal', this.hideGalleryModal.bind(this));
         this.$galleryModalNavPrev.on('click', this.onPrevGalleryModal.bind(this));
         this.$galleryModalNavNext.on('click', this.onNextGalleryModal.bind(this));
+        this.$galleryModalArrowToggler.on('click', this.onTogglerGalleryModalDetail.bind(this));
     }
 
     /**
@@ -61,6 +66,17 @@ class Gallery {
         var initMasonry = new Masonry(this.$photos.get(0), {
             itemSelector: '.js-gallery-photo-item',
         });
+    }
+
+    /**
+     * Handle resize window.
+     */
+    onResize() {
+        this.setShaveDataTitles();
+
+        // Reset custom style.
+        this.$galleryModalRight.removeAttr('style');
+        this.$galleryModalArrowToggler.removeAttr('style');
     }
 
     /**
@@ -177,6 +193,31 @@ class Gallery {
         } else if (39 === code) {
             this.onNextGalleryModal();
         }
+    }
+
+    onTogglerGalleryModalDetail() {
+        if (this.$window.width() <= BREAKPOINTS.mobile) {
+            // If not show yet, then will show.
+            if (!this.$galleryModalRight.hasClass(CSS_CLASS.isShow)) {
+                const w = this.$galleryModalMain.width();
+
+                this.$galleryModalRight.css({
+                    'width': w + 'px',
+                    'right': '0'
+                });
+
+                this.$galleryModalArrowToggler.css(
+                    'right', w - 50 + 'px'
+                );
+            } else {
+                // Reset custom style.
+                this.$galleryModalRight.removeAttr('style');
+                this.$galleryModalArrowToggler.removeAttr('style');
+            }
+        }
+
+        this.$galleryModalRight.toggleClass(CSS_CLASS.isShow);
+        this.$galleryModalArrowToggler.toggleClass(CSS_CLASS.isShow);
     }
 }
 

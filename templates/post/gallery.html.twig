@@ -97,7 +97,9 @@
                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-body">
-                                <div class="modal-main">
+                                <div class="gallery-modal-main-arrow-toggler js-gallery-modal-main-arrow-toggler"></div>
+
+                                <div class="modal-main js-gallery-modal-main">
                                     <img src="" class="gallery-modal-img js-gallery-modal-img" alt="">
 
                                     <div class="gallery-modal-nav-prev js-gallery-modal-nav-prev">
@@ -108,25 +110,27 @@
                                         <i class="fa fa-chevron-right" aria-hidden="true"></i>
                                     </div>
                                 </div>
-                                <div class="modal-right">
-                                    <div class="gallery-modal-published">
-                                        {{ 'app.general.published_in'|trans }}
+                                <div class="modal-right js-gallery-modal-right">
+                                    <div class="modal-right-inner">
+                                        <div class="gallery-modal-published">
+                                            {{ 'app.general.published_in'|trans }}
 
-                                        <span class="js-gallery-modal-published">
+                                            <span class="js-gallery-modal-published">
+                                                {# Initialized via JS. #}
+                                            </span>
+                                        </div>
+
+                                        <h4 class="gallery-modal-title js-gallery-modal-title">
                                             {# Initialized via JS. #}
-                                        </span>
-                                    </div>
+                                        </h4>
 
-                                    <h4 class="gallery-modal-title js-gallery-modal-title">
-                                        {# Initialized via JS. #}
-                                    </h4>
+                                        <div class="gallery-modal-description js-gallery-modal-description">
+                                            {# Initialized via JS. #}
+                                        </div>
 
-                                    <div class="gallery-modal-description js-gallery-modal-description">
-                                        {# Initialized via JS. #}
-                                    </div>
-
-                                    <div class="js-gallery-modal-fb-comments">
-                                        {# Initialized via JS. #}
+                                        <div class="js-gallery-modal-fb-comments">
+                                            {# Initialized via JS. #}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
