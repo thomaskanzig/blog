@@ -196,6 +196,7 @@ $widthModalRight: 400px;
         position: relative;
         width: $widthModalRight;
         padding: 20px;
+        transition: width .5s ease;
     }
 }
 

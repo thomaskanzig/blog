@@ -28,6 +28,7 @@ class Gallery {
 
         this.$galleryModal = this.$el.find('.js-gallery-modal');
         this.$galleryModalRight = this.$el.find('.js-gallery-modal-right');
+        this.$galleryModalRightInner = this.$el.find('.js-gallery-modal-right-inner');
         this.$galleryModalMain = this.$el.find('.js-gallery-modal-main');
         this.$galleryPhotoData = this.$el.find('.js-gallery-photo-data');
         this.$galleryModalTitle = this.$el.find('.js-gallery-modal-title');
@@ -76,6 +77,7 @@ class Gallery {
 
         // Reset custom style.
         this.$galleryModalRight.removeAttr('style');
+        this.$galleryModalRightInner.removeAttr('style');
         this.$galleryModalArrowToggler.removeAttr('style');
     }
 
@@ -199,19 +201,19 @@ class Gallery {
         if (this.$window.width() <= BREAKPOINTS.mobile) {
             // If not show yet, then will show.
             if (!this.$galleryModalRight.hasClass(CSS_CLASS.isShow)) {
-                const w = this.$galleryModalMain.width();
+                const width = this.$galleryModalMain.width();
 
                 this.$galleryModalRight.css({
-                    'width': w + 'px',
+                    'width': width + 'px',
                     'right': '0'
                 });
 
-                this.$galleryModalArrowToggler.css(
-                    'right', w - 50 + 'px'
-                );
+                this.$galleryModalRightInner.css('width',  width + 'px');
+                this.$galleryModalArrowToggler.css('right', width - 50 + 'px');
             } else {
                 // Reset custom style.
                 this.$galleryModalRight.removeAttr('style');
+                this.$galleryModalRightInner.removeAttr('style');
                 this.$galleryModalArrowToggler.removeAttr('style');
             }
         }
