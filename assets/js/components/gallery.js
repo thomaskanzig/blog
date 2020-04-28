@@ -79,6 +79,10 @@ class Gallery {
         this.$galleryModalRight.removeAttr('style');
         this.$galleryModalRightInner.removeAttr('style');
         this.$galleryModalArrowToggler.removeAttr('style');
+
+        // Everything was open, will close.
+        this.$galleryModalRight.removeClass(CSS_CLASS.isShow);
+        this.$galleryModalArrowToggler.removeClass(CSS_CLASS.isShow);
     }
 
     /**
@@ -198,7 +202,7 @@ class Gallery {
     }
 
     onTogglerGalleryModalDetail() {
-        if (this.$window.width() <= BREAKPOINTS.mobile) {
+        if (this.$window.width() <= BREAKPOINTS.xs) {
             // If not show yet, then will show.
             if (!this.$galleryModalRight.hasClass(CSS_CLASS.isShow)) {
                 const width = this.$galleryModalMain.width();

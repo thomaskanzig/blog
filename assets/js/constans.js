@@ -8,7 +8,7 @@ export const CSS_CLASS = {
 };
 
 export const BREAKPOINTS = {
-    mobile: 560,
+    xs: 576,
 };
 
 export const HTML = {

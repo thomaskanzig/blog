@@ -85,3 +85,15 @@
     width: 100%;
     height: 100%;
 }
+
+@mixin mqCustomMax($size: 1200px) {
+    @media screen and (max-width: $size) {
+        @content;
+    }
+}
+
+@mixin mqCustomMin($size: 1200px) {
+    @media screen and (min-width: $size) {
+        @content;
+    }
+}

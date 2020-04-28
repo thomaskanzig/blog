@@ -121,6 +121,11 @@ $widthModalRight: 400px;
         max-width: 1640px; // Content modal is 1600px (+40px of padding).
         padding-left: 20px;
         padding-right: 20px;
+
+        @include media-breakpoint-down(xs) {
+            padding-left: 6px;
+            padding-right: 6px;
+        }
     }
 
     .modal-content {
@@ -160,10 +165,28 @@ $widthModalRight: 400px;
         right: 0;
         width: 50px;
         height: 50px;
-        background: $red;
-        transition: right .5s ease;
+        transition: right .5s ease, top .5s ease;
         cursor: pointer;
         z-index: 1;
+
+        i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: $white;
+            font-size: 30px;
+
+            &::before {
+                content: $fa-var-comments-o;
+            }
+        }
+
+        &.is-show {
+            i::before {
+                content: $fa-var-share;
+            }
+        }
 
         @include media-breakpoint-down(lg) {
             display: block;
@@ -182,12 +205,30 @@ $widthModalRight: 400px;
         overflow-y: scroll;
         transition: all .5s ease;
 
+        // Display gradient-linear to left side.
+        &::before {
+            display: none;
+            position: absolute;
+            content: '';
+            width: 50px;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+        }
+
         @include media-breakpoint-down(lg) {
             position: absolute;
             right: -$widthModalRight;
 
             &.is-show {
                 right: 0;
+            }
+        }
+
+        @include media-breakpoint-down(xs) {
+            &::before {
+                display: block;
             }
         }
     }
