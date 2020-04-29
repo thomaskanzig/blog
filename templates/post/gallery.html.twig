@@ -51,6 +51,7 @@
                             <div class="gallery-photos-img-wrapper">
                                 <a href="#" data-toggle="modal" data-target=".gallery-modal"
                                    data-position="{{ loop.index }}"
+                                   data-id="{{ mediaPost.media.id }}"
                                    data-url="{{ asset(mediaPost.media.file)|imagine_filter('gallery_post_full') }}"
                                    data-title="{{ imageData.title|default(post.title) }}"
                                    data-description="{{ imageData.description|default() }}"

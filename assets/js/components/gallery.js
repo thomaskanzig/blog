@@ -20,8 +20,10 @@ class Gallery {
         this.$el = $($el);
         this.$window = $(window);
         this.$document = $(document);
+        this.$location = $(location);
         this.$html = $('html');
         this.options = options;
+        this.request = web.getService('request');
 
         this.$photos = this.$el.find('.js-gallery-photos-inner');
         this.$photosDataTitle = this.$el.find('.js-gallery-photos-img-data-title');
@@ -50,7 +52,7 @@ class Gallery {
      * Binds event listeners.
      */
     bindListeners() {
-        this.$window.on('load', this.initMasonry.bind(this));
+        this.$window.on('load', this.onLoad.bind(this));
         this.$window.on('resize', this.onResize.bind(this));
         this.$document.on('keydown', this.onKeydown.bind(this));
         this.$galleryModal.on('show.bs.modal', this.showGalleryModal.bind(this));
@@ -61,12 +63,18 @@ class Gallery {
     }
 
     /**
-     * Initialize masonry after load window.
+     * Initialize features after load JS.
      */
-    initMasonry() {
+    onLoad() {
         var initMasonry = new Masonry(this.$photos.get(0), {
             itemSelector: '.js-gallery-photo-item',
         });
+
+        if (0 < this.getDataImageFromParameter().length) {
+            setTimeout(() => {
+                this.$galleryModal.modal('show');
+            }, 1000);
+        }
     }
 
     /**
@@ -100,15 +108,25 @@ class Gallery {
     showGalleryModal(event) {
         let $image = $(event.relatedTarget);
 
-        this.changeImageInGalleryModal($image);
+        // Target click from image.
+        if(0 < $image.length) {
+            this.changeImageInGalleryModal($image);
+            this.$html.addClass(CSS_CLASS.noOverflow);
 
-        this.$html.addClass(CSS_CLASS.noOverflow);
+            return;
+        }
+
+        // Target image from url.
+        $image = this.getDataImageFromParameter();
+
+        if(0 < $image.length) {
+            this.changeImageInGalleryModal($image);
+            this.$html.addClass(CSS_CLASS.noOverflow);
+        }
     }
 
     /**
      * Handle event by close gallery modal.
-     *
-     * @param {Object} event
      */
     hideGalleryModal() {
         this.$html.removeClass(CSS_CLASS.noOverflow);
@@ -142,19 +160,26 @@ class Gallery {
         // Update image.
         this.$galleryModalImg.attr('src', $image.data('url'));
 
-        if (this.options.showFBComments) {
-            let fbComments = '<div class="fb-comments"' +
-                'data-href="' + $image.data('url') + '"' +
-                'data-width="100%"' +
-                'data-numposts="20">' +
-                '</div>';
+        // Update facebook comments.
+        try {
+            if (this.options.showFBComments) {
+                const urlImage = this.$location.attr('origin') + this.$location.attr('pathname') + '?image=' + $image.data('id');
 
-            this.$galleryModalComments.html(fbComments);
+                let fbComments = '<div class="fb-comments"' +
+                    'data-href="' + urlImage + '"' +
+                    'data-width="100%"' +
+                    'data-numposts="20">' +
+                    '</div>';
 
-            // To re-render social plugins with XFBML.
-            // Re-render: https://developers.facebook.com/docs/reference/javascript/FB.XFBML.parse/
-            // Comments: https://developers.facebook.com/docs/plugins/comments/
-            FB.XFBML.parse(this.$galleryModalComments.get(0));
+                this.$galleryModalComments.html(fbComments);
+
+                // To re-render social plugins with XFBML.
+                // Re-render: https://developers.facebook.com/docs/reference/javascript/FB.XFBML.parse/
+                // Comments: https://developers.facebook.com/docs/plugins/comments/
+                FB.XFBML.parse(this.$galleryModalComments.get(0));
+            }
+        } catch(err) {
+            console.error(err);
         }
     }
 
@@ -224,6 +249,16 @@ class Gallery {
 
         this.$galleryModalRight.toggleClass(CSS_CLASS.isShow);
         this.$galleryModalArrowToggler.toggleClass(CSS_CLASS.isShow);
+    }
+
+    /**
+     * Get image data object through image id parameter.
+     *
+     * @return {Object}
+     */
+    getDataImageFromParameter() {
+        const imageId = this.request.getUrlParameter('image');
+        return this.$galleryPhotoData.filter(`[data-id="${imageId}"]`);
     }
 }
 

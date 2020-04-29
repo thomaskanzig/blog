@@ -40,4 +40,8 @@ new LazyLoad({
     elements_selector: '.lazy',
 });
 
+// Import components here.
 import './components/gallery';
+
+// Import services here.
+import './services/request';
