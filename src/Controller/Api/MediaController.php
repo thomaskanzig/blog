@@ -21,6 +21,7 @@ use Symfony\Component\Serializer\Serializer;
 use Liip\ImagineBundle\Service\FilterService;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer;
 
 class MediaController extends AbstractController
 {
@@ -216,8 +217,18 @@ class MediaController extends AbstractController
         foreach ($items as $key => $item) {
             $resourcePath = $filterService->getUrlOfFilteredImage($item->getFile(), '350x350');
 
-            $item->setFile($resourcePath);
-            $items[$key] = $item;
+            /** @var Media $media */
+            $media = new Media();
+            $media->setId($item->getId());
+            $media->setFile($resourcePath);
+            $media->setTitle($item->getTitle());
+            $media->setDescription($item->getDescription());
+            $media->setFolderId($item->getFolderId());
+            $media->setCreated($item->getCreated());
+            $media->setExternal($item->getExternal());
+            $media->setType($item->getType());
+
+            $items[$key] = $media;
         }
 
         // More about serialize, visit: https://symfony.com/doc/current/components/serializer.html
