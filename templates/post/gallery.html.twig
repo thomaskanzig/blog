@@ -49,7 +49,9 @@
 
                         <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 gallery-item js-gallery-photo-item">
                             <div class="gallery-photos-img-wrapper">
-                                <a href="#" data-toggle="modal" data-target=".gallery-modal"
+                                <a href="#"
+                                   data-toggle="modal"
+                                   data-target=".gallery-modal"
                                    data-position="{{ loop.index }}"
                                    data-id="{{ mediaPost.media.id }}"
                                    data-url="{{ asset(mediaPost.media.file)|imagine_filter('gallery_post_full') }}"
@@ -115,6 +117,7 @@
                                         <i class="fa fa-chevron-right" aria-hidden="true"></i>
                                     </div>
                                 </div>
+
                                 <div class="modal-right js-gallery-modal-right">
                                     <div class="modal-right-inner js-gallery-modal-right-inner">
                                         <div class="media mb-3">
@@ -140,13 +143,24 @@
                                             {# Initialized via JS. #}
                                         </div>
 
-                                        <div class="js-gallery-modal-fb-comments">
+                                        <div class="gallery-modal-fb-comments js-gallery-modal-fb-comments">
                                             {# Initialized via JS. #}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="gallery-modal-paging js-gallery-modal-paging">
+                        <span class="pr-1 js-gallery-modal-paging-current">
+                            {# Initialized via JS. #}
+                        </span>
+                        {{ 'app.general.of'|trans }}
+                        <span class="px-1 js-gallery-modal-paging-total">
+                            {# Initialized via JS. #}
+                        </span>
+                        {{ 'app.general.pictures'|trans }}
                     </div>
                 </div>
             </div>

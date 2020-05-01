@@ -277,6 +277,12 @@ $widthModalRight: 400px;
     height: 50px;
 }
 
+.gallery-modal-fb-comments {
+    display: block;
+    margin-left: -8px; // Fix position from facebook comments plugin.
+    margin-right: -8px; // Same.
+}
+
 .gallery-modal-nav-prev,
 .gallery-modal-nav-next {
     position: absolute;
@@ -338,6 +344,16 @@ $widthModalRight: 400px;
             opacity: 1;
         }
     }
+}
+
+.gallery-modal-paging {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 20px;
+    color: $colorWhite;
+    font-size: 14px;
 }
 
 .gallery-modal-close {

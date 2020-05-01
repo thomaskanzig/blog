@@ -5,6 +5,7 @@ import shave from 'shave';
 import moment from 'moment';
 import { CSS_CLASS } from '../constans';
 import { BREAKPOINTS } from '../constans';
+import { HTML } from '../constans';
 
 const MAX_HEIGHT_SHAVE = 35;
 
@@ -43,6 +44,10 @@ class Gallery {
         this.$galleryModalNavPrev = this.$el.find('.js-gallery-modal-nav-prev');
         this.$galleryModalNavNext = this.$el.find('.js-gallery-modal-nav-next');
         this.$galleryModalArrowToggler = this.$el.find('.js-gallery-modal-main-arrow-toggler');
+        this.$galleryModalPaging = this.$el.find('.js-gallery-modal-paging');
+
+        // Set total of images on paging.
+        this.$galleryModalPaging.find('.js-gallery-modal-paging-total').html(this.$galleryPhotoData.length);
 
         this.galleryModalCurrentPosition = 0;
 
@@ -175,8 +180,10 @@ class Gallery {
         this.$galleryModalImg.attr('src', $image.data('url'));
 
         // Update facebook comments.
-        try {
-            if (this.options.showFBComments) {
+        this.$galleryModalComments.hide().html('');
+
+        if (this.options.showFBComments) {
+            try {
                 const urlImage = this.$location.attr('origin') + this.$location.attr('pathname') + '?image=' + $image.data('id');
 
                 let fbComments = '<div class="fb-comments"' +
@@ -185,16 +192,18 @@ class Gallery {
                     'data-numposts="20">' +
                     '</div>';
 
-                this.$galleryModalComments.html(fbComments);
+                this.$galleryModalComments.show().html(fbComments);
 
                 // To re-render social plugins with XFBML.
                 // Re-render: https://developers.facebook.com/docs/reference/javascript/FB.XFBML.parse/
                 // Comments: https://developers.facebook.com/docs/plugins/comments/
                 FB.XFBML.parse(this.$galleryModalComments.get(0));
+            } catch(err) {
+                console.error(err);
             }
-        } catch(err) {
-            console.error(err);
         }
+
+        this.updateModalGalleryPaging();
     }
 
     /**
@@ -273,6 +282,13 @@ class Gallery {
     getDataImageFromParameter() {
         const imageId = this.request.getUrlParameter('image');
         return this.$galleryPhotoData.filter(`[data-id="${imageId}"]`);
+    }
+
+    /**
+     * Update paging of gallery modal.
+     */
+    updateModalGalleryPaging() {
+        this.$galleryModalPaging.find('.js-gallery-modal-paging-current').html(this.galleryModalCurrentPosition);
     }
 }
 
