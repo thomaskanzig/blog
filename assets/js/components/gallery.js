@@ -29,6 +29,7 @@ class Gallery {
         this.$photos = this.$el.find('.js-gallery-photos-inner');
         this.$photosDataTitle = this.$el.find('.js-gallery-photos-img-data-title');
 
+        // Gallery modal objects.
         this.$galleryModal = this.$el.find('.js-gallery-modal');
         this.$galleryModalRight = this.$el.find('.js-gallery-modal-right');
         this.$galleryModalRightInner = this.$el.find('.js-gallery-modal-right-inner');
@@ -46,7 +47,7 @@ class Gallery {
         this.$galleryModalArrowToggler = this.$el.find('.js-gallery-modal-main-arrow-toggler');
         this.$galleryModalPaging = this.$el.find('.js-gallery-modal-paging');
 
-        // Set total of images on paging.
+        // Set total of images on paging in gallery modal.
         this.$galleryModalPaging.find('.js-gallery-modal-paging-total').html(this.$galleryPhotoData.length);
 
         this.galleryModalCurrentPosition = 0;
@@ -249,6 +250,9 @@ class Gallery {
         }
     }
 
+    /**
+     * Toggler to open and close right content of gallery modal.
+     */
     onTogglerGalleryModalDetail() {
         if (this.$window.width() <= BREAKPOINTS.xs) {
             // If not show yet, then will show.
