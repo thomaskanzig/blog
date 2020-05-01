@@ -281,6 +281,10 @@ $widthModalRight: 400px;
     display: block;
     margin-left: -8px; // Fix position from facebook comments plugin.
     margin-right: -8px; // Same.
+
+    iframe {
+        width: 100% !important; // Fix full width in safari.
+    }
 }
 
 .gallery-modal-nav-prev,
@@ -350,7 +354,7 @@ $widthModalRight: 400px;
     display: inline-block;
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: -25px;
     padding: 20px;
     color: $colorWhite;
     font-size: 14px;
