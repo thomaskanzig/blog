@@ -13,7 +13,7 @@
                         {% endif %}
                         <div class="media author mb-4">
                             {% if post.user.urlAvatar is not empty %}
-                                <img src="{{ asset(post.user.urlAvatar)|imagine_filter('50x50') }}"
+                                <img src="{{ asset(post.user.urlAvatar)|imagine_filter('100x100') }}"
                                      class="mr-3 author-photo rounded-circle"
                                      alt="{{ post.user.fullname }}">
                             {% endif %}
@@ -56,6 +56,8 @@
                                    data-title="{{ imageData.title|default(post.title) }}"
                                    data-description="{{ imageData.description|default() }}"
                                    data-published="{{ mediaPost.media.created|date('Y-m-d H:i:s') }}"
+                                   data-author-name="{{ mediaPost.media.user.fullname }}"
+                                   data-author-avatar="{{ asset(mediaPost.media.user.urlAvatar|default('images/avatar.png'))|imagine_filter('100x100') }}"
                                    class="js-gallery-photo-data">
 
                                     <img src="{{ asset(mediaPost.media.file)|imagine_filter(size) }}"
@@ -115,12 +117,19 @@
                                 </div>
                                 <div class="modal-right js-gallery-modal-right">
                                     <div class="modal-right-inner js-gallery-modal-right-inner">
-                                        <div class="gallery-modal-published">
-                                            {{ 'app.general.published_in'|trans }}
+                                        <div class="media mb-3">
+                                            <img class="mr-3 rounded-circle gallery-modal-author-avatar js-gallery-modal-author-avatar"
+                                                 src=""
+                                                 alt="">
+                                            <div class="media-body">
+                                                <h5 class="mt-1 mb-1 gallery-modal-author-name js-gallery-modal-author-name">
+                                                    {# Initialized via JS. #}
+                                                </h5>
 
-                                            <span class="js-gallery-modal-published">
-                                                {# Initialized via JS. #}
-                                            </span>
+                                                <div class="gallery-modal-published js-gallery-modal-published">
+                                                    {# Initialized via JS. #}
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <h4 class="gallery-modal-title js-gallery-modal-title">

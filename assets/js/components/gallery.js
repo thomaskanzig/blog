@@ -38,6 +38,8 @@ class Gallery {
         this.$galleryModalPublished = this.$el.find('.js-gallery-modal-published');
         this.$galleryModalImg = this.$el.find('.js-gallery-modal-img');
         this.$galleryModalComments = this.$el.find('.js-gallery-modal-fb-comments');
+        this.$galleryModalAuthorName = this.$el.find('.js-gallery-modal-author-name');
+        this.$galleryModalAuthorAvatar = this.$el.find('.js-gallery-modal-author-avatar');
         this.$galleryModalNavPrev = this.$el.find('.js-gallery-modal-nav-prev');
         this.$galleryModalNavNext = this.$el.find('.js-gallery-modal-nav-next');
         this.$galleryModalArrowToggler = this.$el.find('.js-gallery-modal-main-arrow-toggler');
@@ -155,6 +157,18 @@ class Gallery {
         this.$galleryModalDesc.hide();
         if ($image.data('description')) {
             this.$galleryModalDesc.show().html($image.data('description'));
+        }
+
+        // Update author name.
+        this.$galleryModalAuthorName.hide();
+        if ($image.data('author-name')) {
+            this.$galleryModalAuthorName.show().html($image.data('author-name'));
+        }
+
+        // Update author avatar.
+        this.$galleryModalAuthorAvatar.attr('src','');
+        if ($image.data('author-avatar')) {
+            this.$galleryModalAuthorAvatar.attr('src', $image.data('author-avatar'));
         }
 
         // Update image.

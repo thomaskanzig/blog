@@ -254,7 +254,6 @@ $widthModalRight: 400px;
 .gallery-modal-published {
     font-size: 13px;
     color: $gray-500;
-    padding-bottom: 5px;
 }
 
 .gallery-modal-title {
@@ -267,6 +266,15 @@ $widthModalRight: 400px;
     font-size: 13px;
     line-height: 1.5;
     padding-bottom: 15px;
+}
+
+.gallery-modal-author-name {
+    font-size: 15px;
+}
+
+.gallery-modal-author-avatar {
+    width: 50px;
+    height: 50px;
 }
 
 .gallery-modal-nav-prev,

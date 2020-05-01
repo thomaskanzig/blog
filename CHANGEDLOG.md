@@ -3,9 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 - FEATURE: Added new gallery modal with facebook comments in gallery detail page. [#75](https://github.com/thomaskanzig/blog/pull/75)  
-    `- yarn install`
-    `- composer install`
-    `- bin/console d:s:u`
+    `- yarn install`  
+    `- composer install`  
+    `- bin/console d:s:u`  
 
 ## [0.3.7] - 2020-04-26
 - FEATURE: Added to show title and date published on preview photos in gallery page. [#73](https://github.com/thomaskanzig/blog/pull/73)  
