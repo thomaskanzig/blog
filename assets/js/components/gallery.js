@@ -68,6 +68,7 @@ class Gallery {
         this.$galleryModalNavPrev.on('click', this.onPrevGalleryModal.bind(this));
         this.$galleryModalNavNext.on('click', this.onNextGalleryModal.bind(this));
         this.$galleryModalArrowToggler.on('click', this.onTogglerGalleryModalDetail.bind(this));
+        this.$galleryModalImg.on('load', this.onLoadGalleryModalImage.bind(this));
     }
 
     /**
@@ -196,14 +197,6 @@ class Gallery {
         this.$galleryModalImg.addClass(CSS_CLASS.isHidden).removeClass(CSS_CLASS.isFullHeight);
         this.$galleryModalImg.attr('src', $image.data('url'));
 
-        setTimeout(() => {
-            if (this.$galleryModalImg.height() >= this.$galleryModalMain.height()) {
-                this.$galleryModalImg.addClass(CSS_CLASS.isFullHeight);
-            }
-
-            this.$galleryModalImg.removeClass(CSS_CLASS.isHidden);
-        }, 1000);
-
         // Update facebook comments.
         this.$galleryModalComments.hide().html('');
 
@@ -323,6 +316,19 @@ class Gallery {
         this.$galleryModalRight.removeAttr('style');
         this.$galleryModalRightInner.removeAttr('style');
         this.$galleryModalArrowToggler.removeAttr('style');
+    }
+
+    /**
+     * Handle loaded image of gallery modal.
+     */
+    onLoadGalleryModalImage() {
+        setTimeout(() => {
+            if (this.$galleryModalImg.height() >= this.$galleryModalMain.height()) {
+                this.$galleryModalImg.addClass(CSS_CLASS.isFullHeight);
+            }
+
+            this.$galleryModalImg.removeClass(CSS_CLASS.isHidden);
+        }, 500);
     }
 }
 
