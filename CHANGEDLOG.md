@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+## [0.3.8] - 2020-05-01
 - FEATURE: Added new gallery modal with facebook comments in gallery detail page. [#75](https://github.com/thomaskanzig/blog/pull/75)  
     `- yarn install`  
     `- composer install`  
