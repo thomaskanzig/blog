@@ -5,6 +5,7 @@ export const CSS_CLASS = {
     isCopy: 'is-copy',
     isShow: 'is-show',
     noOverflow: 'no-overflow',
+    isFullHeight: 'is-full-height',
 };
 
 export const BREAKPOINTS = {
