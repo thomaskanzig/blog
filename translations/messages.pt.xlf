@@ -136,6 +136,16 @@
         <target>Veja mais</target>
       </trans-unit>
 
+      <trans-unit id="app.general.of">
+        <source>app.general.of</source>
+        <target>de</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.pictures">
+        <source>app.general.pictures</source>
+        <target>fotos</target>
+      </trans-unit>
+
       <!-- Website -->
 
       <!-- Admin (sidebar) -->

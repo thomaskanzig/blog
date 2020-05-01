@@ -136,6 +136,16 @@
         <target>See more</target>
       </trans-unit>
 
+      <trans-unit id="app.general.of">
+        <source>app.general.of</source>
+        <target>of</target>
+      </trans-unit>
+
+      <trans-unit id="app.general.pictures">
+        <source>app.general.pictures</source>
+        <target>pictures</target>
+      </trans-unit>
+
       <!-- Website -->
 
       <!-- Admin (sidebar) -->

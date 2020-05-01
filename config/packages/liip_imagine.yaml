@@ -113,6 +113,7 @@ liip_imagine:
         # See this link for more information:
         # https://symfony.com/doc/2.0/bundles/LiipImagineBundle/filters/sizing.html#down-scale
         gallery_post_full:
+            quality:                100
             filters:
                 downscale:
                     max: [1440, 800]

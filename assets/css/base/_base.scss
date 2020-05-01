@@ -1,0 +1,9 @@
+body {
+    font-family: $fontText;
+}
+
+html {
+    &.no-overflow {
+        overflow: hidden;
+    }
+}

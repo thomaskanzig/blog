@@ -1,6 +1,6 @@
 {
   "name": "blog",
-  "version": "1.0.49",
+  "version": "1.0.60",
   "description": "This is a simple personal blog system building with Symfony 4.",
   "author": {
     "name": "Thomas Känzig",
@@ -51,6 +51,7 @@
     "masonry-layout": "^4.2.2",
     "massive-web": "^2.0.0-rc1",
     "minimist": "^1.2.2",
+    "moment": "^2.24.0",
     "popper.js": "1.14.7",
     "reset-css": "^4.0.1",
     "serialize-javascript": "^2.1.1",
