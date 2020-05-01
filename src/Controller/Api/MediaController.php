@@ -5,7 +5,9 @@ namespace App\Controller\Api;
 use App\Entity\Media;
 use App\Entity\MediaType;
 use App\Entity\Folder;
+use App\Entity\User;
 use App\Service\UploaderHelper;
+use http\Exception\InvalidArgumentException;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,6 +19,9 @@ use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use Liip\ImagineBundle\Service\FilterService;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer;
 
 class MediaController extends AbstractController
 {
@@ -36,20 +41,28 @@ class MediaController extends AbstractController
     private $paginator;
 
     /**
+     * @var TokenStorageInterface
+     */
+    private $tokenStorage;
+
+    /**
      * MediaController constructor.
      *
      * @param UploaderHelper $uploaderHelper
      * @param EntityManagerInterface $entityManager
-     * @param PaginatorInterface $paginator,
+     * @param PaginatorInterface $paginator
+     * @param TokenStorageInterface $tokenStorage
      */
     public function __construct(
         UploaderHelper $uploaderHelper,
         EntityManagerInterface $entityManager,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        TokenStorageInterface $tokenStorage
     ) {
         $this->uploaderHelper = $uploaderHelper;
         $this->entityManager = $entityManager;
         $this->paginator = $paginator;
+        $this->tokenStorage = $tokenStorage;
     }
 
     /**
@@ -70,12 +83,14 @@ class MediaController extends AbstractController
         $file = $request->files->get('file');
         $submittedToken = $request->request->get('token');
 
-        if (!$this->isCsrfTokenValid('media', $submittedToken)) {
+        /** @var User $user */
+        $user = $this->tokenStorage->getToken()->getUser();
+
+        if (!$this->isCsrfTokenValid('media', $submittedToken) || !$user instanceof User) {
             throw new InvalidCsrfTokenException();
         }
 
         if ($file instanceof UploadedFile) {
-
             /** @var String[] $uploadMedia */
             $uploadMedia = $this->uploaderHelper->uploadMedia($file);
             $message = 'Upload successfully';
@@ -87,6 +102,7 @@ class MediaController extends AbstractController
             $media->setFile($uploadMedia['file']);
             $media->setExternal(false);
             $media->setCreated(new \DateTime());
+            $media->setUser($user);
 
             /** @var MediaType $type */
             $type = $this->entityManager
@@ -201,8 +217,18 @@ class MediaController extends AbstractController
         foreach ($items as $key => $item) {
             $resourcePath = $filterService->getUrlOfFilteredImage($item->getFile(), '350x350');
 
-            $item->setFile($resourcePath);
-            $items[$key] = $item;
+            /** @var Media $media */
+            $media = new Media();
+            $media->setId($item->getId());
+            $media->setFile($resourcePath);
+            $media->setTitle($item->getTitle());
+            $media->setDescription($item->getDescription());
+            $media->setFolderId($item->getFolderId());
+            $media->setCreated($item->getCreated());
+            $media->setExternal($item->getExternal());
+            $media->setType($item->getType());
+
+            $items[$key] = $media;
         }
 
         // More about serialize, visit: https://symfony.com/doc/current/components/serializer.html
