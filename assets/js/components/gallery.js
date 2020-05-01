@@ -78,6 +78,7 @@ class Gallery {
             itemSelector: '.js-gallery-photo-item',
         });
 
+        // If detect a image parameter, then will load the image directly in the gallery modal.
         if (0 < this.getDataImageFromParameter().length) {
             setTimeout(() => {
                 this.$galleryModal.modal('show');
@@ -91,14 +92,22 @@ class Gallery {
     onResize() {
         this.setShaveDataTitles();
 
-        // Reset custom style.
-        this.$galleryModalRight.removeAttr('style');
-        this.$galleryModalRightInner.removeAttr('style');
-        this.$galleryModalArrowToggler.removeAttr('style');
+        this.resetCustomStyleGalleryModal();
 
-        // Everything was open, will close.
+        // Everything was open in the gallery modal, will close.
         this.$galleryModalRight.removeClass(CSS_CLASS.isShow);
         this.$galleryModalArrowToggler.removeClass(CSS_CLASS.isShow);
+
+        // Fix image size in the gallery modal.
+        if (this.$galleryModalImg.height() >= this.$galleryModalMain.height()) {
+            this.$galleryModalImg.addClass(CSS_CLASS.isFullHeight);
+
+            if (this.$galleryModalImg.width() === this.$galleryModalMain.width()) {
+                this.$galleryModalImg.removeClass(CSS_CLASS.isFullHeight);
+            }
+        } else {
+            this.$galleryModalImg.removeClass(CSS_CLASS.isFullHeight);
+        }
     }
 
     /**
@@ -138,6 +147,12 @@ class Gallery {
      */
     hideGalleryModal() {
         this.$html.removeClass(CSS_CLASS.noOverflow);
+
+        this.resetCustomStyleGalleryModal();
+
+        // Everything was open in the gallery modal, will close.
+        this.$galleryModalRight.removeClass(CSS_CLASS.isShow);
+        this.$galleryModalArrowToggler.removeClass(CSS_CLASS.isShow);
     }
 
     /**
@@ -178,7 +193,16 @@ class Gallery {
         }
 
         // Update image.
+        this.$galleryModalImg.addClass(CSS_CLASS.isHidden).removeClass(CSS_CLASS.isFullHeight);
         this.$galleryModalImg.attr('src', $image.data('url'));
+
+        setTimeout(() => {
+            if (this.$galleryModalImg.height() >= this.$galleryModalMain.height()) {
+                this.$galleryModalImg.addClass(CSS_CLASS.isFullHeight);
+            }
+
+            this.$galleryModalImg.removeClass(CSS_CLASS.isHidden);
+        }, 1000);
 
         // Update facebook comments.
         this.$galleryModalComments.hide().html('');
@@ -267,10 +291,7 @@ class Gallery {
                 this.$galleryModalRightInner.css('width',  width + 'px');
                 this.$galleryModalArrowToggler.css('right', width - 50 + 'px');
             } else {
-                // Reset custom style.
-                this.$galleryModalRight.removeAttr('style');
-                this.$galleryModalRightInner.removeAttr('style');
-                this.$galleryModalArrowToggler.removeAttr('style');
+                this.resetCustomStyleGalleryModal();
             }
         }
 
@@ -293,6 +314,15 @@ class Gallery {
      */
     updateModalGalleryPaging() {
         this.$galleryModalPaging.find('.js-gallery-modal-paging-current').html(this.galleryModalCurrentPosition);
+    }
+
+    /**
+     * Reset custom style attribute in gallery modal.
+     */
+    resetCustomStyleGalleryModal() {
+        this.$galleryModalRight.removeAttr('style');
+        this.$galleryModalRightInner.removeAttr('style');
+        this.$galleryModalArrowToggler.removeAttr('style');
     }
 }
 
