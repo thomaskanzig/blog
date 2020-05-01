@@ -153,6 +153,23 @@ $widthModalRight: 400px;
             }
         }
 
+        // Display loading image.
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            margin: 0 auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-image: url(/images/loaders/spinner.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
         @include media-breakpoint-down(lg) {
             width: 100%;
         }
@@ -167,7 +184,7 @@ $widthModalRight: 400px;
         height: 50px;
         transition: right .5s ease, top .5s ease;
         cursor: pointer;
-        z-index: 1;
+        z-index: 2;
 
         i {
             position: absolute;
@@ -204,6 +221,7 @@ $widthModalRight: 400px;
         height: 100%;
         overflow-y: scroll;
         transition: all .5s ease;
+        z-index: 1;
 
         // Display gradient-linear to left side.
         &::before {
@@ -249,6 +267,17 @@ $widthModalRight: 400px;
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
+    visibility: visible;
+    z-index: 1;
+
+    &.is-full-height {
+        min-width: 0;
+        height: 100%;
+    }
+
+    &.is-hidden {
+        visibility: hidden;
+    }
 }
 
 .gallery-modal-published {
@@ -295,6 +324,7 @@ $widthModalRight: 400px;
     height: 100%;
     cursor: pointer;
     pointer-events: auto;
+    z-index: 1;
 
     i {
         position: absolute;
