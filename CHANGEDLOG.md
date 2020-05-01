@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.3.10] - 2020-05-01
+- FEATURE: Added event to detect if image is loaded and display them in gallery modal. [#80](https://github.com/thomaskanzig/blog/pull/80) 
+
 ## [0.3.9] - 2020-05-01
 - FEATURE: Fix image size in the gallery modal and show loading icon. [#78](https://github.com/thomaskanzig/blog/pull/78) 
 
