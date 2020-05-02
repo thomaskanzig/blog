@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app.request.locale }}">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -29,8 +29,6 @@
                     src="https://connect.facebook.net/{{ countries_locales[app.request.locale] }}/sdk.js#xfbml=1&version=v5.0&appId={{ setting().appIdFacebook }}&autoLogAppEvents=1">
             </script>
         {% endif %}
-
-        {% include 'includes/header.html.twig' %}
 
         {% include 'includes/navigation.html.twig' %}
 

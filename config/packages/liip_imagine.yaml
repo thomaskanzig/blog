@@ -118,3 +118,12 @@ liip_imagine:
                 downscale:
                     max: [1440, 800]
 
+        # Header image from the page.
+        1440x800:
+            quality:                80
+            filters:
+                thumbnail:
+                    size:          [1440, 800]
+                    mode:          outbound
+                    allow_upscale: true
+

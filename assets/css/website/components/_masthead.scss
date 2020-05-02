@@ -2,27 +2,16 @@
 header.masthead {
     // TIP: Background images are set within the HTML using inline CSS!
     margin-bottom: 50px;
-    background: no-repeat center center;
-    background-color: $gray-600;
-    background-attachment: scroll;
     position: relative;
-    @include background-cover;
-
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background-color: $gray-900;
-        opacity: 0.5;
-    }
+    overflow: hidden;
 
     .page-heading,
     .post-heading,
     .site-heading {
+        position: relative;
         padding: 200px 0 150px;
         color: white;
+        z-index: 1;
 
         @media only screen and (min-width: 768px) {
             padding: 200px 0;
@@ -54,14 +43,23 @@ header.masthead {
         }
     }
 
-    .page-heading{
-        padding-top: 70px;
-        padding-bottom: 70px;
+    .page-heading {
+        padding-top: 120px;
+        padding-bottom: 120px;
+
+        @include media-breakpoint-down(sm) {
+            padding-top: 100px;
+            padding-bottom: 60px;
+        }
+
+        @include media-breakpoint-down(xs) {
+            padding-bottom: 50px;
+        }
     }
 
     .post-heading {
         h1 {
-            font-size: 35px;
+            font-size: 50px;
         }
 
         .meta,
@@ -88,14 +86,44 @@ header.masthead {
             }
         }
 
-        @media only screen and (min-width: 768px) {
+        @include media-breakpoint-down(sm) {
             h1 {
-                font-size: 55px;
+                font-size: 35px;
             }
 
-            .subheading {
-                font-size: 30px;
+            padding-top: 120px;
+            padding-bottom: 100px;
+        }
+
+        @include media-breakpoint-down(xs) {
+            h1 {
+                font-size: 25px;
             }
+
+            padding-bottom: 50px;
         }
     }
+
+    img {
+        display: block;
+        position: relative;
+        max-width: 100%;
+        min-width: 100%;
+    }
+
+    &::after {
+        @include stretch();
+        content: '';
+        background-color: $gray-900;
+        opacity: 0.5;
+        z-index: 0;
+    }
+}
+
+.masthead-image-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    transform: translateX(-50%) translateY(-50%);
 }

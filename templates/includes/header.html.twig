@@ -1,10 +1,22 @@
-<header class="masthead" style="background-image: url('{{ asset('images/bg-index.jpg') }}')">
-  <div class="overlay"></div>
+{% set headingClass = 'page-heading' %}
+
+{% if 'gallery' == type|default() %}
+    {% set headingClass = 'post-heading' %}
+{% endif %}
+
+<header class="masthead">
+    <div class="masthead-image-wrapper">
+        <img id="{{ register_component('parallax') }}"
+             data-src="{{ asset(image|default('images/bg-index.jpg')|imagine_filter('1440x800')) }}"
+             alt=""
+             class="lazy"/>
+    </div>
+
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="page-heading">
-          <h1>Blog Personal</h1>
+        <div class="{{ headingClass }}">
+          <h1>{{ title|default('Blog Personal') }}</h1>
           <!--Uma descricao basica da pagina
           <span class="subheading">Uma descricao basica da pagina</span-->
         </div>

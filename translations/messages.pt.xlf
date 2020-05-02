@@ -146,6 +146,11 @@
         <target>fotos</target>
       </trans-unit>
 
+      <trans-unit id="app.general.header_image">
+        <source>app.general.header_image</source>
+        <target>Imagem no cabeçalho</target>
+      </trans-unit>
+
       <!-- Website -->
 
       <!-- Admin (sidebar) -->
@@ -276,6 +281,11 @@
       <trans-unit id="admin.posts.form.label.who_is_the_creator">
         <source>admin.posts.form.label.who_is_the_creator</source>
         <target>Quem é o criador?</target>
+      </trans-unit>
+
+      <trans-unit id="admin.posts.form.label.header_image">
+        <source>admin.posts.form.label.header_image</source>
+        <target>Imagem no cabeçalho da página</target>
       </trans-unit>
 
       <trans-unit id="admin.posts.form.button.add_images_to_gallery">
