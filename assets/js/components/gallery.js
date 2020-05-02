@@ -5,9 +5,9 @@ import shave from 'shave';
 import moment from 'moment';
 import { CSS_CLASS } from '../constans';
 import { BREAKPOINTS } from '../constans';
-import { HTML } from '../constans';
 
 const MAX_HEIGHT_SHAVE = 35;
+const HASHTAG_VAR = 'image';
 
 class Gallery {
     /**
@@ -79,8 +79,8 @@ class Gallery {
             itemSelector: '.js-gallery-photo-item',
         });
 
-        // If detect a image parameter, then will load the image directly in the gallery modal.
-        if (0 < this.getDataImageFromParameter().length) {
+        // If detect a hashtag in url, then will load the image directly in the gallery modal.
+        if (0 < this.getDataImageFromHashTag().length) {
             setTimeout(() => {
                 this.$galleryModal.modal('show');
             }, 1000);
@@ -135,7 +135,7 @@ class Gallery {
         }
 
         // Target image from url.
-        $image = this.getDataImageFromParameter();
+        $image = this.getDataImageFromHashTag();
 
         if(0 < $image.length) {
             this.changeImageInGalleryModal($image);
@@ -162,6 +162,9 @@ class Gallery {
      * @param {Object} $image
      */
     changeImageInGalleryModal($image) {
+        // Update hashtag URL.
+        window.location.hash = HASHTAG_VAR + $image.data('id');
+
         // Update position.
         this.galleryModalCurrentPosition = $image.data('position');
 
@@ -202,7 +205,7 @@ class Gallery {
 
         if (this.options.showFBComments) {
             try {
-                const urlImage = this.$location.attr('origin') + this.$location.attr('pathname') + '?image=' + $image.data('id');
+                const urlImage = this.$location.attr('origin') + this.$location.attr('pathname') + '#' + HASHTAG_VAR + $image.data('id');
 
                 let fbComments = '<div class="fb-comments"' +
                     'data-href="' + urlImage + '"' +
@@ -293,13 +296,20 @@ class Gallery {
     }
 
     /**
-     * Get image data object through image id parameter.
+     * Get image data object through the hashtag parameter.
      *
      * @return {Object}
      */
-    getDataImageFromParameter() {
-        const imageId = this.request.getUrlParameter('image');
-        return this.$galleryPhotoData.filter(`[data-id="${imageId}"]`);
+    getDataImageFromHashTag() {
+        const hashTag = window.location.hash;
+
+        if(!hashTag) {
+            return {};
+        }
+
+        let imageID = hashTag.replace('#' + HASHTAG_VAR, '');
+
+        return this.$galleryPhotoData.filter(`[data-id="${imageID}"]`);
     }
 
     /**
