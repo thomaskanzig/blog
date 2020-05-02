@@ -2,7 +2,6 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Folder;
 use App\Entity\MediaPostRel;
 use App\Repository\PostRepository;
 use Liip\ImagineBundle\Service\FilterService;
@@ -83,6 +82,13 @@ class PostController extends AbstractController
                 $post->setUrlPhoto($newFile['file']);
             }
 
+            // Send the header image file an store in /public.
+            $uploadedHeaderFile = $postForm['headerImageFile']->getData();
+            if ($uploadedHeaderFile) {
+                $newHeaderFile = $uploaderHelper->uploadMedia($uploadedHeaderFile);
+                $post->setHeaderImage($newHeaderFile['file']);
+            }
+
             // Set some others information of post.
             $slugify = new Slugify();
             $post->setSlug($slugify->slugify($post->getTitle()));
@@ -149,6 +155,13 @@ class PostController extends AbstractController
             if ($uploadedFile) {
                 $newFile = $uploaderHelper->uploadMedia($uploadedFile);
                 $post->setUrlPhoto($newFile['file']);
+            }
+
+            // Send the header image file an store in /public.
+            $uploadedHeaderFile = $postForm['headerImageFile']->getData();
+            if ($uploadedHeaderFile) {
+                $newHeaderFile = $uploaderHelper->uploadMedia($uploadedHeaderFile);
+                $post->setHeaderImage($newHeaderFile['file']);
             }
 
             // To save.

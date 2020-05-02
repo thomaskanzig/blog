@@ -99,6 +99,11 @@ class Post
      */
     private $locale;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $header_image;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -319,6 +324,18 @@ class Post
     public function setLocale(?string $locale): self
     {
         $this->locale = $locale;
+
+        return $this;
+    }
+
+    public function getHeaderImage(): ?string
+    {
+        return $this->header_image;
+    }
+
+    public function setHeaderImage(?string $header_image): self
+    {
+        $this->header_image = $header_image;
 
         return $this;
     }

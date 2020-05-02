@@ -106,6 +106,13 @@ class PostType extends AbstractType
             ->add('images', HiddenType::class, [
                 'mapped' => false,
             ])
+            ->add('headerImageFile',
+                FileType::class, [
+                    'label' => $this->translator->trans('admin.posts.form.label.header_image'),
+                    'mapped' => false,
+                    'required' => false
+                ]
+            )
         ;
     }
 

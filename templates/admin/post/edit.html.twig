@@ -132,6 +132,10 @@
                                 </div>
 
                                 <div class="col-md-12">
+                                    {{ form_row(postForm.headerImageFile) }}
+                                </div>
+
+                                <div class="col-md-12">
                                     {{ form_row(postForm.categories) }}
                                 </div>
 
@@ -163,6 +167,21 @@
                         <img src="{{ asset(postForm.vars.data.urlPhoto)|imagine_filter('300x300') }}"
                              class="img-responsive"
                              alt="">
+                        {% endif %}
+                    </div>
+                </div>
+                <!-- /.box -->
+
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">{{ 'app.general.header_image'|trans }}</h3>
+                    </div>
+
+                    <div class="box-body">
+                        {% if postForm.vars.data.headerImage is not empty %}
+                            <img src="{{ asset(postForm.vars.data.headerImage)|imagine_filter('600x375') }}"
+                                 class="img-responsive"
+                                 alt="">
                         {% endif %}
                     </div>
                 </div>
