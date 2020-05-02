@@ -154,6 +154,9 @@ class Gallery {
         // Everything was open in the gallery modal, will close.
         this.$galleryModalRight.removeClass(CSS_CLASS.isShow);
         this.$galleryModalArrowToggler.removeClass(CSS_CLASS.isShow);
+
+        // Update hashtag URL.
+        window.location.hash = '';
     }
 
     /**
