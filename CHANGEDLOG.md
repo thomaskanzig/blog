@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ## [0.3.11] - 2020-05-02
+- FEATURE: Added html lang attribute. [#83](https://github.com/thomaskanzig/blog/pull/83) 
 - FEATURE: Added to customize header page in gallery detail. [#82](https://github.com/thomaskanzig/blog/pull/82)  
     `- yarn install`  
     `- composer install`  
