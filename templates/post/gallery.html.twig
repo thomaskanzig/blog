@@ -1,6 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    {% include 'includes/header.html.twig' with {
+        image: post.headerImage,
+        title: post.title,
+        type: 'gallery',
+    } only %}
+
     {% set showFBComments = setting().showCommentsFacebook %}
 
     <div class="container">
@@ -8,9 +14,6 @@
             <div class="col-lg-8 col-md-12 mx-auto">
                 <article class="gallery-detail">
                     <header>
-                        {% if post.title is not empty %}
-                            <h1 class="gallery-detail-title">{{ post.title }}</h1>
-                        {% endif %}
                         <div class="media author mb-4">
                             {% if post.user.urlAvatar is not empty %}
                                 <img src="{{ asset(post.user.urlAvatar)|imagine_filter('100x100') }}"
