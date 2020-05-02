@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.3.11] - 2020-05-02
+- FEATURE: Added to customize header page in gallery detail. [#82](https://github.com/thomaskanzig/blog/pull/82) 
+
 ## [0.3.10] - 2020-05-01
 - FEATURE: Added event to detect if image is loaded and display them in gallery modal. [#80](https://github.com/thomaskanzig/blog/pull/80) 
 
