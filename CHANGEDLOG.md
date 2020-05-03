@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ## [0.3.12] - 2020-05-03
+- FEATURE: Added media edit form in admin. [#87](https://github.com/thomaskanzig/blog/pull/87)  
 - FEATURE: Delete migrations files in `.gitignore` file. [#86](https://github.com/thomaskanzig/blog/pull/86)  
 
 ## [0.3.11] - 2020-05-02
