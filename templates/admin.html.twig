@@ -14,7 +14,10 @@
     </head>
     <body class="hold-transition skin-blue sidebar-mini fixed">
         <div class="wrapper">
-            {% include 'includes/admin/header.html.twig' %}
+            {# Detect if was added more links from a body block to display in header navbar. #}
+            {% set _headerNavbar = block('headerNavbar') is defined ? block('headerNavbar'):'' %}
+
+            {% include 'includes/admin/header.html.twig' with {headerNavbar: _headerNavbar} %}
 
             {% include 'includes/admin/sidebar-left.html.twig' %}
 

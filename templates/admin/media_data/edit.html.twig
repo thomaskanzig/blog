@@ -1,5 +1,19 @@
 {% extends 'admin.html.twig' %}
 
+{% block headerNavbar %}
+    <li>
+        <a href="{{ path('admin_pages_index') }}">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>General</span>
+        </a>
+    </li>
+
+    <li class="active">
+        <a href="{{ path('admin_media_data_edit', { id: mediaDataForm.vars.data.media.id }) }}">
+            <i class="fa fa-file-text-o" aria-hidden="true"></i> <span>Data</span>
+        </a>
+    </li>
+{% endblock %}
+
 {% block body %}
     <section class="content-header">
         <h1>
