@@ -87,7 +87,7 @@ class PostType extends AbstractType
                 },
             ])
             ->add('user', EntityType::class, [
-                'label'     => $this->translator->trans('admin.posts.form.label.who_is_the_creator'),
+                'label'     => $this->translator->trans('admin.general.form.label.who_is_the_creator'),
                 'class'     => User::class,
                 'choice_label' => 'fullname',
                 'placeholder' => $this->translator->trans('app.general.form.label.select'). ':',

@@ -22,3 +22,13 @@
     }
   }
 }
+
+.navbar-nav-left {
+  li {
+    float: left;
+  }
+
+  li a span {
+    padding-left: 4px;
+  }
+}

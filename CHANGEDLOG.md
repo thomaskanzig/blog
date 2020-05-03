@@ -3,13 +3,17 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.3.12] - 2020-05-03
+- FEATURE: Added media edit form in admin. [#87](https://github.com/thomaskanzig/blog/pull/87)  
+- FEATURE: Delete migrations files in `.gitignore` file. [#86](https://github.com/thomaskanzig/blog/pull/86)  
+
 ## [0.3.11] - 2020-05-02
 - FEATURE: Added hashtag on the url to open correctly picture in gallery modal. [#84](https://github.com/thomaskanzig/blog/pull/84)  
 - FEATURE: Added html lang attribute. [#83](https://github.com/thomaskanzig/blog/pull/83) 
 - FEATURE: Added to customize header page in gallery detail. [#82](https://github.com/thomaskanzig/blog/pull/82)  
     `- yarn install`  
     `- composer install`  
-    `- bin/console d:s:u`  
+    `- bin/console d:s:u --force`  
 
 ## [0.3.10] - 2020-05-01
 - FEATURE: Added event to detect if image is loaded and display them in gallery modal. [#80](https://github.com/thomaskanzig/blog/pull/80) 
@@ -21,7 +25,7 @@ All notable changes to this project will be documented in this file.
 - FEATURE: Added new gallery modal with facebook comments in gallery detail page. [#75](https://github.com/thomaskanzig/blog/pull/75)  
     `- yarn install`  
     `- composer install`  
-    `- bin/console d:s:u`  
+    `- bin/console d:s:u --force`  
 
 ## [0.3.7] - 2020-04-26
 - FEATURE: Added to show title and date published on preview photos in gallery page. [#73](https://github.com/thomaskanzig/blog/pull/73)  
