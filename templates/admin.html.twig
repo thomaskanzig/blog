@@ -1,3 +1,5 @@
+{% set route_name = app.request.attributes.get('_route') %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +16,10 @@
     </head>
     <body class="hold-transition skin-blue sidebar-mini fixed">
         <div class="wrapper">
-            {% include 'includes/admin/header.html.twig' %}
+            {# Detect if was added more navbar header links from the body block. #}
+            {% set _headerNavbar = block('headerNavbar') is defined ? block('headerNavbar'):'' %}
+
+            {% include 'includes/admin/header.html.twig' with {headerNavbar: _headerNavbar} %}
 
             {% include 'includes/admin/sidebar-left.html.twig' %}
 

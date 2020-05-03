@@ -16,6 +16,12 @@
       <span class="icon-bar"></span>
     </a>
 
+    {% if headerNavbar is not empty %}
+      <ul class="nav navbar-nav navbar-nav-left">
+        {{ headerNavbar|raw }}
+      </ul>
+    {% endif %}
+
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
         {% if 1 < locales|split(',')|length %}
