@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.3.12] - 2020-05-03
+- FEATURE: Delete migrations files in `.gitignore` file. [#86](https://github.com/thomaskanzig/blog/pull/86)  
+
 ## [0.3.11] - 2020-05-02
 - FEATURE: Added hashtag on the url to open correctly picture in gallery modal. [#84](https://github.com/thomaskanzig/blog/pull/84)  
 - FEATURE: Added html lang attribute. [#83](https://github.com/thomaskanzig/blog/pull/83) 
