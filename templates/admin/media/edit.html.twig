@@ -2,14 +2,14 @@
 
 {% block headerNavbar %}
     <li{{ route_name == 'admin_media_edit' ? ' class="active"':'' }}>
-        <a href="{{ path('admin_media_edit', { id: mediaDataForm.vars.data.media.id }) }}">
+        <a href="{{ path('admin_media_edit', { id: mediaForm.vars.data.id }) }}">
             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             <span>{{ 'app.general.general'|trans }}</span>
         </a>
     </li>
 
     <li{{ route_name  == 'admin_media_data_edit' ? ' class="active"':'' }}>
-        <a href="{{ path('admin_media_data_edit', { id: mediaDataForm.vars.data.media.id }) }}">
+        <a href="{{ path('admin_media_data_edit', { id: mediaForm.vars.data.id }) }}">
             <i class="fa fa-file-text-o" aria-hidden="true"></i>
             <span>{{ 'app.general.data'|trans }}</span>
         </a>
@@ -19,12 +19,12 @@
 {% block body %}
     <section class="content-header">
         <h1>
-            {{ 'admin.data_medias.edit_data'|trans }}
+            {{ 'admin.medias.edit_data'|trans }}
         </h1>
         <ol class="breadcrumb">
             <li><a href="{{ path('admin_pages_index') }}"><i class="fa fa-home"></i> {{ 'admin.index'|trans }}</a></li>
             <li><a href="{{ path('admin_media_index') }}">{{ 'admin.medias'|trans }}</a></li>
-            <li class="active">{{ 'admin.data_medias.edit_data'|trans }}</li>
+            <li class="active">{{ 'admin.medias.edit_data'|trans }}</li>
         </ol>
     </section>
 
@@ -33,15 +33,15 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="box box-primary">
-                    {% if 'image' == mediaDataForm.vars.data.media.type.slug and
-                        mediaDataForm.vars.data.media.file is not empty
+                    {% if 'image' == mediaForm.vars.data.type.slug and
+                        mediaForm.vars.data.file is not empty
                     %}
                     <div class="box-header with-border">
                         <h3 class="box-title">{{ 'app.general.image'|trans }}</h3>
                     </div>
 
                     <div class="box-body">
-                        <img src="{{ asset(mediaDataForm.vars.data.media.file)|imagine_filter('480x480') }}"
+                        <img src="{{ asset(mediaForm.vars.data.file)|imagine_filter('480x480') }}"
                              class="img-responsive"
                              alt="">
                     </div>
@@ -51,7 +51,7 @@
             </div>
 
             <div class="col-md-8">
-                {{ form_start(mediaDataForm) }}
+                {{ form_start(mediaForm) }}
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <h3 class="box-title">{{ 'app.general.basic_information'|trans }}</h3>
@@ -60,11 +60,15 @@
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    {{ form_row(mediaDataForm.title) }}
+                                    {{ form_row(mediaForm.title) }}
+                                </div>
+
+                                <div class="col-md-6">
+                                    {{ form_row(mediaForm.user) }}
                                 </div>
 
                                 <div class="col-md-12">
-                                    {{ form_row(mediaDataForm.description) }}
+                                    {{ form_row(mediaForm.created) }}
                                 </div>
                             </div>
                         </div>
@@ -73,7 +77,7 @@
                             <button type="submit" class="btn btn-primary">{{ 'admin.data_medias.form.button.save_data'|trans }}</button>
                         </div>
                     </div>
-                {{ form_end(mediaDataForm) }}
+                {{ form_end(mediaForm) }}
             </div>
         </div>
         <!-- /.row -->

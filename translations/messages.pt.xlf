@@ -5,442 +5,359 @@
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
-      <!-- General -->
-      <trans-unit id="app.general.form.label.select">
+      <trans-unit id="GMZltr1" resname="app.general.form.label.select">
         <source>app.general.form.label.select</source>
         <target>Escolha</target>
       </trans-unit>
-
-      <trans-unit id="app.general.basic_information">
+      <trans-unit id="DA7vHPq" resname="app.general.basic_information">
         <source>app.general.basic_information</source>
         <target>Informações básicas</target>
       </trans-unit>
-
-      <trans-unit id="app.general.form.label.active">
+      <trans-unit id="92hqKuZ" resname="app.general.form.label.active">
         <source>app.general.form.label.active</source>
         <target>Ativo</target>
       </trans-unit>
-
-      <trans-unit id="app.general.form.label.name">
+      <trans-unit id="NNGboVe" resname="app.general.form.label.name">
         <source>app.general.form.label.name</source>
         <target>Nome</target>
       </trans-unit>
-
-      <trans-unit id="app.general.form.label.title">
+      <trans-unit id="7JD_Nj9" resname="app.general.form.label.title">
         <source>app.general.form.label.title</source>
         <target>Título</target>
       </trans-unit>
-
-      <trans-unit id="app.general.form.label.slug">
+      <trans-unit id="_3Alvr." resname="app.general.form.label.slug">
         <source>app.general.form.label.slug</source>
         <target>Endereço da URL</target>
       </trans-unit>
-
-      <trans-unit id="app.general.form.label.description">
+      <trans-unit id="6RJWiFB" resname="app.general.form.label.description">
         <source>app.general.form.label.description</source>
         <target>Descrição</target>
       </trans-unit>
-
-      <trans-unit id="app.general.form.label.text">
+      <trans-unit id="niwuNp3" resname="app.general.form.label.text">
         <source>app.general.form.label.text</source>
         <target>Texto</target>
       </trans-unit>
-
-      <trans-unit id="app.general.published_in">
+      <trans-unit id="Ol50so6" resname="app.general.published_in">
         <source>app.general.published_in</source>
         <target>Publicado em</target>
       </trans-unit>
-
-      <trans-unit id="app.general.image">
+      <trans-unit id="3E6ux6_" resname="app.general.image">
         <source>app.general.image</source>
         <target>Imagem</target>
       </trans-unit>
-
-      <trans-unit id="app.general.gallery">
+      <trans-unit id="neQCsDp" resname="app.general.gallery">
         <source>app.general.gallery</source>
         <target>Galeria de fotos</target>
       </trans-unit>
-
-      <trans-unit id="app.general.list">
+      <trans-unit id="mpJDcOb" resname="app.general.list">
         <source>app.general.list</source>
         <target>Listagem</target>
       </trans-unit>
-
-      <trans-unit id="app.general.user">
+      <trans-unit id="201aNpM" resname="app.general.user">
         <source>app.general.user</source>
         <target>Usuário</target>
       </trans-unit>
-
-      <trans-unit id="app.general.created">
+      <trans-unit id="KdDLO1V" resname="app.general.created">
         <source>app.general.created</source>
         <target>Criado</target>
       </trans-unit>
-
-      <trans-unit id="app.general.actions">
+      <trans-unit id="AC973fC" resname="app.general.actions">
         <source>app.general.actions</source>
         <target>Ações</target>
       </trans-unit>
-
-      <trans-unit id="app.general.search">
+      <trans-unit id="HJmLSDz" resname="app.general.search">
         <source>app.general.search</source>
         <target>Procurar</target>
       </trans-unit>
-
-      <trans-unit id="app.general.files">
+      <trans-unit id="DplIOXj" resname="app.general.files">
         <source>app.general.files</source>
         <target>Arquivos</target>
       </trans-unit>
-
-      <trans-unit id="app.general.copy_url">
+      <trans-unit id="OGCRsSM" resname="app.general.copy_url">
         <source>app.general.copy_url</source>
         <target>Copiar URL</target>
       </trans-unit>
-
-      <trans-unit id="app.general.form.label.fullname">
+      <trans-unit id="VPDH897" resname="app.general.form.label.fullname">
         <source>app.general.form.label.fullname</source>
         <target>Nome completo</target>
       </trans-unit>
-
-      <trans-unit id="app.general.form.label.username">
+      <trans-unit id="Fz1ShQ8" resname="app.general.form.label.username">
         <source>app.general.form.label.username</source>
         <target>Usuário</target>
       </trans-unit>
-
-      <trans-unit id="app.general.form.label.email">
+      <trans-unit id="0O0K4SG" resname="app.general.form.label.email">
         <source>app.general.form.label.email</source>
         <target>E-mail</target>
       </trans-unit>
-
-      <trans-unit id="app.general.form.label.password">
+      <trans-unit id="SQyVjK3" resname="app.general.form.label.password">
         <source>app.general.form.label.password</source>
         <target>Senha</target>
       </trans-unit>
-
-      <trans-unit id="app.general.form.label.repeat_password">
+      <trans-unit id="zqKR6HT" resname="app.general.form.label.repeat_password">
         <source>app.general.form.label.repeat_password</source>
         <target>Repetir senha</target>
       </trans-unit>
-
-      <trans-unit id="app.general.form.label.avatar">
+      <trans-unit id="VKGP1He" resname="app.general.form.label.avatar">
         <source>app.general.form.label.avatar</source>
         <target>Foto</target>
       </trans-unit>
-
-      <trans-unit id="app.general.read_more">
+      <trans-unit id="c2BD96g" resname="admin.general.form.label.who_is_the_creator">
+        <source>admin.general.form.label.who_is_the_creator</source>
+        <target>Quem é o criador?</target>
+      </trans-unit>
+      <trans-unit id="pCAS4kT" resname="app.general.read_more">
         <source>app.general.read_more</source>
         <target>Ler mais</target>
       </trans-unit>
-
-      <trans-unit id="app.general.see_more">
+      <trans-unit id="TbjdvSA" resname="app.general.see_more">
         <source>app.general.see_more</source>
         <target>Veja mais</target>
       </trans-unit>
-
-      <trans-unit id="app.general.of">
+      <trans-unit id="yXtiC3j" resname="app.general.of">
         <source>app.general.of</source>
         <target>de</target>
       </trans-unit>
-
-      <trans-unit id="app.general.pictures">
+      <trans-unit id="JIsCAqA" resname="app.general.pictures">
         <source>app.general.pictures</source>
         <target>fotos</target>
       </trans-unit>
-
-      <trans-unit id="app.general.header_image">
+      <trans-unit id="l.4vUsl" resname="app.general.header_image">
         <source>app.general.header_image</source>
         <target>Imagem no cabeçalho</target>
       </trans-unit>
-
-      <!-- Website -->
-
-      <!-- Admin (sidebar) -->
-      <trans-unit id="admin.sidebar.main_navigation">
+      <trans-unit id="CQchdra" resname="app.general.data">
+        <source>app.general.data</source>
+        <target>Dados</target>
+      </trans-unit>
+      <trans-unit id="Gr3DBcy" resname="app.general.general">
+        <source>app.general.general</source>
+        <target>Geral</target>
+      </trans-unit>
+      <trans-unit id="pNqJ_Hf" resname="admin.sidebar.main_navigation">
         <source>admin.sidebar.main_navigation</source>
         <target>NAVEGAÇÃO PRINCIPAL</target>
       </trans-unit>
-
-      <!-- Admin (login) -->
-      <trans-unit id="admin.login.sign_to_start">
+      <trans-unit id="8hBHVue" resname="admin.login.sign_to_start">
         <source>admin.login.sign_to_start</source>
         <target>Faça o login para iniciar a sessão</target>
       </trans-unit>
-
-      <trans-unit id="admin.login.remember_me">
+      <trans-unit id="RdAviKX" resname="admin.login.remember_me">
         <source>admin.login.remember_me</source>
         <target>Me lembrar</target>
       </trans-unit>
-
-      <trans-unit id="admin.login.sign_in">
+      <trans-unit id=".pMX16A" resname="admin.login.sign_in">
         <source>admin.login.sign_in</source>
         <target>Acessar</target>
       </trans-unit>
-
-      <trans-unit id="admin.login.register_new">
+      <trans-unit id="vjPApvs" resname="admin.login.register_new">
         <source>admin.login.register_new</source>
         <target>Se cadastrar</target>
       </trans-unit>
-
-      <trans-unit id="admin.login.form.login">
+      <trans-unit id="K19YMQf" resname="admin.login.form.login">
         <source>admin.login.form.login</source>
         <target>Usuário</target>
       </trans-unit>
-
-      <trans-unit id="admin.login.form.password">
+      <trans-unit id="KxOZGnA" resname="admin.login.form.password">
         <source>admin.login.form.password</source>
         <target>Senha</target>
       </trans-unit>
-
-      <!-- Admin (action) -->
-      <trans-unit id="admin.action.add">
+      <trans-unit id="JGUULRv" resname="admin.action.add">
         <source>admin.action.add</source>
         <target>Adicionar</target>
       </trans-unit>
-
-      <trans-unit id="admin.action.edit">
+      <trans-unit id="G1MvxR." resname="admin.action.edit">
         <source>admin.action.edit</source>
         <target>Editar</target>
       </trans-unit>
-
-      <trans-unit id="admin.action.delete">
+      <trans-unit id="1SbYo_0" resname="admin.action.delete">
         <source>admin.action.delete</source>
         <target>Deletar</target>
       </trans-unit>
-
-      <trans-unit id="admin.action.close">
+      <trans-unit id="tqfDsUf" resname="admin.action.close">
         <source>admin.action.close</source>
         <target>Fechar</target>
       </trans-unit>
-
-      <trans-unit id="admin.action.save">
+      <trans-unit id="olFsz9F" resname="admin.action.save">
         <source>admin.action.save</source>
         <target>Salvar</target>
       </trans-unit>
-
-      <trans-unit id="admin.action.access">
+      <trans-unit id="GC3AdPX" resname="admin.action.access">
         <source>admin.action.access</source>
         <target>Conta</target>
       </trans-unit>
-
-      <trans-unit id="admin.action.list_all">
+      <trans-unit id="ABNPl.7" resname="admin.action.list_all">
         <source>admin.action.list_all</source>
         <target>Listar todos</target>
       </trans-unit>
-
-      <trans-unit id="admin.action.visit_page">
+      <trans-unit id="VOPmKDY" resname="admin.action.visit_page">
         <source>admin.action.visit_page</source>
         <target>Ver página</target>
       </trans-unit>
-
-      <!-- Admin (index) -->
-      <trans-unit id="admin.index">
+      <trans-unit id="lmWFWMJ" resname="admin.index">
         <source>admin.index</source>
         <target>Página inicial</target>
       </trans-unit>
-
-      <trans-unit id="admin.index.welcome_text">
+      <trans-unit id="ppkniaG" resname="admin.index.welcome_text">
         <source>admin.index.welcome_text</source>
         <target>Olá %user%, seja bem-vindo ao %project%.</target>
       </trans-unit>
-
-      <trans-unit id="admin.index.homepage">
+      <trans-unit id="US_1wmr" resname="admin.index.homepage">
         <source>admin.index.homepage</source>
         <target>Página inicial</target>
       </trans-unit>
-
-      <!-- Admin (posts) -->
-      <trans-unit id="admin.posts">
+      <trans-unit id="WDOKSsr" resname="admin.posts">
         <source>admin.posts</source>
         <target>Postagens</target>
       </trans-unit>
-
-      <trans-unit id="admin.posts.add_new_post">
+      <trans-unit id="2O04BaX" resname="admin.posts.add_new_post">
         <source>admin.posts.add_new_post</source>
         <target>Adicionar nova postagem</target>
       </trans-unit>
-
-      <trans-unit id="admin.posts.edit_post">
+      <trans-unit id="CMIeJuz" resname="admin.posts.edit_post">
         <source>admin.posts.edit_post</source>
         <target>Editar postagem</target>
       </trans-unit>
-
-      <trans-unit id="admin.posts.form.label.which_template">
+      <trans-unit id="HnHltjW" resname="admin.posts.form.label.which_template">
         <source>admin.posts.form.label.which_template</source>
         <target>Qual template?</target>
       </trans-unit>
-
-      <trans-unit id="admin.posts.form.label.image_file_banner">
+      <trans-unit id="YKO.Bta" resname="admin.posts.form.label.image_file_banner">
         <source>admin.posts.form.label.image_file_banner</source>
         <target>Uma imagem como capa</target>
       </trans-unit>
-
-      <trans-unit id="admin.posts.form.label.choose_the_categories">
+      <trans-unit id="a2NZkNp" resname="admin.posts.form.label.choose_the_categories">
         <source>admin.posts.form.label.choose_the_categories</source>
         <target>Escolha as categorias</target>
       </trans-unit>
-
-      <trans-unit id="admin.posts.form.label.who_is_the_creator">
-        <source>admin.posts.form.label.who_is_the_creator</source>
-        <target>Quem é o criador?</target>
-      </trans-unit>
-
-      <trans-unit id="admin.posts.form.label.header_image">
+      <trans-unit id="7.Jaf1v" resname="admin.posts.form.label.header_image">
         <source>admin.posts.form.label.header_image</source>
         <target>Imagem no cabeçalho da página</target>
       </trans-unit>
-
-      <trans-unit id="admin.posts.form.button.add_images_to_gallery">
+      <trans-unit id="OtiwcWj" resname="admin.posts.form.button.add_images_to_gallery">
         <source>admin.posts.form.button.add_images_to_gallery</source>
         <target>Adicionar fotos para galeria</target>
       </trans-unit>
-
-      <trans-unit id="admin.posts.form.button.save_post">
+      <trans-unit id="r1sWe.W" resname="admin.posts.form.button.save_post">
         <source>admin.posts.form.button.save_post</source>
         <target>Salvar postagem</target>
       </trans-unit>
-
-      <trans-unit id="admin.posts.form.post_saved">
+      <trans-unit id="Qa8cX1U" resname="admin.posts.form.post_saved">
         <source>admin.posts.form.post_saved</source>
         <target>Postagem salvo com sucesso!</target>
       </trans-unit>
-
-      <trans-unit id="admin.posts.form_error.regex.slug">
+      <trans-unit id="O64V4fO" resname="admin.posts.form_error.regex.slug">
         <source>admin.posts.form_error.regex.slug</source>
         <target>Essa URL não é válida.</target>
       </trans-unit>
-
-      <!-- Admin (categories) -->
-      <trans-unit id="admin.categories">
+      <trans-unit id="Ke7whTj" resname="admin.categories">
         <source>admin.categories</source>
         <target>Categorias</target>
       </trans-unit>
-
-      <trans-unit id="admin.categories.add_new_category">
+      <trans-unit id="nRYmLPl" resname="admin.categories.add_new_category">
         <source>admin.categories.add_new_category</source>
         <target>Adicionar nova categoria</target>
       </trans-unit>
-
-      <trans-unit id="admin.categories.edit_category">
+      <trans-unit id="gzZCMDN" resname="admin.categories.edit_category">
         <source>admin.categories.edit_category</source>
         <target>Editar categoria</target>
       </trans-unit>
-
-      <trans-unit id="admin.categories.form.button.save_category">
+      <trans-unit id="7Wm1m45" resname="admin.categories.form.button.save_category">
         <source>admin.categories.form.button.save_category</source>
         <target>Salvar categoria</target>
       </trans-unit>
-
-      <trans-unit id="admin.categories.form.category_saved">
+      <trans-unit id="6JdGmCA" resname="admin.categories.form.category_saved">
         <source>admin.categories.form.category_saved</source>
         <target>Categoria salvo com sucesso!</target>
       </trans-unit>
-
-      <!-- Admin (medias) -->
-      <trans-unit id="admin.medias">
+      <trans-unit id="op2MXte" resname="admin.medias">
         <source>admin.medias</source>
         <target>Mídias</target>
       </trans-unit>
-
-      <trans-unit id="admin.medias.form.button.upload_files">
+      <trans-unit id="B16y4Um" resname="admin.medias.form.button.upload_files">
         <source>admin.medias.form.button.upload_files</source>
         <target>Selecionar arquivos</target>
       </trans-unit>
-
-      <trans-unit id="admin.medias.form.button.add_folder">
+      <trans-unit id="T5.HntX" resname="admin.medias.form.button.add_folder">
         <source>admin.medias.form.button.add_folder</source>
         <target>Adicionar diretório</target>
       </trans-unit>
-
-      <trans-unit id="admin.medias.form.button.delete_folder">
+      <trans-unit id="HDXrNZ2" resname="admin.medias.form.button.delete_folder">
         <source>admin.medias.form.button.delete_folder</source>
         <target>Deletar diretório</target>
       </trans-unit>
-
-      <trans-unit id="admin.medias.form.placeholder.name_of_folder">
+      <trans-unit id="cpn58ye" resname="admin.medias.form.placeholder.name_of_folder">
         <source>admin.medias.form.placeholder.name_of_folder</source>
         <target>Nome do diretório</target>
       </trans-unit>
-
-      <!-- Admin (data medias) -->
-      <trans-unit id="admin.data_medias.edit_data">
+      <trans-unit id="ac2HMCR" resname="admin.medias.form.data_saved">
+        <source>admin.medias.form.data_saved</source>
+        <target>Mídia salvo</target>
+      </trans-unit>
+      <trans-unit id="Wryt.kY" resname="admin.medias.edit_data">
+        <source>admin.medias.edit_data</source>
+        <target>Editar mídia</target>
+      </trans-unit>
+      <trans-unit id="n5l7XZa" resname="admin.data_medias.edit_data">
         <source>admin.data_medias.edit_data</source>
         <target>Editar detalhes da mídia</target>
       </trans-unit>
-
-      <trans-unit id="admin.data_medias.form.button.save_data">
+      <trans-unit id="LuThMeA" resname="admin.data_medias.form.button.save_data">
         <source>admin.data_medias.form.button.save_data</source>
         <target>Salvar dados da mídia</target>
       </trans-unit>
-
-      <trans-unit id="admin.data_medias.form.data_saved">
+      <trans-unit id="aB.Hu0N" resname="admin.data_medias.form.data_saved">
         <source>admin.data_medias.form.data_saved</source>
         <target>Dados da mídia salvo com sucesso.</target>
       </trans-unit>
-
-      <!-- Admin (users) -->
-      <trans-unit id="admin.users">
+      <trans-unit id=".6JML1a" resname="admin.users">
         <source>admin.users</source>
         <target>Usuários</target>
       </trans-unit>
-
-      <trans-unit id="admin.users.access">
+      <trans-unit id="fc670v5" resname="admin.users.access">
         <source>admin.users.access</source>
         <target>Senha</target>
       </trans-unit>
-
-      <trans-unit id="admin.users.profile">
+      <trans-unit id="_81LaZR" resname="admin.users.profile">
         <source>admin.users.profile</source>
         <target>Perfil</target>
       </trans-unit>
-
-      <trans-unit id="admin.users.add_new_user">
+      <trans-unit id="yufIp3i" resname="admin.users.add_new_user">
         <source>admin.users.add_new_user</source>
         <target>Adicionar novo usuário</target>
       </trans-unit>
-
-      <trans-unit id="admin.users.form.button.save_user">
+      <trans-unit id="DsWs02F" resname="admin.users.form.button.save_user">
         <source>admin.users.form.button.save_user</source>
         <target>Salvar usuário</target>
       </trans-unit>
-
-      <trans-unit id="admin.users.form.label.add_avatar">
+      <trans-unit id="6GehQek" resname="admin.users.form.label.add_avatar">
         <source>admin.users.form.label.add_avatar</source>
         <target>Adicionar foto</target>
       </trans-unit>
-
-      <trans-unit id="admin.users.edit_access">
+      <trans-unit id="I2jFHdv" resname="admin.users.edit_access">
         <source>admin.users.edit_access</source>
         <target>Editar senha</target>
       </trans-unit>
-
-      <!-- Admin (settings) -->
-      <trans-unit id="admin.settings">
+      <trans-unit id="uFEWEab" resname="admin.settings">
         <source>admin.settings</source>
         <target>Configurações</target>
       </trans-unit>
-
-      <trans-unit id="admin.settings.form.button.save_settings">
+      <trans-unit id="yLiU_TQ" resname="admin.settings.form.button.save_settings">
         <source>admin.settings.form.button.save_settings</source>
         <target>Salvar configurações</target>
       </trans-unit>
-
-      <trans-unit id="admin.settings.form.label.show_comments_facebook">
+      <trans-unit id="6MLNLy0" resname="admin.settings.form.label.show_comments_facebook">
         <source>admin.settings.form.label.show_comments_facebook</source>
         <target>Mostrar comentários do Facebook</target>
       </trans-unit>
-
-      <!-- Admin (header) -->
-      <trans-unit id="admin.header.sign_out">
+      <trans-unit id="vLNab_b" resname="admin.header.sign_out">
         <source>admin.header.sign_out</source>
         <target>Sair</target>
       </trans-unit>
-
-      <!-- Admin (footer) -->
-      <trans-unit id="admin.footer.version">
+      <trans-unit id="G_watXx" resname="admin.footer.version">
         <source>admin.footer.version</source>
         <target>Versão</target>
       </trans-unit>
-
-      <trans-unit id="admin.footer.all_rights_reserved">
+      <trans-unit id="aYuJvxs" resname="admin.footer.all_rights_reserved">
         <source>admin.footer.all_rights_reserved</source>
         <target>Todos os direitos reservados.</target>
       </trans-unit>
