@@ -13,6 +13,11 @@ use Symfony\Component\HttpFoundation\Request;
 
 class PagesController extends AbstractController
 {
+    public function homepage()
+    {
+        return $this->render('pages/homepage.html.twig');
+    }
+
     public function aboutme()
     {
 
