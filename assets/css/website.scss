@@ -7,6 +7,7 @@
 // Import base css.
 @import 'base/variables';
 @import 'base/mixins';
+@import 'base/placeholders';
 @import 'base/base';
 @import 'base/helpers';
 
@@ -22,5 +23,6 @@
 @import 'website/components/gallery-detail';
 @import 'website/components/see-more-posts';
 @import 'website/components/published';
+@import 'website/components/homepage';
 
 @import 'website/pages/contact';
