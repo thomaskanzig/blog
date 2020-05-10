@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}
+    {{ name_site }}
+{% endblock %}
+
 {# This macro is for display the big highlight card. #}
 {% macro highlightBigCard(highlight, addClass, imageFormat) %}
     <a href="{{ path('post_detail', {slug: highlight.slug}) }}"
@@ -19,10 +23,6 @@
         </div>
     </a>
 {% endmacro %}
-
-{% block title %}
-    {{ name_site }}
-{% endblock %}
 
 {% block body %}
     {% include 'includes/header.html.twig' %}
