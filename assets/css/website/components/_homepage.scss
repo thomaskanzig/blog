@@ -37,6 +37,7 @@
         }
     }
 
+    // Element for black background linear.
     &::after {
         @include stretch();
         content: '';
