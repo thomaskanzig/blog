@@ -1,0 +1,76 @@
+.homepage-highlights-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    padding-top: 35%;
+
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        min-width: 100%;
+        max-width: none;
+        min-height: 100%;
+        transition: all .5s ease;
+    }
+
+    &--small {
+        padding-top: 60%;
+    }
+
+    .homepage-highlight--one &,
+    .homepage-highlight--two & {
+        padding-top: 46%;
+    }
+
+    .homepage-highlight--two & {
+        max-width: calc(50% - 0.75rem);
+
+        &:first-child {
+            margin-right: 0.75rem;
+        }
+
+        &:last-child {
+            margin-left: 0.75rem;
+        }
+    }
+
+    // Element for black background linear.
+    &::after {
+        @include stretch();
+        content: '';
+        background: linear-gradient(180deg, rgba($black, 0) 0%, rgba($black, 0.7) 100%);
+    }
+
+    &:hover img {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+.homepage-highlights-content {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    padding: 25px;
+    z-index: 1;
+}
+
+.homepage-highlights-title {
+    color: $white;
+    margin-bottom: 0;
+    font-size: 32px;
+    line-height: 1.2;
+
+    .homepage-highlights-card--small & {
+        font-size: 20px;
+    }
+
+    .homepage-highlight--one & {
+        font-size: 42px;
+    }
+}

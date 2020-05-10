@@ -2,17 +2,42 @@
 
 namespace App\Controller\Website;
 
+use App\Entity\Post;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Service\UploaderHelper;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class PagesController extends AbstractController
 {
+    /**
+     * Homepage
+     *
+     * @param EntityManagerInterface $em
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function homepage(EntityManagerInterface $em, Request $request)
+    {
+        /** @var Post[] $highlight */
+        $highlight = $em->getRepository(Post::class)->findBy([
+                'highlight' => true,
+                'active' => true,
+                'locale' => $request->getLocale()
+            ], ['published' => 'DESC'], 3);
+
+        return $this->render('pages/homepage.html.twig', [
+            'highlight' => $highlight
+        ]);
+    }
+
     public function aboutme()
     {
 
