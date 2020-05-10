@@ -1,5 +1,25 @@
 {% extends 'base.html.twig' %}
 
+{# This macro is for display the big highlight card. #}
+{% macro highlightBigCard(highlight, addClass, imageFormat) %}
+    <a href="{{ path('post_detail', {slug: highlight.slug}) }}"
+       class="homepage-highlights-card{{ addClass }}">
+        {% if highlight.urlPhoto is not empty %}
+            <img alt="{{ highlight.title|default() }}"
+                 class="lazy"
+                 data-src="{{ asset(highlight.urlPhoto)|imagine_filter(imageFormat) }}"/>
+        {% endif %}
+
+        <div class="homepage-highlights-content">
+            {% if highlight.title is not empty %}
+                <h2 class="homepage-highlights-title">
+                    {{ highlight.title }}
+                </h2>
+            {% endif %}
+        </div>
+    </a>
+{% endmacro %}
+
 {% block title %}
     {{ name_site }}
 {% endblock %}
@@ -7,57 +27,70 @@
 {% block body %}
     {% include 'includes/header.html.twig' %}
 
-    {# TODO: Implemented this page. #}
+    {% set addClassHighlight = '' %}
+    {% set classHighlightBig = ' col-7' %}
+    {% set formatHighlightBig = '998x848' %}
+
+    {% if 1 == highlight|length %}
+        {% set classHighlightBig = ' col-12' %}
+        {% set addClassHighlight = ' homepage-highlight--one' %}
+        {% set formatHighlightBig = '1710x788' %}
+    {% elseif 2 == highlight|length %}
+        {% set classHighlightBig = ' col-6' %}
+        {% set addClassHighlight = ' homepage-highlight--two' %}
+    {% endif %}
+
     <div class="container mt-5">
-        <div class="row">
-            <a href="#" class="col-7 homepage-highlights-card homepage-highlights-card--big">
-                <picture>
-                    <source data-srcset="https://dummyimage.com/665x445/b8b8b8/fff 1x, https://dummyimage.com/665x445/b8b8b8/fff 2x"/>
-                    <img alt=""
-                         class="lazy"
-                         data-src="https://dummyimage.com/665x445/b8b8b8/fff"/>
-                </picture>
+        {% if highlight[0] is defined %}
+            <div class="row{{ addClassHighlight }}">
+                {{ _self.highlightBigCard(highlight[0], classHighlightBig, formatHighlightBig) }}
 
-                <div class="homepage-highlights-content">
-                    <h2 class="homepage-highlights-title">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ex elit, eleifend non gravida vel, sodales vel lectus.
-                    </h2>
-                </div>
-            </a>
-            <div class="col-5">
-                <div class="row pl-4 pb-4">
-                    <a href="#" class="col homepage-highlights-card homepage-highlights-card--small">
-                        <picture>
-                            <source data-srcset="https://dummyimage.com/600x400/b8b8b8/fff 1x, https://dummyimage.com/600x400/b8b8b8/fff 2x"/>
-                            <img alt=""
-                                 class="lazy"
-                                 data-src="https://dummyimage.com/600x400/b8b8b8/fff"/>
-                        </picture>
+                {% if highlight[2] is defined %}
+                    <div class="col-5">
+                        <div class="row pl-4 pb-4">
+                            <a href="{{ path('post_detail', {slug: highlight[1].slug}) }}"
+                               class="col homepage-highlights-card homepage-highlights-card--small">
+                                {% if highlight[1].urlPhoto is not empty %}
+                                    <img alt="{{ highlight[1].title|default() }}"
+                                         class="lazy"
+                                         data-src="{{ asset(highlight[1].urlPhoto)|imagine_filter('675x405') }}"/>
+                                {% endif %}
 
-                        <div class="homepage-highlights-content">
-                            <h2 class="homepage-highlights-title">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ex elit, eleifend non gravida vel, sodales vel lectus.
-                            </h2>
+                                <div class="homepage-highlights-content">
+                                    {% if highlight[1].title is not empty %}
+                                        <h2 class="homepage-highlights-title">
+                                            {{ highlight[1].title }}
+                                        </h2>
+                                    {% endif %}
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <div class="row pl-4">
-                    <a href="#" class="col homepage-highlights-card homepage-highlights-card--small">
-                        <picture>
-                            <source data-srcset="https://dummyimage.com/600x400/b8b8b8/fff 1x, https://dummyimage.com/600x400/b8b8b8/fff 2x"/>
-                            <img alt=""
-                                 class="lazy"
-                                 data-src="https://dummyimage.com/600x400/b8b8b8/fff"/>
-                        </picture>
 
-                        <div class="homepage-highlights-content">
-                            <h2 class="homepage-highlights-title">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ex elit, eleifend non gravida vel, sodales vel lectus.
-                            </h2>
+                        <div class="row pl-4">
+                            <a href="{{ path('post_detail', {slug: highlight[2].slug}) }}"
+                               class="col homepage-highlights-card homepage-highlights-card--small">
+                                {% if highlight[2].urlPhoto is not empty %}
+                                    <img alt="{{ highlight[2].title|default() }}"
+                                         class="lazy"
+                                         data-src="{{ asset(highlight[2].urlPhoto)|imagine_filter('675x405') }}"/>
+                                {% endif %}
+
+                                <div class="homepage-highlights-content">
+                                    {% if highlight[2].title is not empty %}
+                                        <h2 class="homepage-highlights-title">
+                                            {{ highlight[2].title }}
+                                        </h2>
+                                    {% endif %}
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
+                    </div>
+                {% elseif highlight[1] is defined %}
+                    {{ _self.highlightBigCard(highlight[1], classHighlightBig, formatHighlightBig) }}
+                {% endif %}
             </div>
-        </div>
+        {% endif %}
+
+        {# TODO: Insert the rest HTML of homepage. #}
     </div>
 {% endblock %}

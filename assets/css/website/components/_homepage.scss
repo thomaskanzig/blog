@@ -2,7 +2,6 @@
     position: relative;
     overflow: hidden;
     border-radius: 10px;
-    background-color: $black; // TODO: Delete in the end.
     padding-top: 35%;
 
     img {
@@ -18,7 +17,24 @@
     }
 
     &--small {
-        padding-top: 50%;
+        padding-top: 60%;
+    }
+
+    .homepage-highlight--one &,
+    .homepage-highlight--two & {
+        padding-top: 46%;
+    }
+
+    .homepage-highlight--two & {
+        max-width: calc(50% - 0.75rem);
+
+        &:first-child {
+            margin-right: 0.75rem;
+        }
+
+        &:last-child {
+            margin-left: 0.75rem;
+        }
     }
 
     &::after {
@@ -51,5 +67,9 @@
 
     .homepage-highlights-card--small & {
         font-size: 20px;
+    }
+
+    .homepage-highlight--one & {
+        font-size: 42px;
     }
 }
