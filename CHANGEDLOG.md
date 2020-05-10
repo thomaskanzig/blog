@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+- FEATURE: Added highlight posts in homepage. [#89](https://github.com/thomaskanzig/blog/pull/89)  
+    `- bin/console d:s:u --force`   
 
 ## [0.3.12] - 2020-05-03
 - FEATURE: Added media edit form in admin. [#87](https://github.com/thomaskanzig/blog/pull/87)  
