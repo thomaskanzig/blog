@@ -104,6 +104,11 @@ class Post
      */
     private $header_image;
 
+    /**
+     * @ORM\Column(type="boolean", options={"default" : 0})
+     */
+    private $highlight = false;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -336,6 +341,18 @@ class Post
     public function setHeaderImage(?string $header_image): self
     {
         $this->header_image = $header_image;
+
+        return $this;
+    }
+
+    public function getHighlight(): ?bool
+    {
+        return $this->highlight;
+    }
+
+    public function setHighlight(?bool $highlight): self
+    {
+        $this->highlight = $highlight;
 
         return $this;
     }

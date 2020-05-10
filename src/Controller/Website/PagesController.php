@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class PagesController extends AbstractController
 {
-    public function homepage()
+    public function homepage(EntityManagerInterface $em, Request $request)
     {
         return $this->render('pages/homepage.html.twig');
     }
