@@ -1,10 +1,15 @@
 {% set headingClass = 'page-heading' %}
+{% set mainClass = '' %}
 
 {% if 'gallery' == type|default() %}
     {% set headingClass = 'post-heading' %}
 {% endif %}
 
-<header class="masthead">
+{% if 'pages_homepage' == app.request.attributes.get("_route") %}
+    {% set mainClass = ' d-none d-md-block' %}
+{% endif %}
+
+<header class="masthead{{ mainClass }}">
     <div class="masthead-image-wrapper">
         <img id="{{ register_component('parallax') }}"
              data-src="{{ asset(image|default('images/bg-index.jpg')|imagine_filter('1440x800')) }}"
