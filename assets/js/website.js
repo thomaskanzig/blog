@@ -43,6 +43,7 @@ new LazyLoad({
 // Import components here.
 import './components/gallery';
 import './components/parallax';
+import './components/homepage-highlights';
 
 // Import services here.
 import './services/request';
