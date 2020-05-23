@@ -10,37 +10,9 @@ class HomepageHighlights {
      */
     initialize($el) {
         this.$el = $($el);
-        this.$window = $(window);
-        this.$document = $(document);
-        this.$html = $('html');
-
-        this.$items = this.$el.find('.js-highlights-item');
         this.$slider = this.$el.find('.js-homepage-highlights-slider');
 
         this.startSliderMobile();
-        this.bindListeners();
-    }
-
-    /**
-     * Binds event listeners.
-     */
-    bindListeners() {
-        this.$window.on('load', this.onLoad.bind(this));
-        this.$window.on('resize', this.onResize.bind(this));
-    }
-
-    /**
-     * Initialize features after load JS.
-     */
-    onLoad() {
-
-    }
-
-    /**
-     * Handle resize window.
-     */
-    onResize() {
-
     }
 
     /**
