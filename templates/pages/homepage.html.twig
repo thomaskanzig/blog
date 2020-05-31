@@ -27,17 +27,17 @@
 {% block body %}
     {% include 'includes/header.html.twig' %}
 
-    {% set addClassHighlight = '' %}
+    {% set addClassHighlight = ' mb-5' %}
     {% set classHighlightBig = ' col-7' %}
     {% set formatHighlightBig = '998x848' %}
 
     {% if 1 == highlights|length %}
-        {% set classHighlightBig = ' col-12' %}
-        {% set addClassHighlight = ' homepage-highlight--one' %}
+        {% set classHighlightBig = classHighlightBig ~ ' col-12' %}
+        {% set addClassHighlight = addClassHighlight ~ ' homepage-highlight--one' %}
         {% set formatHighlightBig = '1710x788' %}
     {% elseif 2 == highlights|length %}
-        {% set classHighlightBig = ' col-6' %}
-        {% set addClassHighlight = ' homepage-highlight--two' %}
+        {% set classHighlightBig = classHighlightBig ~ ' col-6' %}
+        {% set addClassHighlight = addClassHighlight ~ ' homepage-highlight--two' %}
     {% endif %}
 
     <div class="container mt-5 homepage">
@@ -49,7 +49,7 @@
 
                         {% if highlights[2] is defined %}
                             <div class="col-5">
-                                <div class="row pl-4 pb-4">
+                                <div class="row mx-0 pb-4">
                                     <a href="{{ path('post_detail', {slug: highlights[1].slug}) }}"
                                        class="col homepage-highlights-card homepage-highlights-card--small js-highlights-item">
                                         {% if highlights[1].urlPhoto is not empty %}
@@ -68,7 +68,7 @@
                                     </a>
                                 </div>
 
-                                <div class="row pl-4">
+                                <div class="row mx-0">
                                     <a href="{{ path('post_detail', {slug: highlights[2].slug}) }}"
                                        class="col homepage-highlights-card homepage-highlights-card--small js-highlights-item">
                                         {% if highlights[2].urlPhoto is not empty %}
@@ -117,8 +117,25 @@
         {% endif %}
 
         <div class="row">
-            <div class="homepage-main col-7">
-                List other posts
+            <div class="homepage-main col-7 px-0">
+
+                <div>
+                    <a href="http://google.at" class="stretched-link"></a>
+
+                    <div class="media">
+                        <img src="https://dummyimage.com/200x150/000/fff"
+                             class="homepage-post-image rounded img-fluid mr-4"
+                             alt="">
+
+                        <div class="media-body">
+                            <h5>Example of title in the post</h5>
+
+                            <div>
+                                Content here, content here', making it look like readable English. Many desktop publishing packages.
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="homepage-sidebar col-5">
