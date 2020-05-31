@@ -58,13 +58,14 @@ class PostRepository extends ServiceEntityRepository
     }
 
     /**
-     * Finds posts for display more content.
+     * Finds posts with exclude some posts.
      *
      * @param mixed[] $criteria
+     * @param int[] $excludedIds
      *
      * @return Post[] List posts.
      */
-    public function getSeeMore(?array $criteria)
+    public function findWithExcluded(?array $criteria, $excludedIds = [])
     {
         $qb = $this->createQueryBuilder('p')
             ->innerJoin('p.user', 'u')
@@ -74,6 +75,7 @@ class PostRepository extends ServiceEntityRepository
             ->select(
                 'p.id, 
                         p.title, 
+                        p.description, 
                         p.slug,
                         p.url_photo image, 
                         p.published,  
@@ -82,9 +84,12 @@ class PostRepository extends ServiceEntityRepository
             )
         ;
 
-        if (array_key_exists( 'exceptId', $criteria)) {
+        if ($excludedIds && is_array($excludedIds)) {
+            $qb->andWhere('p.id NOT IN (:excludedIds)')
+                ->setParameter('excludedIds', $excludedIds);
+        } else if($excludedIds) {
             $qb->andWhere('p.id != :exceptId')
-               ->setParameter('exceptId', $criteria['exceptId']);
+                ->setParameter('exceptId', $excludedIds);
         }
 
         if (array_key_exists( 'templateId', $criteria)) {
@@ -112,33 +117,4 @@ class PostRepository extends ServiceEntityRepository
             ->getResult()
             ;
     }
-
-    // /**
-    //  * @return Post[] Returns an array of Post objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Post
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

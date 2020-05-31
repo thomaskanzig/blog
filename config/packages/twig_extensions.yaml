@@ -8,4 +8,4 @@ services:
     #Twig\Extensions\ArrayExtension: null
     #Twig\Extensions\DateExtension: null
     #Twig\Extensions\IntlExtension: null
-    #Twig\Extensions\TextExtension: null
+    Twig\Extensions\TextExtension: null

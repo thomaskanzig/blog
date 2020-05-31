@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+- FEATURE: Added list posts in homepage. [#92](https://github.com/thomaskanzig/blog/pull/92)  
 - FEATURE: Adjustments highlight for mobile in homepage. [#91](https://github.com/thomaskanzig/blog/pull/91)  
 - FEATURE: Added highlight posts in homepage. [#89](https://github.com/thomaskanzig/blog/pull/89)  
     `- bin/console d:s:u --force`   

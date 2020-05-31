@@ -5,6 +5,7 @@
     }
 }
 
+// Highlights in homepage.
 .homepage-highlights-desktop {
     display: block;
 
@@ -139,4 +140,59 @@
 
 .homepage-highlights-slider-dots {
     @extend %sliderDots;
+}
+
+.homepage-content {
+    @include media-breakpoint-down(sm) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+// List posts in homepage.
+.homepage-posts-card-link-limited {
+    transform: rotate(0); // To set stretched link only in the card.
+
+    &:hover {
+        .homepage-posts-card-img {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.homepage-posts-card-img {
+    transition: all .5s ease-in;
+}
+
+.homepage-posts-card-img-wrapper {
+    position: relative;
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+
+.homepage-posts-card-img {
+    width: 220px;
+
+    @include media-breakpoint-down(sm) {
+        width: 180px;
+    }
+
+    @include media-breakpoint-down(xs) {
+        width: 120px;
+    }
+}
+
+.homepage-posts-card-text {
+    font-size: 18px;
+    line-height: 1.4;
+
+    @include media-breakpoint-down(xs) {
+        font-size: 14px;
+    }
+}
+
+.homepage-posts-card-user {
+    @include media-breakpoint-down(xs) {
+        display: none;
+    }
 }
