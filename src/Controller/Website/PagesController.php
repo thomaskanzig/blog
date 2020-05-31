@@ -26,15 +26,24 @@ class PagesController extends AbstractController
      */
     public function homepage(EntityManagerInterface $em, Request $request)
     {
-        /** @var Post[] $highlight */
+        /** @var Post[] $highlights */
         $highlights = $em->getRepository(Post::class)->findBy([
                 'highlight' => true,
                 'active' => true,
                 'locale' => $request->getLocale()
             ], ['published' => 'DESC'], 3);
 
+
+        /** @var Post[] $posts */
+        $posts = $this->getDoctrine()
+            ->getRepository(Post::class)
+            ->findWithExcluded([
+                'limit' => 3,
+                'locale' => $request->getLocale(),
+            ], [8,7]);
+
         return $this->render('pages/homepage.html.twig', [
-            'highlights' => $highlights
+            'highlights' => $highlights,
         ]);
     }
 

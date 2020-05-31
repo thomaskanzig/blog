@@ -53,12 +53,11 @@ class PostController extends AbstractController
         /** @var Post[] $posts */
         $posts = $this->getDoctrine()
             ->getRepository(Post::class)
-            ->getSeeMore([
-                'exceptId' => $post->getId(),
+            ->findWithExcluded([
                 'templateId' => $post->getTemplate()->getId(),
                 'limit' => 3,
                 'locale' => $request->getLocale(),
-            ]);
+            ], $post->getId());
 
         /** @var MediaData[] $mediaDatas */
         $mediaDataResults = $mediaDataRepository->findAllByMediaPostRelsAndLocale(
