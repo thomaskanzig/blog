@@ -33,17 +33,23 @@ class PagesController extends AbstractController
                 'locale' => $request->getLocale()
             ], ['published' => 'DESC'], 3);
 
+        // Get post must be excluded.
+        $excludedIds = [];
+        foreach($highlights as $excluded) {
+            $excludedIds[] = $excluded->getId();
+        }
 
         /** @var Post[] $posts */
         $posts = $this->getDoctrine()
             ->getRepository(Post::class)
             ->findWithExcluded([
-                'limit' => 3,
+                'limit' => 5,
                 'locale' => $request->getLocale(),
-            ], [8,7]);
+            ], $excludedIds);
 
         return $this->render('pages/homepage.html.twig', [
             'highlights' => $highlights,
+            'posts' => $posts,
         ]);
     }
 

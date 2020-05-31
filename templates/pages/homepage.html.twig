@@ -116,30 +116,52 @@
             </div>
         {% endif %}
 
-        <div class="row">
-            <div class="homepage-main col-7 px-0">
+        <div class="row homepage-content">
+            <div class="homepage-main col-lg-7 col-md-8 col-sm-12 px-0">
+                {% for post in posts %}
+                    <div class="mb-4">
+                        <div class="homepage-posts-card-link-limited">
+                            <a href="{{ path('post_detail', {slug: post.slug}) }}"
+                               class="stretched-link"></a>
 
-                <div>
-                    <a href="http://google.at" class="stretched-link"></a>
+                            <div class="media">
+                               {% if post.image is not empty %}
+                                    <div class="homepage-posts-card-img-wrapper mr-4">
+                                        <img src="{{ asset(post.image)|imagine_filter('600x375') }}"
+                                             class="homepage-posts-card-img rounded img-fluid"
+                                             alt="{{ post.title }}">
+                                    </div>
+                                {% endif %}
 
-                    <div class="media">
-                        <img src="https://dummyimage.com/200x150/000/fff"
-                             class="homepage-post-image rounded img-fluid mr-4"
-                             alt="">
+                                <div class="media-body">
+                                    <h5>{{ post.title }}</h5>
 
-                        <div class="media-body">
-                            <h5>Example of title in the post</h5>
+                                    <div class="mb-4 homepage-posts-card-text font-weight-light">
+                                        {{ post.description|truncate(80) }}
+                                    </div>
 
-                            <div>
-                                Content here, content here', making it look like readable English. Many desktop publishing packages.
+                                    <div class="media homepage-posts-card-user">
+                                        <img src="{{ asset(post.userAvatar)|imagine_filter('40x40') }}"
+                                             class="rounded-circle mr-3"
+                                             alt="{{ post.userName }}">
+
+                                        <div class="media-body author-body">
+                                            <h6 class="mt-0 mb-1 font-weight-normal">
+                                                {{ post.userName }}
+                                            </h6>
+
+                                            {% include 'includes/published.html.twig' with {published: post.published} only %}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                {% endfor %}
             </div>
 
             {# TODO: Insert html from sidebar. #}
-            <div class="homepage-sidebar col-5">
+            <div class="homepage-sidebar col-lg-5 col-md-4 col-sm-12">
                 Sidebar
             </div>
         </div>
