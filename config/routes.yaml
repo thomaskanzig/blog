@@ -16,6 +16,12 @@ pages_register:
         pt: /{_locale}/cadastro
     controller: App\Controller\Website\PagesController::register
 
+post_index:
+    path:
+        en: /posts
+        pt: /{_locale}/posts
+    controller: App\Controller\Website\PostController::index
+
 security_login:
     path:
         en: /login
@@ -26,12 +32,13 @@ security_logout:
     path:     /logout
     controller: App\Controller\Website\SecurityController::logout
 
-post_index:
-    path:
-        en: /
-        pt: /{_locale}/
-    controller: App\Controller\Website\PostController::index
-
 post_detail:
     path:     /{_locale}/{slug}
     controller: App\Controller\Website\PostController::detail
+
+pages_homepage:
+    path:
+        en: /
+        pt: /{_locale}/
+    controller: App\Controller\Website\PagesController::homepage
+

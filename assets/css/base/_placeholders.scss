@@ -1,0 +1,62 @@
+%absoluteCentered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+%sliderDots {
+  .slick-dots {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    margin-top: 20px;
+    padding: 0;
+  }
+
+  .slick-dots li {
+    position: relative;
+    display: inline-block;
+    padding-right: 10px;
+    vertical-align: top;
+    cursor: pointer;
+  }
+
+  .slick-dots button {
+    font-size: 0;
+    line-height: 0;
+    color: transparent;
+    background: none;
+    filter: none;
+    border: none;
+    display: block;
+    cursor: pointer;
+  }
+
+  .slick-dots li,
+  .slick-dots button {
+    width: 13px;
+    height: 13px;
+  }
+
+  .slick-dots button::before {
+    content: '';
+    display: block;
+    position: relative;
+    background-color: $gray-200;
+    border-radius: 50%;
+    width: 7px;
+    height: 7px;
+    left: -4px;
+    z-index: 4;
+    transition: 0.3s ease-in-out;
+  }
+
+  .slick-active button::before {
+    background-color: $black;
+  }
+}
