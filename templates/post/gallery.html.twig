@@ -46,7 +46,7 @@
         <div class="container-fluid">
             <div id="{{ register_component('gallery', {showFBComments: showFBComments }) }}" class="gallery-photos col-lg-10 mx-auto">
                 <div class="js-gallery-photos-inner row">
-                    {% for mediaPost in post.mediaPostRel %}
+                    {% for mediaPost in post.mediaPostRel|reverse %}
                         {% set size = gallerySize(loop.index) %}
                         {% set imageData = mediaData[mediaPost.media.id]|default() %}
 
