@@ -27,7 +27,7 @@
                  aria-labelledby="navbarDropdown">
               {% for locale in locales|split(',') if locale != app.request.locale %}
                 <a class="dropdown-item dropdown-item-locale"
-                   href="{{ path('post_index.' ~ locale, { _locale: locale }) }}">
+                   href="{{ path('pages_homepage.' ~ locale, { _locale: locale }) }}">
                   {{ locale }}
                 </a>
               {% endfor %}
