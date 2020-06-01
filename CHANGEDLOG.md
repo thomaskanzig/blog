@@ -8,6 +8,9 @@ All notable changes to this project will be documented in this file.
 - FEATURE: Added highlight posts in homepage. [#89](https://github.com/thomaskanzig/blog/pull/89)  
     `- bin/console d:s:u --force`   
 
+## [0.3.13] - 2020-06-01
+- FEATURE: Reversed photos order in gallery page. [#93](https://github.com/thomaskanzig/blog/pull/93)  
+
 ## [0.3.12] - 2020-05-03
 - FEATURE: Added media edit form in admin. [#87](https://github.com/thomaskanzig/blog/pull/87)  
 - FEATURE: Delete migrations files in `.gitignore` file. [#86](https://github.com/thomaskanzig/blog/pull/86)  
