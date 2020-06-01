@@ -183,10 +183,12 @@
 }
 
 .homepage-posts-card-text {
+    height: 60px;
     font-size: 18px;
     line-height: 1.4;
 
     @include media-breakpoint-down(xs) {
+        height: 40px;
         font-size: 14px;
     }
 }

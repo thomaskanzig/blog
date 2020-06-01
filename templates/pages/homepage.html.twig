@@ -136,8 +136,8 @@
                                 <div class="media-body">
                                     <h5>{{ post.title }}</h5>
 
-                                    <div class="mb-4 homepage-posts-card-text font-weight-light">
-                                        {{ post.description|truncate(80) }}
+                                    <div id="{{ register_component('dotdotdot') }}" class="mb-4 homepage-posts-card-text font-weight-light">
+                                        {{ post.description }}
                                     </div>
 
                                     <div class="media homepage-posts-card-user">
@@ -161,9 +161,7 @@
             </div>
 
             {# TODO: Insert html from sidebar. #}
-            <div class="homepage-sidebar col-lg-5 col-md-4 col-sm-12">
-                Sidebar
-            </div>
+            <div class="homepage-sidebar col-lg-5 col-md-4 col-sm-12"></div>
         </div>
     </div>
 {% endblock %}
