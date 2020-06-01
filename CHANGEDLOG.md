@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.4.3] - 2020-06-01
+- FEATURE: Updated link in chooser language. [#101](https://github.com/thomaskanzig/blog/pull/101)  
+
 ## [0.4.2] - 2020-06-01
 - FEATURE: More design corrections from homepage. [#99](https://github.com/thomaskanzig/blog/pull/99)  
 
