@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.4.1] - 2020-06-01
+- FEATURE: Design correction from posts list in homepage [#97](https://github.com/thomaskanzig/blog/pull/97)    
+
 ## [0.4.0] - 2020-06-01
 - FEATURE: Added basic `homepage` for the blog. [#90](https://github.com/thomaskanzig/blog/pull/90)  
     - FEATURE: Added `dotdotdot.js` component in posts list in homepage. [#95](https://github.com/thomaskanzig/blog/pull/95) 
