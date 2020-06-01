@@ -1,0 +1,167 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ name_site }}
+{% endblock %}
+
+{# This macro is for display the big highlight card. #}
+{% macro highlightBigCard(highlight, addClass, imageFormat) %}
+    <a href="{{ path('post_detail', {slug: highlight.slug}) }}"
+       class="homepage-highlights-card{{ addClass }} js-highlights-item">
+        {% if highlight.urlPhoto is not empty %}
+            <img alt="{{ highlight.title|default() }}"
+                 class="lazy"
+                 data-src="{{ asset(highlight.urlPhoto)|imagine_filter(imageFormat) }}"/>
+        {% endif %}
+
+        <div class="homepage-highlights-content">
+            {% if highlight.title is not empty %}
+                <h2 class="homepage-highlights-title">
+                    {{ highlight.title }}
+                </h2>
+            {% endif %}
+        </div>
+    </a>
+{% endmacro %}
+
+{% block body %}
+    {% include 'includes/header.html.twig' %}
+
+    {% set addClassHighlight = ' mb-5' %}
+    {% set classHighlightBig = ' col-7' %}
+    {% set formatHighlightBig = '998x848' %}
+
+    {% if 1 == highlights|length %}
+        {% set classHighlightBig = classHighlightBig ~ ' col-12' %}
+        {% set addClassHighlight = addClassHighlight ~ ' homepage-highlight--one' %}
+        {% set formatHighlightBig = '1710x788' %}
+    {% elseif 2 == highlights|length %}
+        {% set classHighlightBig = classHighlightBig ~ ' col-6' %}
+        {% set addClassHighlight = addClassHighlight ~ ' homepage-highlight--two' %}
+    {% endif %}
+
+    <div class="container mt-5 homepage">
+        {% if highlights[0] is defined %}
+            <div id="{{ register_component('homepage-highlights') }}" class="row{{ addClassHighlight }}">
+                <div class="col homepage-highlights-desktop">
+                    <div class="row">
+                        {{ _self.highlightBigCard(highlights[0], classHighlightBig, formatHighlightBig) }}
+
+                        {% if highlights[2] is defined %}
+                            <div class="col-5">
+                                <div class="row mx-0 pb-4">
+                                    <a href="{{ path('post_detail', {slug: highlights[1].slug}) }}"
+                                       class="col homepage-highlights-card homepage-highlights-card--small js-highlights-item">
+                                        {% if highlights[1].urlPhoto is not empty %}
+                                            <img alt="{{ highlights[1].title|default() }}"
+                                                 class="lazy"
+                                                 data-src="{{ asset(highlights[1].urlPhoto)|imagine_filter('675x405') }}"/>
+                                        {% endif %}
+
+                                        <div class="homepage-highlights-content">
+                                            {% if highlights[1].title is not empty %}
+                                                <h2 class="homepage-highlights-title">
+                                                    {{ highlights[1].title }}
+                                                </h2>
+                                            {% endif %}
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="row mx-0">
+                                    <a href="{{ path('post_detail', {slug: highlights[2].slug}) }}"
+                                       class="col homepage-highlights-card homepage-highlights-card--small js-highlights-item">
+                                        {% if highlights[2].urlPhoto is not empty %}
+                                            <img alt="{{ highlights[2].title|default() }}"
+                                                 class="lazy"
+                                                 data-src="{{ asset(highlights[2].urlPhoto)|imagine_filter('675x405') }}"/>
+                                        {% endif %}
+
+                                        <div class="homepage-highlights-content">
+                                            {% if highlights[2].title is not empty %}
+                                                <h2 class="homepage-highlights-title">
+                                                    {{ highlights[2].title }}
+                                                </h2>
+                                            {% endif %}
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        {% elseif highlights[1] is defined %}
+                            {{ _self.highlightBigCard(highlights[1], classHighlightBig, formatHighlightBig) }}
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="homepage-highlights-mobile">
+                    <div class="js-homepage-highlights-slider">
+                        {% for highlight in highlights %}
+                            <a href="{{ path('post_detail', {slug: highlight.slug}) }}"
+                               class="homepage-highlights-slide js-homepage-highlights-slide">
+                                <img alt="{{ highlight.title|default() }}"
+                                     class="lazy"
+                                     data-src="{{ asset(highlight.urlPhoto)|imagine_filter('675x405') }}"/>
+
+                                <h2 class="homepage-highlights-slide-title">
+                                    {{ highlight.title }}
+                                </h2>
+                            </a>
+                        {% endfor %}
+                    </div>
+
+                    <div class="homepage-highlights-slider-dots js-homepage-highlights-slider-dots">
+                        {# Initialize via JS. #}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="row homepage-content">
+            <div class="homepage-main col-lg-7 col-md-8 col-sm-12 px-0">
+                {% for post in posts %}
+                    <div class="mb-4">
+                        <div class="homepage-posts-card-link-limited">
+                            <a href="{{ path('post_detail', {slug: post.slug}) }}"
+                               class="stretched-link"></a>
+
+                            <div class="media">
+                               {% if post.image is not empty %}
+                                    <div class="homepage-posts-card-img-wrapper mr-4">
+                                        <img src="{{ asset(post.image)|imagine_filter('600x375') }}"
+                                             class="homepage-posts-card-img rounded img-fluid"
+                                             alt="{{ post.title }}">
+                                    </div>
+                                {% endif %}
+
+                                <div class="media-body">
+                                    <h5>{{ post.title }}</h5>
+
+                                    <div id="{{ register_component('dotdotdot') }}" class="mb-4 homepage-posts-card-text font-weight-light">
+                                        {{ post.description }}
+                                    </div>
+
+                                    <div class="media homepage-posts-card-user">
+                                        <img src="{{ asset(post.userAvatar)|imagine_filter('40x40') }}"
+                                             class="rounded-circle mr-3"
+                                             alt="{{ post.userName }}">
+
+                                        <div class="media-body author-body">
+                                            <h6 class="mt-0 mb-1 font-weight-normal">
+                                                {{ post.userName }}
+                                            </h6>
+
+                                            {% include 'includes/published.html.twig' with {published: post.published} only %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            {# TODO: Insert html from sidebar. #}
+            <div class="homepage-sidebar col-lg-5 col-md-4 col-sm-12"></div>
+        </div>
+    </div>
+{% endblock %}

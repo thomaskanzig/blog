@@ -127,3 +127,27 @@ liip_imagine:
                     mode:          outbound
                     allow_upscale: true
 
+        # Highlight images on the homepage.
+        998x848:
+            quality:                40
+            filters:
+                thumbnail:
+                    size:          [998, 848]
+                    mode:          outbound
+                    allow_upscale: true
+
+        675x405:
+            quality:                40
+            filters:
+                thumbnail:
+                    size:          [675, 405]
+                    mode:          outbound
+                    allow_upscale: true
+
+        1710x788:
+            quality:                40
+            filters:
+                thumbnail:
+                    size:          [1710, 788]
+                    mode:          outbound
+                    allow_upscale: true

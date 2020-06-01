@@ -113,6 +113,10 @@ class PostType extends AbstractType
                     'required' => false
                 ]
             )
+            ->add('highlight', CheckboxType::class,[
+                'required' => false,
+                'label'     => $this->translator->trans('app.general.form.label.highlight'),
+            ])
         ;
     }
 

@@ -1,0 +1,200 @@
+.homepage {
+    @include media-breakpoint-down(sm) {
+        max-width: none;
+        width: 100%;
+    }
+}
+
+// Highlights in homepage.
+.homepage-highlights-desktop {
+    display: block;
+
+    @include media-breakpoint-down(sm) {
+        display: none;
+    }
+}
+
+.homepage-highlights-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    padding-top: 35%;
+
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        min-width: 100%;
+        max-width: none;
+        min-height: 100%;
+        transition: all .5s ease;
+    }
+
+    &--small {
+        padding-top: 60%;
+    }
+
+    .homepage-highlight--one &,
+    .homepage-highlight--two & {
+        padding-top: 46%;
+    }
+
+    .homepage-highlight--two & {
+        max-width: calc(50% - 0.75rem);
+
+        &:first-child {
+            margin-right: 0.75rem;
+        }
+
+        &:last-child {
+            margin-left: 0.75rem;
+        }
+    }
+
+    // Element for black background linear.
+    &::after {
+        @include stretch();
+        content: '';
+        background: linear-gradient(180deg, rgba($black, 0) 0%, rgba($black, 0.7) 100%);
+    }
+
+    &:hover img {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+.homepage-highlights-content {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    padding: 25px;
+    z-index: 1;
+}
+
+.homepage-highlights-title {
+    color: $white;
+    margin-bottom: 0;
+    font-size: 32px;
+    line-height: 1.2;
+
+    .homepage-highlights-card--small & {
+        font-size: 20px;
+    }
+
+    .homepage-highlight--one & {
+        font-size: 42px;
+    }
+}
+
+// Slider for mobile screen.
+.homepage-highlights-mobile {
+    display: none;
+    position: relative;
+    width: 100%;
+
+    @include media-breakpoint-down(sm) {
+        display: block;
+    }
+}
+
+.homepage-highlights-slide {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+
+    // Element for black background linear.
+    &::after {
+        @include stretch();
+        content: '';
+        background: linear-gradient(180deg, rgba($black, 0) 0%, rgba($black, 0.7) 100%);
+    }
+
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        min-width: 100%;
+        max-width: none;
+        min-height: 100%;
+        transition: all .5s ease;
+    }
+}
+
+.homepage-highlights-slide-title {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 10px;
+    color: $white;
+    z-index: 1;
+}
+
+.homepage-highlights-slider-dots {
+    @extend %sliderDots;
+}
+
+.homepage-content {
+    @include media-breakpoint-down(sm) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+// List posts in homepage.
+.homepage-posts-card-link-limited {
+    transform: rotate(0); // To set stretched link only in the card.
+
+    &:hover {
+        .homepage-posts-card-img {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.homepage-posts-card-img {
+    transition: all .5s ease-in;
+}
+
+.homepage-posts-card-img-wrapper {
+    position: relative;
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+
+.homepage-posts-card-img {
+    width: 220px;
+
+    @include media-breakpoint-down(sm) {
+        width: 180px;
+    }
+
+    @include media-breakpoint-down(xs) {
+        width: 120px;
+    }
+}
+
+.homepage-posts-card-text {
+    height: 60px;
+    font-size: 18px;
+    line-height: 1.4;
+
+    @include media-breakpoint-down(xs) {
+        height: 40px;
+        font-size: 14px;
+    }
+}
+
+.homepage-posts-card-user {
+    @include media-breakpoint-down(xs) {
+        display: none;
+    }
+}

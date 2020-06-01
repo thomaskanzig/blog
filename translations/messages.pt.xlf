@@ -101,6 +101,10 @@
         <source>app.general.form.label.avatar</source>
         <target>Foto</target>
       </trans-unit>
+      <trans-unit id="app.general.form.label.highlight">
+        <source>app.general.form.label.highlight</source>
+        <target>Destaque</target>
+      </trans-unit>
       <trans-unit id="c2BD96g" resname="admin.general.form.label.who_is_the_creator">
         <source>admin.general.form.label.who_is_the_creator</source>
         <target>Quem é o criador?</target>
