@@ -119,7 +119,7 @@
         <div class="row homepage-content">
             <div class="homepage-main col-lg-7 col-md-8 col-sm-12 px-0">
                 {% for post in posts %}
-                    <div class="mb-4">
+                    <div class="homepage-posts-card">
                         <div class="homepage-posts-card-link-limited">
                             <a href="{{ path('post_detail', {slug: post.slug}) }}"
                                class="stretched-link"></a>
@@ -134,9 +134,13 @@
                                 {% endif %}
 
                                 <div class="media-body">
-                                    <h5>{{ post.title }}</h5>
+                                    <h5 id="{{ register_component('dotdotdot') }}"
+                                        class="homepage-posts-card-title">
+                                        {{ post.title }}
+                                    </h5>
 
-                                    <div id="{{ register_component('dotdotdot') }}" class="mb-1 homepage-posts-card-text font-weight-light">
+                                    <div id="{{ register_component('dotdotdot') }}"
+                                         class="homepage-posts-card-text font-weight-light">
                                         {{ post.description }}
                                     </div>
 
