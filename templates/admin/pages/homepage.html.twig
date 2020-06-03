@@ -14,7 +14,31 @@
     <section class="content">
         <div class="row">
             <div class="col-xs-12">
+                {{ form_start(homepageForm) }}
 
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">
+                            {{ 'app.general.basic_information'|trans }}
+                        </h3>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                {{ form_row(homepageForm.limit_highlights) }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">
+                            {{ 'admin.homepage.form.button.save_settings'|trans }}
+                        </button>
+                    </div>
+                </div>
+
+                {{ form_end(homepageForm) }}
             </div>
         </div>
     </section>

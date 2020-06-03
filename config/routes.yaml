@@ -1,9 +1,3 @@
-admin_pages_homepage:
-    path:
-        en: /homepage
-        pt: /{_locale}/homepage
-    controller: App\Controller\Admin\PagesController::homepage
-
 pages_about_me:
     path:
         en: /about-me
