@@ -15,4 +15,9 @@ class PagesController extends AbstractController
     {
         return $this->render('admin/pages/index.html.twig');
     }
+
+    public function homepage()
+    {
+        return $this->render('admin/pages/homepage.html.twig');
+    }
 }

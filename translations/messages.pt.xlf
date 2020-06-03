@@ -353,6 +353,10 @@
         <source>admin.settings.form.label.show_comments_facebook</source>
         <target>Mostrar comentários do Facebook</target>
       </trans-unit>
+      <trans-unit id="admin.homepage">
+        <source>admin.homepage</source>
+        <target>Homepage</target>
+      </trans-unit>
       <trans-unit id="vLNab_b" resname="admin.header.sign_out">
         <source>admin.header.sign_out</source>
         <target>Sair</target>
