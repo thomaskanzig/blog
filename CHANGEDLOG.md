@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+- FEATURE: Added `homepage` table. [#103](https://github.com/thomaskanzig/blog/pull/103)  
 
 ## [0.4.3] - 2020-06-01
 - FEATURE: Updated link in chooser languages. [#101](https://github.com/thomaskanzig/blog/pull/101)  
