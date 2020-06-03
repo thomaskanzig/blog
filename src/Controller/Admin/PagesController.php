@@ -29,6 +29,7 @@ class PagesController extends AbstractController
      * @param HomepageRepository $repository
      * @param EntityManagerInterface $em
      * @param Request $request
+     * @param TranslatorInterface $translator
      *
      * @return Response
      */
