@@ -37,6 +37,10 @@
         <source>app.general.form.label.text</source>
         <target>Text</target>
       </trans-unit>
+      <trans-unit id="app.general.form.label.photo">
+        <source>app.general.form.label.photo</source>
+        <target>Photo</target>
+      </trans-unit>
       <trans-unit id="Ol50so6" resname="app.general.published_in">
         <source>app.general.published_in</source>
         <target>Published in</target>
@@ -352,6 +356,22 @@
       <trans-unit id="6MLNLy0" resname="admin.settings.form.label.show_comments_facebook">
         <source>admin.settings.form.label.show_comments_facebook</source>
         <target>Show comments Facebook</target>
+      </trans-unit>
+      <trans-unit id="admin.homepage">
+        <source>admin.homepage</source>
+        <target>Homepage</target>
+      </trans-unit>
+      <trans-unit id="admin.homepage.form.label.limit_highlights">
+        <source>admin.homepage.form.label.limit_highlights</source>
+        <target>Limit highlights</target>
+      </trans-unit>
+      <trans-unit id="admin.homepage.form.button.save_settings">
+        <source>admin.homepage.form.button.save_settings</source>
+        <target>Save homepage</target>
+      </trans-unit>
+      <trans-unit id="admin.homepage.form.post_updated">
+        <source>admin.homepage.form.post_updated</source>
+        <target>Homepage updated!</target>
       </trans-unit>
       <trans-unit id="vLNab_b" resname="admin.header.sign_out">
         <source>admin.header.sign_out</source>

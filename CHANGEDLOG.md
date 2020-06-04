@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+- FEATURE: Added basic `homepage.html.twig` form in admin. [#104](https://github.com/thomaskanzig/blog/pull/104)   
 - FEATURE: Added `homepage` table. [#103](https://github.com/thomaskanzig/blog/pull/103)  
 
 ## [0.4.3] - 2020-06-01
