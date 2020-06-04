@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Homepage;
 use App\Form\HomepageType;
 use App\Repository\HomepageRepository;
+use App\Service\UploaderHelper;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,11 +31,17 @@ class PagesController extends AbstractController
      * @param EntityManagerInterface $em
      * @param Request $request
      * @param TranslatorInterface $translator
+     * @param UploaderHelper $uploaderHelper
      *
      * @return Response
      */
-    public function homepage(HomepageRepository $repository, EntityManagerInterface $em, Request $request, TranslatorInterface $translator)
-    {
+    public function homepage(
+        HomepageRepository $repository,
+        EntityManagerInterface $em,
+        Request $request,
+        TranslatorInterface $translator,
+        UploaderHelper $uploaderHelper
+    ) {
         /** @var Homepage $homepage */
         $homepage = $repository->findOneBy(['locale' => $request->getLocale()]);
 
@@ -54,6 +61,13 @@ class PagesController extends AbstractController
         $homepageForm->handleRequest($request);
 
         if ($homepageForm->isSubmitted() && $homepageForm->isValid()) {
+
+            // Send an image file an store in /public.
+            $uploadedFile = $homepageForm['sidebar_about_me_photo_file']->getData();
+            if ($uploadedFile) {
+                $newFile = $uploaderHelper->uploadMedia($uploadedFile);
+                $homepage->setSidebarAboutMePhoto($newFile['file']);
+            }
 
             // To save.
             $em->persist($homepage);

@@ -19,6 +19,38 @@
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">
+                            Sidebar about me
+                        </h3>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                {{ form_row(homepageForm.sidebar_about_me_text) }}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                {{ form_row(homepageForm.sidebar_about_me_photo_file) }}
+                            </div>
+                        </div>
+
+                        {% if homepageForm.vars.data.sidebarAboutMePhoto is not empty %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="{{ asset(homepageForm.vars.data.sidebarAboutMePhoto)|imagine_filter('300x300') }}"
+                                         class="img-responsive img-rounded"
+                                         alt="">
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">
                             {{ 'app.general.basic_information'|trans }}
                         </h3>
                     </div>
@@ -26,6 +58,10 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="col-md-2">
+                                {{ form_row(homepageForm.limit_highlights) }}
+                            </div>
+
+                            <div class="col-md-6">
                                 {{ form_row(homepageForm.limit_highlights) }}
                             </div>
                         </div>

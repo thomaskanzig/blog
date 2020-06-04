@@ -37,6 +37,10 @@
         <source>app.general.form.label.text</source>
         <target>Text</target>
       </trans-unit>
+      <trans-unit id="app.general.form.label.photo">
+        <source>app.general.form.label.photo</source>
+        <target>Photo</target>
+      </trans-unit>
       <trans-unit id="Ol50so6" resname="app.general.published_in">
         <source>app.general.published_in</source>
         <target>Published in</target>
