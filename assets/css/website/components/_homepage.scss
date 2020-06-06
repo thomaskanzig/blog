@@ -149,6 +149,12 @@
     }
 }
 
+.homepage-main {
+    @include media-breakpoint-down(sm) {
+        margin-bottom: 50px;
+    }
+}
+
 // List posts in homepage.
 .homepage-posts-card {
     margin-bottom: 45px;
@@ -215,4 +221,27 @@
     @include media-breakpoint-down(xs) {
         display: none;
     }
+}
+
+// Sidebar.
+.homepage-about-me-img-wrapper {
+    padding: 0 20%;
+
+    @include media-breakpoint-down(md) {
+        padding: 0 5%;
+    }
+
+    @include media-breakpoint-down(sm) {
+        padding: 0 20%;
+    }
+
+    @include media-breakpoint-down(xs) {
+        padding: 0;
+    }
+}
+
+.homepage-about-me-text {
+    @extend .text-center;
+    font-weight: 300;
+    font-size: 18px;
 }

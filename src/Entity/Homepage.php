@@ -48,6 +48,36 @@ class Homepage
      */
     private $modified;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $sidebar_about_me_url_facebook;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $sidebar_about_me_url_instagram;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $sidebar_about_me_url_github;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $sidebar_about_me_url_youtube;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $sidebar_about_me_url_linkedin;
+
+    /**
+     * @ORM\Column(type="boolean", options={"default" : 0})
+     */
+    private $sidebar_about_me_active = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -121,6 +151,78 @@ class Homepage
     public function setModified(?\DateTimeInterface $modified): self
     {
         $this->modified = $modified;
+
+        return $this;
+    }
+
+    public function getSidebarAboutMeUrlFacebook(): ?string
+    {
+        return $this->sidebar_about_me_url_facebook;
+    }
+
+    public function setSidebarAboutMeUrlFacebook(?string $sidebar_about_me_url_facebook): self
+    {
+        $this->sidebar_about_me_url_facebook = $sidebar_about_me_url_facebook;
+
+        return $this;
+    }
+
+    public function getSidebarAboutMeUrlInstagram(): ?string
+    {
+        return $this->sidebar_about_me_url_instagram;
+    }
+
+    public function setSidebarAboutMeUrlInstagram(?string $sidebar_about_me_url_instagram): self
+    {
+        $this->sidebar_about_me_url_instagram = $sidebar_about_me_url_instagram;
+
+        return $this;
+    }
+
+    public function getSidebarAboutMeUrlGithub(): ?string
+    {
+        return $this->sidebar_about_me_url_github;
+    }
+
+    public function setSidebarAboutMeUrlGithub(?string $sidebar_about_me_url_github): self
+    {
+        $this->sidebar_about_me_url_github = $sidebar_about_me_url_github;
+
+        return $this;
+    }
+
+    public function getSidebarAboutMeUrlYoutube(): ?string
+    {
+        return $this->sidebar_about_me_url_youtube;
+    }
+
+    public function setSidebarAboutMeUrlYoutube(?string $sidebar_about_me_url_youtube): self
+    {
+        $this->sidebar_about_me_url_youtube = $sidebar_about_me_url_youtube;
+
+        return $this;
+    }
+
+    public function getSidebarAboutMeUrlLinkedin(): ?string
+    {
+        return $this->sidebar_about_me_url_linkedin;
+    }
+
+    public function setSidebarAboutMeUrlLinkedin(?string $sidebar_about_me_url_linkedin): self
+    {
+        $this->sidebar_about_me_url_linkedin = $sidebar_about_me_url_linkedin;
+
+        return $this;
+    }
+
+    public function getSidebarAboutMeActive(): ?bool
+    {
+        return $this->sidebar_about_me_active;
+    }
+
+    public function setSidebarAboutMeActive(?bool $sidebar_about_me_active): self
+    {
+        $this->sidebar_about_me_active = $sidebar_about_me_active;
 
         return $this;
     }

@@ -26,7 +26,34 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="col-md-6">
+                                {{ form_row(homepageForm.sidebar_about_me_active) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
                                 {{ form_row(homepageForm.sidebar_about_me_text) }}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                {{ form_row(homepageForm.sidebar_about_me_url_facebook) }}
+                            </div>
+
+                            <div class="col-md-6">
+                                {{ form_row(homepageForm.sidebar_about_me_url_instagram) }}
+                            </div>
+
+                            <div class="col-md-6">
+                                {{ form_row(homepageForm.sidebar_about_me_url_youtube) }}
+                            </div>
+
+                            <div class="col-md-6">
+                                {{ form_row(homepageForm.sidebar_about_me_url_linkedin) }}
+                            </div>
+
+                            <div class="col-md-6">
+                                {{ form_row(homepageForm.sidebar_about_me_url_github) }}
                             </div>
                         </div>
 
@@ -40,7 +67,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <img src="{{ asset(homepageForm.vars.data.sidebarAboutMePhoto)|imagine_filter('300x300') }}"
-                                         class="img-responsive img-rounded"
+                                         class="img-responsive img-circle"
                                          alt="">
                                 </div>
                             </div>
