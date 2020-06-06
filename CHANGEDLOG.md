@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.4.5] - 2020-06-06
+- FEATURE: Adjustments in homepage admin. [#109](https://github.com/thomaskanzig/blog/pull/109) 
+
 ## [0.4.4] - 2020-06-06
 - FEATURE: Added sidebar `About me` and `homepage` settings in admin . [#106](https://github.com/thomaskanzig/blog/pull/106)  
     - FEATURE: Added `About me` on sidebar from homepage. [#105](https://github.com/thomaskanzig/blog/pull/105)  
