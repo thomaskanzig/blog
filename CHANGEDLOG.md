@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 - FEATURE: Added `About me` on sidebar from homepage. [#105](https://github.com/thomaskanzig/blog/pull/105)  
+    `- bin/console d:s:u --force`
 - FEATURE: Added basic `homepage.html.twig` form in admin. [#104](https://github.com/thomaskanzig/blog/pull/104)   
 - FEATURE: Added `homepage` table. [#103](https://github.com/thomaskanzig/blog/pull/103)  
 
