@@ -4,8 +4,10 @@ namespace App\Form;
 
 use App\Entity\Homepage;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -35,8 +37,15 @@ class HomepageType extends AbstractType
                     3 => 3
                 ]
             ])
+            ->add('sidebar_about_me_active', CheckboxType::class,[
+                'required' => false,
+                'label'     => $this->translator->trans('app.general.form.label.active'),
+            ])
             ->add('sidebar_about_me_text', TextareaType::class,[
                 'label' => $this->translator->trans('app.general.form.label.text'),
+                'attr' => [
+                    'rows' => 4
+                ]
             ])
             ->add('sidebar_about_me_photo_file',
                 FileType::class, [
@@ -45,6 +54,26 @@ class HomepageType extends AbstractType
                     'required' => false
                 ]
             )
+            ->add('sidebar_about_me_url_facebook',  TextType::class,[
+                'label' => 'Facebook URL',
+                'required' => false,
+            ])
+            ->add('sidebar_about_me_url_instagram',  TextType::class,[
+                'label' => 'Instagram URL',
+                'required' => false,
+            ])
+            ->add('sidebar_about_me_url_youtube',  TextType::class,[
+                'label' => 'Youtube URL',
+                'required' => false,
+            ])
+            ->add('sidebar_about_me_url_linkedin',  TextType::class,[
+                'label' => 'Linkedin URL',
+                'required' => false,
+            ])
+            ->add('sidebar_about_me_url_github',  TextType::class,[
+                'label' => 'Github URL',
+                'required' => false,
+            ])
         ;
     }
 

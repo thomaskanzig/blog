@@ -2,17 +2,16 @@
 
 namespace App\Controller\Website;
 
+use App\Entity\Homepage;
 use App\Entity\Post;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Service\UploaderHelper;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 class PagesController extends AbstractController
 {
@@ -26,12 +25,28 @@ class PagesController extends AbstractController
      */
     public function homepage(EntityManagerInterface $em, Request $request)
     {
+        /** @var Homepage $homepage */
+        $homepage = $em->getRepository(Homepage::class)->findOneBy([
+            'locale' => $request->getLocale()
+        ]);
+
+        // If not find correctly homepage, then will be created.
+        if (!$homepage) {
+            $homepage = new Homepage();
+            $homepage->setLocale($request->getLocale());
+
+            $em->persist($homepage);
+            $em->flush();
+        }
+
+        $limitHighlights = $homepage->getLimitHighlights() ? $homepage->getLimitHighlights() : 3;
+
         /** @var Post[] $highlights */
         $highlights = $em->getRepository(Post::class)->findBy([
                 'highlight' => true,
                 'active' => true,
                 'locale' => $request->getLocale()
-            ], ['published' => 'DESC'], 3);
+            ], ['published' => 'DESC'], $limitHighlights);
 
         // Get post must be excluded.
         $excludedIds = [];
@@ -50,6 +65,7 @@ class PagesController extends AbstractController
         return $this->render('pages/homepage.html.twig', [
             'highlights' => $highlights,
             'posts' => $posts,
+            'homepage' => $homepage
         ]);
     }
 

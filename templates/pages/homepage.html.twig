@@ -117,7 +117,7 @@
         {% endif %}
 
         <div class="row homepage-content">
-            <div class="homepage-main col-lg-7 col-md-8 col-sm-12 px-0">
+            <div class="homepage-main col-md-8 col-sm-12 px-0">
                 {% for post in posts %}
                     <div class="homepage-posts-card">
                         <div class="homepage-posts-card-link-limited">
@@ -164,8 +164,86 @@
                 {% endfor %}
             </div>
 
-            {# TODO: Insert html from sidebar. #}
-            <div class="homepage-sidebar col-lg-5 col-md-4 col-sm-12"></div>
+            <div class="homepage-sidebar col-md-4 col-sm-12">
+                {% if homepage.sidebarAboutMeActive %}
+                    <div class="mb-4">
+                        <h4 class="text-center mb-4">
+                            {{ 'app.general.about_me'|trans }}
+                        </h4>
+
+                        {% if homepage.sidebarAboutMePhoto is not empty %}
+                            <div class="homepage-about-me-img-wrapper">
+                                <img src="{{ asset(homepage.sidebarAboutMePhoto)|imagine_filter('600x600') }}"
+                                     class="homepage-about-me-img rounded-circle img-fluid mb-4"
+                                     alt="">
+                            </div>
+                        {% endif %}
+
+                        {% if homepage.sidebarAboutMeText is not empty %}
+                            <div class="homepage-about-me-text mb-3">
+                                {{ homepage.sidebarAboutMeText }}
+                            </div>
+                        {% endif %}
+
+                        <ul class="list-inline text-center">
+                            {% if homepage.sidebarAboutMeUrlFacebook is not empty %}
+                                <li class="list-inline-item">
+                                    <a href="{{ homepage.sidebarAboutMeUrlFacebook }}" target="_blank">
+                                        <span class="fa-stack fa-lg">
+                                          <i class="fa fa-circle fa-stack-2x"></i>
+                                          <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                            {% endif %}
+
+                            {% if homepage.sidebarAboutMeUrlInstagram is not empty %}
+                                <li class="list-inline-item">
+                                    <a href="{{ homepage.sidebarAboutMeUrlInstagram }}" target="_blank">
+                                        <span class="fa-stack fa-lg">
+                                          <i class="fa fa-circle fa-stack-2x"></i>
+                                          <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                            {% endif %}
+
+                            {% if homepage.sidebarAboutMeUrlYoutube is not empty %}
+                                <li class="list-inline-item">
+                                    <a href="{{ homepage.sidebarAboutMeUrlYoutube }}" target="_blank">
+                                        <span class="fa-stack fa-lg">
+                                          <i class="fa fa-circle fa-stack-2x"></i>
+                                          <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                            {% endif %}
+
+                            {% if homepage.sidebarAboutMeUrlLinkedin is not empty %}
+                                <li class="list-inline-item">
+                                    <a href="{{ homepage.sidebarAboutMeUrlLinkedin }}" target="_blank">
+                                        <span class="fa-stack fa-lg">
+                                          <i class="fa fa-circle fa-stack-2x"></i>
+                                          <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                            {% endif %}
+
+                            {% if homepage.sidebarAboutMeUrlGithub is not empty %}
+                                <li class="list-inline-item">
+                                    <a href="{{ homepage.sidebarAboutMeUrlGithub }}" target="_blank">
+                                        <span class="fa-stack fa-lg">
+                                          <i class="fa fa-circle fa-stack-2x"></i>
+                                          <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
         </div>
     </div>
 {% endblock %}

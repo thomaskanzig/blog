@@ -45,7 +45,7 @@ class PagesController extends AbstractController
         /** @var Homepage $homepage */
         $homepage = $repository->findOneBy(['locale' => $request->getLocale()]);
 
-        // If not find correctly a homepage, then will be created.
+        // If not find correctly homepage, then will be created.
         if (!$homepage) {
             $homepage = new Homepage();
             $homepage->setLocale($request->getLocale());
