@@ -45,7 +45,8 @@ class HomepageType extends AbstractType
                 'label' => $this->translator->trans('app.general.form.label.text'),
                 'attr' => [
                     'rows' => 4
-                ]
+                ],
+                'required' => false,
             ])
             ->add('sidebar_about_me_photo_file',
                 FileType::class, [
