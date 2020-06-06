@@ -37,6 +37,10 @@
         <source>app.general.form.label.text</source>
         <target>Texto</target>
       </trans-unit>
+      <trans-unit id="app.general.form.label.photo">
+        <source>app.general.form.label.photo</source>
+        <target>Foto</target>
+      </trans-unit>
       <trans-unit id="Ol50so6" resname="app.general.published_in">
         <source>app.general.published_in</source>
         <target>Publicado em</target>
@@ -76,6 +80,10 @@
       <trans-unit id="OGCRsSM" resname="app.general.copy_url">
         <source>app.general.copy_url</source>
         <target>Copiar URL</target>
+      </trans-unit>
+      <trans-unit id="app.general.about_me">
+        <source>app.general.about_me</source>
+        <target>Sobre me</target>
       </trans-unit>
       <trans-unit id="VPDH897" resname="app.general.form.label.fullname">
         <source>app.general.form.label.fullname</source>
@@ -352,6 +360,22 @@
       <trans-unit id="6MLNLy0" resname="admin.settings.form.label.show_comments_facebook">
         <source>admin.settings.form.label.show_comments_facebook</source>
         <target>Mostrar comentários do Facebook</target>
+      </trans-unit>
+      <trans-unit id="admin.homepage">
+        <source>admin.homepage</source>
+        <target>Homepage</target>
+      </trans-unit>
+      <trans-unit id="admin.homepage.form.label.limit_highlights">
+        <source>admin.homepage.form.label.limit_highlights</source>
+        <target>Limite nos destaques</target>
+      </trans-unit>
+      <trans-unit id="admin.homepage.form.button.save_settings">
+        <source>admin.homepage.form.button.save_settings</source>
+        <target>Salvar homepage</target>
+      </trans-unit>
+      <trans-unit id="admin.homepage.form.post_updated">
+        <source>admin.homepage.form.post_updated</source>
+        <target>Homepage atualizado!</target>
       </trans-unit>
       <trans-unit id="vLNab_b" resname="admin.header.sign_out">
         <source>admin.header.sign_out</source>
