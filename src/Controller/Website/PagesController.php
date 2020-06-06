@@ -30,6 +30,15 @@ class PagesController extends AbstractController
             'locale' => $request->getLocale()
         ]);
 
+        // If not find correctly homepage, then will be created.
+        if (!$homepage) {
+            $homepage = new Homepage();
+            $homepage->setLocale($request->getLocale());
+
+            $em->persist($homepage);
+            $em->flush();
+        }
+
         $limitHighlights = $homepage->getLimitHighlights() ? $homepage->getLimitHighlights() : 3;
 
         /** @var Post[] $highlights */
