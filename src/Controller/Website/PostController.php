@@ -4,22 +4,27 @@ namespace App\Controller\Website;
 
 use App\Entity\MediaData;
 use App\Entity\Post;
+use App\Repository\CategoryRepository;
 use App\Repository\PostRepository;
 use App\Repository\MediaDataRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PostController extends AbstractController
 {
-    public function index(PostRepository $repository, Request $request, PaginatorInterface $paginator)
+    public function index(PostRepository $postRepository, Request $request, PaginatorInterface $paginator, CategoryRepository $categoryRepository, string $category = null)
     {
+        // Get category if exist.
+        if ($category) {
+            $category = $categoryRepository->findOneBy(['slug' => $category]);
+        }
 
         $q = $request->query->get('q'); /* get text search */
-        $queryBuilder = $repository->getWithSearchQueryBuilder($q, [
+        $queryBuilder = $postRepository->getWithSearchQueryBuilder($q, [
             'active' => true,
-            'locale' => $request->getLocale()
+            'locale' => $request->getLocale(),
+            'category' => $category
         ]);
 
         $pagination = $paginator->paginate(

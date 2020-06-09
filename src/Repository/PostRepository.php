@@ -47,7 +47,14 @@ class PostRepository extends ServiceEntityRepository
 
         if (array_key_exists( 'locale', $where)) {
             $qb->andWhere('p.locale = :locale')
-                ->setParameter('locale', $where['locale']);
+               ->setParameter('locale', $where['locale']);
+        }
+
+        if (array_key_exists( 'category', $where) && $where['category']) {
+            $qb->innerJoin('p.categories', 'c')
+                ->andWhere(':category MEMBER OF p.categories')
+                ->setParameter('category', $where['category']);
+
         }
 
         return $qb
