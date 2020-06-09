@@ -54,7 +54,6 @@ class PostRepository extends ServiceEntityRepository
             $qb->innerJoin('p.categories', 'c')
                 ->andWhere(':category MEMBER OF p.categories')
                 ->setParameter('category', $where['category']);
-
         }
 
         return $qb
