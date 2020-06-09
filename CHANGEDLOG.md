@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+- FEATURE: Added filter to list post with `category` parameter. [#111](https://github.com/thomaskanzig/blog/pull/111) 
 
 ## [0.4.5] - 2020-06-06
 - FEATURE: Adjustments in homepage admin. [#109](https://github.com/thomaskanzig/blog/pull/109) 
