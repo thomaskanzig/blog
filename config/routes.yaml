@@ -22,6 +22,12 @@ post_index:
         pt: /{_locale}/posts
     controller: App\Controller\Website\PostController::index
 
+post_index_category:
+    path:
+        en: /posts/{category}
+        pt: /{_locale}/posts/{category}
+    controller: App\Controller\Website\PostController::index
+
 security_login:
     path:
         en: /login
