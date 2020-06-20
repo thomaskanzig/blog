@@ -36,6 +36,8 @@ class PostController extends AbstractController
         // Get globals variables from twig.
         $twigGlobals = $this->get('twig')->getGlobals();
 
+        dump($pagination);
+
         return $this->render('post/index.html.twig', [
             'posts' => $pagination,
             'metaTitle' => 'Blog - '.$twigGlobals['name_site'],

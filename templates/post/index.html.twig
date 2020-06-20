@@ -30,6 +30,17 @@
                                         <h3 class="post-subtitle text-limited">{{ post.description }}</h3>
                                     </a>
 
+                                    {% if 0 < post.categories|length %}
+                                        <div class="post-categories">
+                                            {% for category in post.categories %}
+                                                {# TODO: Added correct class attribute. #}
+                                                <a class="link" href="{{ path('post_index_category', {category: category.slug}) }}">
+                                                    {{ category.name }}
+                                                </a>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+
                                     <div class="media post-user">
                                         {% if post.user.urlAvatar is not empty %}
                                             <img src="{{ asset(post.user.urlAvatar)|imagine_filter('50x50') }}"

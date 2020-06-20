@@ -62,6 +62,20 @@ class CategoryRepository extends ServiceEntityRepository
             ;
     }
 
+    /*
+     * TODO: Added correct query.
+     * List categories used from posts.
+     */
+    public function findUsedPost() {
+        $qb = $this->createQueryBuilder('c');
+
+        return $qb
+            ->andWhere('c.deleted IS NULL')
+            ->orderBy('c.id', 'DESC')
+            ->getQuery()
+            ;
+    }
+
     // /**
     //  * @return Category[] Returns an array of Category objects
     //  */
