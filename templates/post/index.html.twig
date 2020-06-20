@@ -25,10 +25,23 @@
                                 </div>
 
                                 <div class="col-md-7">
-                                    <a href="{{ path('post_detail', {slug: post.slug}) }}">
-                                        <h2 class="post-title">{{ post.title }}</h2>
-                                        <h3 class="post-subtitle text-limited">{{ post.description }}</h3>
-                                    </a>
+                                    <div class="mb-4">
+                                        <a href="{{ path('post_detail', {slug: post.slug}) }}">
+                                            <h2 class="post-title">{{ post.title }}</h2>
+                                            <h3 class="post-subtitle text-limited">{{ post.description }}</h3>
+                                        </a>
+
+                                        {% if 0 < post.categories|length %}
+                                            <div class="post-categories">
+                                                {% for category in post.categories %}
+                                                    <a class="badge badge-primary"
+                                                       href="{{ path('post_index_category', {category: category.slug}) }}">
+                                                        {{ category.name }}
+                                                    </a>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                    </div>
 
                                     <div class="media post-user">
                                         {% if post.user.urlAvatar is not empty %}

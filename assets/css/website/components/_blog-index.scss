@@ -28,11 +28,8 @@
 
         .post-subtitle {
             font-weight: 300;
-            margin: 0 0 10px;
             font-size: 18px;
             overflow: hidden;
-            height: 75px;
-            font-weight: 300;
             line-height: 26px;
 
             @include media-breakpoint-down(sm) {
@@ -58,6 +55,12 @@
     .post-image {
         @include media-breakpoint-down(sm) {
             margin-bottom: 20px;
+        }
+    }
+
+    .post-categories {
+        a {
+            color: $colorWhite;
         }
     }
 }
