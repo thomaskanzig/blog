@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.4.7] - 2021-05-06
 - FEATURE: Added data migration fot the setup. [#125](https://github.com/thomaskanzig/blog/pull/125)
 
 ## [0.4.6] - 2020-06-20
