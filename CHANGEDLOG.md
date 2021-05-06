@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+- FEATURE: Added data migration fot the setup. [#125](https://github.com/thomaskanzig/blog/pull/125)
+
 ## [0.4.6] - 2020-06-20
 - FEATURE: Added for display categories in post list. [#112](https://github.com/thomaskanzig/blog/pull/112) 
 - FEATURE: Added filter to post list with `category` parameter. [#111](https://github.com/thomaskanzig/blog/pull/111) 
