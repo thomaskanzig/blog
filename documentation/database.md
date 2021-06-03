@@ -59,3 +59,7 @@ composer require --dev orm-fixtures
 # Generate fixtures data
 php bin/console doctrine:fixtures:load
 ```
+
+#### Others
+
+More about how implement mapping relationship with doctrine see [here](https://www.doctrine-project.org/projects/doctrine-orm/en/2.8/reference/association-mapping.html).
