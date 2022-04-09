@@ -51,7 +51,7 @@
     "masonry-layout": "^4.2.2",
     "massive-web": "^2.0.0-rc1",
     "minimist": "^1.2.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "popper.js": "1.14.7",
     "reset-css": "^4.0.1",
     "serialize-javascript": "^2.1.1",
